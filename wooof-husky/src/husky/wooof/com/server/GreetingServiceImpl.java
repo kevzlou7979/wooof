@@ -1,7 +1,8 @@
 package husky.wooof.com.server;
 
-import husky.wooof.com.client.GreetingService;
+import husky.wooof.com.client.services.GreetingService;
 import husky.wooof.com.shared.FieldVerifier;
+
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 
 /**

@@ -1,0 +1,29 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:with field='res' type='husky.wooof.com.client.resources.HuskyResources' />
+	<ui:style>
+		.huskyNavigationPanel{
+			 width: 250px;
+    		float: left;
+    		position: absolute;
+    		height: 100%;
+    		-webkit-box-shadow: 0 0 4px rgba(0,0,0,0.2);
+			-moz-box-shadow: 0 0 4px rgba(0,0,0,0.2);
+			box-shadow: 0 0 4px rgba(0,0,0,0.2);
+			padding: 20px;
+			box-sizing: border-box;
+			-webkit-box-sizing: border-box;
+			-mox-box-sizing: border-box;
+		}
+		.huskyMainPanel{
+    		padding-left: 250px;
+		}
+	</ui:style>
+	<g:HTMLPanel>
+	
+		<g:HTMLPanel ui:field="huskyNavigationPanel" addStyleNames="{style.huskyNavigationPanel}"/>
+		<g:HTMLPanel ui:field="huskyMainPanel" addStyleNames="{style.huskyMainPanel}"/>
+	
+	</g:HTMLPanel>
+</ui:UiBinder> 
