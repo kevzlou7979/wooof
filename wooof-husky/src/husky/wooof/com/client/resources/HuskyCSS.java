@@ -8,4 +8,8 @@ public interface HuskyCSS extends CssResource{
 	String lblSimple();
 	String lblSimpleActive();
 	String loading();
+	String huskyTextBox();
+	String huskyButton();
+	String huskyLink();
+	String huskyDivider();
 }

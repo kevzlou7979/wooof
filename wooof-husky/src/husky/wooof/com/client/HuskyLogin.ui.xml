@@ -1,6 +1,7 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
-	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:h="urn:import:husky.wooof.com.client.ui">
 	<ui:with field='res' type='husky.wooof.com.client.resources.HuskyResources' />
 	<ui:style>
 		.panel{
@@ -33,10 +34,40 @@
 			color: #4086fa;
 			font-size: 1.2em;
 		}
+		.formPanel{
+			width: 300px;
+			margin: auto;
+			margin-top: 50px;
+		}
 	</ui:style>
 	<g:HTMLPanel addStyleNames="{style.panel}">
 		<g:Image ui:field="imgLogo" resource="{res.husky_logo}" addStyleNames="{style.logo}"/>
-		<g:Label addStyleNames="{style.lblSiteName}" text="Husky"/>
-		<g:Label addStyleNames="{style.lblSiteSlogan}" text="Learning is Everywhere"/>
+		
+	<!-- 	<g:Label addStyleNames="{style.lblSiteName}" text="Husky"/>
+		<g:Label addStyleNames="{style.lblSiteSlogan}" text="Learning is Everywhere"/> -->
+		
+		<g:HTMLPanel addStyleNames="{style.formPanel}">
+			<g:HTMLPanel ui:field="signInPanel" >
+				<h:HuskyTextBox placeholder="Username" ui:field="txtUserName"/>
+				<h:HuskyTextBox placeholder="Password" ui:field="txtPassword"/>
+				<h:HuskyButton ui:field="btnSignIn" text="Sign In"/> 
+				<g:Label text="Sign Up" ui:field="signUpNav" addStyleNames="{res.huskyCSS.huskyLink}"/>
+			</g:HTMLPanel>
+			
+			<g:HTMLPanel ui:field="signUpPanel" >
+				<h:HuskyTextBox placeholder="Username" ui:field="txtRUserName"/>
+				<h:HuskyTextBox placeholder="Email" ui:field="txtREmail"/>
+				<h:HuskyPasswordBox placeholder="Password" ui:field="txtRPassword"/>
+				<h:HuskyPasswordBox placeholder="Confirm Password" ui:field="txtRConPassword"/>
+				<h:HuskyButton ui:field="btnSignUp" text="Sign Up"/> 
+				<g:Label text="Sign In" ui:field="signInNav" addStyleNames="{res.huskyCSS.huskyLink}" />
+			</g:HTMLPanel>
+		</g:HTMLPanel>
+		
+		
+		
+		
+		
+		
 	</g:HTMLPanel>
 </ui:UiBinder> 
