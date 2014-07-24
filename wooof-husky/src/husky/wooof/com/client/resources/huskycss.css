@@ -1,6 +1,95 @@
 html,body {
 	margin: 0px;
 	padding: 0px;
+	font-family: Roboto;
+}
+
+.huskyDivider{
+	color: #e7e7e7;
+}
+
+.huskyLink{
+	color: #4086fa;
+	padding: 5px;
+	cursor: pointer;
+}
+
+.huskyLink:hover{
+	opacity: 0.8;
+}
+
+.huskyTextBox {
+	width: 100%;
+	padding: 10px;
+	font-size: 1.2em;
+	font-family: 'Roboto',light !important;
+	border: 1px solid #E7E7E7;
+	padding-left: 20px;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	transition: 0.3s all;
+	-webkit-transition: 0.3s all;
+	-moz-transition: 0.3s all;
+	margin-top: 5px;
+}
+
+.huskyTextBox:focus {
+	outline: none;
+	border-left: 5px solid #4086fa;
+}
+
+.huskyButton {
+	width: 100%;
+	padding: 10px;
+	font-family: 'Roboto',bold !important;
+	font-size: 1.2em;
+	cursor: pointer;
+	display: inline-block;
+	vertical-align: middle;
+	min-height: 1em;
+	outline: 0;
+	border: none;
+	background-color: #FAFAFA;
+	color: #808080;
+	margin: 0;
+	padding: .8em 1.5em;
+	line-height: 1;
+	font-weight: 700;
+	font-style: normal;
+	text-align: center;
+	text-decoration: none;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)),
+		to(rgba(0, 0, 0, 0.05)));
+	background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0),
+		rgba(0, 0, 0, 0.05));
+	background-image: -moz-linear-gradient(transparent, rgba(0, 0, 0, .05));
+	background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.05));
+	border-radius: .25em;
+	-webkit-box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08) inset;
+	box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08) inset;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-tap-highlight-color: transparent;
+	-webkit-transition: opacity .25s ease, background-color .25s ease, color
+		.25s ease, background .25s ease, -webkit-box-shadow .25s ease;
+	-moz-transition: opacity .25s ease, background-color .25s ease, color
+		.25s ease, background .25s ease, box-shadow .25s ease;
+	transition: opacity .25s ease, background-color .25s ease, color .25s
+		ease, background .25s ease, box-shadow .25s ease;
+	background-color: #4086fa;
+	color: #fff;
+	margin-top: 5px;
+}
+
+.huskyButton:hover{
+	opacity: 0.9;
 }
 
 .center {
@@ -12,7 +101,15 @@ html,body {
 	color: #c9c9c9;
 }
 
-.lblSimple:hover , .lblSimpleActive{
+.lblSimple:hover {
+	color: #4086fa;
+	transition: 1s all;
+	-webkit-transition: 1s all;
+	-moz-transition: 0.5 all;
+	cursor: pointer;
+}
+
+.lblSimpleActive {
 	color: #4086fa;
 	transition: 1s all;
 	-webkit-transition: 1s all;
@@ -21,128 +118,2256 @@ html,body {
 }
 
 /** HUSKY LOADING **/
-	.loading {
-	  position: absolute;
-	  top: 50%;
-	  left: 50%;
-	  width: 24px;
-	  height: 24px;
-	  margin: -12px 0 0 -12px;
-	}
+.loading {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 24px;
+	height: 24px;
+	margin: -12px 0 0 -12px;
+}
 
-	.loading i {
-	  position: absolute;
-	  top: 24px; left: 24px;
-	  display: block;
-	  width: 24px;
-	  height: 24px;
-	  background: #4086fa;
-	  border-radius: 24px;
-	  -webkit-animation: spin2 1.5s ease-in-out infinite;
-	}
-	.loading i:first-child {
-	  top: -24px; left: 0;
-	  background: #4086fa;
-	  opacity: 0.9;
-	  -webkit-animation: spin 1.5s ease-in-out infinite;
-	}
-	.loading i:last-child {
-	  top: 24px; left: -24px;
-	  background: #4086fa;
-	  opacity: 0.5;
-	  -webkit-animation: spin3 1.5s ease-in-out infinite;
-	}
+.loading i {
+	position: absolute;
+	top: 24px;
+	left: 24px;
+	display: block;
+	width: 24px;
+	height: 24px;
+	background: #4086fa;
+	border-radius: 24px;
+	-webkit-animation: spin2 1.5s ease-in-out infinite;
+	animation: spin2 1.5s ease-in-out infinite;
+}
 
-	@-webkit-keyframes spin {
-	  0% {
-	    top: -24px;
-	    left: 0;
-	    -webkit-transform: scale(1);
-	  }
-	  17% {
-	    -webkit-transform: scale(.5);
-	  }
-	  33% {
-	    top: 24px;
-	    left: 24px;
-	    -webkit-transform: scale(1);
-	  }
-	  50% {
-	    -webkit-transform: scale(.5);
-	  }
-	  66% {
-	    top: 24px;
-	    left: -24px;
-	    -webkit-transform: scale(1);
-	  }
-	  83% {
-	    -webkit-transform: scale(.5);
-	  }
-	  100% {
-	    top: -24px;
-	    left: 0;
-	    -webkit-transform: scale(1);
-	  }
-	}
-	@-webkit-keyframes spin2 {
-	  0% {
-	    top: 24px;
-	    left: 24px;
-	    -webkit-transform: scale(1);
-	  }
-	  17% {
-	    -webkit-transform: scale(.5);
-	  }
-	  33% {
-	    top: 24px;
-	    left: -24px;
-	    -webkit-transform: scale(1);
-	  }
-	  50% {
-	    -webkit-transform: scale(.5);
-	  }
-	  66% {
-	    top: -24px;
-	    left: 0;
-	    -webkit-transform: scale(1);
-	  }
-	  83% {
-	    -webkit-transform: scale(.5);
-	  }
-	  100% {
-	    top: 24px;
-	    left: 24px;
-	    -webkit-transform: scale(1);
-	  }
-	}
-	@-webkit-keyframes spin3 {
-	  0% {
-	    top: 24px;
-	    left: -24px;
-	    -webkit-transform: scale(1);
-	  }
-	  17% {
-	    -webkit-transform: scale(.5);
-	  }
-	  33% {
-	    top: -24px;
-	    left: 0;
-	    -webkit-transform: scale(1);
-	  }
-	  50% {
-	    -webkit-transform: scale(.5);
-	  }
-	  66% {
-	    top: 24px;
-	    left: 24px;
-	    -webkit-transform: scale(1);
-	  }
-	  83% {
-	    -webkit-transform: scale(.5);
-	  }
-	  100% {
-	    top: 24px;
-	    left: -24px;
-	    -webkit-transform: scale(1);
-	  }
-	}
+.loading i:first-child {
+	top: -24px;
+	left: 0;
+	background: #4086fa;
+	opacity: 0.9;
+	-webkit-animation: spin 1.5s ease-in-out infinite;
+	animation: spin 1.5s ease-in-out infinite;
+}
+
+.loading i:last-child {
+	top: 24px;
+	left: -24px;
+	background: #4086fa;
+	opacity: 0.5;
+	-webkit-animation: spin3 1.5s ease-in-out infinite;
+	animation: spin3 1.5s ease-in-out infinite;
+}
+
+@
+-webkit-keyframes spin { 0% {
+	top: -24px;
+	left: 0;
+	-webkit-transform: scale(1);
+	transform: scale(1);
+}
+
+17%
+{
+-webkit-transform
+
+
+
+
+:
+
+
+ 
+
+
+scale
+
+
+
+
+(
+.5
+
+
+
+
+);
+transform
+
+
+
+
+:
+
+
+ 
+
+
+scale
+
+
+
+
+(
+.5
+
+
+
+
+);
+}
+33%
+{
+top
+
+
+
+
+:
+
+
+ 
+
+
+24
+px
+
+
+
+
+;
+left
+
+
+
+
+:
+
+
+ 
+
+
+24
+px
+
+
+
+
+;
+-webkit-transform
+
+
+
+
+:
+
+
+ 
+
+
+scale
+
+
+
+
+(1);
+transform
+
+
+
+
+:
+
+
+ 
+
+
+scale
+
+
+
+
+(1);
+}
+50%
+{
+-webkit-transform
+
+
+
+
+:
+
+
+ 
+
+
+scale
+
+
+
+
+(
+.5
+
+
+
+
+);
+transform
+
+
+
+
+:
+
+
+ 
+
+
+scale
+
+
+
+
+(
+.5
+
+
+
+
+);
+}
+66%
+{
+top
+
+
+
+
+:
+
+
+ 
+
+
+24
+px
+
+
+
+
+;
+left
+
+
+
+
+:
+
+
+ 
+
+
+-24
+px
+
+
+
+
+;
+-webkit-transform
+
+
+
+
+:
+
+
+ 
+
+
+scale
+
+
+
+
+(1);
+transform
+
+
+
+
+:
+
+
+ 
+
+
+scale
+
+
+
+
+(1);
+}
+83%
+{
+-webkit-transform
+
+
+
+
+:
+
+
+ 
+
+
+scale
+
+
+
+
+(
+.5
+
+
+
+
+);
+transform
+
+
+
+
+:
+
+
+ 
+
+
+scale
+
+
+
+
+(
+.5
+
+
+
+
+);
+}
+100%
+{
+top
+
+
+
+
+:
+
+
+ 
+
+
+-24
+px
+
+
+
+
+;
+left
+
+
+
+
+:
+
+
+ 
+
+
+0;
+-webkit-transform
+
+
+
+
+:
+
+
+ 
+
+
+scale
+
+
+
+
+(1);
+transform
+
+
+
+
+:
+
+
+ 
+
+
+scale
+
+
+
+
+(1);
+}
+}
+@
+-webkit-keyframes spin2 { 0% {
+	top: 24px;
+	left: 24px;
+	-webkit-transform: scale(1);
+	transform: scale(1);
+}
+
+17%
+{
+-webkit-transform
+
+
+
+
+:
+
+
+ 
+
+
+scale
+
+
+
+
+(
+.5
+
+
+
+
+);
+transform
+
+
+
+
+:
+
+
+ 
+
+
+scale
+
+
+
+
+(
+.5
+
+
+
+
+);
+}
+33%
+{
+top
+
+
+
+
+:
+
+
+ 
+
+
+24
+px
+
+
+
+
+;
+left
+
+
+
+
+:
+
+
+ 
+
+
+-24
+px
+
+
+
+
+;
+-webkit-transform
+
+
+
+
+:
+
+
+ 
+
+
+scale
+
+
+
+
+(1);
+transform
+
+
+
+
+:
+
+
+ 
+
+
+scale
+
+
+
+
+(1);
+}
+50%
+{
+-webkit-transform
+
+
+
+
+:
+
+
+ 
+
+
+scale
+
+
+
+
+(
+.5
+
+
+
+
+);
+transform
+
+
+
+
+:
+
+
+ 
+
+
+scale
+
+
+
+
+(
+.5
+
+
+
+
+);
+}
+66%
+{
+top
+
+
+
+
+:
+
+
+ 
+
+
+-24
+px
+
+
+
+
+;
+left
+
+
+
+
+:
+
+
+ 
+
+
+0;
+-webkit-transform
+
+
+
+
+:
+
+
+ 
+
+
+scale
+
+
+
+
+(1);
+transform
+
+
+
+
+:
+
+
+ 
+
+
+scale
+
+
+
+
+(1);
+}
+83%
+{
+-webkit-transform
+
+
+
+
+:
+
+
+ 
+
+
+scale
+
+
+
+
+(
+.5
+
+
+
+
+);
+transform
+
+
+
+
+:
+
+
+ 
+
+
+scale
+
+
+
+
+(
+.5
+
+
+
+
+);
+}
+100%
+{
+top
+
+
+
+
+:
+
+
+ 
+
+
+24
+px
+
+
+
+
+;
+left
+
+
+
+
+:
+
+
+ 
+
+
+24
+px
+
+
+
+
+;
+-webkit-transform
+
+
+
+
+:
+
+
+ 
+
+
+scale
+
+
+
+
+(1);
+transform
+
+
+
+
+:
+
+
+ 
+
+
+scale
+
+
+
+
+(1);
+}
+}
+@
+-webkit-keyframes spin3 { 0% {
+	top: 24px;
+	left: -24px;
+	-webkit-transform: scale(1);
+	transform: scale(1);
+}
+
+17%
+{
+-webkit-transform
+
+
+
+
+:
+
+
+ 
+
+
+scale
+
+
+
+
+(
+.5
+
+
+
+
+);
+transform
+
+
+
+
+:
+
+
+ 
+
+
+scale
+
+
+
+
+(
+.5
+
+
+
+
+);
+}
+33%
+{
+top
+
+
+
+
+:
+
+
+ 
+
+
+-24
+px
+
+
+
+
+;
+left
+
+
+
+
+:
+
+
+ 
+
+
+0;
+-webkit-transform
+
+
+
+
+:
+
+
+ 
+
+
+scale
+
+
+
+
+(1);
+transform
+
+
+
+
+:
+
+
+ 
+
+
+scale
+
+
+
+
+(1);
+}
+50%
+{
+-webkit-transform
+
+
+
+
+:
+
+
+ 
+
+
+scale
+
+
+
+
+(
+.5
+
+
+
+
+);
+transform
+
+
+
+
+:
+
+
+ 
+
+
+scale
+
+
+
+
+(
+.5
+
+
+
+
+);
+}
+66%
+{
+top
+
+
+
+
+:
+
+
+ 
+
+
+24
+px
+
+
+
+
+;
+left
+
+
+
+
+:
+
+
+ 
+
+
+24
+px
+
+
+
+
+;
+-webkit-transform
+
+
+
+
+:
+
+
+ 
+
+
+scale
+
+
+
+
+(1);
+transform
+
+
+
+
+:
+
+
+ 
+
+
+scale
+
+
+
+
+(1);
+}
+83%
+{
+-webkit-transform
+
+
+
+
+:
+
+
+ 
+
+
+scale
+
+
+
+
+(
+.5
+
+
+
+
+);
+transform
+
+
+
+
+:
+
+
+ 
+
+
+scale
+
+
+
+
+(
+.5
+
+
+
+
+);
+}
+100%
+{
+top
+
+
+
+
+:
+
+
+ 
+
+
+24
+px
+
+
+
+
+;
+left
+
+
+
+
+:
+
+
+ 
+
+
+-24
+px
+
+
+
+
+;
+-webkit-transform
+
+
+
+
+:
+
+
+ 
+
+
+scale
+
+
+
+
+(1);
+transform
+
+
+
+
+:
+
+
+ 
+
+
+scale
+
+
+
+
+(1);
+}
+}
+@
+-moz-keyframes spin { 0% {
+	top: -24px;
+	left: 0;
+	-moz-transform: scale(1);
+	transform: scale(1);
+}
+
+17%
+{
+-moz-transform
+
+
+
+
+:
+
+
+ 
+
+
+scale
+
+
+
+
+(
+.5
+
+
+
+
+);
+transform
+
+
+
+
+:
+
+
+ 
+
+
+scale
+
+
+
+
+(
+.5
+
+
+
+
+);
+}
+33%
+{
+top
+
+
+
+
+:
+
+
+ 
+
+
+24
+px
+
+
+
+
+;
+left
+
+
+
+
+:
+
+
+ 
+
+
+24
+px
+
+
+
+
+;
+-moz-transform
+
+
+
+
+:
+
+
+ 
+
+
+scale
+
+
+
+
+(1);
+transform
+
+
+
+
+:
+
+
+ 
+
+
+scale
+
+
+
+
+(1);
+}
+50%
+{
+-moz-transform
+
+
+
+
+:
+
+
+ 
+
+
+scale
+
+
+
+
+(
+.5
+
+
+
+
+);
+transform
+
+
+
+
+:
+
+
+ 
+
+
+scale
+
+
+
+
+(
+.5
+
+
+
+
+);
+}
+66%
+{
+top
+
+
+
+
+:
+
+
+ 
+
+
+24
+px
+
+
+
+
+;
+left
+
+
+
+
+:
+
+
+ 
+
+
+-24
+px
+
+
+
+
+;
+-moz-transform
+
+
+
+
+:
+
+
+ 
+
+
+scale
+
+
+
+
+(1);
+transform
+
+
+
+
+:
+
+
+ 
+
+
+scale
+
+
+
+
+(1);
+}
+83%
+{
+-moz-transform
+
+
+
+
+:
+
+
+ 
+
+
+scale
+
+
+
+
+(
+.5
+
+
+
+
+);
+transform
+
+
+
+
+:
+
+
+ 
+
+
+scale
+
+
+
+
+(
+.5
+
+
+
+
+);
+}
+100%
+{
+top
+
+
+
+
+:
+
+
+ 
+
+
+-24
+px
+
+
+
+
+;
+left
+
+
+
+
+:
+
+
+ 
+
+
+0;
+-moz-transform
+
+
+
+
+:
+
+
+ 
+
+
+scale
+
+
+
+
+(1);
+transform
+
+
+
+
+:
+
+
+ 
+
+
+scale
+
+
+
+
+(1);
+}
+}
+@
+-moz-keyframes spin2 { 0% {
+	top: 24px;
+	left: 24px;
+	-moz-transform: scale(1);
+	transform: scale(1);
+}
+
+17%
+{
+-moz-transform
+
+
+
+
+:
+
+
+ 
+
+
+scale
+
+
+
+
+(
+.5
+
+
+
+
+);
+transform
+
+
+
+
+:
+
+
+ 
+
+
+scale
+
+
+
+
+(
+.5
+
+
+
+
+);
+}
+33%
+{
+top
+
+
+
+
+:
+
+
+ 
+
+
+24
+px
+
+
+
+
+;
+left
+
+
+
+
+:
+
+
+ 
+
+
+-24
+px
+
+
+
+
+;
+-moz-transform
+
+
+
+
+:
+
+
+ 
+
+
+scale
+
+
+
+
+(1);
+transform
+
+
+
+
+:
+
+
+ 
+
+
+scale
+
+
+
+
+(1);
+}
+50%
+{
+-moz-transform
+
+
+
+
+:
+
+
+ 
+
+
+scale
+
+
+
+
+(
+.5
+
+
+
+
+);
+transform
+
+
+
+
+:
+
+
+ 
+
+
+scale
+
+
+
+
+(
+.5
+
+
+
+
+);
+}
+66%
+{
+top
+
+
+
+
+:
+
+
+ 
+
+
+-24
+px
+
+
+
+
+;
+left
+
+
+
+
+:
+
+
+ 
+
+
+0;
+-moz-transform
+
+
+
+
+:
+
+
+ 
+
+
+scale
+
+
+
+
+(1);
+transform
+
+
+
+
+:
+
+
+ 
+
+
+scale
+
+
+
+
+(1);
+}
+83%
+{
+-moz-transform
+
+
+
+
+:
+
+
+ 
+
+
+scale
+
+
+
+
+(
+.5
+
+
+
+
+);
+transform
+
+
+
+
+:
+
+
+ 
+
+
+scale
+
+
+
+
+(
+.5
+
+
+
+
+);
+}
+100%
+{
+top
+
+
+
+
+:
+
+
+ 
+
+
+24
+px
+
+
+
+
+;
+left
+
+
+
+
+:
+
+
+ 
+
+
+24
+px
+
+
+
+
+;
+-moz-transform
+
+
+
+
+:
+
+
+ 
+
+
+scale
+
+
+
+
+(1);
+transform
+
+
+
+
+:
+
+
+ 
+
+
+scale
+
+
+
+
+(1);
+}
+}
+@
+-moz-keyframes spin3 { 0% {
+	top: 24px;
+	left: -24px;
+	-moz-transform: scale(1);
+	transform: scale(1);
+}
+17%
+{
+-moz-transform
+
+
+
+
+:
+
+
+ 
+
+
+scale
+
+
+
+
+(
+.5
+
+
+
+
+);
+transform
+
+
+
+
+:
+
+
+ 
+
+
+scale
+
+
+
+
+(
+.5
+
+
+
+
+);
+}
+33%
+{
+top
+
+
+
+
+:
+
+
+ 
+
+
+-24
+px
+
+
+
+
+;
+left
+
+
+
+
+:
+
+
+ 
+
+
+0;
+-moz-transform
+
+
+
+
+:
+
+
+ 
+
+
+scale
+
+
+
+
+(1);
+transform
+
+
+
+
+:
+
+
+ 
+
+
+scale
+
+
+
+
+(1);
+}
+50%
+{
+-moz-transform
+
+
+
+
+:
+
+
+ 
+
+
+scale
+
+
+
+
+(
+.5
+
+
+
+
+);
+transform
+
+
+
+
+:
+
+
+ 
+
+
+scale
+
+
+
+
+(
+.5
+
+
+
+
+);
+}
+66%
+{
+top
+
+
+
+
+:
+
+
+ 
+
+
+24
+px
+
+
+
+
+;
+left
+
+
+
+
+:
+
+
+ 
+
+
+24
+px
+
+
+
+
+;
+-moz-transform
+
+
+
+
+:
+
+
+ 
+
+
+scale
+
+
+
+
+(1);
+transform
+
+
+
+
+:
+
+
+ 
+
+
+scale
+
+
+
+
+(1);
+}
+83%
+{
+-moz-transform
+
+
+
+
+:
+
+
+ 
+
+
+scale
+
+
+
+
+(
+.5
+
+
+
+
+);
+transform
+
+
+
+
+:
+
+
+ 
+
+
+scale
+
+
+
+
+(
+.5
+
+
+
+
+);
+}
+100%
+{
+top
+
+
+
+
+:
+
+
+ 
+
+
+24
+px
+
+
+
+
+;
+left
+
+
+
+
+:
+
+
+ 
+
+
+-24
+px
+
+
+
+
+;
+-moz-transform
+
+
+
+
+:
+
+
+ 
+
+
+scale
+
+
+
+
+(1);
+transform
+
+
+
+
+:
+
+
+ 
+
+
+scale
+
+
+
+
+(1);
+}
+}
