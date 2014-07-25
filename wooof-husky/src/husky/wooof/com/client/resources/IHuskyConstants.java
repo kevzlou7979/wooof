@@ -8,4 +8,6 @@ public interface IHuskyConstants {
 	public static final int NAV_ACCOUNT = 3;
 	public static final int NAV_LOGOUT = 4;
 	
+	public static final String REGEX_MAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+	
 }

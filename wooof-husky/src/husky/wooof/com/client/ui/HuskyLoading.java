@@ -3,19 +3,28 @@ package husky.wooof.com.client.ui;
 import husky.wooof.com.client.resources.HuskyResources;
 
 import com.google.gwt.user.client.ui.HTML;
-import com.google.gwt.user.client.ui.RootPanel;
+import com.google.gwt.user.client.ui.HTMLPanel;
 
 public class HuskyLoading {
 	private static HTML html = new HTML();
-	public static void showLoading(boolean isShow) {
+	
+	public static void showLoading(boolean isShow, HTMLPanel container, String message) {
 		if(isShow){
-			html.addStyleName(HuskyResources.INSTANCE.huskyCSS().loading());
-			html.setHTML("<i></i><i></i><i></i>");
-			RootPanel.get().add(html);
+			html.setHTML("<div class='"+HuskyResources.INSTANCE.huskyCSS().loading()
+					+"'><i></i><i></i><i></i></div><h2 class='"
+					+ HuskyResources.INSTANCE.huskyCSS().huskyLoadingText()+"'>"
+					+ message+"</h2>");
+			container.add(html);
 		}else{
 			html.removeFromParent();
 		}
 		
+	}
+	
+	public static void showLoading(boolean isShow){
+		if(!isShow){
+			html.removeFromParent();
+		}
 	}
 
 }

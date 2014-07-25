@@ -8,11 +8,11 @@ public interface UserAccountServiceAsync {
 	
 	public void login(String email, String password, AsyncCallback<HuskyUser> callback);
 	
-	public void register(String firstName, String lastName, String email,String userName, String password, AsyncCallback<HuskyUser> callback);
+	public void register(String firstName, String lastName, String email, String password, AsyncCallback<HuskyUser> callback);
 	
 	public void getUser(HuskyUser user, AsyncCallback<HuskyUser > callback);
 	
-	public void deleteUser(HuskyUser user, AsyncCallback<HuskyUser > callback);
+	public void deleteUser(HuskyUser user, AsyncCallback<Void> callback);
 	
 	public void updateUser(HuskyUser user, AsyncCallback<HuskyUser> callback);
 }

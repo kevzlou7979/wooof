@@ -14,16 +14,7 @@
 			margin-top: 5%;
 			display: block;
 		}
-		.logo:hover{
-			transition: 1s  all;
-			-webkit-transition: 1s all;
-			-moz-transition: 1s all;
-			transform: rotate(360deg);
-			-webkit-transform: rotate(360deg);
-			-moz-transform: rotate(360deg);
-			cursor: pointer;
-			
-		}
+		
 		.lblSiteName{
 			margin-top: 5%;
 			font-size: 4em;
@@ -33,29 +24,35 @@
 		.lblSiteSlogan{
 			color: #4086fa;
 			font-size: 1.2em;
+			
 		}
 		.formPanel{
 			width: 300px;
 			margin: auto;
 			margin-top: 50px;
+			position: relative;
 		}
 	</ui:style>
 	<g:HTMLPanel addStyleNames="{style.panel}">
-		<g:Image ui:field="imgLogo" resource="{res.husky_logo}" addStyleNames="{style.logo}"/>
+		<!-- <g:Image ui:field="imgLogo" resource="{res.husky_logo}" addStyleNames="{style.logo}"/> -->
+		<g:Image ui:field="imgLogo"  addStyleNames="{style.logo}"/>
 		
 	<!-- 	<g:Label addStyleNames="{style.lblSiteName}" text="Husky"/>
 		<g:Label addStyleNames="{style.lblSiteSlogan}" text="Learning is Everywhere"/> -->
 		
-		<g:HTMLPanel addStyleNames="{style.formPanel}">
+		<g:HTMLPanel ui:field="formPanel" addStyleNames="{style.formPanel}">
+			<g:HTMLPanel ui:field="messagePanel" />
+		
 			<g:HTMLPanel ui:field="signInPanel" >
-				<h:HuskyTextBox placeholder="Username" ui:field="txtUserName"/>
-				<h:HuskyTextBox placeholder="Password" ui:field="txtPassword"/>
+				<h:HuskyTextBox placeholder="Email" ui:field="txtEmail"/>
+				<h:HuskyPasswordBox placeholder="Password" ui:field="txtPassword"/>
 				<h:HuskyButton ui:field="btnSignIn" text="Sign In"/> 
 				<g:Label text="Sign Up" ui:field="signUpNav" addStyleNames="{res.huskyCSS.huskyLink}"/>
 			</g:HTMLPanel>
 			
 			<g:HTMLPanel ui:field="signUpPanel" >
-				<h:HuskyTextBox placeholder="Username" ui:field="txtRUserName"/>
+				<h:HuskyTextBox placeholder="FirstName" ui:field="txtRFirstName"/>
+				<h:HuskyTextBox placeholder="LastName" ui:field="txtRLastName"/>
 				<h:HuskyTextBox placeholder="Email" ui:field="txtREmail"/>
 				<h:HuskyPasswordBox placeholder="Password" ui:field="txtRPassword"/>
 				<h:HuskyPasswordBox placeholder="Confirm Password" ui:field="txtRConPassword"/>
@@ -63,10 +60,6 @@
 				<g:Label text="Sign In" ui:field="signInNav" addStyleNames="{res.huskyCSS.huskyLink}" />
 			</g:HTMLPanel>
 		</g:HTMLPanel>
-		
-		
-		
-		
 		
 		
 	</g:HTMLPanel>

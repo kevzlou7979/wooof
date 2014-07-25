@@ -19,5 +19,5 @@ public class HuskyTextBox extends TextBox {
 	public void setPlaceholder(String placeholder) {
 		this.getElement().setAttribute("placeholder", placeholder);
 	}
-
+	
 }

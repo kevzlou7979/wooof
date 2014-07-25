@@ -1,7 +1,6 @@
 package husky.wooof.com.client.main;
 
 import husky.wooof.com.client.HuskyMain;
-import husky.wooof.com.client.ui.HuskyLoading;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;
@@ -18,7 +17,6 @@ public class CardsMain extends Composite {
 
 	public CardsMain(HuskyMain huskyMain) {
 		initWidget(uiBinder.createAndBindUi(this));
-		HuskyLoading.showLoading(true);
 	}
 
 }

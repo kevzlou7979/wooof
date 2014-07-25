@@ -5,51 +5,45 @@ import husky.wooof.com.shared.HuskyUser;
 
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 import com.googlecode.objectify.Objectify;
-import com.googlecode.objectify.ObjectifyService;
 
 
 public class UserAccountServiceImpl extends RemoteServiceServlet implements UserAccountService {
 
 	private static final long serialVersionUID = 1L;
 	
-	Objectify ofy = ObjectifyService.begin();
+	Objectify ofy = OfyService.ofy();
 	
-	private void registerOfyService(){
-		ObjectifyService.register(HuskyUser.class);
-	}
 	
-	public HuskyUser login(String email, String password) {
-		return null;
+	@Override
+	public HuskyUser login(String userName, String password) throws Exception {
+		return getUser(new HuskyUser(userName, password));
 	}
 
 
 	@Override
-	public HuskyUser register(String firstName, String lastName, String email,String userName, String password)
+	public HuskyUser register(String firstName, String lastName, String email, String password)
 			throws Exception {
-		registerOfyService();
-		HuskyUser user = new HuskyUser(firstName, lastName, email, userName, password);
+		HuskyUser user = new HuskyUser(firstName, lastName, email, MD5Helper.encode(password));
 		ofy.put(user);
-		return user;
+		return getUser(user);
 	}
 
 
 	@Override
 	public HuskyUser getUser(HuskyUser user) throws Exception {
-		registerOfyService();
-		return ofy.get(HuskyUser.class, user.getEmail());  
+		return ofy.query(HuskyUser.class).filter("email", user.getEmail()).filter("password", MD5Helper.encode(user.getPassword())).get();  
 	}
 
 
 	@Override
-	public HuskyUser deleteUser(HuskyUser user) throws Exception {
+	public void deleteUser(HuskyUser user) throws Exception {
 		ofy.delete(user);
-		return null;
 	}
 
 
 	@Override
 	public HuskyUser updateUser(HuskyUser user) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		ofy.put(user);
+		return getUser(user);
 	}
 }
