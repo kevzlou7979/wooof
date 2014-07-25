@@ -3,6 +3,7 @@ package husky.wooof.com.client;
 import husky.wooof.com.client.main.CardsMain;
 import husky.wooof.com.client.main.CreateMain;
 import husky.wooof.com.client.navigation.HuskyNavigation;
+import husky.wooof.com.shared.HuskyUser;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;
@@ -26,7 +27,7 @@ public class HuskyMain extends Composite {
 	private CardsMain cardsMain;
 	private CreateMain createMain;
 	
-	public HuskyMain() {
+	public HuskyMain(HuskyUser user) {
 		initWidget(uiBinder.createAndBindUi(this));
 		
 		

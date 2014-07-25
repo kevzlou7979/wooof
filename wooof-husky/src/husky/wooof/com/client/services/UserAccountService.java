@@ -22,13 +22,13 @@ public interface UserAccountService extends RemoteService {
 		}
 	}
 	
-	public HuskyUser register(String firstName, String lastName, String email,String userName, String password) throws Exception;
+	public HuskyUser register(String firstName, String lastName, String email, String password) throws Exception;
 	
 	public HuskyUser login(String email, String password) throws Exception;
 	
 	public HuskyUser getUser(HuskyUser user) throws Exception;
 	
-	public HuskyUser deleteUser(HuskyUser user) throws Exception;
+	public void deleteUser(HuskyUser user) throws Exception;
 	
 	public HuskyUser updateUser(HuskyUser user) throws Exception;
 	

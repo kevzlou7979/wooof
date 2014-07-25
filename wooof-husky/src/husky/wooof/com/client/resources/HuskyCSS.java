@@ -11,5 +11,11 @@ public interface HuskyCSS extends CssResource{
 	String huskyTextBox();
 	String huskyButton();
 	String huskyLink();
-	String huskyDivider();
+	String huskyLoadingText();
+	String rotateLogo();
+	String huskyTextBoxError();
+	String huskyMessageLbl();
+	String huskyMessageImg();
+	String huskyError();
+	String huskySuccess();
 }

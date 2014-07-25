@@ -17,17 +17,22 @@ public class HuskyUser implements Serializable{
 	private String firstName;
 	private String lastName;
 	private String email;
-	private String userName;
 	private String password;
 
 	public HuskyUser() {}
 	
-	public HuskyUser(String firstName, String lastName, String email,String userName, String password) {
+	public HuskyUser(String email, String password) {
+		super();
+		this.email = email;
+		this.password = password;
+	}
+
+
+	public HuskyUser(String firstName, String lastName, String email, String password) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
-		this.userName = userName;
 		this.password = password;
 	}
 
@@ -70,14 +75,4 @@ public class HuskyUser implements Serializable{
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
-	public String getUserName() {
-		return userName;
-	}
-
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
-
-	
 }
