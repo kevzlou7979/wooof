@@ -1,9 +1,22 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
-	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:h="urn:import:husky.wooof.com.client.ui">
+	<ui:with field='res' type='husky.wooof.com.client.resources.HuskyResources' />
 	<ui:style>
-	
+		.basicInfoPanel{
+			width: 40%;
+			margin: auto;
+		}
 	</ui:style>
-	<g:HTMLPanel>
+	<g:HTMLPanel ui:field="panel">
+		<g:HTMLPanel ui:field="basicInfoPanel" addStyleNames="{style.basicInfoPanel}">
+			<h:HuskyTitle title="Card Info" description="Use cards to build your lessons and share it to everyone" resource="{res.ic_cards}"/>
+			<g:HTMLPanel ui:field="messagePanel"/>
+			<h:HuskyUploadArea ui:field="cardPhoto" message="Card photo"/>
+			<h:HuskyTextBox placeholder="Card Name" ui:field="txtCardName"/>
+			<h:HuskyTextArea placeholder="Card Description" ui:field="txtCardDescription"/>
+			<h:HuskyButton ui:field="btnCreateCard" text="Create"/>
+		</g:HTMLPanel>
 	</g:HTMLPanel>
 </ui:UiBinder> 

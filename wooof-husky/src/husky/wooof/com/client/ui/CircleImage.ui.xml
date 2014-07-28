@@ -20,6 +20,9 @@
 		clip: rect(0em, 0.5em, 1em, 0em);
 		border-radius: .5em;
 		-webkit-transform: rotate(270deg);
+		-moz-transform: rotate(270deg);
+		-0-transform: rotate(270deg);
+		transform: rotate(270deg);
 		-webkit-transition: 1s all;
 		-moz-transition: 1s all;
 		transition: 1s all;

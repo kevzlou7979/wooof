@@ -15,6 +15,16 @@
 		<servlet-name>accountServlet</servlet-name>
 		<url-pattern>/husky/account</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>cardServlet</servlet-name>
+		<servlet-class>husky.wooof.com.server.CardServiceImpl</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>cardServlet</servlet-name>
+		<url-pattern>/husky/card</url-pattern>
+	</servlet-mapping>
 
 	<!-- Default page to serve -->
 	<welcome-file-list>

@@ -34,8 +34,8 @@
 		}
 	</ui:style>
 	<g:HTMLPanel addStyleNames="{style.panel}">
-		<!-- <g:Image ui:field="imgLogo" resource="{res.husky_logo}" addStyleNames="{style.logo}"/> -->
-		<g:Image ui:field="imgLogo"  addStyleNames="{style.logo}"/>
+		<g:Image ui:field="imgLogo" resource="{res.husky_logo}" addStyleNames="{style.logo}"/>
+		<!-- <g:Image ui:field="imgLogo"  addStyleNames="{style.logo}"/> -->
 		
 	<!-- 	<g:Label addStyleNames="{style.lblSiteName}" text="Husky"/>
 		<g:Label addStyleNames="{style.lblSiteSlogan}" text="Learning is Everywhere"/> -->

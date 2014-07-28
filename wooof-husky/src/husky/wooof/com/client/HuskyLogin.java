@@ -11,6 +11,8 @@ import husky.wooof.com.shared.HuskyUser;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.KeyCodes;
+import com.google.gwt.event.dom.client.KeyDownEvent;
 import com.google.gwt.event.dom.client.KeyUpEvent;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
@@ -59,21 +61,10 @@ public class HuskyLogin extends Composite {
 		RootPanel.get().add(new HuskyMain(user));
 	}
 	
-	@UiHandler("signInNav")
-	void onSignInNav(ClickEvent e){
-		loadSignInPanel();
-	}
-	
-	@UiHandler("signUpNav")
-	void onSignUpNav(ClickEvent e){
-		loadSignUpPanel();
-	}
-	
-	@UiHandler("btnSignIn")
-	void onSignInAccount(ClickEvent e){
+	private void signInAccount(){
 		messagePanel.setVisible(true);
 		if(FieldVerifier.isValidFields(signInPanel, messagePanel) && FieldVerifier.isValidEmailFields(txtEmail, messagePanel)){
-			HuskyLoading.showLoading(true, formPanel, "Signing In");
+			HuskyLoading.showLoading(true, formPanel, "Signing In", 0);
 			HuskyMessage.hideMessage();
 			signInPanel.setVisible(false);
 			imgLogo.addStyleName(HuskyResources.INSTANCE.huskyCSS().rotateLogo());
@@ -106,18 +97,16 @@ public class HuskyLogin extends Composite {
 				public void onFailure(Throwable caught) {
 					imgLogo.removeStyleName(HuskyResources.INSTANCE.huskyCSS().rotateLogo());
 					HuskyLoading.showLoading(false);
+					HuskyMessage.showMessage(false, messagePanel, caught.getMessage());
 				}
 			});
 		}
-		
-		
 	}
 	
-	@UiHandler("btnSignUp")
-	void onSignUpAccount(ClickEvent e){
+	private void signUpAccount(){
 		messagePanel.setVisible(true);
 		if(FieldVerifier.isValidFields(signUpPanel, messagePanel) && FieldVerifier.isValidEmailFields(txtREmail, messagePanel) && FieldVerifier.isPasswordMatched(messagePanel, txtRPassword, txtRConPassword)){
-			HuskyLoading.showLoading(true, formPanel, "Signing Up");
+			HuskyLoading.showLoading(true, formPanel, "Signing Up", 0);
 			signUpPanel.setVisible(false);
 			imgLogo.addStyleName(HuskyResources.INSTANCE.huskyCSS().rotateLogo());
 			
@@ -133,14 +122,56 @@ public class HuskyLogin extends Composite {
 				public void onFailure(Throwable caught) {
 					imgLogo.removeStyleName(HuskyResources.INSTANCE.huskyCSS().rotateLogo());
 					loadSignUpPanel();
+					HuskyMessage.showMessage(false, messagePanel, caught.getMessage());
 				}
 			});
 		}
 	}
 	
+	@UiHandler("signInNav")
+	void onSignInNav(ClickEvent e){
+		loadSignInPanel();
+	}
+	
+	@UiHandler("signUpNav")
+	void onSignUpNav(ClickEvent e){
+		loadSignUpPanel();
+	}
+	
+	@UiHandler("txtEmail")
+	void onEnterEmail(KeyDownEvent e){
+		if (e.getNativeKeyCode() == KeyCodes.KEY_ENTER){
+			signInAccount();
+		}
+	}
+	
+	@UiHandler("txtPassword")
+	void onEnterPassword(KeyDownEvent e){
+		if (e.getNativeKeyCode() == KeyCodes.KEY_ENTER){
+			signInAccount();
+		}
+	}
+	
+	@UiHandler("btnSignIn")
+	void onSignInAccount(ClickEvent e){
+		signInAccount();
+	}
+	
+	@UiHandler("btnSignUp")
+	void onSignUpAccount(ClickEvent e){
+		signUpAccount();
+	}
+	
 	@UiHandler("txtREmail")
 	void onChangeText(KeyUpEvent e){
 		imgLogo.addStyleName(HuskyResources.INSTANCE.huskyCSS().rotateLogo());
+	}
+	
+	@UiHandler("txtRConPassword")
+	void onEnterConPassword(KeyDownEvent e){
+		if (e.getNativeKeyCode() == KeyCodes.KEY_ENTER){
+			signUpAccount();
+		}
 	}
 	
 }

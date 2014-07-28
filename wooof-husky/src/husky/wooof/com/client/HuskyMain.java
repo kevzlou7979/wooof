@@ -26,11 +26,12 @@ public class HuskyMain extends Composite {
 	
 	private CardsMain cardsMain;
 	private CreateMain createMain;
+	private HuskyUser user;
 	
 	public HuskyMain(HuskyUser user) {
 		initWidget(uiBinder.createAndBindUi(this));
 		
-		
+		this.user = user;
 		
 		cardsMain = new CardsMain(this);
 		createMain = new CreateMain(this);
@@ -69,6 +70,14 @@ public class HuskyMain extends Composite {
 
 	public void setCreateMain(CreateMain createMain) {
 		this.createMain = createMain;
+	}
+
+	public HuskyUser getUser() {
+		return user;
+	}
+
+	public void setUser(HuskyUser user) {
+		this.user = user;
 	}
 
 	

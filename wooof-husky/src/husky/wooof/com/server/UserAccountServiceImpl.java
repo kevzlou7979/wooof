@@ -25,7 +25,7 @@ public class UserAccountServiceImpl extends RemoteServiceServlet implements User
 			throws Exception {
 		HuskyUser user = new HuskyUser(firstName, lastName, email, MD5Helper.encode(password));
 		ofy.put(user);
-		return getUser(user);
+		return user;
 	}
 
 
