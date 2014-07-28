@@ -5,7 +5,6 @@ import husky.wooof.com.shared.UploadedImage;
 import java.io.IOException;
 import java.util.Date;
 import java.util.Map;
-import java.util.logging.Logger;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -21,21 +20,18 @@ import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.api.datastore.KeyFactory;
 import com.google.appengine.api.images.ImagesService;
 import com.google.appengine.api.images.ImagesServiceFactory;
-import com.google.appengine.api.users.User;
-import com.google.appengine.api.users.UserService;
-import com.google.appengine.api.users.UserServiceFactory;
 
-@SuppressWarnings("serial")
+@SuppressWarnings("deprecation")
 public class HuskyUploadServlet extends HttpServlet {
-    private static final Logger log = Logger.getLogger(HuskyUploadServlet.class.getName());
 
+	private static final long serialVersionUID = 1L;
 	
-    private BlobstoreService blobstoreService = BlobstoreServiceFactory.getBlobstoreService();    
+	private BlobstoreService blobstoreService = BlobstoreServiceFactory.getBlobstoreService();    
 
     public void doPost(HttpServletRequest req, HttpServletResponse res)
         throws ServletException, IOException {
 
-        Map<String, BlobKey> blobs = blobstoreService.getUploadedBlobs(req);
+		Map<String, BlobKey> blobs = blobstoreService.getUploadedBlobs(req);
         BlobKey blobKey = blobs.get("image");
        
         if (blobKey == null) {
@@ -43,25 +39,22 @@ public class HuskyUploadServlet extends HttpServlet {
         } else {
 
         	ImagesService imagesService = ImagesServiceFactory.getImagesService();
-        	String imageUrl = imagesService.getServingUrl(blobKey);
-
-        	UserService userService = UserServiceFactory.getUserService();
-            // TODO: Add a better check for whether the user is logged in or not
-        	// Don't even let the user upload or get here
-        	User user = userService.getCurrentUser();
+        	
+			String imageUrl = imagesService.getServingUrl(blobKey);
+        	
+        	//TODO Remove this part
         	
         	Entity uploadedImage = new Entity("UploadedImage");
         	uploadedImage.setProperty("blobKey", blobKey);
         	uploadedImage.setProperty(UploadedImage.CREATED_AT, new Date());
         	
-        	// Highly unlikely we'll ever search on this property
         	uploadedImage.setUnindexedProperty(UploadedImage.SERVING_URL, imageUrl);
         	
         	DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
         	datastore.put(uploadedImage);
         	
         	String keyString = KeyFactory.keyToString(uploadedImage.getKey());
-            res.sendRedirect("/formImageUploader?uploadedImageKey=" + keyString);            		
+            res.sendRedirect("/upload?uploadedImageKey=" + keyString);            		
         }
     }
     
@@ -71,9 +64,7 @@ public class HuskyUploadServlet extends HttpServlet {
     	
     	String uploadedImageKey = req.getParameter("uploadedImageKey");
     	resp.setHeader("Content-Type", "text/html");
-    	
-    	// This is a bit hacky, but it'll work. We'll use this key in an Async service to
-    	// fetch the image and image information
+    	System.out.println(uploadedImageKey);
     	resp.getWriter().println(uploadedImageKey);
     	
     }

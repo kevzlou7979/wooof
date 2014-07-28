@@ -16,11 +16,11 @@ public class FieldVerifier {
 		for(Widget w : panel){
 			if(w instanceof HuskyTextBox || w instanceof HuskyPasswordBox){
 				if(((TextBox)w).getText().isEmpty()){
-					w.addStyleName(HuskyResources.INSTANCE.huskyCSS().huskyTextBoxError());
+					w.addStyleName(HuskyResources.INSTANCE.huskycss().huskyTextBoxError());
 					isValid = false;
 					HuskyMessage.showMessage(false, messageCon, "Please provide empty fields.");
 				}else{
-					w.removeStyleName(HuskyResources.INSTANCE.huskyCSS().huskyTextBoxError());
+					w.removeStyleName(HuskyResources.INSTANCE.huskycss().huskyTextBoxError());
 					isValid = true;
 				}
 			}
@@ -31,11 +31,11 @@ public class FieldVerifier {
 	public static boolean isValidEmailFields(HuskyTextBox txtEmail, HTMLPanel messageCon){
 		boolean isValid = false;
 		if(!txtEmail.getText().matches(husky.wooof.com.client.resources.IHuskyConstants.REGEX_MAIL)){
-			txtEmail.addStyleName(HuskyResources.INSTANCE.huskyCSS().huskyTextBoxError());
+			txtEmail.addStyleName(HuskyResources.INSTANCE.huskycss().huskyTextBoxError());
 			isValid = false;
 			HuskyMessage.showMessage(false, messageCon, "Incorrect Email Address.");
 		}else{
-			txtEmail.removeStyleName(HuskyResources.INSTANCE.huskyCSS().huskyTextBoxError());
+			txtEmail.removeStyleName(HuskyResources.INSTANCE.huskycss().huskyTextBoxError());
 			isValid = true;
 		}
 		return isValid;

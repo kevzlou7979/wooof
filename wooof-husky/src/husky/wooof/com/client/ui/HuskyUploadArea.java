@@ -14,6 +14,7 @@ import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.FileUpload;
 import com.google.gwt.user.client.ui.FormPanel;
 import com.google.gwt.user.client.ui.FormPanel.SubmitCompleteEvent;
+import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.Widget;
 
@@ -25,16 +26,15 @@ public class HuskyUploadArea extends Composite {
 	interface HuskyUploadAreaUiBinder extends UiBinder<Widget, HuskyUploadArea> {
 	}
 
-	@UiField
-	Label lblDescription;
-	@UiField
-	Button uploadButton;
+	@UiField Label lblDescription;
+	
+	@UiField Button uploadButton;
 
-	@UiField
-	FormPanel uploadForm;
+	@UiField FormPanel uploadForm;
 
-	@UiField
-	FileUpload uploadField;
+	@UiField FileUpload uploadField;
+	
+	@UiField Image imgLogo;
 
 	private String message;
 
@@ -61,8 +61,13 @@ public class HuskyUploadArea extends Composite {
 						startNewBlobstoreSession();
 						 // This is what gets the result back - the content-type *must* be
 					    // text-html
-					    System.out.println(event.getResults());
-					}
+					   
+					    if(event.getResults()!=null){
+					    	imgLogo.setUrl(event.getResults());
+					    }else{
+					    	Window.alert("Error uploading Image");
+					    }
+					  }
 				});
 		
 	}

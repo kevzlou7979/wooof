@@ -67,7 +67,7 @@ public class HuskyLogin extends Composite {
 			HuskyLoading.showLoading(true, formPanel, "Signing In", 0);
 			HuskyMessage.hideMessage();
 			signInPanel.setVisible(false);
-			imgLogo.addStyleName(HuskyResources.INSTANCE.huskyCSS().rotateLogo());
+			imgLogo.addStyleName(HuskyResources.INSTANCE.huskycss().rotateLogo());
 			UserAccountService.Connect.getService().login(txtEmail.getText(), txtPassword.getText(), new AsyncCallback<HuskyUser>() {
 				
 				@Override
@@ -77,7 +77,7 @@ public class HuskyLogin extends Composite {
 			            @Override
 			            public void run()
 			            {
-			            	imgLogo.removeStyleName(HuskyResources.INSTANCE.huskyCSS().rotateLogo());
+			            	imgLogo.removeStyleName(HuskyResources.INSTANCE.huskycss().rotateLogo());
 							HuskyLoading.showLoading(false);
 							if(result!=null){
 								loadMainPanel(result);
@@ -95,7 +95,7 @@ public class HuskyLogin extends Composite {
 				
 				@Override
 				public void onFailure(Throwable caught) {
-					imgLogo.removeStyleName(HuskyResources.INSTANCE.huskyCSS().rotateLogo());
+					imgLogo.removeStyleName(HuskyResources.INSTANCE.huskycss().rotateLogo());
 					HuskyLoading.showLoading(false);
 					HuskyMessage.showMessage(false, messagePanel, caught.getMessage());
 				}
@@ -108,19 +108,19 @@ public class HuskyLogin extends Composite {
 		if(FieldVerifier.isValidFields(signUpPanel, messagePanel) && FieldVerifier.isValidEmailFields(txtREmail, messagePanel) && FieldVerifier.isPasswordMatched(messagePanel, txtRPassword, txtRConPassword)){
 			HuskyLoading.showLoading(true, formPanel, "Signing Up", 0);
 			signUpPanel.setVisible(false);
-			imgLogo.addStyleName(HuskyResources.INSTANCE.huskyCSS().rotateLogo());
+			imgLogo.addStyleName(HuskyResources.INSTANCE.huskycss().rotateLogo());
 			
 			UserAccountService.Connect.getService().register(txtRFirstName.getText(), txtRLastName.getText(), txtREmail.getText(), txtRPassword.getText(), new AsyncCallback<HuskyUser>() {
 				
 				@Override
 				public void onSuccess(final HuskyUser result) {
-					imgLogo.removeStyleName(HuskyResources.INSTANCE.huskyCSS().rotateLogo());
+					imgLogo.removeStyleName(HuskyResources.INSTANCE.huskycss().rotateLogo());
 					loadMainPanel(result);
 				};
 				
 				@Override
 				public void onFailure(Throwable caught) {
-					imgLogo.removeStyleName(HuskyResources.INSTANCE.huskyCSS().rotateLogo());
+					imgLogo.removeStyleName(HuskyResources.INSTANCE.huskycss().rotateLogo());
 					loadSignUpPanel();
 					HuskyMessage.showMessage(false, messagePanel, caught.getMessage());
 				}
@@ -164,7 +164,7 @@ public class HuskyLogin extends Composite {
 	
 	@UiHandler("txtREmail")
 	void onChangeText(KeyUpEvent e){
-		imgLogo.addStyleName(HuskyResources.INSTANCE.huskyCSS().rotateLogo());
+		imgLogo.addStyleName(HuskyResources.INSTANCE.huskycss().rotateLogo());
 	}
 	
 	@UiHandler("txtRConPassword")

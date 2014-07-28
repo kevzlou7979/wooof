@@ -9,7 +9,7 @@ public class HuskyTextBox extends TextBox {
 	private String placeholder;
 
 	public HuskyTextBox() {
-		this.addStyleName(HuskyResources.INSTANCE.huskyCSS().huskyTextBox());
+		this.addStyleName(HuskyResources.INSTANCE.huskycss().huskyTextBox());
 	}
 
 	public String getPlaceholder() {

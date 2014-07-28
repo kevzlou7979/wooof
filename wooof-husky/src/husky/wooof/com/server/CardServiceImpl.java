@@ -58,7 +58,7 @@ public class CardServiceImpl extends RemoteServiceServlet implements CardService
 	@Override
 	public String getBlobstoreUploadUrl() {
 		BlobstoreService blobstoreService = BlobstoreServiceFactory.getBlobstoreService();
-        return blobstoreService.createUploadUrl("/formImageUploader");
+        return blobstoreService.createUploadUrl("/upload");
 	}
 
 }

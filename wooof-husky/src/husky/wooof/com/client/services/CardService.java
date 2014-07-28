@@ -1,9 +1,9 @@
 package husky.wooof.com.client.services;
 
-import java.util.List;
-
 import husky.wooof.com.shared.HuskyCard;
 import husky.wooof.com.shared.HuskyUser;
+
+import java.util.List;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.rpc.RemoteService;

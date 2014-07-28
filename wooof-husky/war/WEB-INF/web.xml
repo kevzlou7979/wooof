@@ -33,7 +33,7 @@
 	</servlet>
 	<servlet-mapping>
 	    <servlet-name>formImageUploader</servlet-name>
-	    <url-pattern>/formImageUploader</url-pattern>
+	    <url-pattern>/upload</url-pattern>
 	</servlet-mapping>
 
 	<!-- Default page to serve -->

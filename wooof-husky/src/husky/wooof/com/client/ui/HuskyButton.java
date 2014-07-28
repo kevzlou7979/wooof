@@ -8,7 +8,7 @@ public class HuskyButton extends Button{
 
 	public HuskyButton() {
 		this.removeStyleName("gwt-Button");
-		this.addStyleName(HuskyResources.INSTANCE.huskyCSS().huskyButton());
+		this.addStyleName(HuskyResources.INSTANCE.huskycss().huskyButton());
 	}
 	
 }

@@ -9,7 +9,7 @@ public class HuskyPasswordBox extends PasswordTextBox {
 	private String placeholder;
 
 	public HuskyPasswordBox() {
-		this.addStyleName(HuskyResources.INSTANCE.huskyCSS().huskyTextBox());
+		this.addStyleName(HuskyResources.INSTANCE.huskycss().huskyTextBox());
 	}
 
 	public String getPlaceholder() {
