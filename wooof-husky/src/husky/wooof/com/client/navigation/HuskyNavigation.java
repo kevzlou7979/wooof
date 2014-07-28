@@ -62,9 +62,9 @@ public class HuskyNavigation extends Composite {
 	
 	private void changeNav(Label menu, int navType){
 		for(Widget w : navMenu){
-			w.removeStyleName(HuskyResources.INSTANCE.huskyCSS().lblSimpleActive());
+			w.removeStyleName(HuskyResources.INSTANCE.huskycss().lblSimpleActive());
 		}
-		menu.addStyleName(HuskyResources.INSTANCE.huskyCSS().lblSimpleActive());
+		menu.addStyleName(HuskyResources.INSTANCE.huskycss().lblSimpleActive());
 		
 		huskyMain.getHuskyMainPanel().clear();
 		switch (navType) {

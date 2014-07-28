@@ -57,9 +57,9 @@
 			</g:HTMLPanel>
 		</g:HTMLPanel>
 		<g:HTMLPanel ui:field="footerPanel">
-		    <g:Image resource="{res.ic_card}" addStyleNames="{res.huskyCSS.inline}"/>
-		    <g:Label ui:field="lblCardName" addStyleNames="{res.huskyCSS.inline} {style.lblTitle}"/>
-		    <g:Image resource="{res.ic_trips}" addStyleNames="{res.huskyCSS.inline}"/>
+		    <g:Image resource="{res.ic_card}" addStyleNames="{res.huskycss.inline}"/>
+		    <g:Label ui:field="lblCardName" addStyleNames="{res.huskycss.inline} {style.lblTitle}"/>
+		    <g:Image resource="{res.ic_trips}" addStyleNames="{res.huskycss.inline}"/>
 		</g:HTMLPanel>
 	</g:HTMLPanel>
 </ui:UiBinder> 

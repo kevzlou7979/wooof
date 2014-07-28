@@ -47,7 +47,7 @@
 				<h:HuskyTextBox placeholder="Email" ui:field="txtEmail"/>
 				<h:HuskyPasswordBox placeholder="Password" ui:field="txtPassword"/>
 				<h:HuskyButton ui:field="btnSignIn" text="Sign In"/> 
-				<g:Label text="Sign Up" ui:field="signUpNav" addStyleNames="{res.huskyCSS.huskyLink}"/>
+				<g:Label text="Sign Up" ui:field="signUpNav" addStyleNames="{res.huskycss.huskyLink}"/>
 			</g:HTMLPanel>
 			
 			<g:HTMLPanel ui:field="signUpPanel" >
@@ -57,7 +57,7 @@
 				<h:HuskyPasswordBox placeholder="Password" ui:field="txtRPassword"/>
 				<h:HuskyPasswordBox placeholder="Confirm Password" ui:field="txtRConPassword"/>
 				<h:HuskyButton ui:field="btnSignUp" text="Sign Up"/> 
-				<g:Label text="Sign In" ui:field="signInNav" addStyleNames="{res.huskyCSS.huskyLink}" />
+				<g:Label text="Sign In" ui:field="signInNav" addStyleNames="{res.huskycss.huskyLink}" />
 			</g:HTMLPanel>
 		</g:HTMLPanel>
 		

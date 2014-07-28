@@ -75,7 +75,7 @@
 		background-size: 1.5em;
 	}
 	</ui:style>
-	<g:HTMLPanel addStyleNames="{res.huskyCSS.center}">
+	<g:HTMLPanel addStyleNames="{res.huskycss.center}">
 		<div class="{style.container}">
 			<div class="{style.slice}">
 				<div class="{style.pie}">

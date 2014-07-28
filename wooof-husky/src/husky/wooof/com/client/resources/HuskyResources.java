@@ -16,6 +16,6 @@ public interface HuskyResources extends ClientBundle{
 	ImageResource ic_default_card();
 	ImageResource ic_card();
 	
-    HuskyCSS huskyCSS();
+    HuskyCSS huskycss();
    
 }

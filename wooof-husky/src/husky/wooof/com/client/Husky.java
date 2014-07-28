@@ -12,7 +12,7 @@ import com.google.gwt.user.client.ui.RootPanel;
 public class Husky implements EntryPoint {
 	
 	public void onModuleLoad() {
-		HuskyResources.INSTANCE.huskyCSS().ensureInjected();
-		RootPanel.get().add(new HuskyMain(new HuskyUser()));
+		HuskyResources.INSTANCE.huskycss().ensureInjected();
+		RootPanel.get().add(new HuskyLogin());
 	}
 }

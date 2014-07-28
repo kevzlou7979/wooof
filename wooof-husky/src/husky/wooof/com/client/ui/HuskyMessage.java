@@ -13,14 +13,14 @@ public class HuskyMessage {
 	private static Label label = new Label();
 	
 	public static void showMessage(boolean isSuccess, HTMLPanel container, String message){
-		label.addStyleName(HuskyResources.INSTANCE.huskyCSS().huskyMessageLbl());
-		image.addStyleName(HuskyResources.INSTANCE.huskyCSS().huskyMessageImg());
+		label.addStyleName(HuskyResources.INSTANCE.huskycss().huskyMessageLbl());
+		image.addStyleName(HuskyResources.INSTANCE.huskycss().huskyMessageImg());
 		if(isSuccess){
 			image.setResource(HuskyResources.INSTANCE.ic_success());
-			label.addStyleName(HuskyResources.INSTANCE.huskyCSS().huskySuccess());
+			label.addStyleName(HuskyResources.INSTANCE.huskycss().huskySuccess());
 		}else{
 			image.setResource(HuskyResources.INSTANCE.ic_error());
-			label.addStyleName(HuskyResources.INSTANCE.huskyCSS().huskyError());
+			label.addStyleName(HuskyResources.INSTANCE.huskycss().huskyError());
 		}
 		
 		label.setText(message);

@@ -26,7 +26,7 @@
 		            <g:Button ui:field="uploadButton"></g:Button>
 		        </g:HorizontalPanel>
 		    </g:FormPanel>
-			<g:Image resource="{res.ic_image}"/>
+			<g:Image ui:field="imgLogo" resource="{res.ic_image}"/>
 			<g:Label text="Upload or Drop" addStyleNames="{style.lblMedium}"/>
 			<g:Label ui:field="lblDescription" addStyleNames="{style.lblSmall}"/>
 		</g:HTMLPanel>

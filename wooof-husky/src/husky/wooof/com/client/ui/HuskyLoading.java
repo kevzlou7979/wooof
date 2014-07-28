@@ -11,9 +11,9 @@ public class HuskyLoading {
 	public static void showLoading(boolean isShow, HTMLPanel container, String message, int marginTop) {
 		if(isShow){
 			html.getElement().setAttribute("style", "position: relative; text-align: center;margin-top: "+marginTop+"%"); 
-			html.setHTML("<div class='"+HuskyResources.INSTANCE.huskyCSS().loading()
+			html.setHTML("<div class='"+HuskyResources.INSTANCE.huskycss().loading()
 					+"'><i></i><i></i><i></i></div><h2 class='"
-					+ HuskyResources.INSTANCE.huskyCSS().huskyLoadingText()+"'>"
+					+ HuskyResources.INSTANCE.huskycss().huskyLoadingText()+"'>"
 					+ message+"</h2>");
 			container.add(html);
 		}else{

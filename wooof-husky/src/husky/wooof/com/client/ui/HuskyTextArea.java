@@ -9,7 +9,7 @@ public class HuskyTextArea extends TextArea{
 	private String placeholder;
 	
 	public HuskyTextArea() {
-		this.addStyleName(HuskyResources.INSTANCE.huskyCSS().huskyTextArea());
+		this.addStyleName(HuskyResources.INSTANCE.huskycss().huskyTextArea());
 	}
 
 	public String getPlaceholder() {
