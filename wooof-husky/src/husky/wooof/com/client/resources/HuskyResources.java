@@ -10,6 +10,11 @@ public interface HuskyResources extends ClientBundle{
 	ImageResource husky_logo();
 	ImageResource ic_success();
 	ImageResource ic_error();
+	ImageResource ic_image();
+	ImageResource ic_cards();
+	ImageResource ic_trips();
+	ImageResource ic_default_card();
+	ImageResource ic_card();
 	
     HuskyCSS huskyCSS();
    

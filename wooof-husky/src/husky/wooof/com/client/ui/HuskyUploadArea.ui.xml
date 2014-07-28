@@ -1,0 +1,28 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:with field='res' type='husky.wooof.com.client.resources.HuskyResources' />
+	<ui:style>
+		.uploadPanel{
+			padding: 20px;
+			background: #f9f9f9;
+			text-align: center;
+			border: 1px solid #ececed;
+		}
+		.lblMedium{
+			color: #cbdcf9;
+			font-size: 1.2em;
+		}
+		.lblSmall{
+			color: #cbdcf9;
+			font-size: 1em;	
+		}
+	</ui:style>
+	<g:FocusPanel>
+	    <g:HTMLPanel addStyleNames="{style.uploadPanel}">
+			<g:Image resource="{res.ic_image}"/>
+			<g:Label text="Upload or Drop" addStyleNames="{style.lblMedium}"/>
+			<g:Label ui:field="lblDescription" addStyleNames="{style.lblSmall}"/>
+		</g:HTMLPanel>
+	</g:FocusPanel>
+</ui:UiBinder> 

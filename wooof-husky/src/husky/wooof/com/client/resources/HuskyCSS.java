@@ -5,6 +5,7 @@ import com.google.gwt.resources.client.CssResource;
 public interface HuskyCSS extends CssResource{
 	
 	String center();
+	String inline();
 	String lblSimple();
 	String lblSimpleActive();
 	String loading();
@@ -18,4 +19,6 @@ public interface HuskyCSS extends CssResource{
 	String huskyMessageImg();
 	String huskyError();
 	String huskySuccess();
+	String huskyTitle();
+	String huskyTextArea();
 }

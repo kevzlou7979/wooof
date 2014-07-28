@@ -1,0 +1,2 @@
+serviceClass: husky.wooof.com.client.services.CardService
+path: 7209A052C9D3E91966EBBF515A7AF430.gwt.rpc

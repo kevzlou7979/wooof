@@ -6,7 +6,7 @@
 		.huskyNavigationPanel{
 			 width: 250px;
     		float: left;
-    		position: absolute;
+    		position: fixed;
     		height: 100%;
     		-webkit-box-shadow: 0 0 4px rgba(0,0,0,0.2);
 			-moz-box-shadow: 0 0 4px rgba(0,0,0,0.2);
@@ -15,9 +15,16 @@
 			box-sizing: border-box;
 			-webkit-box-sizing: border-box;
 			-mox-box-sizing: border-box;
+			z-index: 999;
 		}
 		.huskyMainPanel{
-    		padding-left: 250px;
+			position: absolute;
+			width: 70%;
+			padding: 20px;
+			box-sizing: border-box;
+			-webkit-box-sizing: border-box;
+			-mox-box-sizing: border-box;
+    		padding-left: 300px;
 		}
 	</ui:style>
 	<g:HTMLPanel>

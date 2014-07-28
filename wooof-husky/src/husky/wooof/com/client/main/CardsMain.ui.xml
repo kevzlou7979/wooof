@@ -5,5 +5,8 @@
 	
 	</ui:style>
 	<g:HTMLPanel>
+	    
+	    <g:HTMLPanel ui:field="cardsPanel"/>
+	    
 	</g:HTMLPanel>
 </ui:UiBinder> 

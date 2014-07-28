@@ -18,7 +18,7 @@ public class HuskyUser implements Serializable{
 	private String lastName;
 	private String email;
 	private String password;
-
+	
 	public HuskyUser() {}
 	
 	public HuskyUser(String email, String password) {
@@ -35,7 +35,7 @@ public class HuskyUser implements Serializable{
 		this.email = email;
 		this.password = password;
 	}
-
+	
 	public Long getId() {
 		return id;
 	}

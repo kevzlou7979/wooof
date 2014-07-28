@@ -1,10 +1,19 @@
 package husky.wooof.com.client.main;
 
 import husky.wooof.com.client.HuskyMain;
+import husky.wooof.com.client.services.CardService;
+import husky.wooof.com.client.ui.HuskyCardItem;
+import husky.wooof.com.shared.HuskyCard;
+
+import java.util.List;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;
+import com.google.gwt.uibinder.client.UiField;
+import com.google.gwt.user.client.Window;
+import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.Widget;
 
 public class CardsMain extends Composite {
@@ -15,8 +24,32 @@ public class CardsMain extends Composite {
 	interface CardsMainUiBinder extends UiBinder<Widget, CardsMain> {
 	}
 
+	@UiField HTMLPanel cardsPanel;
+	
+	private HuskyMain huskyMain;
+	
 	public CardsMain(HuskyMain huskyMain) {
 		initWidget(uiBinder.createAndBindUi(this));
+		this.huskyMain = huskyMain;
+		onLoadAllCards();
+	}
+	
+	public void onLoadAllCards(){
+		cardsPanel.clear();
+		CardService.Connect.getService().getAllCards(huskyMain.getUser(), new AsyncCallback<List<HuskyCard>>() {
+			
+			@Override
+			public void onSuccess(List<HuskyCard> result) {
+				for(HuskyCard card : result){
+					cardsPanel.add(new HuskyCardItem(card));
+				}
+			}
+			
+			@Override
+			public void onFailure(Throwable caught) {
+				Window.alert(caught.getMessage());
+			}
+		});
 	}
 
 }
