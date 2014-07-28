@@ -19,4 +19,6 @@ public interface CardServiceAsync {
 
 	public void getAllCards(HuskyUser userm, AsyncCallback<List<HuskyCard>> callback);
 	
+	 public void getBlobstoreUploadUrl(AsyncCallback<String> callback);
+	
 }

@@ -1,6 +1,7 @@
 package husky.wooof.com.client;
 
 import husky.wooof.com.client.resources.HuskyResources;
+import husky.wooof.com.shared.HuskyUser;
 
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.user.client.ui.RootPanel;
@@ -12,6 +13,6 @@ public class Husky implements EntryPoint {
 	
 	public void onModuleLoad() {
 		HuskyResources.INSTANCE.huskyCSS().ensureInjected();
-		RootPanel.get().add(new HuskyLogin());
+		RootPanel.get().add(new HuskyMain(new HuskyUser()));
 	}
 }

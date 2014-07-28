@@ -7,6 +7,8 @@ import husky.wooof.com.shared.HuskyUser;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.google.appengine.api.blobstore.BlobstoreService;
+import com.google.appengine.api.blobstore.BlobstoreServiceFactory;
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 import com.googlecode.objectify.Key;
 import com.googlecode.objectify.Objectify;
@@ -51,6 +53,12 @@ public class CardServiceImpl extends RemoteServiceServlet implements CardService
 			cards.add(card);
 		}
 		return cards;
+	}
+
+	@Override
+	public String getBlobstoreUploadUrl() {
+		BlobstoreService blobstoreService = BlobstoreServiceFactory.getBlobstoreService();
+        return blobstoreService.createUploadUrl("/formImageUploader");
 	}
 
 }

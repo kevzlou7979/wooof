@@ -25,6 +25,16 @@
 		<servlet-name>cardServlet</servlet-name>
 		<url-pattern>/husky/card</url-pattern>
 	</servlet-mapping>
+	
+	<!-- Upload Servlet -->
+	<servlet>
+	    <servlet-name>formImageUploader</servlet-name>
+	    <servlet-class>husky.wooof.com.server.HuskyUploadServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	    <servlet-name>formImageUploader</servlet-name>
+	    <url-pattern>/formImageUploader</url-pattern>
+	</servlet-mapping>
 
 	<!-- Default page to serve -->
 	<welcome-file-list>
