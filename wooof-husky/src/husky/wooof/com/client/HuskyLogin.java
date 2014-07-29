@@ -22,6 +22,7 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.Image;
+import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Widget;
 
@@ -38,10 +39,12 @@ public class HuskyLogin extends Composite {
 	@UiField HuskyTextBox txtEmail;
 	@UiField HuskyPasswordBox txtPassword, txtRPassword, txtRConPassword;
 	@UiField HuskyTextBox txtRFirstName, txtRLastName, txtREmail;
+	@UiField Label signUpNav;
 	
 	public HuskyLogin() {
 		initWidget(uiBinder.createAndBindUi(this));
 		loadSignInPanel();
+		signUpNav.removeFromParent();
 	}
 	
 	private void loadSignUpPanel(){

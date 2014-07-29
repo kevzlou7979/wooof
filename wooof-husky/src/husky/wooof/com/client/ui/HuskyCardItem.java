@@ -35,7 +35,7 @@ public class HuskyCardItem extends Composite {
             public void run()
             {
             	panel.addStyleName("panelAfter");
-            	panel.getElement().setAttribute("style", "transition-delay: " + String.valueOf(value) + "s");
+            	panel.getElement().setAttribute("style", "transition-delay: " + String.valueOf(value) + "ms");
             }
         };
 
@@ -43,6 +43,8 @@ public class HuskyCardItem extends Composite {
 		
 		lblCardName.setText(card.getName());
 		lblDescription.setText(card.getDescription());
+		cardImage.setWidth("100%");
+		cardImage.setHeight("100%");
 		cardImage.setUrl(card.getCardImage());
 	}
 
