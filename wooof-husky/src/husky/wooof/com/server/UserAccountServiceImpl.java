@@ -11,7 +11,7 @@ public class UserAccountServiceImpl extends RemoteServiceServlet implements User
 
 	private static final long serialVersionUID = 1L;
 	
-	Objectify ofy = OfyService.ofy();
+	private Objectify ofy = OfyService.ofy();
 	
 	
 	@Override

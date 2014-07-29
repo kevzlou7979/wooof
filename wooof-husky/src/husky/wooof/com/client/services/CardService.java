@@ -35,5 +35,4 @@ public interface CardService extends RemoteService{
 	
 	public List<HuskyCard> getAllCards(HuskyUser user) throws Exception;
 	
-	public String getBlobstoreUploadUrl();
 }

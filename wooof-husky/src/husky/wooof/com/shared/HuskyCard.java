@@ -20,7 +20,8 @@ public class HuskyCard implements Serializable {
 	private String description;
 	private Date creationDate = new Date();
 	private List<Key<HuskyUser>> users;
-
+	private String cardImage;
+	
 	public HuskyCard() {}
 	
 	public HuskyCard(String name, String description) {
@@ -67,6 +68,14 @@ public class HuskyCard implements Serializable {
 
 	public void setUsers(List<Key<HuskyUser>> users) {
 		this.users = users;
+	}
+
+	public String getCardImage() {
+		return cardImage;
+	}
+
+	public void setCardImage(String cardImage) {
+		this.cardImage = cardImage;
 	}
 
 }
