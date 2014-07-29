@@ -37,17 +37,16 @@ public class CardsMain extends Composite {
 	
 	public void onLoadAllCards(){
 		cardsPanel.clear();
-		HuskyLoading.showLoading(true, panel, "Getting all cards", 30);
+		
 		CardService.Connect.getService().getAllCards(huskyMain.getUser(), new AsyncCallback<List<HuskyCard>>() {
 			
 			@Override
 			public void onSuccess(List<HuskyCard> result) {
-				double i = 0.1;
+				double i = 100;
 				for(HuskyCard card : result){
 					cardsPanel.add(new HuskyCardItem(card, i));
-					i++;
+					i = i + 100;
 				}
-				HuskyLoading.showLoading(false);
 			}
 			
 			@Override
