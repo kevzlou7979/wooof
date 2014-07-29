@@ -1,6 +1,7 @@
 package husky.wooof.com.client.ui;
 
-import husky.wooof.com.client.services.CardService;
+import husky.wooof.com.client.services.BlobService;
+import husky.wooof.com.shared.UploadedImage;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
@@ -13,6 +14,7 @@ import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.FileUpload;
 import com.google.gwt.user.client.ui.FormPanel;
+import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.FormPanel.SubmitCompleteEvent;
 import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Label;
@@ -25,6 +27,8 @@ public class HuskyUploadArea extends Composite {
 
 	interface HuskyUploadAreaUiBinder extends UiBinder<Widget, HuskyUploadArea> {
 	}
+	
+	@UiField HTMLPanel uploadPanel;
 
 	@UiField Label lblDescription;
 	
@@ -38,43 +42,57 @@ public class HuskyUploadArea extends Composite {
 
 	private String message;
 
+	private Image cardImage = new Image();
+	
 	public HuskyUploadArea() {
 		initWidget(uiBinder.createAndBindUi(this));
-		// Disable the button until we get the URL to POST to
 		uploadButton.setText("Loading...");
 		uploadForm.setEncoding(FormPanel.ENCODING_MULTIPART);
 		uploadForm.setMethod(FormPanel.METHOD_POST);
 		uploadButton.setEnabled(false);
 		uploadField.setName("image");
-
-		// Now we use out GWT-RPC service and get an URL
+		
 		startNewBlobstoreSession();
-
-		// Once we've hit submit and it's complete, let's set the form to a new
-		// session.
-		// We could also have probably done this on the onClick handler
 		uploadForm.addSubmitCompleteHandler(new FormPanel.SubmitCompleteHandler() {
-
 					@Override
 					public void onSubmitComplete(SubmitCompleteEvent event) {
 						uploadForm.reset();
 						startNewBlobstoreSession();
-						 // This is what gets the result back - the content-type *must* be
-					    // text-html
-					   
-					    if(event.getResults()!=null){
-					    	imgLogo.setUrl(event.getResults());
+					    String key = "";
+						if(event.getResults()!=null){
+							key = event.getResults();
 					    }else{
-					    	Window.alert("Error uploading Image");
+					    	key = "agt3b29vZi1odXNreXIaCxINVXBsb2FkZWRJbWFnZRiAgICAgIDyCww";
 					    }
-					  }
-				});
-		
+					    getImageUrl(key);
+					}
+
+					private void getImageUrl(String key) {
+						HuskyLoading.showLoading(true, uploadPanel,"", -15);
+						BlobService.Connect.getService().getUploadImage(key, new AsyncCallback<UploadedImage>() {
+							
+							@Override
+							public void onSuccess(UploadedImage result) {	
+								uploadPanel.clear();
+								cardImage.setWidth("100%");
+								cardImage.setHeight("100%");
+								cardImage.setUrl(result.getServingUrl());
+								uploadPanel.add(cardImage);
+								HuskyLoading.showLoading(false);
+							}
+							
+							@Override
+							public void onFailure(Throwable caught) {
+								Window.alert(caught.getMessage());
+								HuskyLoading.showLoading(false);
+							}
+						});
+					}
+		});
 	}
 
 	private void startNewBlobstoreSession() {
-		CardService.Connect.getService().getBlobstoreUploadUrl(
-				new AsyncCallback<String>() {
+		BlobService.Connect.getService().getBlobstoreUploadUrl(new AsyncCallback<String>() {
 
 					@Override
 					public void onSuccess(String result) {
@@ -93,9 +111,7 @@ public class HuskyUploadArea extends Composite {
 	@UiHandler("uploadButton")
 	void onSubmit(ClickEvent e) {
 		uploadForm.submit();
-	}
-
-	
+	}	
 
 	public String getMessage() {
 		return message;
@@ -104,6 +120,14 @@ public class HuskyUploadArea extends Composite {
 	public void setMessage(String message) {
 		this.message = message;
 		lblDescription.setText(message);
+	}
+
+	public Image getCardImage() {
+		return cardImage;
+	}
+
+	public void setCardImage(Image cardImage) {
+		this.cardImage = cardImage;
 	}
 
 }

@@ -54,6 +54,7 @@ public class CreateMain extends Composite {
 			users.clear();
 			users.add(huskyMain.getUser());
 			card = new HuskyCard(txtCardName.getText(), txtCardDescription.getText());
+			card.setCardImage(cardPhoto.getCardImage().getUrl());
 			basicInfoPanel.setVisible(false);
 			HuskyLoading.showLoading(true, panel, "Creating Card", 30);
 			CardService.Connect.getService().saveCard(card,users, new AsyncCallback<HuskyCard>() {

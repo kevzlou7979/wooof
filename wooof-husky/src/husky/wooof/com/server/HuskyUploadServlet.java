@@ -39,15 +39,14 @@ public class HuskyUploadServlet extends HttpServlet {
         } else {
 
         	ImagesService imagesService = ImagesServiceFactory.getImagesService();
-        	
-			String imageUrl = imagesService.getServingUrl(blobKey);
+        	String imageUrl = imagesService.getServingUrl(blobKey);
         	
         	//TODO Remove this part
+        	imageUrl = imageUrl.replace("0.0.0.0", "127.0.0.1");
         	
         	Entity uploadedImage = new Entity("UploadedImage");
         	uploadedImage.setProperty("blobKey", blobKey);
         	uploadedImage.setProperty(UploadedImage.CREATED_AT, new Date());
-        	
         	uploadedImage.setUnindexedProperty(UploadedImage.SERVING_URL, imageUrl);
         	
         	DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();

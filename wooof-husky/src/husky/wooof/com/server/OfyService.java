@@ -2,6 +2,7 @@ package husky.wooof.com.server;
 
 import husky.wooof.com.shared.HuskyCard;
 import husky.wooof.com.shared.HuskyUser;
+import husky.wooof.com.shared.UploadedImage;
 
 import com.googlecode.objectify.Objectify;
 import com.googlecode.objectify.ObjectifyFactory;
@@ -11,6 +12,7 @@ public class OfyService {
     static {
         ObjectifyService.register(HuskyUser.class);
         ObjectifyService.register(HuskyCard.class);
+        ObjectifyService.register(UploadedImage.class);
     }
 
     public static Objectify ofy() {

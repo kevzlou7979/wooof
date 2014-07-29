@@ -5,7 +5,7 @@
 	version="2.5" xmlns="http://java.sun.com/xml/ns/javaee">
 
 	<!-- Servlets -->
-
+	<!-- Account -->
 	<servlet>
 		<servlet-name>accountServlet</servlet-name>
 		<servlet-class>husky.wooof.com.server.UserAccountServiceImpl</servlet-class>
@@ -15,15 +15,25 @@
 		<servlet-name>accountServlet</servlet-name>
 		<url-pattern>/husky/account</url-pattern>
 	</servlet-mapping>
-	
+	<!-- Card -->
 	<servlet>
 		<servlet-name>cardServlet</servlet-name>
 		<servlet-class>husky.wooof.com.server.CardServiceImpl</servlet-class>
 	</servlet>
-
+	
 	<servlet-mapping>
 		<servlet-name>cardServlet</servlet-name>
 		<url-pattern>/husky/card</url-pattern>
+	</servlet-mapping>
+	<!-- Blob -->
+	<servlet>
+		<servlet-name>blobServlet</servlet-name>
+		<servlet-class>husky.wooof.com.server.BlobServiceImpl</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>blobServlet</servlet-name>
+		<url-pattern>/husky/blob</url-pattern>
 	</servlet-mapping>
 	
 	<!-- Upload Servlet -->
