@@ -5,5 +5,9 @@
 	<classpathentry kind="con" path="com.google.gwt.eclipse.core.GWT_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/objectify-3.1.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/log4j-1.2.8.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/gwtupload-gae-1.0.1.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/gwt-channel-api-0.3.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/org.json-20120521.jar"/>
 	<classpathentry kind="output" path="war/WEB-INF/classes"/>
 </classpath>
