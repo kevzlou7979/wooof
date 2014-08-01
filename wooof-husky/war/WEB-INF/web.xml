@@ -36,6 +36,16 @@
 		<url-pattern>/husky/blob</url-pattern>
 	</servlet-mapping>
 	
+	<!-- Chat API -->
+	<servlet>
+        <servlet-name>chatServlet</servlet-name>
+        <servlet-class>husky.wooof.com.server.ChatServiceImpl</servlet-class>
+    </servlet>
+	<servlet-mapping>
+	    <servlet-name>chatServlet</servlet-name>
+	    <url-pattern>/husky/channel</url-pattern>
+	</servlet-mapping>	
+	
 	<!-- Upload Servlet -->
 	<servlet>
 	    <servlet-name>formImageUploader</servlet-name>

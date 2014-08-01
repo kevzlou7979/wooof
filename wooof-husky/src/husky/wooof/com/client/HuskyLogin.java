@@ -1,5 +1,6 @@
 package husky.wooof.com.client;
 
+import husky.wooof.com.client.main.ChatMain;
 import husky.wooof.com.client.resources.HuskyResources;
 import husky.wooof.com.client.services.UserAccountService;
 import husky.wooof.com.client.ui.HuskyLoading;
@@ -84,6 +85,7 @@ public class HuskyLogin extends Composite {
 							HuskyLoading.showLoading(false);
 							if(result!=null){
 								loadMainPanel(result);
+								//RootPanel.get().add(new ChatMain(result));
 							}else{
 								HuskyMessage.showMessage(false, messagePanel, "Incorrect Username or Password.");
 								signInPanel.setVisible(true);

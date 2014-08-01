@@ -1,8 +1,8 @@
 package husky.wooof.com.client;
 
+import husky.wooof.com.client.dialog.CreateMain;
 import husky.wooof.com.client.dialog.HuskyDialog;
 import husky.wooof.com.client.main.CardsMain;
-import husky.wooof.com.client.main.CreateMain;
 import husky.wooof.com.client.navigation.HuskyNavigation;
 import husky.wooof.com.shared.HuskyUser;
 
