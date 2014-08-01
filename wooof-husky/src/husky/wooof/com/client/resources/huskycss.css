@@ -4,6 +4,20 @@ html,body {
 	font-family: 'Roboto', sans-serif;
 }
 
+@sprite .huskyAvatarImage{
+	gwt-image: 'ic_avatar';
+}
+
+.circleImage{
+	border-radius: 100%;
+	-webkit-border-radius: 100%;
+	-moz-border-radius: 100%;
+}
+
+.cardNavActive{
+	opacity: 1 !important;
+}
+
 .huskyButtonAdd{
 	background: #4086fa;
 	border-radius: 100%;
@@ -95,7 +109,7 @@ html,body {
 
 .huskyMessageLbl{
 	display: inline-block;
-	vertical-align: middle;
+	vertical-align: top;
 	margin-left: 10px
 }
 
@@ -170,6 +184,9 @@ html,body {
 .inline{
 	display: inline-block;
 	vertical-align: middle;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
 }
 
 .center {

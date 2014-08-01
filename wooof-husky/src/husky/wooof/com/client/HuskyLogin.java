@@ -1,6 +1,5 @@
 package husky.wooof.com.client;
 
-import husky.wooof.com.client.main.ChatMain;
 import husky.wooof.com.client.resources.HuskyResources;
 import husky.wooof.com.client.services.UserAccountService;
 import husky.wooof.com.client.ui.HuskyLoading;

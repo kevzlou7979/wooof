@@ -1,6 +1,7 @@
 package husky.wooof.com.client.dialog;
 
 import husky.wooof.com.client.HuskyMain;
+import husky.wooof.com.client.main.WorkspaceMain;
 import husky.wooof.com.client.services.CardService;
 import husky.wooof.com.client.ui.HuskyLoading;
 import husky.wooof.com.client.ui.HuskyMessage;
@@ -70,7 +71,8 @@ public class CreateMain extends Composite {
 			            	HuskyLoading.showLoading(false);
 			            	huskyMain.setCreateMain(new CreateMain(huskyMain));
 			            	huskyMain.getCardsMain().onLoadAllCards();
-			            	
+			            	huskyMain.getHuskyMainPanel().clear();
+			            	huskyMain.getHuskyMainPanel().add(new WorkspaceMain());
 			            	//TODO Load the Workspace
 			            	Window.alert("Workspace Loaded");
 			            }

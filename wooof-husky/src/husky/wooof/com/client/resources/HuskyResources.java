@@ -15,6 +15,11 @@ public interface HuskyResources extends ClientBundle{
 	ImageResource ic_trips();
 	ImageResource ic_default_card();
 	ImageResource ic_card();
+	ImageResource ic_nav_add_user_white();
+	ImageResource ic_nav_chat_white();
+	ImageResource ic_nav_info_white();
+	ImageResource ic_nav_notification();
+	ImageResource ic_avatar();
 	
     HuskyCSS huskycss();
    

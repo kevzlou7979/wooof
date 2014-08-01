@@ -1,10 +1,14 @@
 package husky.wooof.com.client.ui;
 
+import husky.wooof.com.client.main.CardsMain;
+import husky.wooof.com.client.main.WorkspaceMain;
 import husky.wooof.com.shared.HuskyCard;
 
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
+import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HTMLPanel;
@@ -24,10 +28,12 @@ public class HuskyCardItem extends Composite {
 	@UiField Image cardImage;
 	@UiField HTMLPanel panel;
 	
-	public HuskyCardItem(HuskyCard card, final double value) {
+	private CardsMain cardsMain;
+	
+	public HuskyCardItem(HuskyCard card, final double value, CardsMain cardsMain) {
 		initWidget(uiBinder.createAndBindUi(this));
 		
-		
+		this.cardsMain = cardsMain;
 		
 		Timer timer = new Timer()
         {
@@ -48,4 +54,10 @@ public class HuskyCardItem extends Composite {
 		cardImage.setUrl(card.getCardImage());
 	}
 
+	@UiHandler("lblCardName")
+	void onClickCardName(ClickEvent e){
+		cardsMain.getHuskyMain().getHuskyMainPanel().clear();
+		cardsMain.getHuskyMain().getHuskyMainPanel().add(new WorkspaceMain());
+	}
+	
 }

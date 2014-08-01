@@ -3,7 +3,6 @@ package husky.wooof.com.client.main;
 import husky.wooof.com.client.HuskyMain;
 import husky.wooof.com.client.dialog.CreateMain;
 import husky.wooof.com.client.dialog.HuskyDialog;
-import husky.wooof.com.client.resources.HuskyResources;
 import husky.wooof.com.client.services.CardService;
 import husky.wooof.com.client.ui.HuskyCardItem;
 import husky.wooof.com.client.ui.HuskyLoading;
@@ -42,14 +41,15 @@ public class CardsMain extends Composite {
 	
 	public void onLoadAllCards(){
 		cardsPanel.clear();
-		
+		HuskyLoading.showLoading(true, cardsPanel, "Getting your cards", 30);
 		CardService.Connect.getService().getAllCards(huskyMain.getUser(), new AsyncCallback<List<HuskyCard>>() {
 			
 			@Override
 			public void onSuccess(List<HuskyCard> result) {
+				HuskyLoading.showLoading(false);
 				double i = 100;
 				for(HuskyCard card : result){
-					cardsPanel.add(new HuskyCardItem(card, i));
+					cardsPanel.add(new HuskyCardItem(card, i, CardsMain.this));
 					i = i + 100;
 				}
 			}
@@ -72,6 +72,14 @@ public class CardsMain extends Composite {
 		dialog.center();
 		dialog.show();
 		huskyMain.setHuskyDialog(dialog);
+	}
+
+	public HuskyMain getHuskyMain() {
+		return huskyMain;
+	}
+
+	public void setHuskyMain(HuskyMain huskyMain) {
+		this.huskyMain = huskyMain;
 	}
 
 }

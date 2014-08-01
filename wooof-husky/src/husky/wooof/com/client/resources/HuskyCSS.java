@@ -6,6 +6,7 @@ public interface HuskyCSS extends CssResource{
 	
 	String center();
 	String inline();
+	String circleImage();
 	String lblSimple();
 	String lblSimpleActive();
 	String loading();
@@ -22,5 +23,7 @@ public interface HuskyCSS extends CssResource{
 	String huskySuccess();
 	String huskyTitle();
 	String huskyTextArea();
+	String huskyAvatarImage();
+	String cardNavActive();
 	
 }
