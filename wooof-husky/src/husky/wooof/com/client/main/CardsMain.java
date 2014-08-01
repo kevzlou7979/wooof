@@ -1,6 +1,7 @@
 package husky.wooof.com.client.main;
 
 import husky.wooof.com.client.HuskyMain;
+import husky.wooof.com.client.dialog.CreateMain;
 import husky.wooof.com.client.dialog.HuskyDialog;
 import husky.wooof.com.client.resources.HuskyResources;
 import husky.wooof.com.client.services.CardService;

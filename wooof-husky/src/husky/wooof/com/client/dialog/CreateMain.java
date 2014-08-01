@@ -1,4 +1,4 @@
-package husky.wooof.com.client.main;
+package husky.wooof.com.client.dialog;
 
 import husky.wooof.com.client.HuskyMain;
 import husky.wooof.com.client.services.CardService;
