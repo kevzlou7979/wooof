@@ -1,5 +1,6 @@
 package husky.wooof.com.client;
 
+import husky.wooof.com.client.dialog.HuskyDialog;
 import husky.wooof.com.client.main.CardsMain;
 import husky.wooof.com.client.main.CreateMain;
 import husky.wooof.com.client.navigation.HuskyNavigation;
@@ -26,6 +27,7 @@ public class HuskyMain extends Composite {
 	
 	private CardsMain cardsMain;
 	private CreateMain createMain;
+	private HuskyDialog huskyDialog;
 	private HuskyUser user;
 	
 	public HuskyMain(HuskyUser user) {
@@ -80,5 +82,12 @@ public class HuskyMain extends Composite {
 		this.user = user;
 	}
 
+	public HuskyDialog getHuskyDialog() {
+		return huskyDialog;
+	}
+
+	public void setHuskyDialog(HuskyDialog huskyDialog) {
+		this.huskyDialog = huskyDialog;
+	}
 	
 }

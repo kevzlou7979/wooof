@@ -1,5 +1,16 @@
 /** Add css rules here for your application. */
-
+.gwt-DialogBox, .gwt-PopupPanelGlass{
+	z-index: 998;
+}
+.gwt-PopupPanelGlass{
+	position: fixed !important;
+}
+.gwt-DialogBox .dialogTopLeft, .gwt-DialogBox .Caption , .gwt-DialogBox .dialogTopRight
+,.gwt-DialogBox .dialogMiddleLeft, .gwt-DialogBox .dialogMiddleRight, .gwt-DialogBox .dialogBottomLeft
+,.gwt-DialogBox .dialogBottomCenter, .gwt-DialogBox .dialogBottomRight{
+	background: #fff !important;
+	border: none !important;
+}
 /** Example rules used by the template application (remove for your app) */
 h1 {
   font-size: 2em;

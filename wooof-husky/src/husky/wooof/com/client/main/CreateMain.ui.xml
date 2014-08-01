@@ -5,7 +5,6 @@
 	<ui:with field='res' type='husky.wooof.com.client.resources.HuskyResources' />
 	<ui:style>
 		.basicInfoPanel{
-			width: 35%;
 			margin: auto;
 		}
 	</ui:style>

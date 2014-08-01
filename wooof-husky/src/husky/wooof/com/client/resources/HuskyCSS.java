@@ -11,6 +11,7 @@ public interface HuskyCSS extends CssResource{
 	String loading();
 	String huskyTextBox();
 	String huskyButton();
+	String huskyButtonAdd();
 	String huskyLink();
 	String huskyLoadingText();
 	String rotateLogo();
@@ -21,4 +22,5 @@ public interface HuskyCSS extends CssResource{
 	String huskySuccess();
 	String huskyTitle();
 	String huskyTextArea();
+	
 }

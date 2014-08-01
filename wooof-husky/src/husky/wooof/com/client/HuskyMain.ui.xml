@@ -15,7 +15,7 @@
 			box-sizing: border-box;
 			-webkit-box-sizing: border-box;
 			-mox-box-sizing: border-box;
-			z-index: 999;
+			z-index: 1;
 		}
 		.huskyMainPanel{
 			position: absolute;

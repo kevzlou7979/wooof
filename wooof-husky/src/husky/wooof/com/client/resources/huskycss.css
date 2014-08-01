@@ -4,6 +4,33 @@ html,body {
 	font-family: 'Roboto', sans-serif;
 }
 
+.huskyButtonAdd{
+	background: #4086fa;
+	border-radius: 100%;
+	-webkit-border-radius: 100%;
+	-moz-border-radius: 100%;
+	width: 50px;
+	height: 50px;
+	color: #fff;
+	transition: 0.5s all;
+	-webkit-transition: 0.5s all;
+	-moz-transition: 0.5s all;
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	opacity: 0.5;
+	font-size: 2em;
+}
+
+.huskyButtonAdd:hover{
+	opacity: 1;
+	width: 60px;
+	height: 60px;
+	transform: rotate(360deg);
+	-webkit-transform: rotate(360deg);
+	-moz-transform: rotate(360deg);
+}
+
 .rotateLogo{
 	transition: 1s  all;
 	-webkit-transition: 1s all;
