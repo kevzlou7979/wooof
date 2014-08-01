@@ -17,9 +17,5 @@ public class WorkspaceMain extends Composite{
 		initWidget(uiBinder.createAndBindUi(this));
 	}
 
-	public WorkspaceMain(String firstName) {
-		initWidget(uiBinder.createAndBindUi(this));
-	}
-
 
 }

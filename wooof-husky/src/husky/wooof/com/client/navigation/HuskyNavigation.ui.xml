@@ -13,12 +13,10 @@
 		}
 	</ui:style>
 	<g:HTMLPanel>
-		<h:CircleImage ui:field="imgProfile" />
+		<h:CircleImage ui:field="imgProfile"/>
 		
 		<g:HTMLPanel ui:field="navMenu" addStyleNames="{style.menu}">
 			<g:Label ui:field="navCards" text="Cards" addStyleNames="{res.huskycss.lblSimple} {style.menu_item}"/>
-			<g:Label ui:field="navCreate" text="Create +" addStyleNames="{res.huskycss.lblSimple} {style.menu_item}"/>
-			<g:Label ui:field="navTeam" text="Team" addStyleNames="{res.huskycss.lblSimple} {style.menu_item}"/>
 			<g:Label ui:field="navSettings" text="Settings" addStyleNames="{res.huskycss.lblSimple} {style.menu_item}"/>
 			<g:Label ui:field="navAccount" text="Account" addStyleNames="{res.huskycss.lblSimple} {style.menu_item}"/>
 			<g:Label ui:field="navLogout" text="Logout" addStyleNames="{res.huskycss.lblSimple} {style.menu_item}"/>

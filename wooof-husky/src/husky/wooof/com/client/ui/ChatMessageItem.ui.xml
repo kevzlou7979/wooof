@@ -1,0 +1,66 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:with field='res'
+		type='husky.wooof.com.client.resources.HuskyResources' />
+	<ui:style>
+	.icAvatar {
+		border: 3px solid #4086FA;
+		padding: 10px;
+		width: 60px;
+		height: 60px;
+		background: #FFF;
+	}
+	
+	.chatMessageItemPanel {
+		margin-top: 20px;
+		margin-left: -40px;
+	}
+	
+	.bubble {
+		position: relative;
+		width: 230px;
+		min-height: 50px;
+		padding: 0;
+		background: #FFF;
+		-webkit-border-radius: 2px;
+		-moz-border-radius: 2px;
+		border-radius: 2px;
+		-webkit-box-shadow: 0px 1px 1px 0 #DEDEDE;
+		-moz-box-shadow: 0px 1px 1px 0 #DEDEDE;
+		box-shadow: 0px 1px 1px 0 #DEDEDE;
+		margin-left: 20px;
+		padding: 10px;
+	}
+	
+	.bubble:after {
+		content: "";
+		position: absolute;
+		top: 10px;
+		left: -15px;
+		border-style: solid;
+		border-width: 15px 20px 15px 0;
+		border-color: rgba(0, 0, 0, 0) #FFF;
+		display: block;
+		width: 0;
+		z-index: 1;
+	}
+	.lblUser{
+		color: #4086FA;
+		font-size: 1.1em;
+	}
+	.lblMessage{
+		color: #999;
+		font-size: 0.9em;
+	}
+	</ui:style>
+	<g:HTMLPanel addStyleNames="{style.chatMessageItemPanel}">
+		<g:Image resource="{res.ic_avatar}"
+			addStyleNames="{res.huskycss.circleImage} {style.icAvatar} {res.huskycss.inline}" />
+
+		<g:HTMLPanel addStyleNames="{style.bubble} {res.huskycss.inline}">
+			<g:Label ui:field="lblName" text="Mark Kevin" addStyleNames="{style.lblUser}"/>
+			<g:Label ui:field="lblMessage" text="Hi welcome to Chat System of Husky" addStyleNames="{style.lblMessage}"/>
+		</g:HTMLPanel>
+	</g:HTMLPanel>
+</ui:UiBinder> 

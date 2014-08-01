@@ -25,7 +25,7 @@ public class HuskyNavigation extends Composite {
 	}
 	
 	@UiField HTMLPanel navMenu;
-	@UiField Label navCards, navCreate, navTeam,navSettings, navAccount, navLogout;
+	@UiField Label navCards, navSettings, navAccount, navLogout;
 	
 	private HuskyMain huskyMain;
 	
@@ -40,19 +40,9 @@ public class HuskyNavigation extends Composite {
 		changeNav(navCards, IHuskyConstants.NAV_CARDS);
 	}
 	
-	@UiHandler("navCreate")
-	void onNavCreate(ClickEvent e){
-		changeNav(navCreate, IHuskyConstants.NAV_CREATE);
-	}
-	
 	@UiHandler("navSettings")
 	void onNavSettings(ClickEvent e){
 		changeNav(navSettings, IHuskyConstants.NAV_SETTINGS);
-	}
-	
-	@UiHandler("navTeam")
-	void onNavTeam(ClickEvent e){
-		changeNav(navTeam, IHuskyConstants.NAV_TEAM);
 	}
 	
 	@UiHandler("navAccount")
