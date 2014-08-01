@@ -56,6 +56,7 @@ public class CreateMain extends Composite {
 			card = new HuskyCard(txtCardName.getText(), txtCardDescription.getText());
 			card.setCardImage(cardPhoto.getCardImage().getUrl());
 			basicInfoPanel.setVisible(false);
+			huskyMain.getHuskyDialog().hide();
 			HuskyLoading.showLoading(true, panel, "Creating Card", 30);
 			CardService.Connect.getService().saveCard(card,users, new AsyncCallback<HuskyCard>() {
 				
@@ -69,6 +70,7 @@ public class CreateMain extends Composite {
 			            	HuskyLoading.showLoading(false);
 			            	huskyMain.setCreateMain(new CreateMain(huskyMain));
 			            	huskyMain.getCardsMain().onLoadAllCards();
+			            	
 			            	//TODO Load the Workspace
 			            	Window.alert("Workspace Loaded");
 			            }

@@ -1,12 +1,13 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
 	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:with field='res' type='husky.wooof.com.client.resources.HuskyResources' />
 	<ui:style>
 	
 	</ui:style>
 	<g:HTMLPanel ui:field="panel">
 	    
 	    <g:HTMLPanel ui:field="cardsPanel"/>
-	    
+	    <g:Button ui:field="btnAdd" text="+" addStyleNames="{res.huskycss.huskyButtonAdd}"/>
 	</g:HTMLPanel>
 </ui:UiBinder> 
