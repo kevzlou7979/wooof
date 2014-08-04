@@ -19,7 +19,6 @@
 	}
 	.headerPanel{
 		border-bottom: 1px solid #e7e7e7;
-		padding: 20px 0px 20px 0px;
 	}
 	.headerPanel:hover .imgIcon{
 		-webkit-transform: rotate(360deg);
@@ -31,7 +30,7 @@
 	}
 	</ui:style>
 	<g:HTMLPanel>
-		<g:HTMLPanel addStyleNames="{style.headerPanel}">
+		<g:HTMLPanel ui:field="headerPanel" addStyleNames="{style.headerPanel}">
 			<g:Image ui:field="imgIcon" addStyleNames="{style.imgIcon}"/>
 			<g:Label ui:field="lblTitle" addStyleNames="{style.lblTitle}"/>
 		</g:HTMLPanel>

@@ -1,0 +1,19 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:h="urn:import:husky.wooof.com.client.ui">
+	<ui:with field='res' type='husky.wooof.com.client.resources.HuskyResources' />
+	<ui:style>
+	
+	</ui:style>
+	<g:HTMLPanel addStyleNames="{res.huskycss.accountPanel}" >
+		<h:HuskyTitle title="Story"  resource="{res.ic_account_story}" color="4086fa" border="false" imageSize="50px" fontSize="1.5"/>
+	
+		<g:Label text="Tagline" addStyleNames="{res.huskycss.huskyBasicTitle}"/>
+		<g:Label ui:field="lblTagLine" text="A brief description of you" addStyleNames="{res.huskycss.huskyBasicDescription}"/>
+		
+		<g:Label text="Introduction" addStyleNames="{res.huskycss.huskyBasicTitle}"/>
+		<g:Label ui:field="lblIntroduction" text="Put a little about yourself here so people know they've found the correct mark" addStyleNames="{res.huskycss.huskyBasicDescription}"/>
+	
+	</g:HTMLPanel>
+</ui:UiBinder> 

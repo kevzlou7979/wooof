@@ -1,22 +1,16 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
-	xmlns:g="urn:import:com.google.gwt.user.client.ui"
-	xmlns:n="urn:import:husky.wooof.com.client.navigation">
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
 	<ui:style>
-	.cardNavigation{
-		position: fixed;
-		top: 0;
-		right: 0;
-		height: 100%;
-	}
+	
 	</ui:style>
-	<g:HTMLPanel>
+	<g:HTMLPanel ui:field="panel">
 		<g:HTMLPanel ui:field="mainPanel">
 		    Worspace
 		</g:HTMLPanel>
 		<g:HTMLPanel ui:field="lessonPanel">
 		    Lessons
 		</g:HTMLPanel>
-		<n:HuskyCardNavigation ui:field="cardNavigation" addStyleNames="{style.cardNavigation}"/>
+		
 	</g:HTMLPanel>
 </ui:UiBinder> 

@@ -1,11 +1,12 @@
 package husky.wooof.com.client.navigation;
 
+import husky.wooof.com.client.HuskyMain;
 import husky.wooof.com.client.resources.HuskyResources;
-import husky.wooof.com.client.resources.IHuskyConstants;
 import husky.wooof.com.client.sidebar.AddUserSideBar;
 import husky.wooof.com.client.sidebar.CardInfoSidebar;
 import husky.wooof.com.client.sidebar.ChatSidebar;
 import husky.wooof.com.client.sidebar.NotificationSidebar;
+import husky.wooof.com.shared.IHuskyConstants;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
@@ -35,12 +36,13 @@ public class HuskyCardNavigation extends Composite {
 	private ChatSidebar chatSideBar;
 	private AddUserSideBar addUserSideBar;
 	private NotificationSidebar notificationSidebar;
+	private HuskyMain huskyMain;
 	
-	
-	public HuskyCardNavigation() {
+	public HuskyCardNavigation(HuskyMain huskyMain) {
 		initWidget(uiBinder.createAndBindUi(this));
+		this.huskyMain = huskyMain;
 		cardInfoSideBar = new CardInfoSidebar(this);
-		chatSideBar = new ChatSidebar(this);
+		chatSideBar = new ChatSidebar(this,huskyMain.getUser());
 		addUserSideBar = new AddUserSideBar(this);
 		notificationSidebar = new NotificationSidebar(this);
 		btnHideNav.setVisible(false);
@@ -70,6 +72,13 @@ public class HuskyCardNavigation extends Composite {
 	void onHideNav(ClickEvent e){
 		navContent.setWidth("0px");
 		btnHideNav.setVisible(false);
+		setNavContentVisibility(false);
+	}
+	
+	private void setNavContentVisibility(boolean isVisible){
+		for(Widget w : navContent){
+			w.setVisible(isVisible);
+		}
 	}
 	
 	private void changeNav(Image menu, int navType){
@@ -79,6 +88,7 @@ public class HuskyCardNavigation extends Composite {
 		menu.addStyleName(HuskyResources.INSTANCE.huskycss().cardNavActive());
 		navContent.setWidth("300px");
 		btnHideNav.setVisible(true);
+		setNavContentVisibility(true);
 		navContent.clear();
 		navContent.add(btnHideNav);
 		switch (navType) {
@@ -130,6 +140,14 @@ public class HuskyCardNavigation extends Composite {
 
 	public void setNotificationSidebar(NotificationSidebar notificationSidebar) {
 		this.notificationSidebar = notificationSidebar;
+	}
+
+	public HuskyMain getHuskyMain() {
+		return huskyMain;
+	}
+
+	public void setHuskyMain(HuskyMain huskyMain) {
+		this.huskyMain = huskyMain;
 	}
 	
 }

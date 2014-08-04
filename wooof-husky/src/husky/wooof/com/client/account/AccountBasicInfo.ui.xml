@@ -1,0 +1,39 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:h="urn:import:husky.wooof.com.client.ui">
+	<ui:with field='res' type='husky.wooof.com.client.resources.HuskyResources' />
+	<ui:style>
+		.btnAction{
+			width: 49%;
+			box-sizing: border-box;
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+		}
+	</ui:style>
+	<g:FocusPanel ui:field="panel" addStyleNames="{res.huskycss.accountPanel}">
+		<g:HTMLPanel ui:field="editablePanel">
+			<g:HTMLPanel>
+				<h:HuskyTitle title="Basic Information" addStyleNames="{res.huskycss.inline}" resource="{res.ic_account_basic_info}" color="4086fa" border="false" imageSize="50px" fontSize="1.5" />
+				<g:Image resource="{res.ic_edit}" title="Edit" ui:field="btnEdit" addStyleNames="{res.huskycss.accountBtnEdit}"/>
+			</g:HTMLPanel>
+			
+			<g:Label text="First Name" addStyleNames="{res.huskycss.huskyBasicTitle}"/>
+			<h:HuskyEditableLabel ui:field="lblFirstName" addStyleNames="{res.huskycss.huskyBasicDescription}"/>
+			
+			<g:Label text="Last Name" addStyleNames="{res.huskycss.huskyBasicTitle}"/>
+			<h:HuskyEditableLabel ui:field="lblLastName" addStyleNames="{res.huskycss.huskyBasicDescription}"/>
+			
+			<g:Label text="Email" addStyleNames="{res.huskycss.huskyBasicTitle}"/>
+			<h:HuskyEditableLabel ui:field="lblEmail" addStyleNames="{res.huskycss.huskyBasicDescription}"/>
+			
+			<g:Label text="Gender" addStyleNames="{res.huskycss.huskyBasicTitle}"/>
+			<h:HuskyEditableLabel ui:field="lblGender" addStyleNames="{res.huskycss.huskyBasicDescription}"/>
+		<g:HTMLPanel ui:field="messagePanel"/>
+		<g:HTMLPanel ui:field="actionPanel">
+		    <h:HuskyButton text="Cancel" ui:field="btnCancel" addStyleNames="{res.huskycss.inline} {style.btnAction} {res.huskycss.huskyButtonWhite}"/>
+		    <h:HuskyButton text="Save" ui:field="btnSave" addStyleNames="{res.huskycss.inline} {style.btnAction}"/>
+		</g:HTMLPanel>
+		</g:HTMLPanel>
+	</g:FocusPanel>
+</ui:UiBinder> 

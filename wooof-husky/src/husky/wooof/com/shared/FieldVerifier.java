@@ -1,6 +1,7 @@
 package husky.wooof.com.shared;
 
 import husky.wooof.com.client.resources.HuskyResources;
+import husky.wooof.com.client.ui.HuskyEditableLabel;
 import husky.wooof.com.client.ui.HuskyMessage;
 import husky.wooof.com.client.ui.HuskyPasswordBox;
 import husky.wooof.com.client.ui.HuskyTextBox;
@@ -14,13 +15,21 @@ public class FieldVerifier {
 	public static boolean isValidFields(HTMLPanel panel, HTMLPanel messageCon){
 		boolean isValid = false;
 		for(Widget w : panel){
-			if(w instanceof HuskyTextBox || w instanceof HuskyPasswordBox){
-				if(((TextBox)w).getText().isEmpty()){
-					w.addStyleName(HuskyResources.INSTANCE.huskycss().huskyTextBoxError());
+			if(w instanceof HuskyTextBox || w instanceof HuskyPasswordBox || w instanceof HuskyEditableLabel){
+				TextBox txtBox = new HuskyTextBox();
+				if(w instanceof HuskyEditableLabel){
+					txtBox = ((HuskyEditableLabel) w).getTxtBox();
+				}else{
+					txtBox = ((TextBox)w);
+					
+				}
+				if(txtBox.getText().isEmpty()){
+					txtBox.addStyleName(HuskyResources.INSTANCE.huskycss().huskyTextBoxError());
 					isValid = false;
 					HuskyMessage.showMessage(false, messageCon, "Please provide empty fields.");
-				}else{
-					w.removeStyleName(HuskyResources.INSTANCE.huskycss().huskyTextBoxError());
+				}else{	
+					txtBox.removeStyleName(HuskyResources.INSTANCE.huskycss().huskyTextBoxError());
+					messageCon.clear();
 					isValid = true;
 				}
 			}
@@ -30,7 +39,7 @@ public class FieldVerifier {
 	
 	public static boolean isValidEmailFields(HuskyTextBox txtEmail, HTMLPanel messageCon){
 		boolean isValid = false;
-		if(!txtEmail.getText().matches(husky.wooof.com.client.resources.IHuskyConstants.REGEX_MAIL)){
+		if(!txtEmail.getText().matches(husky.wooof.com.shared.IHuskyConstants.REGEX_MAIL)){
 			txtEmail.addStyleName(HuskyResources.INSTANCE.huskycss().huskyTextBoxError());
 			isValid = false;
 			HuskyMessage.showMessage(false, messageCon, "Incorrect Email Address.");

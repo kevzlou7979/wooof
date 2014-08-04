@@ -4,21 +4,54 @@ html,body {
 	font-family: 'Roboto', sans-serif;
 }
 
-@sprite .huskyAvatarImage{
+.accountBtnEdit{
+	float: right;
+	margin-top: 10px;
+	width: 30px;
+	height: 30px;
+	cursor: pointer;
+}
+
+.accountPanel {
+	padding: 0px 20px 20px 20px;
+	width: 40%;
+	display: inline-block;
+	vertical-align: top;
+}
+
+.huskyBasicTitle {
+	font-size: 1.3em;
+	color: rgb(102, 102, 102);
+}
+
+.huskyBasicDescription {
+	font-size: 1.1em;
+	color: rgb(153, 153, 153);
+	margin-bottom: 15px;
+}
+
+.cardNavigation {
+	position: fixed;
+	top: 0;
+	right: 0;
+	height: 100%;
+}
+
+@sprite .huskyAvatarImage {
 	gwt-image: 'ic_avatar';
 }
 
-.circleImage{
+.circleImage {
 	border-radius: 100%;
 	-webkit-border-radius: 100%;
 	-moz-border-radius: 100%;
 }
 
-.cardNavActive{
+.cardNavActive {
 	opacity: 1 !important;
 }
 
-.huskyButtonAdd{
+.huskyButtonAdd {
 	background: #4086fa;
 	border-radius: 100%;
 	-webkit-border-radius: 100%;
@@ -36,7 +69,7 @@ html,body {
 	font-size: 2em;
 }
 
-.huskyButtonAdd:hover{
+.huskyButtonAdd:hover {
 	opacity: 1;
 	width: 60px;
 	height: 60px;
@@ -45,8 +78,8 @@ html,body {
 	-moz-transform: rotate(360deg);
 }
 
-.rotateLogo{
-	transition: 1s  all;
+.rotateLogo {
+	transition: 1s all;
 	-webkit-transition: 1s all;
 	-moz-transition: 1s all;
 	transform: rotate(360deg);
@@ -55,18 +88,18 @@ html,body {
 	cursor: pointer;
 }
 
-.huskyLoadingText{
+.huskyLoadingText {
 	color: #4086fa;
 	position: relative;
 	top: 50px;
 	font-weight: normal;
 }
 
-.huskyTitle{
+.huskyTitle {
 	font-size: 3em;
 }
 
-.huskyLink{
+.huskyLink {
 	color: #4086fa;
 	padding: 10px;
 	margin-top: 10px;
@@ -74,11 +107,11 @@ html,body {
 	cursor: pointer;
 }
 
-.huskyLink:hover{
+.huskyLink:hover {
 	opacity: 0.8;
 }
 
-.huskyTextBox , .huskyTextArea{
+.huskyTextBox,.huskyTextArea {
 	width: 100%;
 	padding: 10px;
 	font-size: 1.2em;
@@ -93,45 +126,45 @@ html,body {
 	margin-top: 5px;
 }
 
-.huskyTextBox:focus ,.huskyTextArea:hover{
+.huskyTextBox:focus,.huskyTextArea:hover {
 	outline: none;
 	border-left: 5px solid #4086fa;
 }
 
-.huskyTextArea{
+.huskyTextArea {
 	min-height: 200px;
 }
 
-.huskyTextBoxError{
+.huskyTextBoxError {
 	outline: none;
 	border-left: 5px solid #e74c3c;
 }
 
-.huskyMessageLbl{
+.huskyMessageLbl {
 	display: inline-block;
 	vertical-align: top;
 	margin-left: 10px
 }
 
-.huskyMessageImg{
+.huskyMessageImg {
 	width: 30px;
 	height: 30px;
 	display: inline-block;
 	vertical-align: middle;
 }
 
-.huskyError{
+.huskyError {
 	color: #E74C3C;
 }
 
-.huskySuccess{
+.huskySuccess {
 	color: #2ecc71;
 }
 
 .huskyButton {
 	width: 100%;
 	padding: 10px;
-	font-family: 'Roboto',bold !important;
+	font-family: 'Roboto', bold !important;
 	font-size: 1.2em;
 	cursor: pointer;
 	display: inline-block;
@@ -177,11 +210,58 @@ html,body {
 	margin-top: 5px;
 }
 
-.huskyButton:hover{
+.huskyButtonWhite {
+	width: 100%;
+	padding: 10px;
+	font-family: 'Roboto', bold !important;
+	font-size: 1.2em;
+	cursor: pointer;
+	display: inline-block;
+	vertical-align: middle;
+	min-height: 1em;
+	outline: 0;
+	border: none;
+	margin: 0;
+	padding: .8em 1.5em;
+	line-height: 1;
+	font-weight: 700;
+	font-style: normal;
+	text-align: center;
+	text-decoration: none;
+	border-radius: .25em;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-tap-highlight-color: transparent;
+	-webkit-transition: opacity .25s ease, background-color .25s ease, color
+		.25s ease, background .25s ease, -webkit-box-shadow .25s ease;
+	-moz-transition: opacity .25s ease, background-color .25s ease, color
+		.25s ease, background .25s ease, box-shadow .25s ease;
+	transition: opacity .25s ease, background-color .25s ease, color .25s
+		ease, background .25s ease, box-shadow .25s ease;
+	background-color: #fff;
+	color: #999;
+	margin-top: 5px;
+	box-shadow: none;
+	-webkit-box-shadow: none;
+	border: 1px solid #e9e9e9;
+	background-image: none;	
+}
+
+.huskyButtonWhite:hover{
 	opacity: 0.9;
 }
 
-.inline{
+.huskyButton:hover {
+	opacity: 0.9;
+}
+
+.inline {
 	display: inline-block;
 	vertical-align: middle;
 	box-sizing: border-box;
@@ -215,40 +295,45 @@ html,body {
 }
 
 /** HUSKY LOADING **/
-	.loading {
-	  position: absolute;
-	  top: 50%;
-	  left: 50%;
-	  width: 24px;
-	  height: 24px;
-	  margin: -12px 0 0 -12px;
-	}
+.loading {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 24px;
+	height: 24px;
+	margin: -12px 0 0 -12px;
+}
 
-	.loading i {
-	  position: absolute;
-	  top: 24px; left: 24px;
-	  display: block;
-	  width: 24px;
-	  height: 24px;
-	  background: #4086fa;
-	  border-radius: 24px;
-	  -webkit-animation: spin2 1.5s ease-in-out infinite;
-	  animation: spin2 1.5s ease-in-out infinite;
-	}
-	.loading i:first-child {
-	  top: -24px; left: 0;
-	  background: #4086fa;
-	  opacity: 0.9;
-	  -webkit-animation: spin 1.5s ease-in-out infinite;
-	  animation: spin 1.5s ease-in-out infinite;
-	}
-	.loading i:last-child {
-	  top: 24px; left: -24px;
-	  background: #4086fa;
-	  opacity: 0.5;
-	  -webkit-animation: spin3 1.5s ease-in-out infinite;
-	  animation: spin3 1.5s ease-in-out infinite;
-	}
+.loading i {
+	position: absolute;
+	top: 24px;
+	left: 24px;
+	display: block;
+	width: 24px;
+	height: 24px;
+	background: #4086fa;
+	border-radius: 24px;
+	-webkit-animation: spin2 1.5s ease-in-out infinite;
+	animation: spin2 1.5s ease-in-out infinite;
+}
+
+.loading i:first-child {
+	top: -24px;
+	left: 0;
+	background: #4086fa;
+	opacity: 0.9;
+	-webkit-animation: spin 1.5s ease-in-out infinite;
+	animation: spin 1.5s ease-in-out infinite;
+}
+
+.loading i:last-child {
+	top: 24px;
+	left: -24px;
+	background: #4086fa;
+	opacity: 0.5;
+	-webkit-animation: spin3 1.5s ease-in-out infinite;
+	animation: spin3 1.5s ease-in-out infinite;
+}
 
 	@-webkit-keyframes spin {
 	  0% {
