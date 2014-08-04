@@ -3,7 +3,7 @@ package husky.wooof.com.client.navigation;
 import husky.wooof.com.client.HuskyLogin;
 import husky.wooof.com.client.HuskyMain;
 import husky.wooof.com.client.resources.HuskyResources;
-import husky.wooof.com.client.resources.IHuskyConstants;
+import husky.wooof.com.shared.IHuskyConstants;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
@@ -66,14 +66,11 @@ public class HuskyNavigation extends Composite {
 		case IHuskyConstants.NAV_CARDS:
 			huskyMain.getHuskyMainPanel().add(huskyMain.getCardsMain());
 			break;
-		case IHuskyConstants.NAV_CREATE:
-			huskyMain.getHuskyMainPanel().add(huskyMain.getCreateMain());
-			break;
 		case IHuskyConstants.NAV_SETTINGS:
 			
 			break;
 		case IHuskyConstants.NAV_ACCOUNT:
-			
+			huskyMain.getHuskyMainPanel().add(huskyMain.getAccountMain());
 			break;
 		case IHuskyConstants.NAV_LOGOUT:
 			RootPanel.get().clear();

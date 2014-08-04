@@ -18,6 +18,11 @@ public class HuskyUser implements Serializable{
 	private String lastName;
 	private String email;
 	private String password;
+	private String tagline;
+	private String introduction;
+	private String gender;
+	private String profilePic;
+	
 	
 	public HuskyUser() {}
 	
@@ -26,16 +31,26 @@ public class HuskyUser implements Serializable{
 		this.email = email;
 		this.password = password;
 	}
-
-
-	public HuskyUser(String firstName, String lastName, String email, String password) {
+	
+	public HuskyUser(String firstName, String lastName, String email,
+			String gender) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.gender = gender;
+	}
+	
+	public HuskyUser(String firstName, String lastName, String email,
+			String password, String gender) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
 		this.password = password;
+		this.gender = gender;
 	}
-	
+
 	public Long getId() {
 		return id;
 	}
@@ -74,5 +89,37 @@ public class HuskyUser implements Serializable{
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public String getTagline() {
+		return tagline;
+	}
+
+	public void setTagline(String tagline) {
+		this.tagline = tagline;
+	}
+
+	public String getIntroduction() {
+		return introduction;
+	}
+
+	public void setIntroduction(String introduction) {
+		this.introduction = introduction;
+	}
+
+	public String getProfilePic() {
+		return profilePic;
+	}
+
+	public void setProfilePic(String profilePic) {
+		this.profilePic = profilePic;
+	}
+
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
 	}
 }

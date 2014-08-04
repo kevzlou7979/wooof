@@ -14,12 +14,11 @@
 	
 	.chatMessageItemPanel {
 		margin-top: 20px;
-		margin-left: -40px;
 	}
 	
 	.bubble {
 		position: relative;
-		width: 230px;
+		width: 220px;
 		min-height: 50px;
 		padding: 0;
 		background: #FFF;
@@ -31,6 +30,7 @@
 		box-shadow: 0px 1px 1px 0 #DEDEDE;
 		margin-left: 20px;
 		padding: 10px;
+		word-wrap: break-word;
 	}
 	
 	.bubble:after {

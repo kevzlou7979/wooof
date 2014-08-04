@@ -2,6 +2,7 @@ package husky.wooof.com.client;
 
 import husky.wooof.com.client.resources.HuskyResources;
 import husky.wooof.com.client.services.UserAccountService;
+import husky.wooof.com.client.ui.HuskyListBox;
 import husky.wooof.com.client.ui.HuskyLoading;
 import husky.wooof.com.client.ui.HuskyMessage;
 import husky.wooof.com.client.ui.HuskyPasswordBox;
@@ -40,11 +41,14 @@ public class HuskyLogin extends Composite {
 	@UiField HuskyPasswordBox txtPassword, txtRPassword, txtRConPassword;
 	@UiField HuskyTextBox txtRFirstName, txtRLastName, txtREmail;
 	@UiField Label signUpNav;
+	@UiField HuskyListBox lstGender;
 	
 	public HuskyLogin() {
 		initWidget(uiBinder.createAndBindUi(this));
 		loadSignInPanel();
-		signUpNav.removeFromParent();
+		//signUpNav.removeFromParent();
+		txtEmail.setText("kevzlou7979@gmail.com");
+		txtPassword.setText("123123123");
 	}
 	
 	private void loadSignUpPanel(){
@@ -114,12 +118,13 @@ public class HuskyLogin extends Composite {
 			signUpPanel.setVisible(false);
 			imgLogo.addStyleName(HuskyResources.INSTANCE.huskycss().rotateLogo());
 			
-			UserAccountService.Connect.getService().register(txtRFirstName.getText(), txtRLastName.getText(), txtREmail.getText(), txtRPassword.getText(), new AsyncCallback<HuskyUser>() {
+			UserAccountService.Connect.getService().register(txtRFirstName.getText(), txtRLastName.getText(), txtREmail.getText(), txtRPassword.getText(), lstGender.getItemText(lstGender.getSelectedIndex()), new AsyncCallback<HuskyUser>() {
 				
 				@Override
 				public void onSuccess(final HuskyUser result) {
 					imgLogo.removeStyleName(HuskyResources.INSTANCE.huskycss().rotateLogo());
 					loadMainPanel(result);
+					
 				};
 				
 				@Override
@@ -177,5 +182,7 @@ public class HuskyLogin extends Composite {
 			signUpAccount();
 		}
 	}
+	
+
 	
 }

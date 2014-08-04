@@ -72,7 +72,7 @@ public class CreateMain extends Composite {
 			            	huskyMain.setCreateMain(new CreateMain(huskyMain));
 			            	huskyMain.getCardsMain().onLoadAllCards();
 			            	huskyMain.getHuskyMainPanel().clear();
-			            	huskyMain.getHuskyMainPanel().add(new WorkspaceMain());
+			            	huskyMain.getHuskyMainPanel().add(new WorkspaceMain(huskyMain));
 			            	//TODO Load the Workspace
 			            	Window.alert("Workspace Loaded");
 			            }

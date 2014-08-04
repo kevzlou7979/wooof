@@ -57,7 +57,7 @@ public class HuskyCardItem extends Composite {
 	@UiHandler("lblCardName")
 	void onClickCardName(ClickEvent e){
 		cardsMain.getHuskyMain().getHuskyMainPanel().clear();
-		cardsMain.getHuskyMain().getHuskyMainPanel().add(new WorkspaceMain());
+		cardsMain.getHuskyMain().getHuskyMainPanel().add(new WorkspaceMain(cardsMain.getHuskyMain()));
 	}
 	
 }

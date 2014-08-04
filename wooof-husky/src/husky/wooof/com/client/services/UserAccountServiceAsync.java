@@ -8,7 +8,7 @@ public interface UserAccountServiceAsync {
 	
 	public void login(String email, String password, AsyncCallback<HuskyUser> callback);
 	
-	public void register(String firstName, String lastName, String email, String password, AsyncCallback<HuskyUser> callback);
+	public void register(String firstName, String lastName, String email, String password, String gender, AsyncCallback<HuskyUser> callback);
 	
 	public void getUser(HuskyUser user, AsyncCallback<HuskyUser > callback);
 	

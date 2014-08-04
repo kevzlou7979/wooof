@@ -21,9 +21,9 @@ public class UserAccountServiceImpl extends RemoteServiceServlet implements User
 
 
 	@Override
-	public HuskyUser register(String firstName, String lastName, String email, String password)
+	public HuskyUser register(String firstName, String lastName, String email, String password, String gender)
 			throws Exception {
-		HuskyUser user = new HuskyUser(firstName, lastName, email, MD5Helper.encode(password));
+		HuskyUser user = new HuskyUser(firstName, lastName, email, MD5Helper.encode(password), gender);
 		ofy.put(user);
 		return user;
 	}

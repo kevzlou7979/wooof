@@ -53,6 +53,10 @@
 			<g:HTMLPanel ui:field="signUpPanel" >
 				<h:HuskyTextBox placeholder="FirstName" ui:field="txtRFirstName"/>
 				<h:HuskyTextBox placeholder="LastName" ui:field="txtRLastName"/>
+				<h:HuskyListBox ui:field="lstGender">
+				    <item>Male</item>
+				    <item>Female</item>
+				</h:HuskyListBox>
 				<h:HuskyTextBox placeholder="Email" ui:field="txtREmail"/>
 				<h:HuskyPasswordBox placeholder="Password" ui:field="txtRPassword"/>
 				<h:HuskyPasswordBox placeholder="Confirm Password" ui:field="txtRConPassword"/>
