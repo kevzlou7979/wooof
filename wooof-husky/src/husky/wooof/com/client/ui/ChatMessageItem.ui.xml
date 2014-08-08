@@ -55,7 +55,7 @@
 	}
 	</ui:style>
 	<g:HTMLPanel addStyleNames="{style.chatMessageItemPanel}">
-		<g:Image resource="{res.ic_avatar}"
+		<g:Image ui:field="imgProfile" resource="{res.ic_avatar}"
 			addStyleNames="{res.huskycss.circleImage} {style.icAvatar} {res.huskycss.inline}" />
 
 		<g:HTMLPanel addStyleNames="{style.bubble} {res.huskycss.inline}">

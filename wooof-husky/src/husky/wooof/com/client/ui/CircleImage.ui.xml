@@ -67,16 +67,27 @@
 		left: .08em;
 		width: .85em;
 		height: .85em;
-		background-color: #fff;
 		-moz-border-radius: .5em;
 		-webkit-border-radius: .5em;
 		border-radius: .5em;
 		z-index: 1;
 		background-size: 1.5em;
 	}
+	.profilePic{
+		position: absolute;
+		border-radius: 100%;
+		-webkit-border-radius: 100%;
+		-moz-border-radius: 100%;
+		width: 85%;
+		height: 85%;
+		top: 8%;
+		left: 8%;
+		-index: 9;
+	}
 	</ui:style>
 	<g:HTMLPanel addStyleNames="{res.huskycss.center}">
 		<div class="{style.container}">
+			<g:Image ui:field="imgProfile" resource="{res.ic_avatar}" addStyleNames="{style.profilePic}"/>
 			<div class="{style.slice}">
 				<div class="{style.pie}">
 

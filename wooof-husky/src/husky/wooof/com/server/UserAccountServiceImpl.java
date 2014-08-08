@@ -3,6 +3,9 @@ package husky.wooof.com.server;
 import husky.wooof.com.client.services.UserAccountService;
 import husky.wooof.com.shared.HuskyUser;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 import com.googlecode.objectify.Objectify;
 
@@ -45,5 +48,18 @@ public class UserAccountServiceImpl extends RemoteServiceServlet implements User
 	public HuskyUser updateUser(HuskyUser user) throws Exception {
 		ofy.put(user);
 		return getUser(user);
+	}
+
+
+	@Override
+	public List<HuskyUser> searchUsers(String filter) throws Exception {
+		List<HuskyUser> users = new ArrayList<HuskyUser>();
+		if(!filter.isEmpty()){
+			for(HuskyUser user : ofy.query(HuskyUser.class).filter("email >=", filter).filter("email <", filter+"Z")){
+				users.add(user);
+			}
+		}
+		
+		return users;
 	}
 }

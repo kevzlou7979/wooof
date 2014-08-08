@@ -4,10 +4,30 @@
 	xmlns:h="urn:import:husky.wooof.com.client.ui">
 	<ui:with field='res' type='husky.wooof.com.client.resources.HuskyResources' />
 	<ui:style>
-	
+		.uploadPanel{
+			width: 100%;
+			height: 200px;
+			background: #f9f9f9;
+			text-align: center;
+			border: 1px solid #ececed;
+		}
+		.uploadField{
+			width: 80%;
+		}
+		.uploadButton{
+			width: 19%;
+		}
+		.uploadForm{
+			padding: 5px 0px 0px 20px;
+		}
 	</ui:style>
 	<g:HTMLPanel addStyleNames="{res.huskycss.accountPanel}">
 		<h:HuskyTitle title="Profile Picture"  resource="{res.ic_account_profile_pic}" color="4086fa" border="false" imageSize="50px" fontSize="1.5"/>
-		<h:HuskyUploadArea ui:field="profilePhoto" message="Upload your Profile Picture"/>
+		<g:FormPanel ui:field="uploadForm" addStyleNames="{style.uploadForm}">
+			<g:HTMLPanel>
+				<g:FileUpload ui:field="uploadField" addStyleNames="{style.uploadField} {res.huskycss.inline}" />
+				<g:Button ui:field="uploadButton" addStyleNames="{res.huskycss.inline} {style.uploadButton}" />
+			</g:HTMLPanel>
+		</g:FormPanel>
 	</g:HTMLPanel>
 </ui:UiBinder> 

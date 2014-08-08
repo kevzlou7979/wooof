@@ -9,5 +9,9 @@ public interface HuskyChatMessage {
    String getUser();
    
    void setUser(String user);
+   
+   String getProfilePic();
+   
+   void setProfilePic(String user);
 }
 

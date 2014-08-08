@@ -26,6 +26,7 @@ public interface HuskyCSS extends CssResource{
 	String huskyTextArea();
 	String huskyAvatarImage();
 	String cardNavActive();
+	String navBorderActive();
 	String cardNavigation();
 	String accountPanel();
 	String huskyBasicTitle();

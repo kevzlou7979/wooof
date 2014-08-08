@@ -2,6 +2,8 @@ package husky.wooof.com.client.services;
 
 import husky.wooof.com.shared.HuskyUser;
 
+import java.util.List;
+
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.rpc.RemoteService;
 import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
@@ -32,5 +34,7 @@ public interface UserAccountService extends RemoteService {
 	
 	public HuskyUser updateUser(HuskyUser user) throws Exception;
 	
+	public List<HuskyUser> searchUsers(String filter) throws Exception;
+ 	
 }
 

@@ -62,7 +62,7 @@ public class CreateMain extends Composite {
 			CardService.Connect.getService().saveCard(card,users, new AsyncCallback<HuskyCard>() {
 				
 				@Override
-				public void onSuccess(HuskyCard result) {
+				public void onSuccess(final HuskyCard result) {
 					Timer timer = new Timer()
 			        {
 			            @Override
@@ -72,7 +72,7 @@ public class CreateMain extends Composite {
 			            	huskyMain.setCreateMain(new CreateMain(huskyMain));
 			            	huskyMain.getCardsMain().onLoadAllCards();
 			            	huskyMain.getHuskyMainPanel().clear();
-			            	huskyMain.getHuskyMainPanel().add(new WorkspaceMain(huskyMain));
+			            	huskyMain.getHuskyMainPanel().add(new WorkspaceMain(huskyMain, result));
 			            	//TODO Load the Workspace
 			            	Window.alert("Workspace Loaded");
 			            }
