@@ -1,0 +1,53 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:h="urn:import:husky.wooof.com.client.ui">
+	<ui:with field='res' type='husky.wooof.com.client.resources.HuskyResources' />
+	<ui:style>
+		.panel{
+			padding: 20px 5px 20px 5px;
+			border-bottom: 1px solid #E7E7E7;
+		}
+		.userInfoPanel{
+			width: 60%;
+			padding-left: 20px;
+			box-sizing: border-box;
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+		}
+		.imgProfile{
+			font-size: 4px;
+			text-align: center;
+			width: 20%;
+		}
+		.btnAddMember{
+			font-size: 0.6em;
+			width: 30%;	
+		}
+		.lblFullName{
+			font-size: 1em;
+		}
+		.lblEmail{
+			font-size: 0.9em;
+		}
+		.lst{
+			font-size: 0.8em;
+			padding: 2px;
+			width: 60%;
+		}
+	</ui:style>
+	<g:HTMLPanel addStyleNames="{style.panel}">
+		<h:CircleImage ui:field="imgProfile" addStyleNames="{style.imgProfile} {res.huskycss.inline}"/>
+		<g:HTMLPanel ui:field="userInfoPanel" addStyleNames="{style.userInfoPanel} {res.huskycss.inline}">
+			<g:Label ui:field="lblFullName" addStyleNames="{res.huskycss.huskyBasicTitle} {style.lblFullName}"/>
+			<g:Label ui:field="lblEmail" addStyleNames="{res.huskycss.huskyBasicDescription} {style.lblEmail}"/>
+			<g:HTMLPanel>
+				<h:HuskyListBox ui:field="lstUserType" addStyleNames="{style.lst} {res.huskycss.inline}">
+					<item value="Admin">Admin</item>
+					<item value="Viewer">Viewer</item>
+				</h:HuskyListBox>
+				<h:HuskyButton ui:field="btnAddUser" text="Add" addStyleNames="{style.btnAddMember} {res.huskycss.inline}"/>
+			</g:HTMLPanel>
+		</g:HTMLPanel>
+	</g:HTMLPanel>
+</ui:UiBinder> 

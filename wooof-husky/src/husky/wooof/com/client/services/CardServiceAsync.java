@@ -19,4 +19,10 @@ public interface CardServiceAsync {
 
 	public void getAllCards(HuskyUser userm, AsyncCallback<List<HuskyCard>> callback);
 	
+	public void addUserToCard(HuskyUser user, HuskyCard card, String type, AsyncCallback<Void> callback);
+	
+	public void getAllCardAdmins(HuskyCard card, AsyncCallback<List<HuskyUser>> callback);
+	
+	public void getAllCardViewers(HuskyCard card, AsyncCallback<List<HuskyUser>> callback);
+	
 }

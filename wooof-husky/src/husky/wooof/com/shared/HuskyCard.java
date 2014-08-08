@@ -1,6 +1,7 @@
 package husky.wooof.com.shared;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -19,7 +20,8 @@ public class HuskyCard implements Serializable {
 	private String name;
 	private String description;
 	private Date creationDate = new Date();
-	private List<Key<HuskyUser>> users;
+	private List<Key<HuskyUser>> admins = new ArrayList<Key<HuskyUser>>();
+	private List<Key<HuskyUser>> viewers = new ArrayList<Key<HuskyUser>>();
 	private String cardImage;
 	
 	public HuskyCard() {}
@@ -62,20 +64,28 @@ public class HuskyCard implements Serializable {
 		this.id = id;
 	}
 
-	public List<Key<HuskyUser>> getUsers() {
-		return users;
-	}
-
-	public void setUsers(List<Key<HuskyUser>> users) {
-		this.users = users;
-	}
-
 	public String getCardImage() {
 		return cardImage;
 	}
 
 	public void setCardImage(String cardImage) {
 		this.cardImage = cardImage;
+	}
+
+	public List<Key<HuskyUser>> getAdmins() {
+		return admins;
+	}
+
+	public void setAdmins(List<Key<HuskyUser>> admins) {
+		this.admins = admins;
+	}
+
+	public List<Key<HuskyUser>> getViewers() {
+		return viewers;
+	}
+
+	public void setViewers(List<Key<HuskyUser>> viewers) {
+		this.viewers = viewers;
 	}
 
 }

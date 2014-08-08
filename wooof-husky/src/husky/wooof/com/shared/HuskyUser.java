@@ -1,5 +1,7 @@
 package husky.wooof.com.shared;
 
+import husky.wooof.com.shared.helper.StringHelper;
+
 import java.io.Serializable;
 
 import javax.persistence.Id;
@@ -14,14 +16,14 @@ public class HuskyUser implements Serializable{
 	
 	@Id
 	private Long id;
-	private String firstName;
-	private String lastName;
-	private String email;
-	private String password;
-	private String tagline;
-	private String introduction;
-	private String gender;
-	private String profilePic;
+	private String firstName = "";
+	private String lastName = "";
+	private String email = "";
+	private String password = "";
+	private String tagline = "";
+	private String introduction = "";
+	private String gender = "";
+	private String profilePic = "";
 	
 	
 	public HuskyUser() {}
@@ -35,8 +37,8 @@ public class HuskyUser implements Serializable{
 	public HuskyUser(String firstName, String lastName, String email,
 			String gender) {
 		super();
-		this.firstName = firstName;
-		this.lastName = lastName;
+		this.firstName = StringHelper.toTitleCase(firstName);
+		this.lastName = StringHelper.toTitleCase(lastName);
 		this.email = email;
 		this.gender = gender;
 	}
@@ -44,8 +46,8 @@ public class HuskyUser implements Serializable{
 	public HuskyUser(String firstName, String lastName, String email,
 			String password, String gender) {
 		super();
-		this.firstName = firstName;
-		this.lastName = lastName;
+		this.firstName = StringHelper.toTitleCase(firstName);
+		this.lastName = StringHelper.toTitleCase(lastName);
 		this.email = email;
 		this.password = password;
 		this.gender = gender;
@@ -64,7 +66,7 @@ public class HuskyUser implements Serializable{
 	}
 
 	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+		this.firstName = StringHelper.toTitleCase(firstName);
 	}
 
 	public String getEmail() {
@@ -80,7 +82,7 @@ public class HuskyUser implements Serializable{
 	}
 
 	public void setLastName(String lastName) {
-		this.lastName = lastName;
+		this.lastName = StringHelper.toTitleCase(lastName);
 	}
 
 	public String getPassword() {

@@ -3,8 +3,10 @@ package husky.wooof.com.client.sidebar;
 import husky.wooof.com.client.navigation.HuskyCardNavigation;
 import husky.wooof.com.client.ui.ChatMessageItem;
 import husky.wooof.com.client.ui.HuskyTextArea;
+import husky.wooof.com.shared.HuskyCard;
 import husky.wooof.com.shared.HuskyChatMessage;
 import husky.wooof.com.shared.HuskyUser;
+import husky.wooof.com.shared.IHuskyConstants;
 import husky.wooof.com.shared.MyFactory;
 import no.eirikb.gwtchannelapi.client.Channel;
 import no.eirikb.gwtchannelapi.client.ChannelListener;
@@ -36,17 +38,21 @@ public class ChatSidebar extends Composite {
 	
 	private Channel channel;
 	private HuskyUser user;
+	private HuskyCard card;
+	private HuskyCardNavigation huskyCardNavigation;
 	
-	public ChatSidebar(HuskyCardNavigation huskyCardNavigation, HuskyUser user) {
+	public ChatSidebar(HuskyCardNavigation huskyCardNavigation, HuskyUser user, HuskyCard card) {
 		initWidget(uiBinder.createAndBindUi(this));
+		this.huskyCardNavigation = huskyCardNavigation;
 		this.user = user;
+		this.card = card;
 		initChannel();
 	}
 	
 	private void initChannel(){
 		append("Joining...");
 
-        channel = new Channel("test");
+        channel = new Channel(String.valueOf(card.getId()));
         channel.addChannelListener(new ChannelListener() {
 
             @Override
@@ -54,12 +60,17 @@ public class ChatSidebar extends Composite {
                 MyFactory myFactory = GWT.create(MyFactory.class);
                 AutoBean<HuskyChatMessage> bean = AutoBeanCodex.decode(myFactory, HuskyChatMessage.class,message);
                 HuskyChatMessage huskyMessage = bean.as();
-                onDisplayMessage(huskyMessage);
+                if(huskyMessage.getMessage().equals(IHuskyConstants.CHAT_JOINED)){
+                	onAddActiveUser(huskyMessage);
+                }else{
+                	onDisplayMessage(huskyMessage);
+                }
                 
             }
 
             @Override
             public void onOpen() {
+            	channel.send(user.getId() + ";" + IHuskyConstants.CHAT_JOINED);
                 append("Joined!");
             }
 
@@ -72,8 +83,10 @@ public class ChatSidebar extends Composite {
             public void onClose() {
                 append("Close!");
             }
+            
         });
         channel.join();
+       
 	}
 
 	@UiHandler("txtChatMessage")
@@ -96,6 +109,10 @@ public class ChatSidebar extends Composite {
 	private void onDisplayMessage(HuskyChatMessage chatMessage){
 		chatMessagePanel.add(new ChatMessageItem(chatMessage));
 		chatMessagePanel.getElement().setScrollTop(10000);
+	}
+	
+	private void onAddActiveUser(HuskyChatMessage huskyMessage){
+		//TODO Add Presence of all connected users
 	}
 	
 	public void append(String line) {

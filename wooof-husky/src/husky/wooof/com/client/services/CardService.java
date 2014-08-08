@@ -35,4 +35,10 @@ public interface CardService extends RemoteService{
 	
 	public List<HuskyCard> getAllCards(HuskyUser user) throws Exception;
 	
+	public void addUserToCard(HuskyUser user, HuskyCard card, String type) throws Exception;
+	
+	public List<HuskyUser> getAllCardAdmins(HuskyCard card) throws Exception;
+	
+	public List<HuskyUser> getAllCardViewers(HuskyCard card) throws Exception;
+	
 }

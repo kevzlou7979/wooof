@@ -33,6 +33,7 @@ public class AccountMain extends Composite{
 		initWidget(uiBinder.createAndBindUi(this));
 		accountBasicInfo.setUser(huskyMain.getUser());
 		accountStory.setUser(huskyMain.getUser());
+		accountProfilePic.setHuskyMain(huskyMain);
 	}
 
 	

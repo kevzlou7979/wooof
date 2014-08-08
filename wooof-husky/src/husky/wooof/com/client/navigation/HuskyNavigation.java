@@ -3,6 +3,8 @@ package husky.wooof.com.client.navigation;
 import husky.wooof.com.client.HuskyLogin;
 import husky.wooof.com.client.HuskyMain;
 import husky.wooof.com.client.resources.HuskyResources;
+import husky.wooof.com.client.ui.CircleImage;
+import husky.wooof.com.shared.HuskyUser;
 import husky.wooof.com.shared.IHuskyConstants;
 
 import com.google.gwt.core.client.GWT;
@@ -26,6 +28,7 @@ public class HuskyNavigation extends Composite {
 	
 	@UiField HTMLPanel navMenu;
 	@UiField Label navCards, navSettings, navAccount, navLogout;
+	@UiField CircleImage imgProfile;
 	
 	private HuskyMain huskyMain;
 	
@@ -33,6 +36,13 @@ public class HuskyNavigation extends Composite {
 		initWidget(uiBinder.createAndBindUi(this));
 		this.huskyMain = huskyMain;
 		changeNav(navCards, IHuskyConstants.NAV_CARDS);
+		setProfilePic(huskyMain.getUser());
+	}
+	
+	private void setProfilePic(HuskyUser user){
+		if(user.getProfilePic()!=null){
+			imgProfile.setImageProfile(user.getProfilePic());
+		}
 	}
 	
 	@UiHandler("navCards")
@@ -80,6 +90,14 @@ public class HuskyNavigation extends Composite {
 			break;
 		}
 		
+	}
+
+	public CircleImage getImgProfile() {
+		return imgProfile;
+	}
+
+	public void setImgProfile(CircleImage imgProfile) {
+		this.imgProfile = imgProfile;
 	}
 
 }

@@ -27,6 +27,10 @@ public class ChatServiceImpl extends ChannelServer {
 	    HuskyUser user = ofy.query(HuskyUser.class).filter("id", Long.decode(result[0])).get();
 	    myMessage.setUser(user.getEmail());
 	    myMessage.setMessage(result[1]);
+	    myMessage.setProfilePic(user.getProfilePic());
+	    
+	    
+	    
         
         send(channelName, myMessage);
     }

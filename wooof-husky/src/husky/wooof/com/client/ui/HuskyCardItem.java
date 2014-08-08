@@ -29,11 +29,13 @@ public class HuskyCardItem extends Composite {
 	@UiField HTMLPanel panel;
 	
 	private CardsMain cardsMain;
+	private HuskyCard card;
 	
 	public HuskyCardItem(HuskyCard card, final double value, CardsMain cardsMain) {
 		initWidget(uiBinder.createAndBindUi(this));
 		
 		this.cardsMain = cardsMain;
+		this.card = card;
 		
 		Timer timer = new Timer()
         {
@@ -57,7 +59,7 @@ public class HuskyCardItem extends Composite {
 	@UiHandler("lblCardName")
 	void onClickCardName(ClickEvent e){
 		cardsMain.getHuskyMain().getHuskyMainPanel().clear();
-		cardsMain.getHuskyMain().getHuskyMainPanel().add(new WorkspaceMain(cardsMain.getHuskyMain()));
+		cardsMain.getHuskyMain().getHuskyMainPanel().add(new WorkspaceMain(cardsMain.getHuskyMain(), card));
 	}
 	
 }

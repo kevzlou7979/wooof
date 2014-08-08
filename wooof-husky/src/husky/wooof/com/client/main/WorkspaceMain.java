@@ -3,6 +3,7 @@ package husky.wooof.com.client.main;
 import husky.wooof.com.client.HuskyMain;
 import husky.wooof.com.client.navigation.HuskyCardNavigation;
 import husky.wooof.com.client.resources.HuskyResources;
+import husky.wooof.com.shared.HuskyCard;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;
@@ -19,14 +20,44 @@ public class WorkspaceMain extends Composite{
 	interface WorkspaceMainUiBinder extends UiBinder<Widget, WorkspaceMain> {
 	}
 
-	@UiField HTMLPanel panel;
-	private HuskyCardNavigation cardNavigation;
+	@UiField HTMLPanel panel, activeUsersPanel;
 	
-	public WorkspaceMain(HuskyMain huskyMain) {
+	
+	private HuskyCardNavigation cardNavigation;
+	private HuskyCard card;
+	private HuskyMain huskyMain;
+	
+	public WorkspaceMain(HuskyMain huskyMain, HuskyCard card) {
 		initWidget(uiBinder.createAndBindUi(this));
-		cardNavigation = new HuskyCardNavigation(huskyMain);
+		this.huskyMain = huskyMain;
+		this.card = card;
+		cardNavigation = new HuskyCardNavigation(this);
 		cardNavigation.addStyleName(HuskyResources.INSTANCE.huskycss().cardNavigation());
 		panel.add(cardNavigation);
+	}
+
+	public HuskyCard getCard() {
+		return card;
+	}
+
+	public void setCard(HuskyCard card) {
+		this.card = card;
+	}
+
+	public HuskyMain getHuskyMain() {
+		return huskyMain;
+	}
+
+	public void setHuskyMain(HuskyMain huskyMain) {
+		this.huskyMain = huskyMain;
+	}
+
+	public HTMLPanel getActiveUsersPanel() {
+		return activeUsersPanel;
+	}
+
+	public void setActiveUsersPanel(HTMLPanel activeUsersPanel) {
+		this.activeUsersPanel = activeUsersPanel;
 	}
 
 

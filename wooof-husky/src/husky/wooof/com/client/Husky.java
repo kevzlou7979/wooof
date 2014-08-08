@@ -13,6 +13,5 @@ public class Husky implements EntryPoint {
 	public void onModuleLoad() {
 		HuskyResources.INSTANCE.huskycss().ensureInjected();
 		RootPanel.get().add(new HuskyLogin());
-		
 	}
 }

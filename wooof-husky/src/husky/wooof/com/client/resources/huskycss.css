@@ -51,6 +51,10 @@ html,body {
 	opacity: 1 !important;
 }
 
+.navBorderActive{
+	border-bottom: 3px solid;
+}
+
 .huskyButtonAdd {
 	background: #4086fa;
 	border-radius: 100%;

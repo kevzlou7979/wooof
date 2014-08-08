@@ -1,6 +1,7 @@
 package husky.wooof.com.client.navigation;
 
 import husky.wooof.com.client.HuskyMain;
+import husky.wooof.com.client.main.WorkspaceMain;
 import husky.wooof.com.client.resources.HuskyResources;
 import husky.wooof.com.client.sidebar.AddUserSideBar;
 import husky.wooof.com.client.sidebar.CardInfoSidebar;
@@ -37,12 +38,14 @@ public class HuskyCardNavigation extends Composite {
 	private AddUserSideBar addUserSideBar;
 	private NotificationSidebar notificationSidebar;
 	private HuskyMain huskyMain;
+	private WorkspaceMain workspaceMain;
 	
-	public HuskyCardNavigation(HuskyMain huskyMain) {
+	public HuskyCardNavigation(WorkspaceMain workspaceMain) {
 		initWidget(uiBinder.createAndBindUi(this));
-		this.huskyMain = huskyMain;
+		this.huskyMain = workspaceMain.getHuskyMain();
+		this.workspaceMain = workspaceMain;
 		cardInfoSideBar = new CardInfoSidebar(this);
-		chatSideBar = new ChatSidebar(this,huskyMain.getUser());
+		chatSideBar = new ChatSidebar(this,huskyMain.getUser(), workspaceMain.getCard());
 		addUserSideBar = new AddUserSideBar(this);
 		notificationSidebar = new NotificationSidebar(this);
 		btnHideNav.setVisible(false);
@@ -148,6 +151,14 @@ public class HuskyCardNavigation extends Composite {
 
 	public void setHuskyMain(HuskyMain huskyMain) {
 		this.huskyMain = huskyMain;
+	}
+
+	public WorkspaceMain getWorkspaceMain() {
+		return workspaceMain;
+	}
+
+	public void setWorkspaceMain(WorkspaceMain workspaceMain) {
+		this.workspaceMain = workspaceMain;
 	}
 	
 }
