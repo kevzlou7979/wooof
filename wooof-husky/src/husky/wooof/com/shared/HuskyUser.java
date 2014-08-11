@@ -1,7 +1,5 @@
 package husky.wooof.com.shared;
 
-import husky.wooof.com.shared.helper.StringHelper;
-
 import java.io.Serializable;
 
 import javax.persistence.Id;
@@ -24,6 +22,7 @@ public class HuskyUser implements Serializable{
 	private String introduction = "";
 	private String gender = "";
 	private String profilePic = "";
+	private String workspacePic = "";
 	
 	
 	public HuskyUser() {}
@@ -37,8 +36,8 @@ public class HuskyUser implements Serializable{
 	public HuskyUser(String firstName, String lastName, String email,
 			String gender) {
 		super();
-		this.firstName = StringHelper.toTitleCase(firstName);
-		this.lastName = StringHelper.toTitleCase(lastName);
+		this.firstName = firstName;
+		this.lastName = lastName;
 		this.email = email;
 		this.gender = gender;
 	}
@@ -46,8 +45,8 @@ public class HuskyUser implements Serializable{
 	public HuskyUser(String firstName, String lastName, String email,
 			String password, String gender) {
 		super();
-		this.firstName = StringHelper.toTitleCase(firstName);
-		this.lastName = StringHelper.toTitleCase(lastName);
+		this.firstName = firstName;
+		this.lastName = lastName;
 		this.email = email;
 		this.password = password;
 		this.gender = gender;
@@ -66,7 +65,7 @@ public class HuskyUser implements Serializable{
 	}
 
 	public void setFirstName(String firstName) {
-		this.firstName = StringHelper.toTitleCase(firstName);
+		this.firstName = firstName;
 	}
 
 	public String getEmail() {
@@ -82,7 +81,7 @@ public class HuskyUser implements Serializable{
 	}
 
 	public void setLastName(String lastName) {
-		this.lastName = StringHelper.toTitleCase(lastName);
+		this.lastName = lastName;
 	}
 
 	public String getPassword() {
@@ -123,5 +122,13 @@ public class HuskyUser implements Serializable{
 
 	public void setGender(String gender) {
 		this.gender = gender;
+	}
+
+	public String getWorkspacePic() {
+		return workspacePic;
+	}
+
+	public void setWorkspacePic(String workspacePic) {
+		this.workspacePic = workspacePic;
 	}
 }
