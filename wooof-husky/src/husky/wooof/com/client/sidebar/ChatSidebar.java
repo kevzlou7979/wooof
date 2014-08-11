@@ -11,6 +11,7 @@ import husky.wooof.com.shared.MyFactory;
 import no.eirikb.gwtchannelapi.client.Channel;
 import no.eirikb.gwtchannelapi.client.ChannelListener;
 
+import com.google.appengine.api.channel.ChannelServiceFactory;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.KeyCodes;
 import com.google.gwt.event.dom.client.KeyDownEvent;
@@ -51,7 +52,6 @@ public class ChatSidebar extends Composite {
 	
 	private void initChannel(){
 		append("Joining...");
-
         channel = new Channel(String.valueOf(card.getId()));
         channel.addChannelListener(new ChannelListener() {
 
