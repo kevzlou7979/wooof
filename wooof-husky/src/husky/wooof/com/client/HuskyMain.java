@@ -5,14 +5,15 @@ import husky.wooof.com.client.dialog.HuskyDialog;
 import husky.wooof.com.client.main.AccountMain;
 import husky.wooof.com.client.main.CardsMain;
 import husky.wooof.com.client.navigation.HuskyNavigation;
+import husky.wooof.com.client.resources.HuskyResources;
 import husky.wooof.com.shared.HuskyUser;
 
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HTMLPanel;
-import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Widget;
 
 public class HuskyMain extends Composite {
@@ -102,5 +103,17 @@ public class HuskyMain extends Composite {
 	public void setAccountMain(AccountMain accountMain) {
 		this.accountMain = accountMain;
 	}
+
+	public void minimizeSideBar(boolean isMinimize) {
+		if(isMinimize){
+			huskyMainPanel.getElement().getStyle().setPaddingLeft(0, Unit.PX);
+			huskyNavigationPanel.addStyleName(HuskyResources.INSTANCE.huskycss().hiddenPanel());
+		}else{
+			huskyMainPanel.getElement().getStyle().setPaddingLeft(300, Unit.PX);
+			huskyNavigationPanel.removeStyleName(HuskyResources.INSTANCE.huskycss().hiddenPanel());
+		}
+	}
+	
+	
 
 }

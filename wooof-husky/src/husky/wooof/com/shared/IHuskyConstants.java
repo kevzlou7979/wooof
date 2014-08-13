@@ -21,6 +21,10 @@ public interface IHuskyConstants {
 	
 	public static final String CHAT_TYPING = "typing";
 	
+	public static final String LESSON_YOUTUBE = "youtube";
+	
+	public static final String ACTION_CREATE = "create";
+	
 	public static final String REGEX_MAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
 	
 	public static final String MALE = "Male";

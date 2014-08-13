@@ -16,16 +16,36 @@
 		position: absolute;
 		top: -10px;
 	}
+	.mainPanel{
+		width: 70%;
+		height: 100%;
+		margin-top: 50px;
+		vertical-align: top;
+	}	
+	.lessonPanel{
+		width: 20%;
+		height: 100%;
+		margin-top: 50px;
+		vertical-align: top;
+	}
+	.previewPanel{
+		width: 70%;
+		height: 400px;
+		background: #fff;
+		margin: auto;
+		border: 4px solid #e9e9e9;
+		border-bottom: 30px solid #e9e9e9;
+	}
 	</ui:style>
 	<g:HTMLPanel ui:field="panel">
 		<g:HTMLPanel ui:field="activeUsersPanel" addStyleNames="{style.activeUsersPanel}" />
 
-		<g:HTMLPanel ui:field="mainPanel">
-
+		<g:HTMLPanel ui:field="mainPanel" addStyleNames="{res.huskycss.inline} {style.mainPanel}">
+			<g:HTMLPanel addStyleNames="{style.previewPanel}"/>
 		</g:HTMLPanel>
 
-		<g:HTMLPanel ui:field="lessonPanel">
-
+		<g:HTMLPanel ui:field="lessonPanel" addStyleNames="{res.huskycss.inline} {style.lessonPanel}">
+			<h:LessonItem ui:field="createLesson" action="create"/> 
 		</g:HTMLPanel>
 
 	</g:HTMLPanel>

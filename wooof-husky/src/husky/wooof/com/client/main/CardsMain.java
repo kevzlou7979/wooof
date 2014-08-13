@@ -68,7 +68,6 @@ public class CardsMain extends Composite {
 		dialog.setWidth("500px");
 		dialog.setModal(true);
 		dialog.setGlassEnabled(true);
-		dialog.setModal(true);
 		dialog.center();
 		dialog.show();
 		huskyMain.setHuskyDialog(dialog);

@@ -1,0 +1,32 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:with field='res' type='husky.wooof.com.client.resources.HuskyResources' />
+	<ui:style>
+		.maintenancePanel{
+			margin: auto;
+			margin-top: 10%;
+			width: 50%;
+		}
+		.lblPanel{
+			width: 45%;
+			color: #547fd0;
+		}
+		.image{
+			
+		}
+		.lblLarge{
+			font-size: 5em;
+		}
+		.lblMedium{
+			font-size: 2em;
+		}
+	</ui:style>
+	<g:HTMLPanel addStyleNames="{style.maintenancePanel}">
+		<g:Image resource="{res.logo_husky_maintenance}" addStyleNames="{style.image}  {res.huskycss.inline}"/>
+		<g:HTMLPanel addStyleNames="{style.lblPanel} {res.huskycss.inline}">
+		    <g:Label text="Husky" addStyleNames="{style.lblLarge}"/>
+			<g:Label text="Under Maintenance..." addStyleNames="{style.lblMedium}"/>
+		</g:HTMLPanel>
+	</g:HTMLPanel>
+</ui:UiBinder> 

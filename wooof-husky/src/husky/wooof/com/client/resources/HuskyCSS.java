@@ -32,4 +32,5 @@ public interface HuskyCSS extends CssResource{
 	String huskyBasicTitle();
 	String huskyBasicDescription();
 	String accountBtnEdit();
+	String hiddenPanel();
 }
