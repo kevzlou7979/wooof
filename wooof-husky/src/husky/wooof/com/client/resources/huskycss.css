@@ -10,6 +10,20 @@ html,body {
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: fixed;
+	
+}
+
+*{
+	outline: none;
+}
+
+.hiddenPanel{
+	transition: 1s all;
+	-webkit-transition: 1s all;
+	-moz-transition: 1s all;
+	overflow: hidden;
+	padding: 0% !important;
+	width: 0% !important;
 }
 
 .accountBtnEdit{
@@ -60,7 +74,7 @@ html,body {
 }
 
 .navBorderActive{
-	border-bottom: 3px solid;
+	border-bottom: 3px solid #4086fa;
 }
 
 .huskyButtonAdd {

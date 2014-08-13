@@ -3,6 +3,7 @@ package husky.wooof.com.client.main;
 import husky.wooof.com.client.HuskyMain;
 import husky.wooof.com.client.navigation.HuskyCardNavigation;
 import husky.wooof.com.client.resources.HuskyResources;
+import husky.wooof.com.client.ui.LessonItem;
 import husky.wooof.com.shared.HuskyCard;
 
 import com.google.gwt.core.client.GWT;
@@ -21,7 +22,7 @@ public class WorkspaceMain extends Composite{
 	}
 
 	@UiField HTMLPanel panel, activeUsersPanel;
-	
+	@UiField LessonItem createLesson;
 	
 	private HuskyCardNavigation cardNavigation;
 	private HuskyCard card;
@@ -31,6 +32,9 @@ public class WorkspaceMain extends Composite{
 		initWidget(uiBinder.createAndBindUi(this));
 		this.huskyMain = huskyMain;
 		this.card = card;
+		createLesson.setHuskyMain(huskyMain);
+		huskyMain.minimizeSideBar(true);
+		huskyMain.getHuskyMainPanel().setWidth("100%");
 		cardNavigation = new HuskyCardNavigation(this);
 		cardNavigation.addStyleName(HuskyResources.INSTANCE.huskycss().cardNavigation());
 		panel.add(cardNavigation);
@@ -60,6 +64,6 @@ public class WorkspaceMain extends Composite{
 		this.activeUsersPanel = activeUsersPanel;
 	}
 
-
+	
 
 }

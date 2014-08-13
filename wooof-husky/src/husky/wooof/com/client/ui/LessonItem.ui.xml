@@ -1,0 +1,41 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:with field='res'
+		type='husky.wooof.com.client.resources.HuskyResources' />
+
+	<ui:style>
+		.lblLessonNumber{
+			width: 50px;
+			height: 50px;
+			border-radius: 100%;
+			-webkit-border-radius: 100%;
+			-moz-border-radius: 100%;
+			border: 4px solid #4086fa;
+			text-align: center;
+			font-size: 1.5em;
+			line-height: 2;
+			color: #4086fa;
+		}
+		.lessonNamePanel{
+			margin-left: 10px;
+		}
+		.lblName{
+			font-size: 1.2em;
+			color: #4086fa;
+		}
+		.lblType{
+			color: #999;
+			font-size: 0.8em;
+		}
+	</ui:style>
+	<g:FocusPanel ui:field="itemPanel">
+		<g:HTMLPanel>
+			<g:Label text="+" addStyleNames="{res.huskycss.inline} {style.lblLessonNumber}"/>
+			<g:HTMLPanel addStyleNames="{res.huskycss.inline} {style.lessonNamePanel}">
+				<g:Label text="Add Lesson" addStyleNames="{style.lblName}"/>
+				<g:Label text="Click Here to add lesson" addStyleNames="{style.lblType}"/>
+			</g:HTMLPanel>
+		</g:HTMLPanel>
+	</g:FocusPanel>
+</ui:UiBinder> 

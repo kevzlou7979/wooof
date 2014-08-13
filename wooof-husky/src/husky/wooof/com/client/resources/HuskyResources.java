@@ -8,6 +8,7 @@ public interface HuskyResources extends ClientBundle{
 	public static final HuskyResources INSTANCE = GWT.create(HuskyResources.class);
 	
 	ImageResource husky_logo();
+	ImageResource logo_husky_maintenance();
 	ImageResource ic_success();
 	ImageResource ic_error();
 	ImageResource ic_image();
@@ -27,6 +28,10 @@ public interface HuskyResources extends ClientBundle{
 	ImageResource ic_account_profile_pic();
 	ImageResource ic_account_story();
 	ImageResource ic_edit();
+	
+	ImageResource ic_lesson();
+	ImageResource ic_lesson_image();
+	ImageResource ic_lesson_youtube();
 	
     HuskyCSS huskycss();
    
