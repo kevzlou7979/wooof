@@ -7,14 +7,15 @@ public interface IHuskyConstants {
 	public static final int NAV_TEAM = 2;
 	public static final int NAV_ACCOUNT = 3;
 	public static final int NAV_LOGOUT = 4;
+	public static final int NAV_LEAVE = 5;
 	
-	public static final int NAV_CARD_INFO = 5;
-	public static final int NAV_CHAT = 6;
-	public static final int NAV_ADD_USER = 7;
-	public static final int NAV_NOTIFICATION = 8;
+	public static final int NAV_CARD_INFO = 6;
+	public static final int NAV_CHAT = 7;
+	public static final int NAV_ADD_USER = 8;
+	public static final int NAV_NOTIFICATION = 9;
 	
-	public static final int NAV_ADMIN = 9;
-	public static final int NAV_VIEWER = 10;
+	public static final int NAV_ADMIN = 10;
+	public static final int NAV_VIEWER = 11;
 	
 	public static final String CARD_ADMIN = "Admin";
 	public static final String CARD_VIEWER = "Viewer";
@@ -22,6 +23,7 @@ public interface IHuskyConstants {
 	public static final String CHAT_TYPING = "typing";
 	
 	public static final String LESSON_YOUTUBE = "youtube";
+	public static final String LESSON_IMAGE = "image";
 	
 	public static final String ACTION_CREATE = "create";
 	
@@ -30,5 +32,6 @@ public interface IHuskyConstants {
 	public static final String MALE = "Male";
 	public static final String FEMALE = "Female";
 	public static final String CHAT_JOINED = "Joined";
+	
 	
 }

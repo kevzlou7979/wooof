@@ -20,6 +20,7 @@ public interface HuskyResources extends ClientBundle{
 	ImageResource ic_nav_chat_white();
 	ImageResource ic_nav_info_white();
 	ImageResource ic_nav_notification();
+	ImageResource ic_nav_leave();
 	ImageResource ic_avatar();
 	ImageResource ic_account_basic_info();
 	ImageResource ic_account_change_password();

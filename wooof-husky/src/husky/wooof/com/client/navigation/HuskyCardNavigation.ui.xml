@@ -30,7 +30,7 @@
 			opacity: 1;	
 		}
 		.navCardInfo{
-			margin-top: 500%:
+			margin-top: 300%:
 		}
 		.btnHideNav{
 			background: #C4D0E5;
@@ -53,6 +53,7 @@
 			<g:Image ui:field="navChat" resource="{res.ic_nav_chat_white}" addStyleNames="{style.navItem}"/>
 			<g:Image ui:field="navAddUser" resource="{res.ic_nav_add_user_white}" addStyleNames="{style.navItem}"/>
 			<g:Image ui:field="navNotification" resource="{res.ic_nav_notification}" addStyleNames="{style.navItem}"/> 
+			<g:Image ui:field="navLeave" resource="{res.ic_nav_leave}" addStyleNames="{style.navItem}"/> 
 		</g:HTMLPanel >
 		
 	</g:HTMLPanel>

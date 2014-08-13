@@ -23,7 +23,7 @@ html,body {
 	-moz-transition: 1s all;
 	overflow: hidden;
 	padding: 0% !important;
-	width: 0% !important;
+	left: -300px !important;
 }
 
 .accountBtnEdit{

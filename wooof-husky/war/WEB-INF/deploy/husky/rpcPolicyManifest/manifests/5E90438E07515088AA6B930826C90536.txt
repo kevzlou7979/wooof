@@ -1,0 +1,2 @@
+serviceClass: no.eirikb.gwtchannelapi.client.ChannelService
+path: 16D87970EC8D30E8A4018ABE6FE9A03B.gwt.rpc

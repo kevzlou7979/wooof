@@ -12,6 +12,9 @@
 		margin-right: 6%;
 		padding-bottom: 10px;
 	}
+	.panel:hover{
+		border-bottom: 3px solid #4086fa;
+	}
 	.lblDescription{
 		color: #999;
 	}
