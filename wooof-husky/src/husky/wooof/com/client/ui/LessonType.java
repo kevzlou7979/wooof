@@ -24,7 +24,8 @@ public class LessonType extends Composite {
 	
 	private ImageResource resource;
 	private String text;
-
+	private String type;
+	
 	public LessonType() {
 		initWidget(uiBinder.createAndBindUi(this));
 	}
@@ -54,6 +55,14 @@ public class LessonType extends Composite {
 
 	public void setFocusPanel(FocusPanel focusPanel) {
 		this.focusPanel = focusPanel;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
 	}
 	
 	

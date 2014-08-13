@@ -10,6 +10,11 @@ public class HuskyYoutubeLesson extends HuskyLesson{
 	
 	public HuskyYoutubeLesson() {}
 	
+	public HuskyYoutubeLesson(Long cardId, String name, String type, String description, String youtubeUrl) {
+		super(cardId, name, type, description);
+		this.youtubeUrl = youtubeUrl;
+	}
+	
 	public String getYoutubeUrl() {
 		return youtubeUrl;
 	}

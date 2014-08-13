@@ -1,0 +1,2 @@
+serviceClass: husky.wooof.com.client.services.BlobService
+path: 48D63110D11E4C229505A7FE855592C2.gwt.rpc

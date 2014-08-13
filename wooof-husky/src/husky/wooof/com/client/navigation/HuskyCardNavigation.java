@@ -18,6 +18,7 @@ import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Label;
+import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Widget;
 
 public class HuskyCardNavigation extends Composite {
@@ -31,7 +32,7 @@ public class HuskyCardNavigation extends Composite {
 	
 	@UiField HTMLPanel navMenu, navContent;
 	@UiField Label btnHideNav;
-	@UiField Image navCardInfo, navChat, navAddUser, navNotification;
+	@UiField Image navCardInfo, navChat, navAddUser, navNotification, navLeave;
 	
 	private CardInfoSidebar cardInfoSideBar;
 	private ChatSidebar chatSideBar;
@@ -78,6 +79,11 @@ public class HuskyCardNavigation extends Composite {
 		setNavContentVisibility(false);
 	}
 	
+	@UiHandler("navLeave")
+	void onNavLeave(ClickEvent e){
+		changeNav(navLeave, IHuskyConstants.NAV_LEAVE);
+	}
+	
 	private void setNavContentVisibility(boolean isVisible){
 		for(Widget w : navContent){
 			w.setVisible(isVisible);
@@ -106,6 +112,10 @@ public class HuskyCardNavigation extends Composite {
 			break;
 		case IHuskyConstants.NAV_NOTIFICATION:
 			navContent.add(notificationSidebar);
+			break;
+		case IHuskyConstants.NAV_LEAVE:
+			RootPanel.get().clear();
+			RootPanel.get().add(new HuskyMain(huskyMain.getUser()));
 			break;
 		default:
 			break;

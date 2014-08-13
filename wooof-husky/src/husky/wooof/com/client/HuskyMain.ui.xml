@@ -6,6 +6,7 @@
 		.huskyNavigationPanel{
 			 width: 250px;
     		float: left;
+    		left: 0px;
     		position: fixed;
     		height: 100%;
     		-webkit-box-shadow: 0 0 4px rgba(0,0,0,0.2);

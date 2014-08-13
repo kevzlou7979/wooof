@@ -1,0 +1,2 @@
+serviceClass: husky.wooof.com.client.services.UserAccountService
+path: 29C248680426F491E308D3D7A4D60EF7.gwt.rpc

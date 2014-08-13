@@ -28,8 +28,18 @@
 			color: #999;
 			font-size: 0.8em;
 		}
+		.itemPanel{
+			cursor: pointer;
+			opacity: 0.7;
+			transition: 1s all;
+			-webkit-transition: 1s all;
+			-moz-transition: 1s all;
+		}
+		.itemPanel:hover{
+			opacity: 1;
+		}
 	</ui:style>
-	<g:FocusPanel ui:field="itemPanel">
+	<g:FocusPanel ui:field="itemPanel" addStyleNames="{style.itemPanel}">
 		<g:HTMLPanel>
 			<g:Label text="+" addStyleNames="{res.huskycss.inline} {style.lblLessonNumber}"/>
 			<g:HTMLPanel addStyleNames="{res.huskycss.inline} {style.lessonNamePanel}">
