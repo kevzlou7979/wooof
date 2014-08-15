@@ -36,16 +36,20 @@
 		border: 4px solid #e9e9e9;
 		border-bottom: 30px solid #e9e9e9;
 	}
+	.lessonItemCreate{
+		opacity: 0.5 !important;
+		font-size: 1.2em !important;
+	}
 	</ui:style>
 	<g:HTMLPanel ui:field="panel">
 		<g:HTMLPanel ui:field="activeUsersPanel" addStyleNames="{style.activeUsersPanel}" />
 
 		<g:HTMLPanel ui:field="mainPanel" addStyleNames="{res.huskycss.inline} {style.mainPanel}">
-			<g:HTMLPanel addStyleNames="{style.previewPanel}"/>
+			<g:HTMLPanel ui:field="lessonPreviewPanel" addStyleNames="{style.previewPanel}"/>
 		</g:HTMLPanel>
 
 		<g:HTMLPanel ui:field="lessonPanel" addStyleNames="{res.huskycss.inline} {style.lessonPanel}">
-			<h:LessonItem ui:field="createLesson" action="create"/> 
+			<h:LessonItem ui:field="createLesson" action="create" addStyleNames="{style.lessonItemCreate}"/> 
 		</g:HTMLPanel>
 
 	</g:HTMLPanel>

@@ -25,12 +25,16 @@
 		}
 		.youtubeVideoPanel{
 			margin: 20px 0px 20px 0px;
+			height: 300px;
 		}
 	</ui:style>
-	<g:HTMLPanel>
+	<g:HTMLPanel ui:field="panel">
 		<h:HuskyTitle title="Lesson" imageSize="70px" description="Provide lesson information below" resource="{res.ic_lesson}"/>
-		<h:HuskyTextBox placeholder="Lesson Name" ui:field="txtCardName"/>
-		<h:HuskyTextArea placeholder="Lesson Description" ui:field="txtCardDescription"/>
+		
+		<g:HTMLPanel ui:field="messagePanel"/>
+		
+		<h:HuskyTextBox ui:field="txtLessonName" placeholder="Lesson Name"/>
+		<h:HuskyTextArea ui:field="txtDescription" placeholder="Lesson Description"/>
 			
 		<g:HTMLPanel ui:field="chooseTypePanel" addStyleNames="{style.chooseTypePanel}">
 		    <h:LessonType ui:field="typeYoutube" type="youtube" resource="{res.ic_lesson_youtube}" text="Provide a youtube link for your lesson video material"/>
@@ -43,7 +47,9 @@
 				<h:HuskyButton text="Preview" ui:field="btnYoutubePreview" addStyleNames="{res.huskycss.inline} {style.btnYoutubePreview}"/>
 				<h:YoutubeVideo ui:field="youtubeVideoPanel" addStyleNames="{style.youtubeVideoPanel}"/>
 			</g:HTMLPanel>
-			<g:HTMLPanel ui:field="imagePanel"/>
+			<g:HTMLPanel ui:field="imagePanel">
+				<h:HuskyUploadArea ui:field="imageLessonPanel"/>
+			</g:HTMLPanel>
 		</g:HTMLPanel>
 		
 		

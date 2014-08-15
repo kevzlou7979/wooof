@@ -10,14 +10,13 @@ html,body {
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: fixed;
-	
 }
 
-*{
+* {
 	outline: none;
 }
 
-.hiddenPanel{
+.hiddenPanel {
 	transition: 1s all;
 	-webkit-transition: 1s all;
 	-moz-transition: 1s all;
@@ -26,12 +25,21 @@ html,body {
 	left: -300px !important;
 }
 
-.accountBtnEdit{
+.accountBtnEdit {
 	float: right;
 	margin-top: 10px;
 	width: 30px;
 	height: 30px;
 	cursor: pointer;
+}
+
+.lessonItem {
+	width: 30px !important;
+	height: 30px !important;
+	background: #4086fa;
+	color: #fff !important;
+	line-height: 1.5em !important;
+	margin-left: 10px;
 }
 
 .accountPanel {
@@ -73,7 +81,7 @@ html,body {
 	opacity: 1 !important;
 }
 
-.navBorderActive{
+.navBorderActive {
 	border-bottom: 3px solid #4086fa;
 }
 
@@ -169,7 +177,8 @@ html,body {
 .huskyMessageLbl {
 	display: inline-block;
 	vertical-align: top;
-	margin-left: 10px
+	margin-left: 10px;
+	width: 80%;
 }
 
 .huskyMessageImg {
@@ -276,10 +285,10 @@ html,body {
 	box-shadow: none;
 	-webkit-box-shadow: none;
 	border: 1px solid #e9e9e9;
-	background-image: none;	
+	background-image: none;
 }
 
-.huskyButtonWhite:hover{
+.huskyButtonWhite:hover {
 	opacity: 0.9;
 }
 
@@ -361,7 +370,7 @@ html,body {
 	animation: spin3 1.5s ease-in-out infinite;
 }
 
-	@-webkit-keyframes spin {
+@-webkit-keyframes spin {
 	  0% {
 	    top: -24px;
 	    left: 0;

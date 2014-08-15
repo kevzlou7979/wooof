@@ -1,6 +1,7 @@
 package husky.wooof.com.shared;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Id;
 
@@ -17,6 +18,7 @@ public class HuskyLesson implements Serializable {
 	private String name;
 	private String type;
 	private String description;
+	private Date creationDate = new Date();
 	
 	public HuskyLesson() {}
 
@@ -66,6 +68,14 @@ public class HuskyLesson implements Serializable {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public Date getCreationDate() {
+		return creationDate;
+	}
+
+	public void setCreationDate(Date creationDate) {
+		this.creationDate = creationDate;
 	}
 
 }
