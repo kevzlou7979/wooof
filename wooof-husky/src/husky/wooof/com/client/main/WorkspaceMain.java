@@ -107,6 +107,8 @@ public class WorkspaceMain extends Composite{
 	
 	public void playImageLesson(HuskyImageLesson lesson){
 		Image img = new Image();
+		img.setWidth("100%");
+		img.setHeight("100%");
 		img.setUrl(lesson.getImageUrl());
 		lessonPreviewPanel.clear();
 		lessonPreviewPanel.add(img);
