@@ -12,14 +12,14 @@ import com.google.gwt.user.client.ui.SimplePanel;
 public class YoutubeVideo extends SimplePanel{
 
 	private String url;
-	
+	private AbstractMediaPlayer player;
 	public YoutubeVideo() {
 		// TODO Auto-generated constructor stub
 	}
 	private void loadYoutubeVideo(String url){
-		AbstractMediaPlayer player = null;
+		
 		try {
-		    player = new YouTubePlayer(url.replace("https://www.youtube.com/watch?v=", ""), "100%", "300px");
+		    player = new YouTubePlayer(url.replace("https://www.youtube.com/watch?v=", "").replace("http://www.youtube.com/watch?v=", ""), "100%", "100%");
 		    this.setWidget(player); // add player to panel.
 		} catch(PluginVersionException e) {
 			this.setWidget(new HTML(".. some nice message telling the " +
@@ -37,6 +37,13 @@ public class YoutubeVideo extends SimplePanel{
 		this.url = url;
 		loadYoutubeVideo(url);
 	}
+	public AbstractMediaPlayer getPlayer() {
+		return player;
+	}
+	public void setPlayer(AbstractMediaPlayer player) {
+		this.player = player;
+	}
+	
 	
 }
 

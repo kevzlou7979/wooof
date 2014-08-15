@@ -1,11 +1,11 @@
 package husky.wooof.com.server;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import husky.wooof.com.client.services.LessonService;
 import husky.wooof.com.shared.HuskyCard;
 import husky.wooof.com.shared.HuskyLesson;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 import com.googlecode.objectify.Objectify;
@@ -25,7 +25,7 @@ public class LessonServiceImpl extends RemoteServiceServlet implements LessonSer
 	@Override
 	public List<HuskyLesson> getAllCardLessons(HuskyCard card) throws Exception {
 		List<HuskyLesson> lessons = new ArrayList<>();
-		for(HuskyLesson l : ofy.query(HuskyLesson.class).filter("cardId", card.getId())){
+		for(HuskyLesson l : ofy.query(HuskyLesson.class).filter("cardId", card.getId()).order("creationDate")){
 			lessons.add(l);
 		}
 		

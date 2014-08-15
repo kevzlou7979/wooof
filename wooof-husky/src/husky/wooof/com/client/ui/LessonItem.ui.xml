@@ -5,6 +5,7 @@
 		type='husky.wooof.com.client.resources.HuskyResources' />
 
 	<ui:style>
+		 @external panelAfter;
 		.lblLessonNumber{
 			width: 50px;
 			height: 50px;
@@ -30,21 +31,28 @@
 		}
 		.itemPanel{
 			cursor: pointer;
-			opacity: 0.7;
-			transition: 1s all;
-			-webkit-transition: 1s all;
-			-moz-transition: 1s all;
+			transition: 0.5s all;
+			-webkit-transition: 0.5s all;
+			-moz-transition: 0.5s all;
+			margin-top: 10px;
+			opacity: 0;
+			font-size: 0.8em;
 		}
-		.itemPanel:hover{
-			opacity: 1;
+		
+		.panelAfter{
+			opacity: 0.5 !important;
+		}
+		
+		.itemPanel:hover, .panelAfter:hover{
+			opacity: 1 !important;
 		}
 	</ui:style>
 	<g:FocusPanel ui:field="itemPanel" addStyleNames="{style.itemPanel}">
 		<g:HTMLPanel>
-			<g:Label text="+" addStyleNames="{res.huskycss.inline} {style.lblLessonNumber}"/>
+			<g:Label ui:field="lblLessonNumber" text="+" addStyleNames="{res.huskycss.inline} {style.lblLessonNumber}"/>
 			<g:HTMLPanel addStyleNames="{res.huskycss.inline} {style.lessonNamePanel}">
-				<g:Label text="Add Lesson" addStyleNames="{style.lblName}"/>
-				<g:Label text="Click Here to add lesson" addStyleNames="{style.lblType}"/>
+				<g:Label ui:field="lblLessonName" text="Add Lesson" addStyleNames="{style.lblName}"/>
+				<g:Label ui:field="lblLessonType" text="Click Here to add lesson" addStyleNames="{style.lblType}"/>
 			</g:HTMLPanel>
 		</g:HTMLPanel>
 	</g:FocusPanel>
