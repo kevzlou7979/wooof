@@ -5,12 +5,13 @@
 	<ui:style>
 		.maintenancePanel{
 			margin: auto;
-			margin-top: 10%;
+			padding-top: 10%;
 			width: 50%;
 		}
 		.lblPanel{
 			width: 45%;
 			color: #547fd0;
+			margin-left: 5%;
 		}
 		.image{
 			
@@ -21,12 +22,16 @@
 		.lblMedium{
 			font-size: 2em;
 		}
+		.lblSecret:hover{
+			cursor: pointer;
+		}
 	</ui:style>
 	<g:HTMLPanel addStyleNames="{style.maintenancePanel}">
 		<g:Image resource="{res.logo_husky_maintenance}" addStyleNames="{style.image}  {res.huskycss.inline}"/>
 		<g:HTMLPanel addStyleNames="{style.lblPanel} {res.huskycss.inline}">
 		    <g:Label text="Husky" addStyleNames="{style.lblLarge}"/>
-			<g:Label text="Under Maintenance..." addStyleNames="{style.lblMedium}"/>
+			<g:Label text="Under Maintenance.." addStyleNames="{style.lblMedium} {res.huskycss.inline}"/>
+			<g:Label ui:field="btnSecret" text="." addStyleNames="{style.lblMedium} {res.huskycss.inline} {style.lblSecret}"/>
 		</g:HTMLPanel>
 	</g:HTMLPanel>
 </ui:UiBinder> 
