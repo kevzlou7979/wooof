@@ -3,7 +3,9 @@
 import java.util.List;
 
 import husky.wooof.com.shared.HuskyCard;
+import husky.wooof.com.shared.HuskyChatMessage;
 import husky.wooof.com.shared.HuskyUser;
+import husky.wooof.com.shared.HuskyUserCard;
 
 import com.google.gwt.user.client.rpc.AsyncCallback;
 
@@ -25,4 +27,11 @@ public interface CardServiceAsync {
 	
 	public void getAllCardViewers(HuskyCard card, AsyncCallback<List<HuskyUser>> callback);
 	
+	public void getAllChatMessage(HuskyCard card, AsyncCallback<List<HuskyChatMessage>> callback);
+
+	public void saveNewChat(HuskyUser user, HuskyCard card, boolean isSeen, AsyncCallback<HuskyUserCard> callback);
+	
+	public void getAllActiveUser(HuskyCard card, AsyncCallback<List<HuskyUserCard>> callback);
+
+	public void leaveCard(HuskyUser user, AsyncCallback<Void> callback);
 }

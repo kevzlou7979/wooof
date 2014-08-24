@@ -20,8 +20,6 @@ public interface IHuskyConstants {
 	public static final String CARD_ADMIN = "Admin";
 	public static final String CARD_VIEWER = "Viewer";
 	
-	public static final String CHAT_TYPING = "typing";
-	
 	public static final String LESSON_YOUTUBE = "youtube";
 	public static final String LESSON_IMAGE = "image";
 	
@@ -32,6 +30,7 @@ public interface IHuskyConstants {
 	public static final String MALE = "Male";
 	public static final String FEMALE = "Female";
 	public static final String CHAT_JOINED = "Joined";
+	public static final String CHAT_LEAVE = "Leave";
 	
 	
 }

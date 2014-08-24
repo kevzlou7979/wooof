@@ -30,6 +30,8 @@ public interface UserAccountService extends RemoteService {
 	
 	public HuskyUser getUser(HuskyUser user) throws Exception;
 	
+	public HuskyUser getUserById(Long userId) throws Exception;
+	
 	public void deleteUser(HuskyUser user) throws Exception;
 	
 	public HuskyUser updateUser(HuskyUser user) throws Exception;

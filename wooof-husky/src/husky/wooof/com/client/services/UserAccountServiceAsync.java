@@ -19,4 +19,6 @@ public interface UserAccountServiceAsync {
 	public void updateUser(HuskyUser user, AsyncCallback<HuskyUser> callback);
 	
 	public void searchUsers(String filter, AsyncCallback<List<HuskyUser>> callback);
+	
+	public void getUserById(Long userId, AsyncCallback<HuskyUser> callback);
 }

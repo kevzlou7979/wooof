@@ -1,9 +1,11 @@
 package husky.wooof.com.server;
 
 import husky.wooof.com.shared.HuskyCard;
+import husky.wooof.com.shared.HuskyChatMessage;
 import husky.wooof.com.shared.HuskyImageLesson;
 import husky.wooof.com.shared.HuskyLesson;
 import husky.wooof.com.shared.HuskyUser;
+import husky.wooof.com.shared.HuskyUserCard;
 import husky.wooof.com.shared.HuskyYoutubeLesson;
 import husky.wooof.com.shared.UploadedImage;
 
@@ -16,7 +18,9 @@ public class OfyService {
         ObjectifyService.register(HuskyUser.class);
         ObjectifyService.register(HuskyCard.class);
         ObjectifyService.register(UploadedImage.class);
+        ObjectifyService.register(HuskyChatMessage.class);
         ObjectifyService.register(HuskyLesson.class);
+        ObjectifyService.register(HuskyUserCard.class);
         ObjectifyService.register(HuskyYoutubeLesson.class);
         ObjectifyService.register(HuskyImageLesson.class);
     }

@@ -36,8 +36,12 @@ public class UserAccountServiceImpl extends RemoteServiceServlet implements User
 	public HuskyUser getUser(HuskyUser user) throws Exception {
 		return ofy.query(HuskyUser.class).filter("email", user.getEmail()).filter("password", MD5Helper.encode(user.getPassword())).get();  
 	}
-
-
+	
+	@Override
+	public HuskyUser getUserById(Long userId) throws Exception {
+		return ofy.query(HuskyUser.class).filter("id", userId).get();
+	}
+	
 	@Override
 	public void deleteUser(HuskyUser user) throws Exception {
 		ofy.delete(user);

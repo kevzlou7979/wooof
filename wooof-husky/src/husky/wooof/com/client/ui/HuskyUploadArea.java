@@ -63,7 +63,7 @@ public class HuskyUploadArea extends Composite {
 						if(event.getResults()!=null){
 							key = event.getResults();
 					    }else{
-					    	key = "agt3b29vZi1odXNreXIaCxINVXBsb2FkZWRJbWFnZRiAgICAgMjQCgw";
+					    	key = "agt3b29vZi1odXNreXIaCxINVXBsb2FkZWRJbWFnZRiAgICAgICCCQw";
 					    }
 					    getImageUrl(key);
 					}
