@@ -1,7 +1,9 @@
 package husky.wooof.com.client.services;
 
 import husky.wooof.com.shared.HuskyCard;
+import husky.wooof.com.shared.HuskyChatMessage;
 import husky.wooof.com.shared.HuskyUser;
+import husky.wooof.com.shared.HuskyUserCard;
 
 import java.util.List;
 
@@ -41,4 +43,13 @@ public interface CardService extends RemoteService{
 	
 	public List<HuskyUser> getAllCardViewers(HuskyCard card) throws Exception;
 	
+	public List<HuskyChatMessage> getAllChatMessage(HuskyCard card) throws Exception;
+
+	public HuskyUserCard saveNewChat(HuskyUser user, HuskyCard card, boolean isSeen) throws Exception;
+	
+	public List<HuskyUserCard> getAllActiveUser(HuskyCard card) throws Exception;
+	
+	public void leaveCard(HuskyUser user) throws Exception;
 }
+
+

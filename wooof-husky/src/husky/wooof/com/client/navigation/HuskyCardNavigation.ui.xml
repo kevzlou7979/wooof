@@ -25,6 +25,7 @@
 			margin-top: 50%;
 			opacity: 0.5;
 			cursor: pointer;
+			position: relative;
 		}
 		.navItem:hover{
 			opacity: 1;	
@@ -41,6 +42,18 @@
 			top: 2%;
 			cursor: pointer;
 		}
+		.num{
+			color: rgb(255, 255, 255);
+			top: 20px;
+			background: none repeat scroll 0% 0% red;
+			padding: 5px 10px;
+			font-size: 0.7em;
+			right: 65px;
+			position: absolute;
+			border-radius: 10%;
+			-webkit-border-radius: 10%;
+			-moz-border-radius: 10%;
+		}
 	</ui:style>
 	<g:HTMLPanel >
 		
@@ -50,7 +63,10 @@
 			
 		<g:HTMLPanel ui:field="navMenu" addStyleNames="{style.navItems}">
 			<g:Image ui:field="navCardInfo" resource="{res.ic_nav_info_white}" addStyleNames="{style.navItem} {style.navCardInfo}"/>
-			<g:Image ui:field="navChat" resource="{res.ic_nav_chat_white}" addStyleNames="{style.navItem}"/>
+			<g:HTMLPanel addStyleNames="{style.navItem}">
+			    <g:Image ui:field="navChat" resource="{res.ic_nav_chat_white}"/>
+				<g:Label ui:field="lblChatNum" text="90" addStyleNames="{style.num}"/>
+			</g:HTMLPanel>
 			<g:Image ui:field="navAddUser" resource="{res.ic_nav_add_user_white}" addStyleNames="{style.navItem}"/>
 			<g:Image ui:field="navNotification" resource="{res.ic_nav_notification}" addStyleNames="{style.navItem}"/> 
 			<g:Image ui:field="navLeave" resource="{res.ic_nav_leave}" addStyleNames="{style.navItem}"/> 

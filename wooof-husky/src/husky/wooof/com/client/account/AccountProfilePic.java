@@ -57,7 +57,7 @@ public class AccountProfilePic extends Composite {
 						if(event.getResults()!=null){
 							key = event.getResults();
 					    }else{
-					    	key = "agt3b29vZi1odXNreXIaCxINVXBsb2FkZWRJbWFnZRiAgICAgIDyCww";
+					    	key = "agt3b29vZi1odXNreXIaCxINVXBsb2FkZWRJbWFnZRiAgICAgICCCQw";
 					    }
 					    getImageUrl(key);
 					}

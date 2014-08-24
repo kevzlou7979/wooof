@@ -33,6 +33,6 @@ public interface HuskyCSS extends CssResource{
 	String huskyBasicDescription();
 	String accountBtnEdit();
 	String hiddenPanel();
+	String activeUserItem();
 	String lessonItem();
-	
 }

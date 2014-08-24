@@ -16,7 +16,18 @@ html,body {
 	outline: none;
 }
 
-.hiddenPanel {
+.activeUserItem{
+	display: inline-block;
+	font-size: 0.7em;
+	width: 50px;
+}
+
+.activeUserItem > div{
+	top: 5px;
+	position: absolute;
+}
+
+.hiddenPanel{
 	transition: 1s all;
 	-webkit-transition: 1s all;
 	-moz-transition: 1s all;

@@ -31,7 +31,7 @@ public class HuskyCardNavigation extends Composite {
 	}
 	
 	@UiField HTMLPanel navMenu, navContent;
-	@UiField Label btnHideNav;
+	@UiField Label btnHideNav, lblChatNum;
 	@UiField Image navCardInfo, navChat, navAddUser, navNotification, navLeave;
 	
 	private CardInfoSidebar cardInfoSideBar;
@@ -40,6 +40,7 @@ public class HuskyCardNavigation extends Composite {
 	private NotificationSidebar notificationSidebar;
 	private HuskyMain huskyMain;
 	private WorkspaceMain workspaceMain;
+	private boolean closeNav = true;
 	
 	public HuskyCardNavigation(WorkspaceMain workspaceMain) {
 		initWidget(uiBinder.createAndBindUi(this));
@@ -50,6 +51,7 @@ public class HuskyCardNavigation extends Composite {
 		addUserSideBar = new AddUserSideBar(this);
 		notificationSidebar = new NotificationSidebar(this);
 		btnHideNav.setVisible(false);
+		lblChatNum.setVisible(false);
 	}
 
 	@UiHandler("navCardInfo")
@@ -74,6 +76,7 @@ public class HuskyCardNavigation extends Composite {
 	
 	@UiHandler("btnHideNav")
 	void onHideNav(ClickEvent e){
+		setCloseNav(true);
 		navContent.setWidth("0px");
 		btnHideNav.setVisible(false);
 		setNavContentVisibility(false);
@@ -105,6 +108,9 @@ public class HuskyCardNavigation extends Composite {
 			navContent.add(cardInfoSideBar);
 			break;
 		case IHuskyConstants.NAV_CHAT:
+			setCloseNav(false);
+			lblChatNum.setVisible(false);
+			chatSideBar.onSaveNewChat(true);
 			navContent.add(chatSideBar);
 			break;
 		case IHuskyConstants.NAV_ADD_USER:
@@ -114,6 +120,7 @@ public class HuskyCardNavigation extends Composite {
 			navContent.add(notificationSidebar);
 			break;
 		case IHuskyConstants.NAV_LEAVE:
+			chatSideBar.getChannel().send(huskyMain.getUser().getId() + ";" + IHuskyConstants.CHAT_LEAVE);
 			RootPanel.get().clear();
 			RootPanel.get().add(new HuskyMain(huskyMain.getUser()));
 			break;
@@ -170,5 +177,31 @@ public class HuskyCardNavigation extends Composite {
 	public void setWorkspaceMain(WorkspaceMain workspaceMain) {
 		this.workspaceMain = workspaceMain;
 	}
+
+	public HTMLPanel getNavContent() {
+		return navContent;
+	}
+
+	public void setNavContent(HTMLPanel navContent) {
+		this.navContent = navContent;
+	}
+
+	public boolean isCloseNav() {
+		return closeNav;
+	}
+
+	public void setCloseNav(boolean closeNav) {
+		this.closeNav = closeNav;
+	}
+
+	public Label getLblChatNum() {
+		return lblChatNum;
+	}
+
+	public void setLblChatNum(Label lblChatNum) {
+		this.lblChatNum = lblChatNum;
+	}
+
+	
 	
 }

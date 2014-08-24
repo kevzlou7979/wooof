@@ -1,8 +1,10 @@
-package husky.wooof.com.server;
+	package husky.wooof.com.server;
 
 import husky.wooof.com.client.services.CardService;
 import husky.wooof.com.shared.HuskyCard;
+import husky.wooof.com.shared.HuskyChatMessage;
 import husky.wooof.com.shared.HuskyUser;
+import husky.wooof.com.shared.HuskyUserCard;
 import husky.wooof.com.shared.IHuskyConstants;
 
 import java.util.ArrayList;
@@ -92,4 +94,49 @@ public class CardServiceImpl extends RemoteServiceServlet implements CardService
 		return users;
 	}
 
+	@Override
+	public List<HuskyChatMessage> getAllChatMessage(HuskyCard card)
+			throws Exception {
+		List<HuskyChatMessage> chatMessages = new ArrayList<HuskyChatMessage>();
+		for(HuskyChatMessage chat : ofy.query(HuskyChatMessage.class).filter("cardId", card.getId()).order("creationDate")){
+			chatMessages.add(chat);
+		}
+		return chatMessages;
+	}
+
+	@Override
+	public List<HuskyUserCard> getAllActiveUser(HuskyCard card)
+			throws Exception {
+		List<HuskyUserCard> userCards = new ArrayList<HuskyUserCard>();
+		for(HuskyUserCard userCard : ofy.query(HuskyUserCard.class).filter("cardId", card.getId()).filter("active", true)){
+			userCards.add(userCard);
+		}
+		return userCards;
+	}
+
+	@Override
+	public void leaveCard(HuskyUser user) throws Exception {
+		HuskyUserCard userCard = ofy.query(HuskyUserCard.class).filter("userId", user.getId()).get();
+		userCard.setActive(false);
+		ofy.put(userCard);
+	}
+
+	@Override
+	public HuskyUserCard saveNewChat(HuskyUser user, HuskyCard card, boolean isSeen)
+			throws Exception {
+		
+		HuskyUserCard userCard = ofy.query(HuskyUserCard.class).filter("userId", user.getId()).filter("cardId", card.getId()).get();
+		int newChats = userCard.getNumNewChat();
+		if(isSeen){
+			newChats = 0;
+		}else{
+			newChats ++;
+		}
+		userCard.setNumNewChat(newChats);
+		ofy.put(userCard);
+		return userCard;
+	}
+
+	
+	
 }
