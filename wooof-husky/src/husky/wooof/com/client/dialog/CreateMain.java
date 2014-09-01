@@ -11,6 +11,7 @@ import husky.wooof.com.client.ui.HuskyUploadArea;
 import husky.wooof.com.shared.FieldVerifier;
 import husky.wooof.com.shared.HuskyCard;
 import husky.wooof.com.shared.HuskyUser;
+import husky.wooof.com.shared.IHuskyConstants;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +22,6 @@ import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.Timer;
-import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HTMLPanel;
@@ -58,7 +58,7 @@ public class CreateMain extends Composite {
 			card.setCardImage(cardPhoto.getCardImage().getUrl());
 			basicInfoPanel.setVisible(false);
 			huskyMain.getHuskyDialog().hide();
-			HuskyLoading.showLoading(true, panel, "Creating Card", 30);
+			HuskyLoading.showLoading(true, panel, "Creating Card", 30, IHuskyConstants.LOADING_CIRCLE);
 			CardService.Connect.getService().saveCard(card,users, new AsyncCallback<HuskyCard>() {
 				
 				@Override
@@ -73,8 +73,6 @@ public class CreateMain extends Composite {
 			            	huskyMain.getCardsMain().onLoadAllCards();
 			            	huskyMain.getHuskyMainPanel().clear();
 			            	huskyMain.getHuskyMainPanel().add(new WorkspaceMain(huskyMain, result));
-			            	//TODO Load the Workspace
-			            	Window.alert("Workspace Loaded");
 			            }
 			        };
 	

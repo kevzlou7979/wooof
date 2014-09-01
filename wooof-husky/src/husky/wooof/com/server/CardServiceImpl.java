@@ -13,6 +13,7 @@ import java.util.List;
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 import com.googlecode.objectify.Key;
 import com.googlecode.objectify.Objectify;
+import com.googlecode.objectify.Query;
 
 public class CardServiceImpl extends RemoteServiceServlet implements CardService{
 
@@ -95,12 +96,26 @@ public class CardServiceImpl extends RemoteServiceServlet implements CardService
 	}
 
 	@Override
-	public List<HuskyChatMessage> getAllChatMessage(HuskyCard card)
+	public List<HuskyChatMessage> getAllChatMessage(HuskyCard card, int x)
 			throws Exception {
 		List<HuskyChatMessage> chatMessages = new ArrayList<HuskyChatMessage>();
-		for(HuskyChatMessage chat : ofy.query(HuskyChatMessage.class).filter("cardId", card.getId()).order("creationDate")){
-			chatMessages.add(chat);
+		List<HuskyChatMessage> tempMessages = new ArrayList<HuskyChatMessage>();
+		int y = x + 9;
+		Query<HuskyChatMessage> chats = ofy.query(HuskyChatMessage.class).filter("cardId", card.getId()).order("creationDate");
+		for(HuskyChatMessage chat : chats){
+			tempMessages.add(chat);
 		}
+		if(y < tempMessages.size()){
+			for(@SuppressWarnings("unused") HuskyChatMessage chat : tempMessages){
+				if(x < y){
+					chatMessages.add(tempMessages.get(x));
+				}else{
+					break;
+				}
+				x++;
+			}
+		}
+		
 		return chatMessages;
 	}
 

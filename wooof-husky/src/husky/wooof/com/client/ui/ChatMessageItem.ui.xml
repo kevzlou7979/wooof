@@ -52,15 +52,20 @@
 		color: #999;
 		font-size: 0.9em;
 	}
+	.lblTime{
+		color: #e7e7e7;
+		font-size: 0.7em;
+		text-align: right;
+	}
 	</ui:style>
 	<g:HTMLPanel addStyleNames="{style.chatMessageItemPanel}">
 		<g:Image ui:field="imgProfile" resource="{res.ic_avatar}"
 			addStyleNames="{res.huskycss.circleImage} {style.icAvatar} {res.huskycss.inline}" />
 			
 		<g:HTMLPanel addStyleNames="{style.bubble} {res.huskycss.inline}">
-			<g:Label ui:field="lblTime"/>
 			<g:Label ui:field="lblName" text="Mark Kevin" addStyleNames="{style.lblUser}"/>
 			<g:Label ui:field="lblMessage" text="Hi welcome to Chat System of Husky" addStyleNames="{style.lblMessage}"/>
+			<g:Label ui:field="lblTime" addStyleNames="{style.lblTime}"/>
 		</g:HTMLPanel>
 	</g:HTMLPanel>
 </ui:UiBinder> 

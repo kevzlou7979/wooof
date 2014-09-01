@@ -9,6 +9,7 @@ import husky.wooof.com.client.ui.HuskyPasswordBox;
 import husky.wooof.com.client.ui.HuskyTextBox;
 import husky.wooof.com.shared.FieldVerifier;
 import husky.wooof.com.shared.HuskyUser;
+import husky.wooof.com.shared.IHuskyConstants;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
@@ -47,6 +48,7 @@ public class HuskyLogin extends Composite {
 		initWidget(uiBinder.createAndBindUi(this));
 		loadSignInPanel();
 		//signUpNav.removeFromParent();
+		//imgLogo.removeFromParent();
 		//txtEmail.setText("kevzlou7979@gmail.com");
 		//txtPassword.setText("123123123");
 	}
@@ -71,7 +73,7 @@ public class HuskyLogin extends Composite {
 	private void signInAccount(){
 		messagePanel.setVisible(true);
 		if(FieldVerifier.isValidFields(signInPanel, messagePanel) && FieldVerifier.isValidEmailFields(txtEmail, messagePanel)){
-			HuskyLoading.showLoading(true, formPanel, "Signing In", 0);
+			HuskyLoading.showLoading(true, formPanel, "Signing In", 0, IHuskyConstants.LOADING_CIRCLE);
 			HuskyMessage.hideMessage();
 			signInPanel.setVisible(false);
 			imgLogo.addStyleName(HuskyResources.INSTANCE.huskycss().rotateLogo());
@@ -114,7 +116,7 @@ public class HuskyLogin extends Composite {
 	private void signUpAccount(){
 		messagePanel.setVisible(true);
 		if(FieldVerifier.isValidFields(signUpPanel, messagePanel) && FieldVerifier.isValidEmailFields(txtREmail, messagePanel) && FieldVerifier.isPasswordMatched(messagePanel, txtRPassword, txtRConPassword)){
-			HuskyLoading.showLoading(true, formPanel, "Signing Up", 0);
+			HuskyLoading.showLoading(true, formPanel, "Signing Up", 0, IHuskyConstants.LOADING_CIRCLE);
 			signUpPanel.setVisible(false);
 			imgLogo.addStyleName(HuskyResources.INSTANCE.huskycss().rotateLogo());
 			

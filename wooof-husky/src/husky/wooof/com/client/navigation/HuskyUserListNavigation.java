@@ -1,5 +1,6 @@
 package husky.wooof.com.client.navigation;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import husky.wooof.com.client.resources.HuskyResources;
@@ -35,6 +36,7 @@ public class HuskyUserListNavigation extends Composite {
 	
 	private HuskyCard card;
 	private HuskyCardNavigation huskyCardNavigation;
+	private List<HuskyUser> cardUsers = new ArrayList<HuskyUser>();
 	
 	public HuskyUserListNavigation() {
 		initWidget(uiBinder.createAndBindUi(this));
@@ -50,7 +52,7 @@ public class HuskyUserListNavigation extends Composite {
 		changeNav(viewerMenu, IHuskyConstants.NAV_VIEWER);
 	}
 	
-	private void changeNav(Label label, int type){
+	public void changeNav(Label label, int type){
 		for(Widget w : menuPanel){
 			w.removeStyleName(HuskyResources.INSTANCE.huskycss().navBorderActive());
 		}
@@ -66,7 +68,7 @@ public class HuskyUserListNavigation extends Composite {
 		}
 	}
 	
-	private void setAllAdminUsers(){
+	public void setAllAdminUsers(){
 		adminMenu.addStyleName(HuskyResources.INSTANCE.huskycss().navBorderActive());
 		viewerPanel.setVisible(false);
 		adminPanel.setVisible(true);
@@ -75,6 +77,7 @@ public class HuskyUserListNavigation extends Composite {
 			
 			@Override
 			public void onSuccess(List<HuskyUser> result) {
+				HuskyUserListNavigation.this.cardUsers.addAll(result);
 				for(HuskyUser user : result){
 					adminPanel.add(new UserItem(user, huskyCardNavigation));
 				}
@@ -87,7 +90,7 @@ public class HuskyUserListNavigation extends Composite {
 		});
 	}
 	
-	private void setAllViewerUsers(){
+	public void setAllViewerUsers(){
 		viewerMenu.addStyleName(HuskyResources.INSTANCE.huskycss().navBorderActive());
 		viewerPanel.setVisible(true);
 		adminPanel.setVisible(false);
@@ -96,6 +99,7 @@ public class HuskyUserListNavigation extends Composite {
 			
 			@Override
 			public void onSuccess(List<HuskyUser> result) {
+				HuskyUserListNavigation.this.cardUsers.addAll(result);
 				for(HuskyUser user : result){
 					viewerPanel.add(new UserItem(user, huskyCardNavigation));
 				}
@@ -119,6 +123,14 @@ public class HuskyUserListNavigation extends Composite {
 	public void setHuskyCardNavigation(HuskyCardNavigation huskyCardNavigation) {
 		changeNav(adminMenu, IHuskyConstants.NAV_ADMIN);
 		this.huskyCardNavigation = huskyCardNavigation;
+	}
+
+	public List<HuskyUser> getCardUsers() {
+		return cardUsers;
+	}
+
+	public void setCardUsers(List<HuskyUser> cardUsers) {
+		this.cardUsers = cardUsers;
 	}
 
 }

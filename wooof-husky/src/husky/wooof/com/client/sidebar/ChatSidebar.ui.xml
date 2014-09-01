@@ -22,10 +22,11 @@
 		}
   </ui:style>
 	<g:HTMLPanel addStyleNames="{style.panel}">
-		<g:HTMLPanel ui:field="chatMessagePanel" addStyleNames="{style.chatMessagePanel}">
-		    <g:Label ui:field="txtChatStatus" text="Typing"/>
-		</g:HTMLPanel>
-		
+		<g:ScrollPanel ui:field="chatScrollPanel" addStyleNames="{style.chatMessagePanel}">
+			<g:HTMLPanel ui:field="chatMessagePanel" >
+		   		<g:Label ui:field="txtChatStatus" text="Typing"/>
+			</g:HTMLPanel>
+		</g:ScrollPanel>
 		<h:HuskyTextArea ui:field="txtChatMessage" placeholder="Enter your message" addStyleNames="{style.txtChatMessage}"/>
 	</g:HTMLPanel>
 </ui:UiBinder> 

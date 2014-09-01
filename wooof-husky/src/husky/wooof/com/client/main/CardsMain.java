@@ -7,6 +7,7 @@ import husky.wooof.com.client.services.CardService;
 import husky.wooof.com.client.ui.HuskyCardItem;
 import husky.wooof.com.client.ui.HuskyLoading;
 import husky.wooof.com.shared.HuskyCard;
+import husky.wooof.com.shared.IHuskyConstants;
 
 import java.util.List;
 
@@ -41,7 +42,7 @@ public class CardsMain extends Composite {
 	
 	public void onLoadAllCards(){
 		cardsPanel.clear();
-		HuskyLoading.showLoading(true, cardsPanel, "Getting your cards", 30);
+		HuskyLoading.showLoading(true, cardsPanel, "Getting your cards", 30, IHuskyConstants.LOADING_CIRCLE);
 		CardService.Connect.getService().getAllCards(huskyMain.getUser(), new AsyncCallback<List<HuskyCard>>() {
 			
 			@Override

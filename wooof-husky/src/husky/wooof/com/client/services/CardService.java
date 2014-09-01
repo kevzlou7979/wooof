@@ -43,7 +43,7 @@ public interface CardService extends RemoteService{
 	
 	public List<HuskyUser> getAllCardViewers(HuskyCard card) throws Exception;
 	
-	public List<HuskyChatMessage> getAllChatMessage(HuskyCard card) throws Exception;
+	public List<HuskyChatMessage> getAllChatMessage(HuskyCard card, int x) throws Exception;
 
 	public HuskyUserCard saveNewChat(HuskyUser user, HuskyCard card, boolean isSeen) throws Exception;
 	

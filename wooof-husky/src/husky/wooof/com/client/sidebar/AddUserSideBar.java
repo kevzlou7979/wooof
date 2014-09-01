@@ -46,12 +46,14 @@ public class AddUserSideBar extends Composite {
 	void onSearchUsers(KeyUpEvent e){
 		if(e.getNativeKeyCode() != KeyCodes.KEY_CTRL){
 			searchResultPanel.clear();
-			UserAccountService.Connect.getService().searchUsers(txtSearch.getText(), new AsyncCallback<List<HuskyUser>>() {
+			UserAccountService.Connect.getService().searchUsers(txtSearch.getText(),huskyCardNavigation.getWorkspaceMain().getCard(), new AsyncCallback<List<HuskyUser>>() {
 				
 				@Override
 				public void onSuccess(List<HuskyUser> result) {
 					for(HuskyUser user : result){
-						searchResultPanel.add(new UserItem(user, huskyCardNavigation));
+						if(!validateExistingUser(user.getId())){
+							searchResultPanel.add(new UserItem(user, huskyCardNavigation));
+						}
 					}
 				}
 				
@@ -59,8 +61,28 @@ public class AddUserSideBar extends Composite {
 				public void onFailure(Throwable caught) {
 					Window.alert(caught.getMessage());
 				}
+				
+				private boolean validateExistingUser(Long id){
+					for(HuskyUser user : huskyUserListNavigation.getCardUsers()){
+						if(user.getId().equals(id)){
+							return true;
+						}
+					}
+					return false;
+				}
 			});
 		}
 	}
+
+	public HuskyUserListNavigation getHuskyUserListNavigation() {
+		return huskyUserListNavigation;
+	}
+
+	public void setHuskyUserListNavigation(
+			HuskyUserListNavigation huskyUserListNavigation) {
+		this.huskyUserListNavigation = huskyUserListNavigation;
+	}
+	
+	
 	
 }
