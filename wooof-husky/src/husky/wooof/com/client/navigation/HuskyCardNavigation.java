@@ -110,7 +110,6 @@ public class HuskyCardNavigation extends Composite {
 		case IHuskyConstants.NAV_CHAT:
 			setCloseNav(false);
 			lblChatNum.setVisible(false);
-			chatSideBar.onSaveNewChat(true);
 			navContent.add(chatSideBar);
 			break;
 		case IHuskyConstants.NAV_ADD_USER:

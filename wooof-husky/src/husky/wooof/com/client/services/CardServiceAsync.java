@@ -33,5 +33,4 @@ public interface CardServiceAsync {
 	
 	public void getAllActiveUser(HuskyCard card, AsyncCallback<List<HuskyUserCard>> callback);
 
-	public void leaveCard(HuskyUser user, AsyncCallback<Void> callback);
 }

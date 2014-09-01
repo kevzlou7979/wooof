@@ -48,8 +48,7 @@ public interface CardService extends RemoteService{
 	public HuskyUserCard saveNewChat(HuskyUser user, HuskyCard card, boolean isSeen) throws Exception;
 	
 	public List<HuskyUserCard> getAllActiveUser(HuskyCard card) throws Exception;
-	
-	public void leaveCard(HuskyUser user) throws Exception;
+
 }
 
 

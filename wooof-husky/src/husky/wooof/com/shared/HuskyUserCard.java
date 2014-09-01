@@ -11,8 +11,10 @@ public class HuskyUserCard implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
+	@Id
+	private Long id;
 	private Long cardId;
-	@Id private Long userId;
+	private Long userId;
 	private Integer numNewChat = 0;
 	private boolean active;
 	
@@ -55,6 +57,14 @@ public class HuskyUserCard implements Serializable {
 
 	public void setNumNewChat(Integer numNewChat) {
 		this.numNewChat = numNewChat;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 	
 }
