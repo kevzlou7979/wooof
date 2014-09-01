@@ -1,6 +1,7 @@
 package husky.wooof.com.client.ui;
 
 import husky.wooof.com.client.services.BlobService;
+import husky.wooof.com.shared.IHuskyConstants;
 import husky.wooof.com.shared.UploadedImage;
 
 import com.google.gwt.core.client.GWT;
@@ -63,13 +64,13 @@ public class HuskyUploadArea extends Composite {
 						if(event.getResults()!=null){
 							key = event.getResults();
 					    }else{
-					    	key = "agt3b29vZi1odXNreXIaCxINVXBsb2FkZWRJbWFnZRiAgICAgICCCQw";
+					    	key = "agt3b29vZi1odXNreXIaCxINVXBsb2FkZWRJbWFnZRiAgICAgIDaCQw";
 					    }
 					    getImageUrl(key);
 					}
 
 					private void getImageUrl(String key) {
-						HuskyLoading.showLoading(true, uploadPanel,"", -15);
+						HuskyLoading.showLoading(true, uploadPanel,"", -15, IHuskyConstants.LOADING_CIRCLE);
 						BlobService.Connect.getService().getUploadImage(key, new AsyncCallback<UploadedImage>() {
 							
 							@Override

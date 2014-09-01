@@ -40,8 +40,10 @@ public class HuskyNavigation extends Composite {
 	}
 	
 	private void setProfilePic(HuskyUser user){
-		if(user.getProfilePic()!=null){
+		if(!user.getProfilePic().isEmpty()){
 			imgProfile.setImageProfile(user.getProfilePic());
+		}else{
+			imgProfile.setResource(HuskyResources.INSTANCE.ic_avatar());
 		}
 	}
 	

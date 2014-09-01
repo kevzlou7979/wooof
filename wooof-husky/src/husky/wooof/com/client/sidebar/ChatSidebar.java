@@ -23,6 +23,8 @@ import no.eirikb.gwtchannelapi.client.ChannelListener;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.KeyCodes;
 import com.google.gwt.event.dom.client.KeyDownEvent;
+import com.google.gwt.event.logical.shared.CloseEvent;
+import com.google.gwt.event.logical.shared.CloseHandler;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
@@ -31,10 +33,13 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.Label;
+import com.google.gwt.user.client.ui.ScrollListener;
+import com.google.gwt.user.client.ui.ScrollPanel;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.web.bindery.autobean.shared.AutoBean;
 import com.google.web.bindery.autobean.shared.AutoBeanCodex;
 
+@SuppressWarnings("deprecation")
 public class ChatSidebar extends Composite {
 
 	private static ChatSidebarUiBinder uiBinder = GWT
@@ -45,6 +50,7 @@ public class ChatSidebar extends Composite {
 
 	@UiField Label txtChatStatus;
 	@UiField HTMLPanel chatMessagePanel;
+	@UiField ScrollPanel chatScrollPanel;
 	@UiField HuskyTextArea txtChatMessage;
 	
 	private Channel channel;
@@ -52,6 +58,7 @@ public class ChatSidebar extends Composite {
 	private HuskyUser user;
 	private HuskyCard card;
 	private HuskyCardNavigation huskyCardNavigation;
+	int x = 0;
 	
 	public ChatSidebar(HuskyCardNavigation huskyCardNavigation, HuskyUser user, HuskyCard card) {
 		initWidget(uiBinder.createAndBindUi(this));
@@ -59,15 +66,28 @@ public class ChatSidebar extends Composite {
 		this.user = user;
 		this.card = card;
 		txtChatStatus.setVisible(false);
-		getAllChatMessages();
-		initChannel();
+		displayAllJoinedUsers();
+		chatScrollPanel.addScrollListener(new ScrollListener() {
+			
+			@Override
+			public void onScroll(Widget widget, int scrollLeft, int scrollTop) {
+				System.out.println(scrollTop);
+				if(scrollTop == 0){
+					x = x + 10;
+					getAllChatMessages(x);
+				}
+			}
+		});
+		onScrollDown();
+		getAllChatMessages(x);
+		onCloseBrowser();
 	}
 	
 	private void initChannel(){
-		append("Joining...");
         channel = new Channel(String.valueOf(card.getId()));
+        
         channelListener = new ChannelListener() {
-
+        	
             @Override
             public void onMessage(String message) {
                 MyFactory myFactory = GWT.create(MyFactory.class);
@@ -87,24 +107,43 @@ public class ChatSidebar extends Composite {
 
             @Override
             public void onOpen() {
+            	
             	channel.send(user.getId() + ";" + IHuskyConstants.CHAT_JOINED);
                 append("Joined!");
             }	
 
             @Override
             public void onError(int code, String description) {
-                append("Error! " + code + ". " + description);
+                Window.alert("CODE: " + String.valueOf(code) + " ," + description);
             }
 
             @Override
             public void onClose() {
-                append("Close!");
+            	 Window.alert("Channel closed");
             }
             
+            
+            
         };
-        channel.addChannelListener(channelListener);
         channel.join();
+        channel.addChannelListener(channelListener);
+        
        
+	}
+	
+	private void onCloseBrowser(){
+		Window.addWindowClosingHandler(new Window.ClosingHandler() {
+		    public void onWindowClosing(Window.ClosingEvent closingEvent) {
+		        closingEvent.setMessage("Do you really want to close the page?");
+		    }
+		});
+		Window.addCloseHandler(new CloseHandler<Window>() { 
+
+            @Override 
+            public void onClose(CloseEvent<Window> event) { 
+            	getChannel().send(user.getId() + ";" + IHuskyConstants.CHAT_LEAVE);
+            } 
+		}); 
 	}
 	
 	@UiHandler("txtChatMessage")
@@ -114,18 +153,21 @@ public class ChatSidebar extends Composite {
 	            append("Not connected");
 	            return;
 	        }
-
 	        String message = txtChatMessage.getText();
 	        if (message.isEmpty()) return;
 	        txtChatMessage.setText("");
-	        append("Sending message: " + message);
 	        channel.send(user.getId() + ";" + message + ";" + card.getId());
 		}
 	}
 	
+
 	private void onDisplayMessage(IHuskyChatMessage chatMessage){
 		chatMessagePanel.add(new ChatMessageItem(chatMessage, huskyCardNavigation));
-		chatMessagePanel.getElement().setScrollTop(5000);
+		onScrollDown();
+	}
+	
+	public void onScrollDown(){
+		chatScrollPanel.setScrollPosition(chatScrollPanel.getMaximumVerticalScrollPosition());
 	}
 	
 	private void displayAllJoinedUsers(){
@@ -134,8 +176,11 @@ public class ChatSidebar extends Composite {
 			
 			@Override
 			public void onSuccess(List<HuskyUserCard> result) {
+				getUser(user.getId());
 				for(HuskyUserCard userCard : result){
-					getUser(userCard.getUserId());
+					if(!userCard.getUserId().equals(user.getId())){
+						getUser(userCard.getUserId());
+					}
 					if(userCard.getUserId().equals(huskyCardNavigation.getWorkspaceMain().getHuskyMain().getUser().getId())){
 						if(userCard.getNumNewChat() > 0){
 								huskyCardNavigation.getLblChatNum().setVisible(true);
@@ -157,12 +202,14 @@ public class ChatSidebar extends Composite {
 			
 			@Override
 			public void onSuccess(HuskyUserCard result) {
-				if(!isSeen){
-					huskyCardNavigation.getLblChatNum().setVisible(true);
-					huskyCardNavigation.getLblChatNum().setText(String.valueOf(result.getNumNewChat()));
-				}else{
-					huskyCardNavigation.getLblChatNum().setVisible(false);
-				}
+				
+					if(!isSeen){
+						huskyCardNavigation.getLblChatNum().setVisible(true);
+						huskyCardNavigation.getLblChatNum().setText(String.valueOf(result.getNumNewChat()));
+					}else{
+						huskyCardNavigation.getLblChatNum().setVisible(false);
+					}
+				
 			}
 			
 			@Override
@@ -179,7 +226,12 @@ public class ChatSidebar extends Composite {
 			public void onSuccess(HuskyUser result) {
 				CircleImage image = new CircleImage();
 				image.addStyleName(HuskyResources.INSTANCE.huskycss().activeUserItem());
-				image.setImageProfile(result.getProfilePic());
+				if(!result.getProfilePic().isEmpty()){
+					image.setImageProfile(result.getProfilePic());
+				}else{
+					image.setResource(HuskyResources.INSTANCE.ic_avatar());
+				}
+				
 				huskyCardNavigation.getWorkspaceMain().getActiveUsersPanel().add(image);
 			}
 			
@@ -195,13 +247,19 @@ public class ChatSidebar extends Composite {
        
     }
 	
-	private void getAllChatMessages(){
-		CardService.Connect.getService().getAllChatMessage(card, new AsyncCallback<List<HuskyChatMessage>>() {
+	private void getAllChatMessages(int x){
+		CardService.Connect.getService().getAllChatMessage(card, x, new AsyncCallback<List<HuskyChatMessage>>() {
 			
 			@Override
 			public void onSuccess(List<HuskyChatMessage> result) {
-				for(HuskyChatMessage chatMessage : result){
-					onDisplayMessage((IHuskyChatMessage) chatMessage);
+				initChannel();
+				if(!result.isEmpty()){
+					for(HuskyChatMessage chatMessage : result){
+						onDisplayMessage((IHuskyChatMessage) chatMessage);
+					}
+					chatScrollPanel.setScrollPosition(400);
+				}else{
+					chatScrollPanel.setScrollPosition(0);
 				}
 			}
 			
@@ -227,6 +285,14 @@ public class ChatSidebar extends Composite {
 	public void setChannelListener(ChannelListener channelListener) {
 		this.channelListener = channelListener;
 	}
-	
+
+	public HTMLPanel getChatMessagePanel() {
+		return chatMessagePanel;
+	}
+
+	public void setChatMessagePanel(HTMLPanel chatMessagePanel) {
+		this.chatMessagePanel = chatMessagePanel;
+	}
+
 	
 }

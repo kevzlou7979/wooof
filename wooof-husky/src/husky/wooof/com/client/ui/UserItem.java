@@ -3,6 +3,7 @@ package husky.wooof.com.client.ui;
 import husky.wooof.com.client.navigation.HuskyCardNavigation;
 import husky.wooof.com.client.services.CardService;
 import husky.wooof.com.shared.HuskyUser;
+import husky.wooof.com.shared.IHuskyConstants;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
@@ -44,7 +45,11 @@ public class UserItem extends Composite {
 		CardService.Connect.getService().addUserToCard(user, huskyCardNavigation.getWorkspaceMain().getCard(), lstUserType.getValue(lstUserType.getSelectedIndex()), new AsyncCallback<Void>() {
 			@Override
 			public void onSuccess(Void result) {
-				Window.alert("Added Card " + user.getEmail() + " Successfully");
+				if(lstUserType.getValue(lstUserType.getSelectedIndex()).equals(IHuskyConstants.CARD_ADMIN)){
+					huskyCardNavigation.getAddUserSideBar().getHuskyUserListNavigation().setAllAdminUsers();
+				}else{
+					huskyCardNavigation.getAddUserSideBar().getHuskyUserListNavigation().setAllViewerUsers();
+				}
 			}
 			
 			@Override

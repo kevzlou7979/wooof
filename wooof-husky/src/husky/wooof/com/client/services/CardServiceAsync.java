@@ -27,7 +27,7 @@ public interface CardServiceAsync {
 	
 	public void getAllCardViewers(HuskyCard card, AsyncCallback<List<HuskyUser>> callback);
 	
-	public void getAllChatMessage(HuskyCard card, AsyncCallback<List<HuskyChatMessage>> callback);
+	public void getAllChatMessage(HuskyCard card, int x, AsyncCallback<List<HuskyChatMessage>> callback);
 
 	public void saveNewChat(HuskyUser user, HuskyCard card, boolean isSeen, AsyncCallback<HuskyUserCard> callback);
 	

@@ -35,4 +35,5 @@ public interface HuskyCSS extends CssResource{
 	String hiddenPanel();
 	String activeUserItem();
 	String lessonItem();
+	String huskyLoadingSquare();
 }

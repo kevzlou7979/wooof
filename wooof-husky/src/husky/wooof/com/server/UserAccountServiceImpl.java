@@ -1,6 +1,7 @@
 package husky.wooof.com.server;
 
 import husky.wooof.com.client.services.UserAccountService;
+import husky.wooof.com.shared.HuskyCard;
 import husky.wooof.com.shared.HuskyUser;
 
 import java.util.ArrayList;
@@ -56,7 +57,7 @@ public class UserAccountServiceImpl extends RemoteServiceServlet implements User
 
 
 	@Override
-	public List<HuskyUser> searchUsers(String filter) throws Exception {
+	public List<HuskyUser> searchUsers(String filter, HuskyCard card) throws Exception {
 		List<HuskyUser> users = new ArrayList<HuskyUser>();
 		if(!filter.isEmpty()){
 			for(HuskyUser user : ofy.query(HuskyUser.class).filter("email >=", filter).filter("email <", filter+"Z")){
@@ -66,4 +67,6 @@ public class UserAccountServiceImpl extends RemoteServiceServlet implements User
 		
 		return users;
 	}
+	
+	
 }
