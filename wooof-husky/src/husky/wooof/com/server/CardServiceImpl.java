@@ -115,13 +115,6 @@ public class CardServiceImpl extends RemoteServiceServlet implements CardService
 	}
 
 	@Override
-	public void leaveCard(HuskyUser user) throws Exception {
-		HuskyUserCard userCard = ofy.query(HuskyUserCard.class).filter("userId", user.getId()).get();
-		userCard.setActive(false);
-		ofy.put(userCard);
-	}
-
-	@Override
 	public HuskyUserCard saveNewChat(HuskyUser user, HuskyCard card, boolean isSeen)
 			throws Exception {
 		

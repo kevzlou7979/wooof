@@ -47,8 +47,8 @@ public class HuskyLogin extends Composite {
 		initWidget(uiBinder.createAndBindUi(this));
 		loadSignInPanel();
 		//signUpNav.removeFromParent();
-		txtEmail.setText("kevzlou7979@gmail.com");
-		txtPassword.setText("123123123");
+		//txtEmail.setText("kevzlou7979@gmail.com");
+		//txtPassword.setText("123123123");
 	}
 	
 	private void loadSignUpPanel(){
