@@ -20,8 +20,8 @@ public interface BlobService extends RemoteService {
 			return service;
 		}
 	}
-	
+
 	public String getBlobstoreUploadUrl() throws Exception;
-	
+
 	public UploadedImage getUploadImage(String key) throws Exception;
 }

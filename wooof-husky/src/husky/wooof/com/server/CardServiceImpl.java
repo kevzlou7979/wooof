@@ -1,4 +1,4 @@
-	package husky.wooof.com.server;
+package husky.wooof.com.server;
 
 import husky.wooof.com.client.services.CardService;
 import husky.wooof.com.shared.HuskyCard;
@@ -15,20 +15,23 @@ import com.googlecode.objectify.Key;
 import com.googlecode.objectify.Objectify;
 import com.googlecode.objectify.Query;
 
-public class CardServiceImpl extends RemoteServiceServlet implements CardService{
+public class CardServiceImpl extends RemoteServiceServlet implements CardService {
 
 	private static final long serialVersionUID = 1L;
 
 	private Objectify ofy = OfyService.ofy();
-	
+
 	@Override
 	public HuskyCard saveCard(HuskyCard card, List<HuskyUser> users) throws Exception {
+		ofy.put(card);
 		List<Key<HuskyUser>> cardUsers = new ArrayList<Key<HuskyUser>>();
-		for(HuskyUser user : users){
+		for (HuskyUser user : users) {
 			cardUsers.add(new Key<HuskyUser>(HuskyUser.class, user.getId()));
+			addUserToCard(user, getCard(card.getId()), IHuskyConstants.CARD_ADMIN, true);
 		}
 		card.setAdmins(cardUsers);
-		ofy.put(card);
+		
+		
 		return getCard(card.getId());
 	}
 
@@ -51,11 +54,11 @@ public class CardServiceImpl extends RemoteServiceServlet implements CardService
 	@Override
 	public List<HuskyCard> getAllCards(HuskyUser user) throws Exception {
 		List<HuskyCard> cards = new ArrayList<HuskyCard>();
-		for(HuskyCard card : ofy.query(HuskyCard.class).filter("admins", user)){
+		for (HuskyCard card : ofy.query(HuskyCard.class).filter("admins", user)) {
 			cards.add(card);
 		}
-		for(HuskyCard card : ofy.query(HuskyCard.class).filter("viewers", user)){
-			if(!cards.contains(card)){
+		for (HuskyCard card : ofy.query(HuskyCard.class).filter("viewers", user)) {
+			if (!cards.contains(card)) {
 				cards.add(card);
 			}
 		}
@@ -63,7 +66,7 @@ public class CardServiceImpl extends RemoteServiceServlet implements CardService
 	}
 
 	@Override
-	public void addUserToCard(HuskyUser user, HuskyCard card, String type) throws Exception {
+	public void addUserToCard(HuskyUser user, HuskyCard card, String type, boolean isActive) throws Exception {
 		Key<HuskyUser> toBeAdd = new Key<HuskyUser>(HuskyUser.class, user.getId());
 		switch (type) {
 		case IHuskyConstants.CARD_ADMIN:
@@ -74,13 +77,15 @@ public class CardServiceImpl extends RemoteServiceServlet implements CardService
 		default:
 			break;
 		}
+		HuskyUserCard userCard = new HuskyUserCard(card.getId(), user.getId(), isActive);
+		ofy.put(userCard);
 		ofy.put(card);
 	}
 
 	@Override
 	public List<HuskyUser> getAllCardAdmins(HuskyCard card) throws Exception {
 		List<HuskyUser> users = new ArrayList<HuskyUser>();
-		for(Key<HuskyUser> user : getCard(card.getId()).getAdmins()){
+		for (Key<HuskyUser> user : getCard(card.getId()).getAdmins()) {
 			users.add(ofy.get(user));
 		}
 		return users;
@@ -89,62 +94,60 @@ public class CardServiceImpl extends RemoteServiceServlet implements CardService
 	@Override
 	public List<HuskyUser> getAllCardViewers(HuskyCard card) throws Exception {
 		List<HuskyUser> users = new ArrayList<HuskyUser>();
-		for(Key<HuskyUser> user : getCard(card.getId()).getViewers()){
+		for (Key<HuskyUser> user : getCard(card.getId()).getViewers()) {
 			users.add(ofy.get(user));
 		}
 		return users;
 	}
 
 	@Override
-	public List<HuskyChatMessage> getAllChatMessage(HuskyCard card, int x)
-			throws Exception {
+	public List<HuskyChatMessage> getAllChatMessage(HuskyCard card, int x) throws Exception {
 		List<HuskyChatMessage> chatMessages = new ArrayList<HuskyChatMessage>();
 		List<HuskyChatMessage> tempMessages = new ArrayList<HuskyChatMessage>();
 		int y = x + 9;
 		Query<HuskyChatMessage> chats = ofy.query(HuskyChatMessage.class).filter("cardId", card.getId()).order("creationDate");
-		for(HuskyChatMessage chat : chats){
+		for (HuskyChatMessage chat : chats) {
 			tempMessages.add(chat);
 		}
-		if(y < tempMessages.size()){
-			for(@SuppressWarnings("unused") HuskyChatMessage chat : tempMessages){
-				if(x < y){
+		if (y < tempMessages.size()) {
+			for (@SuppressWarnings("unused")
+			HuskyChatMessage chat : tempMessages) {
+				if (x < y) {
 					chatMessages.add(tempMessages.get(x));
-				}else{
+				}
+				else {
 					break;
 				}
 				x++;
 			}
 		}
-		
+
 		return chatMessages;
 	}
 
 	@Override
-	public List<HuskyUserCard> getAllActiveUser(HuskyCard card)
-			throws Exception {
+	public List<HuskyUserCard> getAllActiveUser(HuskyCard card) throws Exception {
 		List<HuskyUserCard> userCards = new ArrayList<HuskyUserCard>();
-		for(HuskyUserCard userCard : ofy.query(HuskyUserCard.class).filter("cardId", card.getId()).filter("active", true)){
+		for (HuskyUserCard userCard : ofy.query(HuskyUserCard.class).filter("cardId", card.getId()).filter("active", true)) {
 			userCards.add(userCard);
 		}
 		return userCards;
 	}
 
 	@Override
-	public HuskyUserCard saveNewChat(HuskyUser user, HuskyCard card, boolean isSeen)
-			throws Exception {
-		
+	public HuskyUserCard saveNewChat(HuskyUser user, HuskyCard card, boolean isSeen) throws Exception {
+
 		HuskyUserCard userCard = ofy.query(HuskyUserCard.class).filter("userId", user.getId()).filter("cardId", card.getId()).get();
 		int newChats = userCard.getNumNewChat();
-		if(isSeen){
+		if (isSeen) {
 			newChats = 0;
-		}else{
-			newChats ++;
+		}
+		else {
+			newChats++;
 		}
 		userCard.setNumNewChat(newChats);
 		ofy.put(userCard);
 		return userCard;
 	}
 
-	
-	
 }

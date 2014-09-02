@@ -23,18 +23,20 @@ import com.google.gwt.user.client.ui.Widget;
 
 public class AddUserSideBar extends Composite {
 
-	private static AddUserSideBarUiBinder uiBinder = GWT
-			.create(AddUserSideBarUiBinder.class);
+	private static AddUserSideBarUiBinder uiBinder = GWT.create(AddUserSideBarUiBinder.class);
 
 	interface AddUserSideBarUiBinder extends UiBinder<Widget, AddUserSideBar> {
 	}
 
-	@UiField TextBox txtSearch;
-	@UiField HTMLPanel searchResultPanel;
-	@UiField HuskyUserListNavigation huskyUserListNavigation;
-	
+	@UiField
+	TextBox txtSearch;
+	@UiField
+	HTMLPanel searchResultPanel;
+	@UiField
+	HuskyUserListNavigation huskyUserListNavigation;
+
 	private HuskyCardNavigation huskyCardNavigation;
-	
+
 	public AddUserSideBar(HuskyCardNavigation huskyCardNavigation) {
 		initWidget(uiBinder.createAndBindUi(this));
 		this.huskyCardNavigation = huskyCardNavigation;
@@ -43,28 +45,28 @@ public class AddUserSideBar extends Composite {
 	}
 
 	@UiHandler("txtSearch")
-	void onSearchUsers(KeyUpEvent e){
-		if(e.getNativeKeyCode() != KeyCodes.KEY_CTRL){
+	void onSearchUsers(KeyUpEvent e) {
+		if (e.getNativeKeyCode() != KeyCodes.KEY_CTRL) {
 			searchResultPanel.clear();
-			UserAccountService.Connect.getService().searchUsers(txtSearch.getText(),huskyCardNavigation.getWorkspaceMain().getCard(), new AsyncCallback<List<HuskyUser>>() {
-				
+			UserAccountService.Connect.getService().searchUsers(txtSearch.getText(), huskyCardNavigation.getWorkspaceMain().getCard(), new AsyncCallback<List<HuskyUser>>() {
+
 				@Override
 				public void onSuccess(List<HuskyUser> result) {
-					for(HuskyUser user : result){
-						if(!validateExistingUser(user.getId())){
+					for (HuskyUser user : result) {
+						if (!validateExistingUser(user.getId())) {
 							searchResultPanel.add(new UserItem(user, huskyCardNavigation));
 						}
 					}
 				}
-				
+
 				@Override
 				public void onFailure(Throwable caught) {
 					Window.alert(caught.getMessage());
 				}
-				
-				private boolean validateExistingUser(Long id){
-					for(HuskyUser user : huskyUserListNavigation.getCardUsers()){
-						if(user.getId().equals(id)){
+
+				private boolean validateExistingUser(Long id) {
+					for (HuskyUser user : huskyUserListNavigation.getCardUsers()) {
+						if (user.getId().equals(id)) {
 							return true;
 						}
 					}
@@ -78,11 +80,8 @@ public class AddUserSideBar extends Composite {
 		return huskyUserListNavigation;
 	}
 
-	public void setHuskyUserListNavigation(
-			HuskyUserListNavigation huskyUserListNavigation) {
+	public void setHuskyUserListNavigation(HuskyUserListNavigation huskyUserListNavigation) {
 		this.huskyUserListNavigation = huskyUserListNavigation;
 	}
-	
-	
-	
+
 }

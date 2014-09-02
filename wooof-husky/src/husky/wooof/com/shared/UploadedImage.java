@@ -11,7 +11,7 @@ import com.googlecode.objectify.annotation.Entity;
 public class UploadedImage implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	public static final String SERVING_URL = "servingUrl";
 	public static final String CREATED_AT = "createdAt";
 	public static final String OWNER_ID = "ownerId";
@@ -25,7 +25,7 @@ public class UploadedImage implements Serializable {
 	public UploadedImage() {
 		super();
 	}
-	
+
 	public String getKey() {
 		return key;
 	}
@@ -57,7 +57,5 @@ public class UploadedImage implements Serializable {
 	public void setOwnerId(String ownerId) {
 		this.ownerId = ownerId;
 	}
-
-
 
 }

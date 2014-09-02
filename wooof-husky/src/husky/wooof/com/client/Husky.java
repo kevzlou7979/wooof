@@ -9,7 +9,7 @@ import com.google.gwt.user.client.ui.RootPanel;
  * Entry point classes define <code>onModuleLoad()</code>.
  */
 public class Husky implements EntryPoint {
-	
+
 	public void onModuleLoad() {
 		HuskyResources.INSTANCE.huskycss().ensureInjected();
 		RootPanel.get().add(new HuskyMaintenance());

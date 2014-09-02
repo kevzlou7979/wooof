@@ -9,8 +9,7 @@ import com.google.gwt.user.client.ui.Widget;
 
 public class CardInfoSidebar extends Composite {
 
-	private static CardInfoSidebarUiBinder uiBinder = GWT
-			.create(CardInfoSidebarUiBinder.class);
+	private static CardInfoSidebarUiBinder uiBinder = GWT.create(CardInfoSidebarUiBinder.class);
 
 	interface CardInfoSidebarUiBinder extends UiBinder<Widget, CardInfoSidebar> {
 	}

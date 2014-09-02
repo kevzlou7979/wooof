@@ -11,16 +11,16 @@ import com.google.gwt.user.client.ui.Widget;
 
 public class AccountStory extends Composite {
 
-	private static AccountStoryUiBinder uiBinder = GWT
-			.create(AccountStoryUiBinder.class);
+	private static AccountStoryUiBinder uiBinder = GWT.create(AccountStoryUiBinder.class);
 
 	interface AccountStoryUiBinder extends UiBinder<Widget, AccountStory> {
 	}
 
-	@UiField Label lblTagLine, lblIntroduction;
-	
+	@UiField
+	Label lblTagLine, lblIntroduction;
+
 	private HuskyUser user;
-	
+
 	public AccountStory() {
 		initWidget(uiBinder.createAndBindUi(this));
 	}
@@ -31,10 +31,10 @@ public class AccountStory extends Composite {
 
 	public void setUser(HuskyUser user) {
 		this.user = user;
-		if(user.getTagline()!=null){
+		if (user.getTagline() != null) {
 			lblTagLine.setText(user.getTagline());
 		}
-		if(user.getIntroduction()!=null){
+		if (user.getIntroduction() != null) {
 			lblIntroduction.setText(user.getIntroduction());
 		}
 	}

@@ -7,11 +7,9 @@ import com.google.gwt.user.client.ui.Widget;
 
 public class AccountContactInfo extends Composite {
 
-	private static AccountContactInfoUiBinder uiBinder = GWT
-			.create(AccountContactInfoUiBinder.class);
+	private static AccountContactInfoUiBinder uiBinder = GWT.create(AccountContactInfoUiBinder.class);
 
-	interface AccountContactInfoUiBinder extends
-			UiBinder<Widget, AccountContactInfo> {
+	interface AccountContactInfoUiBinder extends UiBinder<Widget, AccountContactInfo> {
 	}
 
 	public AccountContactInfo() {

@@ -7,11 +7,9 @@ import com.google.gwt.user.client.ui.Widget;
 
 public class AccountChangePassword extends Composite {
 
-	private static AccountChangePasswordUiBinder uiBinder = GWT
-			.create(AccountChangePasswordUiBinder.class);
+	private static AccountChangePasswordUiBinder uiBinder = GWT.create(AccountChangePasswordUiBinder.class);
 
-	interface AccountChangePasswordUiBinder extends
-			UiBinder<Widget, AccountChangePassword> {
+	interface AccountChangePasswordUiBinder extends UiBinder<Widget, AccountChangePassword> {
 	}
 
 	public AccountChangePassword() {

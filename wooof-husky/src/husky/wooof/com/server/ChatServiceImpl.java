@@ -35,25 +35,19 @@ public class ChatServiceImpl extends ChannelServer {
 			myMessage.setProfilePic(user.getProfilePic());
 			myMessage.setCreationDate(new Date());
 
-			HuskyUserCard userCard = ofy.query(HuskyUserCard.class)
-					.filter("userId", user.getId())
-					.filter("cardId", Long.parseLong(channelName)).get();
-			if (userCard == null) {
-				userCard = new HuskyUserCard(Long.parseLong(channelName),user.getId(), false);
-				ofy.put(userCard);
-			}
+			HuskyUserCard userCard = ofy.query(HuskyUserCard.class).filter("userId", user.getId()).filter("cardId", Long.parseLong(channelName)).get();
+			
 			if (result[1].equals(IHuskyConstants.CHAT_JOINED)) {
-				ofy.delete(userCard);
 				userCard.setActive(true);
 				ofy.put(userCard);
-			} else if (result[1].equals(IHuskyConstants.CHAT_LEAVE)) {
-				ofy.delete(userCard);
+			}
+			else if (result[1].equals(IHuskyConstants.CHAT_LEAVE)) {
 				userCard.setActive(false);
 				ofy.put(userCard);
-			} else {
+			}
+			else {
 				ofy.put(new HuskyChatMessage(myMessage.getMessage(), user.getId(), Long.parseLong(channelName), myMessage.getUser(), myMessage.getProfilePic()));
 			}
-			
 
 			send(channelName, myMessage);
 		} catch (Exception e) {

@@ -4,10 +4,10 @@ import husky.wooof.com.client.resources.HuskyResources;
 
 import com.google.gwt.user.client.ui.TextArea;
 
-public class HuskyTextArea extends TextArea{
+public class HuskyTextArea extends TextArea {
 
 	private String placeholder;
-	
+
 	public HuskyTextArea() {
 		this.addStyleName(HuskyResources.INSTANCE.huskycss().huskyTextArea());
 	}
@@ -19,5 +19,5 @@ public class HuskyTextArea extends TextArea{
 	public void setPlaceholder(String placeholder) {
 		this.getElement().setAttribute("placeholder", placeholder);
 	}
-	
+
 }

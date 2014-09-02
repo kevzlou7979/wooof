@@ -21,51 +21,49 @@ import com.google.gwt.user.client.ui.FocusPanel;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.Widget;
 
-public class LessonItem extends Composite{
+public class LessonItem extends Composite {
 
-	private static LessonItemUiBinder uiBinder = GWT
-			.create(LessonItemUiBinder.class);
+	private static LessonItemUiBinder uiBinder = GWT.create(LessonItemUiBinder.class);
 
 	interface LessonItemUiBinder extends UiBinder<Widget, LessonItem> {
 	}
 
-	
 	private HuskyMain huskyMain;
-	private String action = ""; 
+	private String action = "";
 	private WorkspaceMain workspaceMain;
 	private HuskyLesson lesson;
-	
-	@UiField FocusPanel itemPanel;
-	@UiField Label lblLessonNumber, lblLessonName, lblLessonType;
-	
+
+	@UiField
+	FocusPanel itemPanel;
+	@UiField
+	Label lblLessonNumber, lblLessonName, lblLessonType;
+
 	public LessonItem() {
 		initWidget(uiBinder.createAndBindUi(this));
 	}
-	
+
 	public LessonItem(HuskyLesson lesson, final int i, WorkspaceMain workspaceMain) {
 		initWidget(uiBinder.createAndBindUi(this));
 		this.lesson = lesson;
 		this.workspaceMain = workspaceMain;
-		Timer timer = new Timer()
-        {
-            @Override
-            public void run()
-            {
-            	itemPanel.addStyleName("panelAfter");
-            	itemPanel.getElement().setAttribute("style", "transition-delay: " + String.valueOf(i * 50) + "ms");
-            }
-        };
-        timer.schedule(1000);
+		Timer timer = new Timer() {
+			@Override
+			public void run() {
+				itemPanel.addStyleName("panelAfter");
+				itemPanel.getElement().setAttribute("style", "transition-delay: " + String.valueOf(i * 50) + "ms");
+			}
+		};
+		timer.schedule(1000);
 		lblLessonNumber.setText(String.valueOf(i));
 		lblLessonName.setText(lesson.getName());
 		lblLessonType.setText(lesson.getType());
 		lblLessonNumber.addStyleName(HuskyResources.INSTANCE.huskycss().lessonItem());
-		
+
 	}
 
 	@UiHandler("itemPanel")
-	void onClickItem(ClickEvent e){
-		if(action != null && action.equals(IHuskyConstants.ACTION_CREATE)){
+	void onClickItem(ClickEvent e) {
+		if (action != null && action.equals(IHuskyConstants.ACTION_CREATE)) {
 			HuskyDialog dialog = new HuskyDialog(new CreateLesson(huskyMain, workspaceMain));
 			dialog.setWidth("500px");
 			dialog.setModal(true);
@@ -73,10 +71,12 @@ public class LessonItem extends Composite{
 			dialog.center();
 			dialog.show();
 			huskyMain.setHuskyDialog(dialog);
-		}else{
-			if(lesson instanceof HuskyYoutubeLesson){
+		}
+		else {
+			if (lesson instanceof HuskyYoutubeLesson) {
 				workspaceMain.playYoutubeLesson((HuskyYoutubeLesson) lesson);
-			}else if(lesson instanceof HuskyImageLesson){
+			}
+			else if (lesson instanceof HuskyImageLesson) {
 				workspaceMain.playImageLesson((HuskyImageLesson) lesson);
 			}
 		}
@@ -106,6 +106,4 @@ public class LessonItem extends Composite{
 		this.workspaceMain = workspaceMain;
 	}
 
-	
-	
 }

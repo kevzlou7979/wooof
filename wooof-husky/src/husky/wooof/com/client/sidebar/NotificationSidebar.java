@@ -9,11 +9,9 @@ import com.google.gwt.user.client.ui.Widget;
 
 public class NotificationSidebar extends Composite {
 
-	private static NotificationSidebarUiBinder uiBinder = GWT
-			.create(NotificationSidebarUiBinder.class);
+	private static NotificationSidebarUiBinder uiBinder = GWT.create(NotificationSidebarUiBinder.class);
 
-	interface NotificationSidebarUiBinder extends
-			UiBinder<Widget, NotificationSidebar> {
+	interface NotificationSidebarUiBinder extends UiBinder<Widget, NotificationSidebar> {
 	}
 
 	public NotificationSidebar(HuskyCardNavigation huskyCardNavigation) {

@@ -8,10 +8,10 @@ import javax.persistence.Id;
 import com.googlecode.objectify.annotation.Entity;
 
 @Entity
-public class HuskyChatMessage implements Serializable, IHuskyChatMessage{
+public class HuskyChatMessage implements Serializable, IHuskyChatMessage {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	private Long id;
 	private String message;
@@ -21,12 +21,11 @@ public class HuskyChatMessage implements Serializable, IHuskyChatMessage{
 
 	private String user;
 	private String profilePic;
-	
+
 	public HuskyChatMessage() {
 	}
 
-	public HuskyChatMessage(String message, Long userId, Long cardId,
-			String user, String profilePic) {
+	public HuskyChatMessage(String message, Long userId, Long cardId, String user, String profilePic) {
 		super();
 		this.message = message;
 		this.userId = userId;
@@ -34,8 +33,6 @@ public class HuskyChatMessage implements Serializable, IHuskyChatMessage{
 		this.user = user;
 		this.profilePic = profilePic;
 	}
-
-
 
 	public Long getId() {
 		return id;

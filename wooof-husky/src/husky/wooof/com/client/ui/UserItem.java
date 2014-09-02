@@ -18,19 +18,21 @@ import com.google.gwt.user.client.ui.Widget;
 
 public class UserItem extends Composite {
 
-	private static UserItemUiBinder uiBinder = GWT
-			.create(UserItemUiBinder.class);
+	private static UserItemUiBinder uiBinder = GWT.create(UserItemUiBinder.class);
 
 	interface UserItemUiBinder extends UiBinder<Widget, UserItem> {
 	}
 
-	@UiField Label lblFullName, lblEmail;
-	@UiField CircleImage imgProfile;
-	@UiField HuskyListBox lstUserType;
-	
+	@UiField
+	Label lblFullName, lblEmail;
+	@UiField
+	CircleImage imgProfile;
+	@UiField
+	HuskyListBox lstUserType;
+
 	private HuskyCardNavigation huskyCardNavigation;
 	private HuskyUser user;
-	
+
 	public UserItem(HuskyUser user, HuskyCardNavigation huskyCardNavigation) {
 		initWidget(uiBinder.createAndBindUi(this));
 		this.huskyCardNavigation = huskyCardNavigation;
@@ -39,19 +41,20 @@ public class UserItem extends Composite {
 		lblFullName.setText(user.getFirstName() + " " + user.getLastName());
 		lblEmail.setText(user.getEmail());
 	}
-	
+
 	@UiHandler("btnAddUser")
-	void onAddUser(ClickEvent e){
-		CardService.Connect.getService().addUserToCard(user, huskyCardNavigation.getWorkspaceMain().getCard(), lstUserType.getValue(lstUserType.getSelectedIndex()), new AsyncCallback<Void>() {
+	void onAddUser(ClickEvent e) {
+		CardService.Connect.getService().addUserToCard(user, huskyCardNavigation.getWorkspaceMain().getCard(),lstUserType.getValue(lstUserType.getSelectedIndex()), false, new AsyncCallback<Void>() {
 			@Override
 			public void onSuccess(Void result) {
-				if(lstUserType.getValue(lstUserType.getSelectedIndex()).equals(IHuskyConstants.CARD_ADMIN)){
+				if (lstUserType.getValue(lstUserType.getSelectedIndex()).equals(IHuskyConstants.CARD_ADMIN)) {
 					huskyCardNavigation.getAddUserSideBar().getHuskyUserListNavigation().setAllAdminUsers();
-				}else{
+				}
+				else {
 					huskyCardNavigation.getAddUserSideBar().getHuskyUserListNavigation().setAllViewerUsers();
 				}
 			}
-			
+
 			@Override
 			public void onFailure(Throwable caught) {
 				Window.alert(caught.getMessage());

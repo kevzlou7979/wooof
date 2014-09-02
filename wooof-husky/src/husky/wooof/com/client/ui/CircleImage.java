@@ -10,20 +10,20 @@ import com.google.gwt.user.client.ui.Widget;
 
 public class CircleImage extends Composite {
 
-	private static CircleImageUiBinder uiBinder = GWT
-			.create(CircleImageUiBinder.class);
+	private static CircleImageUiBinder uiBinder = GWT.create(CircleImageUiBinder.class);
 
 	interface CircleImageUiBinder extends UiBinder<Widget, CircleImage> {
 	}
 
-	@UiField Image imgProfile;
+	@UiField
+	Image imgProfile;
 	private ImageResource resource;
-	
+
 	public CircleImage() {
 		initWidget(uiBinder.createAndBindUi(this));
 	}
-	
-	public void setImageProfile(String url){
+
+	public void setImageProfile(String url) {
 		imgProfile.setUrl(url);
 	}
 

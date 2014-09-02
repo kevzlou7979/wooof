@@ -23,13 +23,13 @@ public interface LessonService extends RemoteService {
 			return service;
 		}
 	}
-	
+
 	public void saveLesson(HuskyLesson lesson) throws Exception;
-	
+
 	public List<HuskyLesson> getAllCardLessons(HuskyCard card) throws Exception;
-	
+
 	public void updateLesson(HuskyLesson lesson) throws Exception;
-	
+
 	public void deleteLesson(HuskyLesson lesson) throws Exception;
-	
+
 }

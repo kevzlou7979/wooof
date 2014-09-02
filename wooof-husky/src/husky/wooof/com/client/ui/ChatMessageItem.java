@@ -19,16 +19,17 @@ import com.google.gwt.user.client.ui.Widget;
 
 public class ChatMessageItem extends Composite {
 
-	private static ChatMessageItemUiBinder uiBinder = GWT
-			.create(ChatMessageItemUiBinder.class);
+	private static ChatMessageItemUiBinder uiBinder = GWT.create(ChatMessageItemUiBinder.class);
 
 	interface ChatMessageItemUiBinder extends UiBinder<Widget, ChatMessageItem> {
 	}
 
-	@UiField Label lblName, lblMessage, lblTime;
-	@UiField Image imgProfile;
+	@UiField
+	Label lblName, lblMessage, lblTime;
+	@UiField
+	Image imgProfile;
 	protected HuskyCardNavigation huskyCardNavigation;
-	
+
 	public ChatMessageItem(IHuskyChatMessage chatMessage, HuskyCardNavigation huskyCardNavigation) {
 		initWidget(uiBinder.createAndBindUi(this));
 		this.huskyCardNavigation = huskyCardNavigation;
@@ -37,23 +38,24 @@ public class ChatMessageItem extends Composite {
 		lblMessage.setText(chatMessage.getMessage());
 		getUser(chatMessage.getUserId());
 	}
-	
-	private void getUser(Long userId){
+
+	private void getUser(Long userId) {
 		UserAccountService.Connect.getService().getUserById(userId, new AsyncCallback<HuskyUser>() {
-			
+
 			@Override
 			public void onSuccess(HuskyUser result) {
-				if(!result.equals(huskyCardNavigation.getWorkspaceMain().getHuskyMain().getUser().getEmail())){
+				if (!result.equals(huskyCardNavigation.getWorkspaceMain().getHuskyMain().getUser().getEmail())) {
 					imgProfile.getElement().getStyle().setBorderColor("#C4D0E5");
-					if(!result.getProfilePic().isEmpty()){
+					if (!result.getProfilePic().isEmpty()) {
 						imgProfile.setUrl(result.getProfilePic());
-					}else{
+					}
+					else {
 						imgProfile.setResource(HuskyResources.INSTANCE.ic_avatar());
 					}
-					
+
 				}
 			}
-			
+
 			@Override
 			public void onFailure(Throwable caught) {
 				Window.alert(caught.getMessage());

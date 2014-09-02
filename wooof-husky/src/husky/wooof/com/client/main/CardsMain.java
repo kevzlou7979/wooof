@@ -24,37 +24,37 @@ import com.google.gwt.user.client.ui.Widget;
 
 public class CardsMain extends Composite {
 
-	private static CardsMainUiBinder uiBinder = GWT
-			.create(CardsMainUiBinder.class);
+	private static CardsMainUiBinder uiBinder = GWT.create(CardsMainUiBinder.class);
 
 	interface CardsMainUiBinder extends UiBinder<Widget, CardsMain> {
 	}
 
-	@UiField HTMLPanel panel, cardsPanel;
-	
+	@UiField
+	HTMLPanel panel, cardsPanel;
+
 	private HuskyMain huskyMain;
-	
+
 	public CardsMain(HuskyMain huskyMain) {
 		initWidget(uiBinder.createAndBindUi(this));
 		this.huskyMain = huskyMain;
 		onLoadAllCards();
 	}
-	
-	public void onLoadAllCards(){
+
+	public void onLoadAllCards() {
 		cardsPanel.clear();
 		HuskyLoading.showLoading(true, cardsPanel, "Getting your cards", 30, IHuskyConstants.LOADING_CIRCLE);
 		CardService.Connect.getService().getAllCards(huskyMain.getUser(), new AsyncCallback<List<HuskyCard>>() {
-			
+
 			@Override
 			public void onSuccess(List<HuskyCard> result) {
 				HuskyLoading.showLoading(false);
 				double i = 100;
-				for(HuskyCard card : result){
+				for (HuskyCard card : result) {
 					cardsPanel.add(new HuskyCardItem(card, i, CardsMain.this));
 					i = i + 100;
 				}
 			}
-			
+
 			@Override
 			public void onFailure(Throwable caught) {
 				Window.alert(caught.getMessage());
@@ -62,9 +62,9 @@ public class CardsMain extends Composite {
 			}
 		});
 	}
-	
+
 	@UiHandler("btnAdd")
-	void onAddCard(ClickEvent e){
+	void onAddCard(ClickEvent e) {
 		HuskyDialog dialog = new HuskyDialog(new CreateMain(huskyMain));
 		dialog.setWidth("500px");
 		dialog.setModal(true);

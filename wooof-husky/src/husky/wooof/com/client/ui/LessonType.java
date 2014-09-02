@@ -12,20 +12,22 @@ import com.google.gwt.user.client.ui.Widget;
 
 public class LessonType extends Composite {
 
-	private static LessonTypeUiBinder uiBinder = GWT
-			.create(LessonTypeUiBinder.class);
+	private static LessonTypeUiBinder uiBinder = GWT.create(LessonTypeUiBinder.class);
 
 	interface LessonTypeUiBinder extends UiBinder<Widget, LessonType> {
 	}
-	
-	@UiField Image imgTitle;
-	@UiField Label lblDescription;
-	@UiField FocusPanel focusPanel;
-	
+
+	@UiField
+	Image imgTitle;
+	@UiField
+	Label lblDescription;
+	@UiField
+	FocusPanel focusPanel;
+
 	private ImageResource resource;
 	private String text;
 	private String type;
-	
+
 	public LessonType() {
 		initWidget(uiBinder.createAndBindUi(this));
 	}
@@ -46,7 +48,7 @@ public class LessonType extends Composite {
 	public void setText(String text) {
 		this.text = text;
 		lblDescription.setText(text);
-		
+
 	}
 
 	public FocusPanel getFocusPanel() {
@@ -64,8 +66,5 @@ public class LessonType extends Composite {
 	public void setType(String type) {
 		this.type = type;
 	}
-	
-	
-
 
 }

@@ -14,21 +14,26 @@ import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Widget;
 
-public class AccountMain extends Composite{
+public class AccountMain extends Composite {
 
-	private static AccountMainUiBinder uiBinder = GWT
-			.create(AccountMainUiBinder.class);
+	private static AccountMainUiBinder uiBinder = GWT.create(AccountMainUiBinder.class);
 
 	interface AccountMainUiBinder extends UiBinder<Widget, AccountMain> {
 	}
 
-	@UiField AccountBasicInfo accountBasicInfo;
-	@UiField AccountStory accountStory;
-    @UiField AccountProfilePic accountProfilePic;
-    @UiField AccountEducation accountEducation;
-    @UiField AccountContactInfo accountContactInfo;
-    @UiField AccountChangePassword accountChangePassword;
-	
+	@UiField
+	AccountBasicInfo accountBasicInfo;
+	@UiField
+	AccountStory accountStory;
+	@UiField
+	AccountProfilePic accountProfilePic;
+	@UiField
+	AccountEducation accountEducation;
+	@UiField
+	AccountContactInfo accountContactInfo;
+	@UiField
+	AccountChangePassword accountChangePassword;
+
 	public AccountMain(HuskyMain huskyMain) {
 		initWidget(uiBinder.createAndBindUi(this));
 		accountBasicInfo.setUser(huskyMain.getUser());
@@ -36,5 +41,4 @@ public class AccountMain extends Composite{
 		accountProfilePic.setHuskyMain(huskyMain);
 	}
 
-	
 }

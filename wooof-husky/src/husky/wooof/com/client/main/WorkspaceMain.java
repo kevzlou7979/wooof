@@ -23,21 +23,22 @@ import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Widget;
 
-public class WorkspaceMain extends Composite{
+public class WorkspaceMain extends Composite {
 
-	private static WorkspaceMainUiBinder uiBinder = GWT
-			.create(WorkspaceMainUiBinder.class);
+	private static WorkspaceMainUiBinder uiBinder = GWT.create(WorkspaceMainUiBinder.class);
 
 	interface WorkspaceMainUiBinder extends UiBinder<Widget, WorkspaceMain> {
 	}
 
-	@UiField HTMLPanel panel, activeUsersPanel, lessonPanel,lessonPreviewPanel;
-	@UiField LessonItem createLesson;
-	
+	@UiField
+	HTMLPanel panel, activeUsersPanel, lessonPanel, lessonPreviewPanel;
+	@UiField
+	LessonItem createLesson;
+
 	private HuskyCardNavigation cardNavigation;
 	private HuskyCard card;
 	private HuskyMain huskyMain;
-	
+
 	public WorkspaceMain(HuskyMain huskyMain, HuskyCard card) {
 		initWidget(uiBinder.createAndBindUi(this));
 		this.huskyMain = huskyMain;
@@ -75,37 +76,37 @@ public class WorkspaceMain extends Composite{
 	public void setActiveUsersPanel(HTMLPanel activeUsersPanel) {
 		this.activeUsersPanel = activeUsersPanel;
 	}
-	
-	public void getAllCardLessons(){
+
+	public void getAllCardLessons() {
 		lessonPanel.clear();
 		lessonPanel.add(createLesson);
 		LessonService.Connect.getService().getAllCardLessons(card, new AsyncCallback<List<HuskyLesson>>() {
-			
+
 			@Override
 			public void onSuccess(List<HuskyLesson> result) {
 				int i = 1;
-				for(HuskyLesson lesson : result){
+				for (HuskyLesson lesson : result) {
 					lessonPanel.add(new LessonItem(lesson, i, WorkspaceMain.this));
 					i++;
 				}
 			}
-			
+
 			@Override
 			public void onFailure(Throwable caught) {
 				Window.alert(caught.getMessage());
 			}
 		});
-		
+
 	}
 
-	public void playYoutubeLesson(HuskyYoutubeLesson lesson){
+	public void playYoutubeLesson(HuskyYoutubeLesson lesson) {
 		YoutubeVideo video = new YoutubeVideo();
 		video.setUrl(lesson.getYoutubeUrl());
 		lessonPreviewPanel.clear();
 		lessonPreviewPanel.add(video);
 	}
-	
-	public void playImageLesson(HuskyImageLesson lesson){
+
+	public void playImageLesson(HuskyImageLesson lesson) {
 		Image img = new Image();
 		img.setWidth("100%");
 		img.setHeight("100%");
@@ -113,6 +114,5 @@ public class WorkspaceMain extends Composite{
 		lessonPreviewPanel.clear();
 		lessonPreviewPanel.add(img);
 	}
-	
 
 }

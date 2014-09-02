@@ -23,9 +23,10 @@ public class HuskyCard implements Serializable {
 	private List<Key<HuskyUser>> admins = new ArrayList<Key<HuskyUser>>();
 	private List<Key<HuskyUser>> viewers = new ArrayList<Key<HuskyUser>>();
 	private String cardImage;
-	
-	public HuskyCard() {}
-	
+
+	public HuskyCard() {
+	}
+
 	public HuskyCard(String name, String description) {
 		super();
 		this.name = name;

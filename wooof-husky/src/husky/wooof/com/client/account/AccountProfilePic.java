@@ -22,21 +22,21 @@ import com.google.gwt.user.client.ui.Widget;
 
 public class AccountProfilePic extends Composite {
 
-	private static AccountProfilePicUiBinder uiBinder = GWT
-			.create(AccountProfilePicUiBinder.class);
+	private static AccountProfilePicUiBinder uiBinder = GWT.create(AccountProfilePicUiBinder.class);
 
-	interface AccountProfilePicUiBinder extends
-			UiBinder<Widget, AccountProfilePic> {
+	interface AccountProfilePicUiBinder extends UiBinder<Widget, AccountProfilePic> {
 	}
-	
-	@UiField Button uploadButton;
 
-	@UiField FormPanel uploadForm;
+	@UiField
+	Button uploadButton;
 
-	@UiField FileUpload uploadField;
-	
+	@UiField
+	FormPanel uploadForm;
+
+	@UiField
+	FileUpload uploadField;
+
 	private HuskyMain huskyMain;
-	
 
 	public AccountProfilePic() {
 		initWidget(uiBinder.createAndBindUi(this));
@@ -46,60 +46,43 @@ public class AccountProfilePic extends Composite {
 		uploadButton.setEnabled(false);
 		uploadField.setName("image");
 		startNewBlobstoreSession();
-	
-		uploadForm.addSubmitCompleteHandler(new FormPanel.SubmitCompleteHandler() {
-					@Override
-					public void onSubmitComplete(SubmitCompleteEvent event) {
-						
-						uploadForm.reset();
-						startNewBlobstoreSession();
-					    String key = "";
-						if(event.getResults()!=null){
-							key = event.getResults();
-					    }else{
-					    	key = "agt3b29vZi1odXNreXIaCxINVXBsb2FkZWRJbWFnZRiAgICAgICCCQw";
-					    }
-					    getImageUrl(key);
-					}
 
-					private void getImageUrl(String key) {
-						BlobService.Connect.getService().getUploadImage(key, new AsyncCallback<UploadedImage>() {
-							
+		uploadForm.addSubmitCompleteHandler(new FormPanel.SubmitCompleteHandler() {
+			@Override
+			public void onSubmitComplete(SubmitCompleteEvent event) {
+
+				uploadForm.reset();
+				startNewBlobstoreSession();
+				String key = "";
+				if (event.getResults() != null) {
+					key = event.getResults();
+				}
+				else {
+					key = "agt3b29vZi1odXNreXIaCxINVXBsb2FkZWRJbWFnZRiAgICAgICCCQw";
+				}
+				getImageUrl(key);
+			}
+
+			private void getImageUrl(String key) {
+				BlobService.Connect.getService().getUploadImage(key, new AsyncCallback<UploadedImage>() {
+
+					@Override
+					public void onSuccess(UploadedImage result) {
+
+						HuskyUser user = huskyMain.getUser();
+						user.setProfilePic(result.getServingUrl());
+						UserAccountService.Connect.getService().updateUser(user, new AsyncCallback<HuskyUser>() {
+
 							@Override
-							public void onSuccess(UploadedImage result) {	
-								
-								HuskyUser user = huskyMain.getUser();
-								user.setProfilePic(result.getServingUrl());
-								UserAccountService.Connect.getService().updateUser(user, new AsyncCallback<HuskyUser>() {
-									
-									@Override
-									public void onSuccess(HuskyUser result) {
-										huskyMain.getHuskyNavigation().getImgProfile().setImageProfile(result.getProfilePic()	);
-									}
-									
-									@Override
-									public void onFailure(Throwable caught) {
-										Window.alert(caught.getMessage());
-									}
-								});
+							public void onSuccess(HuskyUser result) {
+								huskyMain.getHuskyNavigation().getImgProfile().setImageProfile(result.getProfilePic());
 							}
-							
+
 							@Override
 							public void onFailure(Throwable caught) {
 								Window.alert(caught.getMessage());
 							}
 						});
-					}
-		});
-	}
-	private void startNewBlobstoreSession() {
-		BlobService.Connect.getService().getBlobstoreUploadUrl(new AsyncCallback<String>() {
-
-					@Override
-					public void onSuccess(String result) {
-						uploadForm.setAction(result);
-						uploadButton.setText("Upload");
-						uploadButton.setEnabled(true);
 					}
 
 					@Override
@@ -107,14 +90,34 @@ public class AccountProfilePic extends Composite {
 						Window.alert(caught.getMessage());
 					}
 				});
+			}
+		});
+	}
+
+	private void startNewBlobstoreSession() {
+		BlobService.Connect.getService().getBlobstoreUploadUrl(new AsyncCallback<String>() {
+
+			@Override
+			public void onSuccess(String result) {
+				uploadForm.setAction(result);
+				uploadButton.setText("Upload");
+				uploadButton.setEnabled(true);
+			}
+
+			@Override
+			public void onFailure(Throwable caught) {
+				Window.alert(caught.getMessage());
+			}
+		});
 	}
 
 	@UiHandler("uploadButton")
 	void onSubmit(ClickEvent e) {
 		uploadForm.submit();
 	}
+
 	public void setHuskyMain(HuskyMain huskyMain) {
 		this.huskyMain = huskyMain;
-	}	
+	}
 
 }

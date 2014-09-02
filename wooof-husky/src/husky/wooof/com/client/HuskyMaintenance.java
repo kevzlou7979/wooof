@@ -10,19 +10,17 @@ import com.google.gwt.user.client.ui.Widget;
 
 public class HuskyMaintenance extends Composite {
 
-	private static HuskyMaintenanceUiBinder uiBinder = GWT
-			.create(HuskyMaintenanceUiBinder.class);
+	private static HuskyMaintenanceUiBinder uiBinder = GWT.create(HuskyMaintenanceUiBinder.class);
 
-	interface HuskyMaintenanceUiBinder extends
-			UiBinder<Widget, HuskyMaintenance> {
+	interface HuskyMaintenanceUiBinder extends UiBinder<Widget, HuskyMaintenance> {
 	}
 
 	public HuskyMaintenance() {
 		initWidget(uiBinder.createAndBindUi(this));
 	}
-	
+
 	@UiHandler("btnSecret")
-	void onSecret(ClickEvent e){
+	void onSecret(ClickEvent e) {
 		RootPanel.get().clear();
 		RootPanel.get().add(new HuskyLogin());
 	}

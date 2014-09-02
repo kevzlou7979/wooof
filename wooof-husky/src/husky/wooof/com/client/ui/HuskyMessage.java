@@ -11,27 +11,27 @@ public class HuskyMessage {
 	private static HTMLPanel panel = new HTMLPanel("");
 	private static Image image = new Image();
 	private static Label label = new Label();
-	
-	public static void showMessage(boolean isSuccess, HTMLPanel container, String message){
+
+	public static void showMessage(boolean isSuccess, HTMLPanel container, String message) {
 		label.addStyleName(HuskyResources.INSTANCE.huskycss().huskyMessageLbl());
 		image.addStyleName(HuskyResources.INSTANCE.huskycss().huskyMessageImg());
-		if(isSuccess){
+		if (isSuccess) {
 			image.setResource(HuskyResources.INSTANCE.ic_success());
 			label.addStyleName(HuskyResources.INSTANCE.huskycss().huskySuccess());
-		}else{
+		}
+		else {
 			image.setResource(HuskyResources.INSTANCE.ic_error());
 			label.addStyleName(HuskyResources.INSTANCE.huskycss().huskyError());
 		}
-		
+
 		label.setText(message);
 		panel.add(image);
 		panel.add(label);
 		container.add(panel);
 	}
-	
-	public static void hideMessage(){
+
+	public static void hideMessage() {
 		panel.removeFromParent();
 	}
-	
-	
+
 }
