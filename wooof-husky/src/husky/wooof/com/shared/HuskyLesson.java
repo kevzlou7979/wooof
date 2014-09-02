@@ -19,8 +19,9 @@ public class HuskyLesson implements Serializable {
 	private String type;
 	private String description;
 	private Date creationDate = new Date();
-	
-	public HuskyLesson() {}
+
+	public HuskyLesson() {
+	}
 
 	public HuskyLesson(Long cardId, String name, String type, String description) {
 		super();

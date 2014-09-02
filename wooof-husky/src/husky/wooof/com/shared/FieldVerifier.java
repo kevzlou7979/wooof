@@ -12,22 +12,24 @@ import com.google.gwt.user.client.ui.Widget;
 
 public class FieldVerifier {
 
-	public static boolean isValidFields(HTMLPanel panel, HTMLPanel messageCon){
+	public static boolean isValidFields(HTMLPanel panel, HTMLPanel messageCon) {
 		boolean isValid = false;
-		for(Widget w : panel){
-			if(w instanceof HuskyTextBox || w instanceof HuskyPasswordBox || w instanceof HuskyEditableLabel){
+		for (Widget w : panel) {
+			if (w instanceof HuskyTextBox || w instanceof HuskyPasswordBox || w instanceof HuskyEditableLabel) {
 				TextBox txtBox = new HuskyTextBox();
-				if(w instanceof HuskyEditableLabel){
+				if (w instanceof HuskyEditableLabel) {
 					txtBox = ((HuskyEditableLabel) w).getTxtBox();
-				}else{
-					txtBox = ((TextBox)w);
-					
 				}
-				if(txtBox.getText().isEmpty()){
+				else {
+					txtBox = ((TextBox) w);
+
+				}
+				if (txtBox.getText().isEmpty()) {
 					txtBox.addStyleName(HuskyResources.INSTANCE.huskycss().huskyTextBoxError());
 					isValid = false;
 					HuskyMessage.showMessage(false, messageCon, "Please provide empty fields.");
-				}else{	
+				}
+				else {
 					txtBox.removeStyleName(HuskyResources.INSTANCE.huskycss().huskyTextBoxError());
 					messageCon.clear();
 					isValid = true;
@@ -36,25 +38,27 @@ public class FieldVerifier {
 		}
 		return isValid;
 	}
-	
-	public static boolean isValidEmailFields(HuskyTextBox txtEmail, HTMLPanel messageCon){
+
+	public static boolean isValidEmailFields(HuskyTextBox txtEmail, HTMLPanel messageCon) {
 		boolean isValid = false;
-		if(!txtEmail.getText().matches(husky.wooof.com.shared.IHuskyConstants.REGEX_MAIL)){
+		if (!txtEmail.getText().matches(husky.wooof.com.shared.IHuskyConstants.REGEX_MAIL)) {
 			txtEmail.addStyleName(HuskyResources.INSTANCE.huskycss().huskyTextBoxError());
 			isValid = false;
 			HuskyMessage.showMessage(false, messageCon, "Incorrect Email Address.");
-		}else{
+		}
+		else {
 			txtEmail.removeStyleName(HuskyResources.INSTANCE.huskycss().huskyTextBoxError());
 			isValid = true;
 		}
 		return isValid;
 	}
-	
-	public static boolean isPasswordMatched(HTMLPanel messageCon, HuskyPasswordBox txtPass, HuskyPasswordBox txtPass2){
+
+	public static boolean isPasswordMatched(HTMLPanel messageCon, HuskyPasswordBox txtPass, HuskyPasswordBox txtPass2) {
 		boolean isValid = false;
-		if(txtPass.getText().equals(txtPass2.getText())){
+		if (txtPass.getText().equals(txtPass2.getText())) {
 			isValid = true;
-		}else{
+		}
+		else {
 			isValid = false;
 			HuskyMessage.showMessage(false, messageCon, "Password didn't match.");
 		}

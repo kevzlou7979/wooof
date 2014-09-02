@@ -11,7 +11,7 @@ import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
 
 @RemoteServiceRelativePath("account")
 public interface UserAccountService extends RemoteService {
-	
+
 	public static class Connect {
 
 		private static UserAccountServiceAsync service;
@@ -24,20 +24,19 @@ public interface UserAccountService extends RemoteService {
 			return service;
 		}
 	}
-	
-	public HuskyUser register(String firstName, String lastName, String email, String password, String gender) throws Exception;
-	
-	public HuskyUser login(String email, String password) throws Exception;
-	
-	public HuskyUser getUser(HuskyUser user) throws Exception;
-	
-	public HuskyUser getUserById(Long userId) throws Exception;
-	
-	public void deleteUser(HuskyUser user) throws Exception;
-	
-	public HuskyUser updateUser(HuskyUser user) throws Exception;
-	
-	public List<HuskyUser> searchUsers(String filter, HuskyCard card) throws Exception;
- 	
-}
 
+	public HuskyUser register(String firstName, String lastName, String email, String password, String gender) throws Exception;
+
+	public HuskyUser login(String email, String password) throws Exception;
+
+	public HuskyUser getUser(HuskyUser user) throws Exception;
+
+	public HuskyUser getUserById(Long userId) throws Exception;
+
+	public void deleteUser(HuskyUser user) throws Exception;
+
+	public HuskyUser updateUser(HuskyUser user) throws Exception;
+
+	public List<HuskyUser> searchUsers(String filter, HuskyCard card) throws Exception;
+
+}

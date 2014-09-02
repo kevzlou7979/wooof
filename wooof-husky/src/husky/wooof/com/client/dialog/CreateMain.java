@@ -29,29 +29,32 @@ import com.google.gwt.user.client.ui.Widget;
 
 public class CreateMain extends Composite {
 
-	private static CreateMainUiBinder uiBinder = GWT
-			.create(CreateMainUiBinder.class);
+	private static CreateMainUiBinder uiBinder = GWT.create(CreateMainUiBinder.class);
 
 	interface CreateMainUiBinder extends UiBinder<Widget, CreateMain> {
 	}
-	
-	@UiField HTMLPanel panel, basicInfoPanel, messagePanel;
-	@UiField HuskyUploadArea cardPhoto;
-	@UiField HuskyTextBox txtCardName;
-	@UiField HuskyTextArea txtCardDescription;
-	
+
+	@UiField
+	HTMLPanel panel, basicInfoPanel, messagePanel;
+	@UiField
+	HuskyUploadArea cardPhoto;
+	@UiField
+	HuskyTextBox txtCardName;
+	@UiField
+	HuskyTextArea txtCardDescription;
+
 	private HuskyMain huskyMain;
 	private HuskyCard card;
 	private List<HuskyUser> users = new ArrayList<HuskyUser>();
-	
+
 	public CreateMain(HuskyMain huskyMain) {
 		initWidget(uiBinder.createAndBindUi(this));
 		this.huskyMain = huskyMain;
 	}
-	
+
 	@UiHandler("btnCreateCard")
-	void onCreateCard(ClickEvent e){
-		if(FieldVerifier.isValidFields(basicInfoPanel, messagePanel)){
+	void onCreateCard(ClickEvent e) {
+		if (FieldVerifier.isValidFields(basicInfoPanel, messagePanel)) {
 			users.clear();
 			users.add(huskyMain.getUser());
 			card = new HuskyCard(txtCardName.getText(), txtCardDescription.getText());
@@ -59,26 +62,24 @@ public class CreateMain extends Composite {
 			basicInfoPanel.setVisible(false);
 			huskyMain.getHuskyDialog().hide();
 			HuskyLoading.showLoading(true, panel, "Creating Card", 30, IHuskyConstants.LOADING_CIRCLE);
-			CardService.Connect.getService().saveCard(card,users, new AsyncCallback<HuskyCard>() {
-				
+			CardService.Connect.getService().saveCard(card, users, new AsyncCallback<HuskyCard>() {
+
 				@Override
 				public void onSuccess(final HuskyCard result) {
-					Timer timer = new Timer()
-			        {
-			            @Override
-			            public void run()
-			            {
-			            	HuskyLoading.showLoading(false);
-			            	huskyMain.setCreateMain(new CreateMain(huskyMain));
-			            	huskyMain.getCardsMain().onLoadAllCards();
-			            	huskyMain.getHuskyMainPanel().clear();
-			            	huskyMain.getHuskyMainPanel().add(new WorkspaceMain(huskyMain, result));
-			            }
-			        };
-	
-			        timer.schedule(1000);
+					Timer timer = new Timer() {
+						@Override
+						public void run() {
+							HuskyLoading.showLoading(false);
+							huskyMain.setCreateMain(new CreateMain(huskyMain));
+							huskyMain.getCardsMain().onLoadAllCards();
+							huskyMain.getHuskyMainPanel().clear();
+							huskyMain.getHuskyMainPanel().add(new WorkspaceMain(huskyMain, result));
+						}
+					};
+
+					timer.schedule(1000);
 				}
-				
+
 				@Override
 				public void onFailure(Throwable caught) {
 					basicInfoPanel.setVisible(true);

@@ -18,32 +18,32 @@ import com.google.gwt.user.client.ui.Widget;
 
 public class HuskyMain extends Composite {
 
-	private static HuskyMainUiBinder uiBinder = GWT
-			.create(HuskyMainUiBinder.class);
+	private static HuskyMainUiBinder uiBinder = GWT.create(HuskyMainUiBinder.class);
 
 	interface HuskyMainUiBinder extends UiBinder<Widget, HuskyMain> {
 	}
 
-	@UiField HTMLPanel huskyNavigationPanel, huskyMainPanel;
-	
+	@UiField
+	HTMLPanel huskyNavigationPanel, huskyMainPanel;
+
 	private HuskyNavigation huskyNavigation;
-	
+
 	private CardsMain cardsMain;
 	private CreateMain createMain;
 	private AccountMain accountMain;
-	
+
 	private HuskyDialog huskyDialog;
 	private HuskyUser user;
-	
+
 	public HuskyMain(HuskyUser user) {
 		initWidget(uiBinder.createAndBindUi(this));
-		
+
 		this.user = user;
-		
+
 		cardsMain = new CardsMain(this);
 		createMain = new CreateMain(this);
 		accountMain = new AccountMain(this);
-		
+
 		huskyNavigation = new HuskyNavigation(this);
 		huskyNavigationPanel.add(huskyNavigation);
 	}
@@ -105,15 +105,14 @@ public class HuskyMain extends Composite {
 	}
 
 	public void minimizeSideBar(boolean isMinimize) {
-		if(isMinimize){
+		if (isMinimize) {
 			huskyMainPanel.getElement().getStyle().setPaddingLeft(0, Unit.PX);
 			huskyNavigationPanel.addStyleName(HuskyResources.INSTANCE.huskycss().hiddenPanel());
-		}else{
+		}
+		else {
 			huskyMainPanel.getElement().getStyle().setPaddingLeft(300, Unit.PX);
 			huskyNavigationPanel.removeStyleName(HuskyResources.INSTANCE.huskycss().hiddenPanel());
 		}
 	}
-	
-	
 
 }

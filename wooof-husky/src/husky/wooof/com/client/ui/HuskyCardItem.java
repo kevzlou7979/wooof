@@ -18,37 +18,37 @@ import com.google.gwt.user.client.ui.Widget;
 
 public class HuskyCardItem extends Composite {
 
-	private static HuskyCardItemUiBinder uiBinder = GWT
-			.create(HuskyCardItemUiBinder.class);
+	private static HuskyCardItemUiBinder uiBinder = GWT.create(HuskyCardItemUiBinder.class);
 
 	interface HuskyCardItemUiBinder extends UiBinder<Widget, HuskyCardItem> {
 	}
 
-	@UiField Label lblCardName , lblDescription;
-	@UiField Image cardImage;
-	@UiField HTMLPanel panel;
-	
+	@UiField
+	Label lblCardName, lblDescription;
+	@UiField
+	Image cardImage;
+	@UiField
+	HTMLPanel panel;
+
 	private CardsMain cardsMain;
 	private HuskyCard card;
-	
+
 	public HuskyCardItem(HuskyCard card, final double value, CardsMain cardsMain) {
 		initWidget(uiBinder.createAndBindUi(this));
-		
+
 		this.cardsMain = cardsMain;
 		this.card = card;
-		
-		Timer timer = new Timer()
-        {
-            @Override
-            public void run()
-            {
-            	panel.addStyleName("panelAfter");
-            	panel.getElement().setAttribute("style", "transition-delay: " + String.valueOf(value) + "ms");
-            }
-        };
 
-        timer.schedule(500);
-		
+		Timer timer = new Timer() {
+			@Override
+			public void run() {
+				panel.addStyleName("panelAfter");
+				panel.getElement().setAttribute("style", "transition-delay: " + String.valueOf(value) + "ms");
+			}
+		};
+
+		timer.schedule(500);
+
 		lblCardName.setText(card.getName());
 		lblDescription.setText(card.getDescription());
 		cardImage.setWidth("100%");
@@ -57,9 +57,9 @@ public class HuskyCardItem extends Composite {
 	}
 
 	@UiHandler("lblCardName")
-	void onClickCardName(ClickEvent e){
+	void onClickCardName(ClickEvent e) {
 		cardsMain.getHuskyMain().getHuskyMainPanel().clear();
 		cardsMain.getHuskyMain().getHuskyMainPanel().add(new WorkspaceMain(cardsMain.getHuskyMain(), card));
 	}
-	
+
 }

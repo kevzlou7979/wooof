@@ -9,26 +9,25 @@ import com.google.gwt.user.client.ui.DialogBox;
 import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.Widget;
 
-public class HuskyDialog extends DialogBox{
+public class HuskyDialog extends DialogBox {
 
-	private static HuskyDialogUiBinder uiBinder = GWT
-			.create(HuskyDialogUiBinder.class);
+	private static HuskyDialogUiBinder uiBinder = GWT.create(HuskyDialogUiBinder.class);
 
 	interface HuskyDialogUiBinder extends UiBinder<Widget, HuskyDialog> {
 	}
-	
-	@UiField HTMLPanel dialogPanel;
+
+	@UiField
+	HTMLPanel dialogPanel;
 
 	public HuskyDialog(Widget composite) {
-		
+
 		setWidget(uiBinder.createAndBindUi(this));
 		dialogPanel.add(composite);
 	}
 
 	@UiHandler("btnClose")
-	void onCloseDialog(ClickEvent e){
+	void onCloseDialog(ClickEvent e) {
 		hide();
 	}
-	
 
 }

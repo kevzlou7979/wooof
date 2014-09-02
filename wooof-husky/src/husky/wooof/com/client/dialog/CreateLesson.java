@@ -29,23 +29,28 @@ import com.google.gwt.user.client.ui.Widget;
 
 public class CreateLesson extends Composite {
 
-	private static CreateLessonUiBinder uiBinder = GWT
-			.create(CreateLessonUiBinder.class);
+	private static CreateLessonUiBinder uiBinder = GWT.create(CreateLessonUiBinder.class);
 
 	interface CreateLessonUiBinder extends UiBinder<Widget, CreateLesson> {
 	}
-	
+
 	private String type;
-	@UiField LessonType typeYoutube, typeImage;
-	@UiField HTMLPanel chooseTypePanel, lessonFieldPanel, youtubePanel, imagePanel, messagePanel, panel;
-	@UiField YoutubeVideo youtubeVideoPanel;
-	@UiField HuskyUploadArea imageLessonPanel;
-	@UiField HuskyTextBox txtYoutubeUrl, txtLessonName;
-	@UiField HuskyTextArea txtDescription;
-	
+	@UiField
+	LessonType typeYoutube, typeImage;
+	@UiField
+	HTMLPanel chooseTypePanel, lessonFieldPanel, youtubePanel, imagePanel, messagePanel, panel;
+	@UiField
+	YoutubeVideo youtubeVideoPanel;
+	@UiField
+	HuskyUploadArea imageLessonPanel;
+	@UiField
+	HuskyTextBox txtYoutubeUrl, txtLessonName;
+	@UiField
+	HuskyTextArea txtDescription;
+
 	private HuskyMain huskyMain;
 	private WorkspaceMain workspaceMain;
-	
+
 	public CreateLesson(HuskyMain huskyMain, WorkspaceMain workspaceMain) {
 		initWidget(uiBinder.createAndBindUi(this));
 		this.huskyMain = huskyMain;
@@ -53,29 +58,27 @@ public class CreateLesson extends Composite {
 		registerEvents();
 		onSelectLessonType(typeYoutube);
 	}
-	
-	private void registerEvents(){
-		
+
+	private void registerEvents() {
+
 		typeYoutube.getFocusPanel().addClickHandler(new ClickHandler() {
-			
+
 			@Override
 			public void onClick(ClickEvent event) {
 				onSelectLessonType(typeYoutube);
 			}
 		});
 		typeImage.getFocusPanel().addClickHandler(new ClickHandler() {
-			
+
 			@Override
 			public void onClick(ClickEvent event) {
 				onSelectLessonType(typeImage);
 			}
 		});
 	}
-	
-	
-	
-	private void onSelectLessonType(LessonType lessonType){
-		for(Widget w : chooseTypePanel){
+
+	private void onSelectLessonType(LessonType lessonType) {
+		for (Widget w : chooseTypePanel) {
 			w.removeStyleName(HuskyResources.INSTANCE.huskycss().navBorderActive());
 		}
 		lessonType.addStyleName(HuskyResources.INSTANCE.huskycss().navBorderActive());
@@ -91,37 +94,37 @@ public class CreateLesson extends Composite {
 		default:
 			break;
 		}
-		
+
 	}
-	
-	private void saveLesson(HuskyLesson lesson){
+
+	private void saveLesson(HuskyLesson lesson) {
 		LessonService.Connect.getService().saveLesson(lesson, new AsyncCallback<Void>() {
-			
+
 			@Override
 			public void onSuccess(Void result) {
 				huskyMain.getHuskyDialog().hide();
 				workspaceMain.getAllCardLessons();
 			}
-			
+
 			@Override
 			public void onFailure(Throwable caught) {
 				HuskyMessage.showMessage(false, messagePanel, caught.getMessage());
 			}
 		});
 	}
-	
-	
+
 	@UiHandler("btnCreateLesson")
-	void onCreateLesson(ClickEvent e){
-		if(type.equals(IHuskyConstants.LESSON_YOUTUBE) && (FieldVerifier.isValidFields(panel, messagePanel) && FieldVerifier.isValidFields(youtubePanel, messagePanel))){
+	void onCreateLesson(ClickEvent e) {
+		if (type.equals(IHuskyConstants.LESSON_YOUTUBE) && (FieldVerifier.isValidFields(panel, messagePanel) && FieldVerifier.isValidFields(youtubePanel, messagePanel))) {
 			saveLesson(new HuskyYoutubeLesson(workspaceMain.getCard().getId(), txtLessonName.getText(), type, txtDescription.getText(), txtYoutubeUrl.getText()));
-		}else if(type.equals(IHuskyConstants.LESSON_IMAGE) && (FieldVerifier.isValidFields(panel, messagePanel))){
+		}
+		else if (type.equals(IHuskyConstants.LESSON_IMAGE) && (FieldVerifier.isValidFields(panel, messagePanel))) {
 			saveLesson(new HuskyImageLesson(workspaceMain.getCard().getId(), txtLessonName.getText(), type, txtDescription.getText(), imageLessonPanel.getCardImage().getUrl()));
 		}
 	}
-	
+
 	@UiHandler("btnYoutubePreview")
-	void onPreviewYoutubeVideo(ClickEvent e){
+	void onPreviewYoutubeVideo(ClickEvent e) {
 		youtubeVideoPanel.clear();
 		youtubeVideoPanel.setUrl(txtYoutubeUrl.getText());
 	}
@@ -133,6 +136,5 @@ public class CreateLesson extends Composite {
 	public void setWorkspaceMain(WorkspaceMain workspaceMain) {
 		this.workspaceMain = workspaceMain;
 	}
-	
-	
+
 }

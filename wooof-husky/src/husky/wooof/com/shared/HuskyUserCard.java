@@ -17,8 +17,9 @@ public class HuskyUserCard implements Serializable {
 	private Long userId;
 	private Integer numNewChat = 0;
 	private boolean active;
-	
-	public HuskyUserCard() {}
+
+	public HuskyUserCard() {
+	}
 
 	public HuskyUserCard(Long cardId, Long userId, boolean active) {
 		super();
@@ -26,7 +27,7 @@ public class HuskyUserCard implements Serializable {
 		this.userId = userId;
 		this.active = active;
 	}
-	
+
 	public Long getCardId() {
 		return cardId;
 	}
@@ -66,5 +67,5 @@ public class HuskyUserCard implements Serializable {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
 }

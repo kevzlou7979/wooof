@@ -14,24 +14,25 @@ import com.googlecode.objectify.ObjectifyFactory;
 import com.googlecode.objectify.ObjectifyService;
 
 public class OfyService {
-    static {
-        ObjectifyService.register(HuskyUser.class);
-        ObjectifyService.register(HuskyCard.class);
-        ObjectifyService.register(UploadedImage.class);
-        ObjectifyService.register(HuskyChatMessage.class);
-        ObjectifyService.register(HuskyLesson.class);
-        ObjectifyService.register(HuskyUserCard.class);
-        ObjectifyService.register(HuskyYoutubeLesson.class);
-        ObjectifyService.register(HuskyImageLesson.class);
-    }
+	static {
+		ObjectifyService.register(HuskyUser.class);
+		ObjectifyService.register(HuskyCard.class);
+		ObjectifyService.register(UploadedImage.class);
+		ObjectifyService.register(HuskyChatMessage.class);
+		ObjectifyService.register(HuskyLesson.class);
+		ObjectifyService.register(HuskyUserCard.class);
+		ObjectifyService.register(HuskyYoutubeLesson.class);
+		ObjectifyService.register(HuskyImageLesson.class);
+	}
 
-    public static Objectify ofy() {
-        return ObjectifyService.begin();//prior to v.4.0 use .begin() , 
-                                        //since v.4.0  use ObjectifyService.ofy();
-    }
+	public static Objectify ofy() {
+		return ObjectifyService.begin();// prior to v.4.0 use .begin() ,
+										// since v.4.0 use
+										// ObjectifyService.ofy();
+	}
 
-    public static ObjectifyFactory factory() {
-        return ObjectifyService.factory();
-    }
+	public static ObjectifyFactory factory() {
+		return ObjectifyService.factory();
+	}
 
 }

@@ -9,12 +9,12 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 
 public interface LessonServiceAsync {
 
-	public void saveLesson(HuskyLesson lesson, AsyncCallback<Void> callback) ;
+	public void saveLesson(HuskyLesson lesson, AsyncCallback<Void> callback);
 
-	public void getAllCardLessons(HuskyCard card, AsyncCallback<List<HuskyLesson>> callback) ;
+	public void getAllCardLessons(HuskyCard card, AsyncCallback<List<HuskyLesson>> callback);
 
-	public void updateLesson(HuskyLesson lesson, AsyncCallback<Void> callback) ;
+	public void updateLesson(HuskyLesson lesson, AsyncCallback<Void> callback);
 
-	public void deleteLesson(HuskyLesson lesson, AsyncCallback<Void> callback) ;
+	public void deleteLesson(HuskyLesson lesson, AsyncCallback<Void> callback);
 
 }

@@ -11,18 +11,20 @@ import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.Widget;
 
-public class HuskyTitle extends Composite{
+public class HuskyTitle extends Composite {
 
-	private static HuskyTitleUiBinder uiBinder = GWT
-			.create(HuskyTitleUiBinder.class);
+	private static HuskyTitleUiBinder uiBinder = GWT.create(HuskyTitleUiBinder.class);
 
 	interface HuskyTitleUiBinder extends UiBinder<Widget, HuskyTitle> {
 	}
 
-	@UiField Image imgIcon;
-	@UiField Label lblTitle, lblDescription;
-	@UiField HTMLPanel headerPanel;
-	
+	@UiField
+	Image imgIcon;
+	@UiField
+	Label lblTitle, lblDescription;
+	@UiField
+	HTMLPanel headerPanel;
+
 	private String title;
 	private String description;
 	private String color;
@@ -30,8 +32,7 @@ public class HuskyTitle extends Composite{
 	private String imageSize;
 	private String fontSize;
 	private ImageResource resource;
-	
-	
+
 	public HuskyTitle() {
 		initWidget(uiBinder.createAndBindUi(this));
 	}
@@ -69,7 +70,7 @@ public class HuskyTitle extends Composite{
 
 	public void setColor(String color) {
 		this.color = color;
-		lblTitle.getElement().getStyle().setColor("#"+color);
+		lblTitle.getElement().getStyle().setColor("#" + color);
 	}
 
 	public boolean isBorder() {
@@ -78,7 +79,7 @@ public class HuskyTitle extends Composite{
 
 	public void setBorder(boolean border) {
 		this.border = border;
-		if(!border){
+		if (!border) {
 			headerPanel.getElement().getStyle().setProperty("border", "none");
 		}
 	}

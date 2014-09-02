@@ -7,11 +7,10 @@ import javax.persistence.Id;
 import com.googlecode.objectify.annotation.Entity;
 
 @Entity
-public class HuskyUser implements Serializable{
-
+public class HuskyUser implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	private Long id;
 	private String firstName = "";
@@ -23,27 +22,25 @@ public class HuskyUser implements Serializable{
 	private String gender = "";
 	private String profilePic = "";
 	private String workspacePic = "";
-	
-	
-	public HuskyUser() {}
-	
+
+	public HuskyUser() {
+	}
+
 	public HuskyUser(String email, String password) {
 		super();
 		this.email = email;
 		this.password = password;
 	}
-	
-	public HuskyUser(String firstName, String lastName, String email,
-			String gender) {
+
+	public HuskyUser(String firstName, String lastName, String email, String gender) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
 		this.gender = gender;
 	}
-	
-	public HuskyUser(String firstName, String lastName, String email,
-			String password, String gender) {
+
+	public HuskyUser(String firstName, String lastName, String email, String password, String gender) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -75,7 +72,7 @@ public class HuskyUser implements Serializable{
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
+
 	public String getLastName() {
 		return lastName;
 	}

@@ -46,7 +46,7 @@ public class UploadedImageDao {
 		}
 		return results;
 	}
-	
+
 	public void delete(String encodedKey) {
 		Key key = KeyFactory.stringToKey(encodedKey);
 		datastore.delete(key);
@@ -55,9 +55,8 @@ public class UploadedImageDao {
 	private UploadedImage fromEntity(Entity result) {
 		UploadedImage image = new UploadedImage();
 		image.setCreatedAt((Date) result.getProperty(UploadedImage.CREATED_AT));
-		image.setServingUrl((String) result
-				.getProperty(UploadedImage.SERVING_URL));
-		
+		image.setServingUrl((String) result.getProperty(UploadedImage.SERVING_URL));
+
 		image.setOwnerId((String) result.getProperty(UploadedImage.OWNER_ID));
 
 		if (image.getKey() == null) {

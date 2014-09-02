@@ -12,7 +12,7 @@ import com.google.gwt.user.client.rpc.RemoteService;
 import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
 
 @RemoteServiceRelativePath("card")
-public interface CardService extends RemoteService{
+public interface CardService extends RemoteService {
 
 	public static class Connect {
 
@@ -26,29 +26,27 @@ public interface CardService extends RemoteService{
 			return service;
 		}
 	}
-	
+
 	public HuskyCard saveCard(HuskyCard card, List<HuskyUser> users) throws Exception;
-	
+
 	public HuskyCard updateCard(HuskyCard card) throws Exception;
-	
+
 	public HuskyCard getCard(Long cardId) throws Exception;
-	
+
 	public void deleteCard(HuskyCard card) throws Exception;
-	
+
 	public List<HuskyCard> getAllCards(HuskyUser user) throws Exception;
-	
-	public void addUserToCard(HuskyUser user, HuskyCard card, String type) throws Exception;
-	
+
+	public void addUserToCard(HuskyUser user, HuskyCard card, String type, boolean isActive) throws Exception;
+
 	public List<HuskyUser> getAllCardAdmins(HuskyCard card) throws Exception;
-	
+
 	public List<HuskyUser> getAllCardViewers(HuskyCard card) throws Exception;
-	
+
 	public List<HuskyChatMessage> getAllChatMessage(HuskyCard card, int x) throws Exception;
 
 	public HuskyUserCard saveNewChat(HuskyUser user, HuskyCard card, boolean isSeen) throws Exception;
-	
+
 	public List<HuskyUserCard> getAllActiveUser(HuskyCard card) throws Exception;
 
 }
-
-

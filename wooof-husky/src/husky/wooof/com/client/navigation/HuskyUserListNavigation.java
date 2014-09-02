@@ -24,36 +24,36 @@ import com.google.gwt.user.client.ui.Widget;
 
 public class HuskyUserListNavigation extends Composite {
 
-	private static HuskyUserListNavigationUiBinder uiBinder = GWT
-			.create(HuskyUserListNavigationUiBinder.class);
+	private static HuskyUserListNavigationUiBinder uiBinder = GWT.create(HuskyUserListNavigationUiBinder.class);
 
-	interface HuskyUserListNavigationUiBinder extends
-			UiBinder<Widget, HuskyUserListNavigation> {
+	interface HuskyUserListNavigationUiBinder extends UiBinder<Widget, HuskyUserListNavigation> {
 	}
 
-	@UiField Label adminMenu, viewerMenu;
-	@UiField HTMLPanel menuPanel,adminPanel,viewerPanel;
-	
+	@UiField
+	Label adminMenu, viewerMenu;
+	@UiField
+	HTMLPanel menuPanel, adminPanel, viewerPanel;
+
 	private HuskyCard card;
 	private HuskyCardNavigation huskyCardNavigation;
 	private List<HuskyUser> cardUsers = new ArrayList<HuskyUser>();
-	
+
 	public HuskyUserListNavigation() {
 		initWidget(uiBinder.createAndBindUi(this));
 	}
-	
+
 	@UiHandler("adminMenu")
-	void onInstructorMenu(ClickEvent e){
+	void onInstructorMenu(ClickEvent e) {
 		changeNav(adminMenu, IHuskyConstants.NAV_ADMIN);
 	}
-	
+
 	@UiHandler("viewerMenu")
-	void onStudentsMenu(ClickEvent e){
+	void onStudentsMenu(ClickEvent e) {
 		changeNav(viewerMenu, IHuskyConstants.NAV_VIEWER);
 	}
-	
-	public void changeNav(Label label, int type){
-		for(Widget w : menuPanel){
+
+	public void changeNav(Label label, int type) {
+		for (Widget w : menuPanel) {
 			w.removeStyleName(HuskyResources.INSTANCE.huskycss().navBorderActive());
 		}
 		switch (type) {
@@ -67,44 +67,44 @@ public class HuskyUserListNavigation extends Composite {
 			break;
 		}
 	}
-	
-	public void setAllAdminUsers(){
+
+	public void setAllAdminUsers() {
 		adminMenu.addStyleName(HuskyResources.INSTANCE.huskycss().navBorderActive());
 		viewerPanel.setVisible(false);
 		adminPanel.setVisible(true);
 		adminPanel.clear();
 		CardService.Connect.getService().getAllCardAdmins(card, new AsyncCallback<List<HuskyUser>>() {
-			
+
 			@Override
 			public void onSuccess(List<HuskyUser> result) {
 				HuskyUserListNavigation.this.cardUsers.addAll(result);
-				for(HuskyUser user : result){
+				for (HuskyUser user : result) {
 					adminPanel.add(new UserItem(user, huskyCardNavigation));
 				}
 			}
-			
+
 			@Override
 			public void onFailure(Throwable caught) {
 				Window.alert(caught.getMessage());
 			}
 		});
 	}
-	
-	public void setAllViewerUsers(){
+
+	public void setAllViewerUsers() {
 		viewerMenu.addStyleName(HuskyResources.INSTANCE.huskycss().navBorderActive());
 		viewerPanel.setVisible(true);
 		adminPanel.setVisible(false);
 		viewerPanel.clear();
 		CardService.Connect.getService().getAllCardViewers(card, new AsyncCallback<List<HuskyUser>>() {
-			
+
 			@Override
 			public void onSuccess(List<HuskyUser> result) {
 				HuskyUserListNavigation.this.cardUsers.addAll(result);
-				for(HuskyUser user : result){
+				for (HuskyUser user : result) {
 					viewerPanel.add(new UserItem(user, huskyCardNavigation));
 				}
 			}
-			
+
 			@Override
 			public void onFailure(Throwable caught) {
 				Window.alert(caught.getMessage());

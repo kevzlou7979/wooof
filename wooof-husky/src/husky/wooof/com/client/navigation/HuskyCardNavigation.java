@@ -23,17 +23,18 @@ import com.google.gwt.user.client.ui.Widget;
 
 public class HuskyCardNavigation extends Composite {
 
-	private static HuskyCardNavigationUiBinder uiBinder = GWT
-			.create(HuskyCardNavigationUiBinder.class);
+	private static HuskyCardNavigationUiBinder uiBinder = GWT.create(HuskyCardNavigationUiBinder.class);
 
-	interface HuskyCardNavigationUiBinder extends
-			UiBinder<Widget, HuskyCardNavigation> {
+	interface HuskyCardNavigationUiBinder extends UiBinder<Widget, HuskyCardNavigation> {
 	}
-	
-	@UiField HTMLPanel navMenu, navContent;
-	@UiField Label btnHideNav, lblChatNum;
-	@UiField Image navCardInfo, navChat, navAddUser, navNotification, navLeave;
-	
+
+	@UiField
+	HTMLPanel navMenu, navContent;
+	@UiField
+	Label btnHideNav, lblChatNum;
+	@UiField
+	Image navCardInfo, navChat, navAddUser, navNotification, navLeave;
+
 	private CardInfoSidebar cardInfoSideBar;
 	private ChatSidebar chatSideBar;
 	private AddUserSideBar addUserSideBar;
@@ -41,13 +42,13 @@ public class HuskyCardNavigation extends Composite {
 	private HuskyMain huskyMain;
 	private WorkspaceMain workspaceMain;
 	private boolean closeNav = true;
-	
+
 	public HuskyCardNavigation(WorkspaceMain workspaceMain) {
 		initWidget(uiBinder.createAndBindUi(this));
 		this.huskyMain = workspaceMain.getHuskyMain();
 		this.workspaceMain = workspaceMain;
 		cardInfoSideBar = new CardInfoSidebar(this);
-		chatSideBar = new ChatSidebar(this,huskyMain.getUser(), workspaceMain.getCard());
+		chatSideBar = new ChatSidebar(this, huskyMain.getUser(), workspaceMain.getCard());
 		addUserSideBar = new AddUserSideBar(this);
 		notificationSidebar = new NotificationSidebar(this);
 		btnHideNav.setVisible(false);
@@ -55,46 +56,46 @@ public class HuskyCardNavigation extends Composite {
 	}
 
 	@UiHandler("navCardInfo")
-	void onNavCardInfo(ClickEvent e){
+	void onNavCardInfo(ClickEvent e) {
 		changeNav(navCardInfo, IHuskyConstants.NAV_CARD_INFO);
 	}
-	
+
 	@UiHandler("navChat")
-	void onNavChat(ClickEvent e){
+	void onNavChat(ClickEvent e) {
 		changeNav(navChat, IHuskyConstants.NAV_CHAT);
 	}
-	
+
 	@UiHandler("navAddUser")
-	void onNavAddUser(ClickEvent e){
+	void onNavAddUser(ClickEvent e) {
 		changeNav(navAddUser, IHuskyConstants.NAV_ADD_USER);
 	}
-	
+
 	@UiHandler("navNotification")
-	void onNavNotification(ClickEvent e){
+	void onNavNotification(ClickEvent e) {
 		changeNav(navNotification, IHuskyConstants.NAV_NOTIFICATION);
 	}
-	
+
 	@UiHandler("btnHideNav")
-	void onHideNav(ClickEvent e){
+	void onHideNav(ClickEvent e) {
 		setCloseNav(true);
 		navContent.setWidth("0px");
 		btnHideNav.setVisible(false);
 		setNavContentVisibility(false);
 	}
-	
+
 	@UiHandler("navLeave")
-	void onNavLeave(ClickEvent e){
+	void onNavLeave(ClickEvent e) {
 		changeNav(navLeave, IHuskyConstants.NAV_LEAVE);
 	}
-	
-	private void setNavContentVisibility(boolean isVisible){
-		for(Widget w : navContent){
+
+	private void setNavContentVisibility(boolean isVisible) {
+		for (Widget w : navContent) {
 			w.setVisible(isVisible);
 		}
 	}
-	
-	private void changeNav(Image menu, int navType){
-		for(Widget w : navMenu){
+
+	private void changeNav(Image menu, int navType) {
+		for (Widget w : navMenu) {
 			w.removeStyleName(HuskyResources.INSTANCE.huskycss().cardNavActive());
 		}
 		menu.addStyleName(HuskyResources.INSTANCE.huskycss().cardNavActive());
@@ -108,13 +109,13 @@ public class HuskyCardNavigation extends Composite {
 			navContent.add(cardInfoSideBar);
 			break;
 		case IHuskyConstants.NAV_CHAT:
-			
+
 			setCloseNav(false);
 			lblChatNum.setVisible(false);
 			navContent.add(chatSideBar);
 			chatSideBar.onSaveNewChat(true);
 			chatSideBar.onScrollDown();
-			
+
 			break;
 		case IHuskyConstants.NAV_ADD_USER:
 			navContent.add(addUserSideBar);
@@ -123,14 +124,14 @@ public class HuskyCardNavigation extends Composite {
 			navContent.add(notificationSidebar);
 			break;
 		case IHuskyConstants.NAV_LEAVE:
-			chatSideBar.getChannel().send(huskyMain.getUser().getId() + ";" + IHuskyConstants.CHAT_LEAVE);
+			chatSideBar.onLeave();
 			RootPanel.get().clear();
 			RootPanel.get().add(new HuskyMain(huskyMain.getUser()));
 			break;
 		default:
 			break;
 		}
-		
+
 	}
 
 	public CardInfoSidebar getCardInfoSideBar() {
@@ -205,6 +206,4 @@ public class HuskyCardNavigation extends Composite {
 		this.lblChatNum = lblChatNum;
 	}
 
-	
-	
 }
