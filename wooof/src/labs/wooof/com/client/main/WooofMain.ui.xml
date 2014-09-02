@@ -3,42 +3,40 @@
 	xmlns:g="urn:import:com.google.gwt.user.client.ui">
 	<ui:with field='res' type='labs.wooof.com.client.resources.WooofResources' />
 	<ui:style>
-		.titlePanel {
+	.titlePanel {
 		margin-top: 20%;
 		padding-left: 5%;
 		width: 89%;
 		display: inline-block;
 		vertical-align: top;
 		box-sizing: border-box;
-		-webkit-box-sizing:
-		border-box;
+		-webkit-box-sizing: border-box;
 		-moz-box-sizing: border-box;
-		}
-
-		.projectPanel {
+	}
+	
+	.projectPanel {
 		width: 10%;
 		display: inline-block;
 		vertical-align: top;
-		text-align:
-		right;
+		text-align: right;
 		height: 100%;
 		padding-top: 15%;
-		}
-
-		.projectItems {
-
-		}
-
-		.projectItem {
+	}
+	
+	.projectItems {
+		
+	}
+	
+	.projectItem {
 		width: 100px;
 		height: 100px;
 		border-radius: 100%;
 		margin-top: 40px;
 		opacity: 0.4;
 		cursor: pointer;
-		}
-
-		.projectItem:hover{
+	}
+	
+	.projectItem:hover {
 		transition: 1s all;
 		-webkit-transition: 1s all;
 		-moz-transition: 1s all;
@@ -46,28 +44,27 @@
 		-webkit-transform: rotate(360deg);
 		-moz-transform: rotate(360deg);
 		opacity: 1;
-		}
-
-		.lblDescription{
+	}
+	
+	.lblDescription {
 		width: 40%;
-		}
-		.navigation{
+	}
+	
+	.navigation {
 		text-align: right;
 		position: fixed;
 		top: 0;
 		left: 0;
 		width: 100%;
-		padding:
-		5px;
+		padding: 5px;
 		box-sizing: border-box;
 		-webkit-box-sizing: border-box;
 		-mox-box-sizing: border-box;
-		background: rgba(255,255,255,0);
-		color:
-		#fff;
-		}
-
-		.menuItem{
+		background: rgba(255, 255, 255, 0);
+		color: #fff;
+	}
+	
+	.menuItem {
 		font-transform: uppercase;
 		font-size: 1.2em;
 		display: inline-block;
@@ -75,30 +72,50 @@
 		padding: 15px 0px 15px 0px;
 		margin-right: 3%;
 		cursor: pointer;
-		}
-
-		.menuItem:hover{
+	}
+	
+	.menuItem:hover {
 		border-bottom: 3px solid #fff;
-		}
-		.btnCheckout{
-			width: 140px;
-		}
+	}
+	
+	.btnCheckout {
+		width: 140px;
+	}
+	
+	.projectPreview {
+		position: fixed;
+		width: 400px;
+		height: 500px;
+		right: 20%;
+		top: 11%;
+	}
+	
+	.ic_hand {
+		position: absolute;
+	}
 	</ui:style>
-	<g:HTMLPanel addStyleNames="{res.wooofcss.mainIntro}">
+	<g:HTMLPanel ui:field="panel" addStyleNames="{res.wooofcss.mainIntro}">
 		<g:HTMLPanel addStyleNames="{style.navigation}">
-			<g:Label ui:field="homeMenu" text="HOME" addStyleNames="{style.menuItem} {res.wooofcss.transition}" />
-			<g:Label ui:field="aboutMenu" text="ABOUT" addStyleNames="{style.menuItem} {res.wooofcss.transition}" />
-			<g:Label ui:field="pressMenu" text="PRESS" addStyleNames="{style.menuItem} {res.wooofcss.transition}" />
-			<g:Label ui:field="contactMenu" text="CONTACT US" addStyleNames="{style.menuItem} {res.wooofcss.transition}" />
+			<g:Label ui:field="homeMenu" text="HOME"
+				addStyleNames="{style.menuItem} {res.wooofcss.transition}" />
+			<g:Label ui:field="aboutMenu" text="ABOUT"
+				addStyleNames="{style.menuItem} {res.wooofcss.transition}" />
+			<g:Label ui:field="pressMenu" text="PRESS"
+				addStyleNames="{style.menuItem} {res.wooofcss.transition}" />
+			<g:Label ui:field="contactMenu" text="CONTACT US"
+				addStyleNames="{style.menuItem} {res.wooofcss.transition}" />
 		</g:HTMLPanel>
 		<g:HTMLPanel addStyleNames="{style.projectPanel}">
 			<g:HTMLPanel ui:field="projectItemsPanel" addStyleNames="{style.projectItems}">
-				<g:Image ui:field="huskyProject" resource="{res.logo_husky}" addStyleNames="{style.projectItem}" />
-				<g:Image ui:field="poodleProject" resource="{res.logo_poodle}" addStyleNames="{style.projectItem}" />
+				<g:Image ui:field="huskyProject" resource="{res.logo_husky}"
+					addStyleNames="{style.projectItem}" />
+				<g:Image ui:field="poodleProject" resource="{res.logo_poodle}"
+					addStyleNames="{style.projectItem}" />
 			</g:HTMLPanel>
 		</g:HTMLPanel>
-		<g:HTMLPanel ui:field="titlePanel" addStyleNames="{style.titlePanel} {res.wooofcss.transition}">
-			
+		<g:HTMLPanel ui:field="titlePanel"
+			addStyleNames="{style.titlePanel} {res.wooofcss.transition}">
+
 			<g:HTMLPanel ui:field="homeTitlePanel">
 				<g:Label text="Wooof Labs"
 					addStyleNames="{res.wooofcss.lblLarge} {res.wooofcss.lblWhite}" />
@@ -106,24 +123,30 @@
 					text="We are startups that will soon open the path for better apps thru Google API's"
 					addStyleNames="{style.lblDescription} {res.wooofcss.lblSmall} {res.wooofcss.lblWhite}" />
 			</g:HTMLPanel>
-			
+
 			<g:HTMLPanel ui:field="huskyTitlePanel">
 				<g:Label text="Husky"
 					addStyleNames="{res.wooofcss.lblLarge} {res.wooofcss.lblWhite}" />
 				<g:Label
 					text="We build husky for those who wants to TEACH and LEARN thru Cards."
 					addStyleNames="{style.lblDescription} {res.wooofcss.lblSmall} {res.wooofcss.lblWhite}" />
-				<g:Label ui:field="btnCheckHusky" text="Check it out" addStyleNames="{res.wooofcss.lblSmall} {res.wooofcss.btnBorderWhite} {style.btnCheckout}"/>
+				<g:Label ui:field="btnCheckHusky" text="Check it out"
+					addStyleNames="{res.wooofcss.lblSmall} {res.wooofcss.btnBorderWhite} {style.btnCheckout}" />
 			</g:HTMLPanel>
-			
+
 			<g:HTMLPanel ui:field="poodleTitlePanel">
 				<g:Label text="Poodle"
 					addStyleNames="{res.wooofcss.lblLarge} {res.wooofcss.lblWhite}" />
-				<g:Label
-					text="Coming Soon"
+				<g:Label text="Coming Soon"
 					addStyleNames="{style.lblDescription} {res.wooofcss.lblSmall} {res.wooofcss.lblWhite}" />
 			</g:HTMLPanel>
-			
+
+
+		</g:HTMLPanel>
+		<g:HTMLPanel ui:field="projectPreview" addStyleNames="{style.projectPreview}">
+			<g:Frame ui:field="projectPreviewFrame" addStyleNames="{res.wooofcss.projectPreviewFrame}" />
+			<g:Image ui:field="ic_hand" resource="{res.ic_hand}"
+				addStyleNames="{style.ic_hand}" />
 		</g:HTMLPanel>
 
 	</g:HTMLPanel>

@@ -5,6 +5,22 @@ html,body {
 	font-family: "Roboto", sans-serif;
 }
 
+.projectPreviewFrame {
+	position: absolute;
+	z-index: 999;
+	height: 164%;
+	width: 120%;
+	zoom: 0.8;
+	-moz-transform: scale(0.45) rotate(8deg) skew(5deg, -5deg);
+	-moz-transform-origin: 0 0;
+	-o-transform: scale(0.45) rotate(8deg) skew(5deg, -5deg);
+	-o-transform-origin: 0 0;
+	-webkit-transform: scale(0.50) rotate(8deg) skew(5deg, -5deg);
+	-webkit-transform-origin: 0 0;
+	top: 16.9%;
+	left: 32.1%;
+}
+
 .activeLeftMargin {
 	transition-delay: 2s;
 	-webkit-transition-delay: 2s;
@@ -55,13 +71,24 @@ html,body {
 	-moz-transition: 0.5s all;
 }
 
-.btnBorderWhite:hover{
+.btnBorderWhite:hover {
 	opacity: 1;
 }
 
-
 @sprite .mainIntro {
 	gwt-image: 'bg_wooof';
+	height: 100%;
+	width: 100%;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: fixed;
+}
+
+@sprite .huskyIntro {
+	gwt-image: 'bg_husky';
 	height: 100%;
 	width: 100%;
 	-webkit-background-size: cover;

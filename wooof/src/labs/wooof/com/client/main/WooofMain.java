@@ -10,6 +10,7 @@ import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.Frame;
 import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Label;
@@ -25,11 +26,12 @@ public class WooofMain extends Composite {
 	
 	@UiField Image huskyProject, poodleProject;
 	@UiField Label homeMenu, pressMenu, aboutMenu, contactMenu;
-	@UiField HTMLPanel titlePanel, projectItemsPanel, homeTitlePanel, huskyTitlePanel, poodleTitlePanel;
-	
+	@UiField HTMLPanel panel, titlePanel, projectItemsPanel, homeTitlePanel, huskyTitlePanel, poodleTitlePanel, projectPreview;
+	@UiField Frame projectPreviewFrame;
 	public WooofMain() {
 		initWidget(uiBinder.createAndBindUi(this));
 		changeNav(homeMenu, IWooofConstants.NAV_HOME);
+		projectPreview.setVisible(false);
 	}
 
 	@UiHandler("homeMenu")
@@ -49,11 +51,12 @@ public class WooofMain extends Composite {
 	
 	@UiHandler("btnCheckHusky")
 	void onCheckHusky(ClickEvent e){
-		Window.open("husky.wooof.com", "Husky", "");
+		Window.open("https://wooof-husky.appspot.com", "_blank", "");
 	}
 	
 	private void changeNav(Widget w, int type){
 		titlePanel.clear();
+		projectPreview.setVisible(true);
 		for(Widget img : projectItemsPanel){
 			img.removeStyleName(WooofResources.INSTANCE.wooofcss().activeOpacity());
 		}
@@ -64,12 +67,19 @@ public class WooofMain extends Composite {
 		
 		case IWooofConstants.NAV_HOME:
 			titlePanel.add(homeTitlePanel);
+			projectPreview.setVisible(false);
+			panel.addStyleName(WooofResources.INSTANCE.wooofcss().mainIntro());
+			panel.removeStyleName(WooofResources.INSTANCE.wooofcss().huskyIntro());
 			break;
 		case IWooofConstants.NAV_HUSKY:
 			titlePanel.add(huskyTitlePanel);
+			panel.removeStyleName(WooofResources.INSTANCE.wooofcss().mainIntro());
+			panel.addStyleName(WooofResources.INSTANCE.wooofcss().huskyIntro());
+			projectPreviewFrame.setUrl("https://wooof-husky.appspot.com");
 			break;
 		case IWooofConstants.NAV_POODLE:
 			titlePanel.add(poodleTitlePanel);
+			projectPreviewFrame.setUrl("https://wooof-poodle.appspot.com");
 			break;
 
 		default:
