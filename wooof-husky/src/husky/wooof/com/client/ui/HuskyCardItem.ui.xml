@@ -3,7 +3,7 @@
 	xmlns:g="urn:import:com.google.gwt.user.client.ui">
 	<ui:with field='res' type='husky.wooof.com.client.resources.HuskyResources' />
 	<ui:style>
-	@external .panelAfter;
+	@external .panelAfterCard;
 	.panel{
 		padding: 5px;
 		border-radius: 5px;
@@ -21,7 +21,7 @@
 		-moz-transition: 0.5s all;
 		opacity: 0;
 	}
-	.panelAfter{
+	.panelAfterCard{
 		margin-top: 0%;
 		opacity: 1;
 	}

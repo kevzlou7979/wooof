@@ -16,12 +16,22 @@ html,body {
 	outline: none;
 }
 
+.huskyMaterialMode{
+	position: fixed !important;
+	width: 20% !important;
+	height: 200px !important;
+	right: 100px !important;
+	bottom: 0px !important;
+	z-index: 999 !important;
+}
+
 .huskyStepActive{
 	background: #4086fa !important;
 	color: #fff !important;
 }
 
 .huskyStep{
+	cursor: pointer;
 	width: 30px;
 	height: 30px;
 	border-radius: 100%;
@@ -112,7 +122,7 @@ html,body {
 }
 
 .navBorderActive {
-	border-top: 3px solid #4086fa;
+	border-bottom: 3px solid #4086fa;
 }
 
 .huskyButtonAdd {

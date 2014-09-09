@@ -11,8 +11,8 @@ public class HuskyImageLesson extends HuskyLesson {
 	public HuskyImageLesson() {
 	}
 
-	public HuskyImageLesson(Long cardId, String name, String type, String description, String imageUrl) {
-		super(cardId, name, type, description);
+	public HuskyImageLesson(Long cardId, String name, String type, String description,String material, String imageUrl) {
+		super(cardId, name, type, description, material);
 		this.setImageUrl(imageUrl);
 	}
 

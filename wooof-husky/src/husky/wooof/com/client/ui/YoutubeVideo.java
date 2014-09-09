@@ -18,6 +18,8 @@ public class YoutubeVideo extends SimplePanel {
 	private Label label = new Label("No Preview");
 
 	public YoutubeVideo() {
+		this.setWidth("100%");
+		this.setHeight("100%");
 		label.getElement().getStyle().setLineHeight(12, Unit.EM);
 		label.getElement().getStyle().setColor("#C6C6C6");
 		label.getElement().getStyle().setFontSize(2, Unit.EM);

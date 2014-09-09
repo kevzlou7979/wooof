@@ -11,9 +11,10 @@
 		width: 10%;
 		margin-right: 6%;
 		padding-bottom: 10px;
+		cursor: pointer;
 	}
 	.panel:hover{
-		border-top: 3px solid #4086fa;
+		border-bottom: 3px solid #4086fa;
 	}
 	.lblDescription{
 		color: #999;

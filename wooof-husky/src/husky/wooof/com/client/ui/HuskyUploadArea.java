@@ -16,6 +16,8 @@ import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.FileUpload;
 import com.google.gwt.user.client.ui.FormPanel;
 import com.google.gwt.user.client.ui.FormPanel.SubmitCompleteEvent;
+import com.google.gwt.user.client.ui.FormPanel.SubmitEvent;
+import com.google.gwt.user.client.ui.FormPanel.SubmitHandler;
 import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Label;
@@ -59,7 +61,17 @@ public class HuskyUploadArea extends Composite {
 		uploadField.setName("image");
 		startNewBlobstoreSession();
 
+		uploadForm.addSubmitHandler(new SubmitHandler() {
+			
+			@Override
+			public void onSubmit(SubmitEvent event) {
+				uploadForm.submit();
+			}
+		});
+		
 		uploadForm.addSubmitCompleteHandler(new FormPanel.SubmitCompleteHandler() {
+			
+			
 			@Override
 			public void onSubmitComplete(SubmitCompleteEvent event) {
 

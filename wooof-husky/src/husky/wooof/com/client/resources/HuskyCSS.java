@@ -71,4 +71,6 @@ public interface HuskyCSS extends CssResource {
 	String huskyStep();
 	
 	String huskyStepActive();
+	
+	String huskyMaterialMode();
 }
