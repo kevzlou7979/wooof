@@ -42,7 +42,8 @@ public class HuskyCardItem extends Composite {
 		Timer timer = new Timer() {
 			@Override
 			public void run() {
-				panel.addStyleName("panelAfter");
+				panel.addStyleName("panelAfterCard");
+				panel.getElement().getStyle().setOpacity(1);
 				panel.getElement().setAttribute("style", "transition-delay: " + String.valueOf(value) + "ms");
 			}
 		};

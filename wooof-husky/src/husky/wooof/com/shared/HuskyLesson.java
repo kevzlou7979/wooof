@@ -18,17 +18,19 @@ public class HuskyLesson implements Serializable {
 	private String name;
 	private String type;
 	private String description;
+	private String materialUrl;
 	private Date creationDate = new Date();
 
 	public HuskyLesson() {
 	}
 
-	public HuskyLesson(Long cardId, String name, String type, String description) {
+	public HuskyLesson(Long cardId, String name, String type, String description, String materialUrl) {
 		super();
 		this.cardId = cardId;
 		this.name = name;
 		this.type = type;
 		this.description = description;
+		this.materialUrl = materialUrl;
 	}
 
 	public Long getId() {
@@ -77,6 +79,14 @@ public class HuskyLesson implements Serializable {
 
 	public void setCreationDate(Date creationDate) {
 		this.creationDate = creationDate;
+	}
+
+	public String getMaterialUrl() {
+		return materialUrl;
+	}
+
+	public void setMaterialUrl(String materialUrl) {
+		this.materialUrl = materialUrl;
 	}
 
 }

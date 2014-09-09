@@ -5,9 +5,7 @@ import husky.wooof.com.client.dialog.CreateLesson;
 import husky.wooof.com.client.dialog.HuskyDialog;
 import husky.wooof.com.client.main.WorkspaceMain;
 import husky.wooof.com.client.resources.HuskyResources;
-import husky.wooof.com.shared.HuskyImageLesson;
 import husky.wooof.com.shared.HuskyLesson;
-import husky.wooof.com.shared.HuskyYoutubeLesson;
 import husky.wooof.com.shared.IHuskyConstants;
 
 import com.google.gwt.core.client.GWT;
@@ -52,6 +50,9 @@ public class LessonItem extends Composite {
 			public void run() {
 				itemPanel.addStyleName("panelAfter");
 				itemPanel.getElement().setAttribute("style", "transition-delay: " + String.valueOf(i * 50) + "ms");
+				if(i == 1){
+					itemPanel.getElement().getStyle().setOpacity(1);
+				}
 			}
 		};
 		timer.schedule(1000);
@@ -76,13 +77,18 @@ public class LessonItem extends Composite {
 			huskyMain.setHuskyDialog(dialog);
 		}
 		else {
-			if (lesson instanceof HuskyYoutubeLesson) {
-				workspaceMain.playYoutubeLesson((HuskyYoutubeLesson) lesson);
-			}
-			else if (lesson instanceof HuskyImageLesson) {
-				workspaceMain.playImageLesson((HuskyImageLesson) lesson);
-			}
+			workspaceMain.executeLesson(this);
 		}
+	}
+
+	
+	
+	public HuskyLesson getLesson() {
+		return lesson;
+	}
+
+	public void setLesson(HuskyLesson lesson) {
+		this.lesson = lesson;
 	}
 
 	public String getAction() {

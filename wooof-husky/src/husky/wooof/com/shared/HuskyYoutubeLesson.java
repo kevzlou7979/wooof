@@ -11,8 +11,8 @@ public class HuskyYoutubeLesson extends HuskyLesson {
 	public HuskyYoutubeLesson() {
 	}
 
-	public HuskyYoutubeLesson(Long cardId, String name, String type, String description, String youtubeUrl) {
-		super(cardId, name, type, description);
+	public HuskyYoutubeLesson(Long cardId, String name, String type, String description, String material, String youtubeUrl) {
+		super(cardId, name, type, description, material);
 		this.youtubeUrl = youtubeUrl;
 	}
 

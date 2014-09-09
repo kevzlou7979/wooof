@@ -10,7 +10,6 @@ import husky.wooof.com.client.ui.HuskyTextBox;
 import husky.wooof.com.client.ui.HuskyUploadArea;
 import husky.wooof.com.client.ui.LessonType;
 import husky.wooof.com.client.ui.YoutubeVideo;
-import husky.wooof.com.shared.FieldVerifier;
 import husky.wooof.com.shared.HuskyImageLesson;
 import husky.wooof.com.shared.HuskyLesson;
 import husky.wooof.com.shared.HuskyYoutubeLesson;
@@ -24,6 +23,7 @@ import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.Frame;
 import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.Widget;
@@ -39,20 +39,23 @@ public class CreateLesson extends Composite {
 	@UiField
 	LessonType typeYoutube, typeImage;
 	@UiField
-	HTMLPanel infoPanel, chooseTypePanel, lessonMaterialPanel, stepPanel, lessonFieldPanel, youtubePanel, imagePanel, messagePanel, panel;
+	HTMLPanel infoPanel, chooseTypePanel,buttonPanel,lessonMaterialPanel, stepPanel, lessonFieldPanel, youtubePanel, imagePanel, messagePanel, panel, materialPanel;
 	@UiField
 	YoutubeVideo youtubeVideoPanel;
 	@UiField
 	HuskyUploadArea imageLessonPanel;
 	@UiField
-	HuskyTextBox txtYoutubeUrl, txtLessonName;
+	HuskyTextBox txtYoutubeUrl, txtLessonName, txtMaterialLink;
 	@UiField
 	HuskyTextArea txtDescription;
 	@UiField
 	Label lblStep1, lblStep2, lblStep3;
+	
+	private String material;
 
 	private HuskyMain huskyMain;
 	private WorkspaceMain workspaceMain;
+	private Frame frame = new Frame();
 
 	public CreateLesson(HuskyMain huskyMain, WorkspaceMain workspaceMain) {
 		initWidget(uiBinder.createAndBindUi(this));
@@ -77,12 +80,13 @@ public class CreateLesson extends Composite {
 			@Override
 			public void onClick(ClickEvent event) {
 				onSelectLessonType(typeImage);
+				
 			}
 		});
 	}
 
 	private void onSelectLessonType(LessonType lessonType) {
-		for (Widget w : chooseTypePanel) {
+		for (Widget w : buttonPanel) {
 			w.removeStyleName(HuskyResources.INSTANCE.huskycss().navBorderActive());
 		}
 		lessonType.addStyleName(HuskyResources.INSTANCE.huskycss().navBorderActive());
@@ -117,6 +121,21 @@ public class CreateLesson extends Composite {
 		});
 	}
 	
+	@UiHandler("lblStep1")
+	void onStep1(ClickEvent e){
+		onChangeStep(lblStep1, IHuskyConstants.NAV_LESSON_INFO);
+	}
+	
+	@UiHandler("lblStep2")
+	void onStep2(ClickEvent e){
+		onChooseType(e);
+	}
+	
+	@UiHandler("lblStep3")
+	void onStep3(ClickEvent e){
+		onAddMaterial(e);
+	}
+	
 	@UiHandler("btnChooseType")
 	void onChooseType(ClickEvent e){
 		onChangeStep(lblStep2, IHuskyConstants.NAV_LESSON_TYPE);
@@ -126,14 +145,31 @@ public class CreateLesson extends Composite {
 	void onAddMaterial(ClickEvent e){
 		onChangeStep(lblStep3, IHuskyConstants.NAV_LESSON_MATERIAL);
 	}
+	
+	
+	
+	@UiHandler("btnBackChooseType")
+	void onBackChooseType(ClickEvent e){
+		huskyMain.getHuskyDialog().hide();
+	}
+	
+	@UiHandler("btnBackAddMaterial")
+	void onBackAddMaterial(ClickEvent e){
+		onChangeStep(lblStep1, IHuskyConstants.NAV_LESSON_INFO);
+	}
+	
+	@UiHandler("btnBackCreateLesson")
+	void onBackCreateLesson(ClickEvent e){
+		onChangeStep(lblStep2, IHuskyConstants.NAV_LESSON_TYPE);
+	}
 
 	@UiHandler("btnCreateLesson")
 	void onCreateLesson(ClickEvent e) {
-		if (type.equals(IHuskyConstants.LESSON_YOUTUBE) && (FieldVerifier.isValidFields(panel, messagePanel) && FieldVerifier.isValidFields(youtubePanel, messagePanel))) {
-			saveLesson(new HuskyYoutubeLesson(workspaceMain.getCard().getId(), txtLessonName.getText(), type, txtDescription.getText(), txtYoutubeUrl.getText()));
+		if (type.equals(IHuskyConstants.LESSON_YOUTUBE)) {
+			saveLesson(new HuskyYoutubeLesson(workspaceMain.getCard().getId(), txtLessonName.getText(), type, txtDescription.getText(), material, txtYoutubeUrl.getText()));
 		}
-		else if (type.equals(IHuskyConstants.LESSON_IMAGE) && (FieldVerifier.isValidFields(panel, messagePanel))) {
-			saveLesson(new HuskyImageLesson(workspaceMain.getCard().getId(), txtLessonName.getText(), type, txtDescription.getText(), imageLessonPanel.getCardImage().getUrl()));
+		else if (type.equals(IHuskyConstants.LESSON_IMAGE)) {
+			saveLesson(new HuskyImageLesson(workspaceMain.getCard().getId(), txtLessonName.getText(), type, txtDescription.getText(), material, imageLessonPanel.getCardImage().getUrl()));
 		}
 	}
 
@@ -143,9 +179,25 @@ public class CreateLesson extends Composite {
 		youtubeVideoPanel.setUrl(txtYoutubeUrl.getText());
 	}
 	
+	@UiHandler("btnMaterialPreview")
+	void onPreviewMaterial(ClickEvent e){
+		frame.setWidth("100%");
+		frame.setHeight("400px");
+		materialPanel.clear();
+		material = txtMaterialLink.getText().replaceAll("/", "%2F").replaceAll(":", "%3A") + "&embedded=true";
+		frame.setUrl("http://docs.google.com/viewer?url=" + material);
+		materialPanel.add(frame);
+	}
+	
 	private void onChangeStep(Label label, int type){
 		
+		for(Widget w : stepPanel){
+			w.removeStyleName(HuskyResources.INSTANCE.huskycss().huskyStepActive());
+		}
+		
 		label.addStyleName(HuskyResources.INSTANCE.huskycss().huskyStepActive());
+		
+		
 		
 		infoPanel.setVisible(false);
 		chooseTypePanel.setVisible(false);
