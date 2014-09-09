@@ -53,10 +53,20 @@ public interface HuskyResources extends ClientBundle {
 
 	ImageResource ic_lesson();
 
-	ImageResource ic_lesson_image();
+	ImageResource ic_lesson_type_image();
 
-	ImageResource ic_lesson_youtube();
+	ImageResource ic_lesson_type_youtube();
 
+	ImageResource ic_lesson_type_audio();
+	
+	ImageResource ic_lesson_type_link();
+	
+	ImageResource ic_lesson_type_place();
+	
+	ImageResource ic_lesson_type();
+	
+	ImageResource ic_lesson_material();
+	
 	HuskyCSS huskycss();
 
 }

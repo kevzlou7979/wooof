@@ -4,16 +4,16 @@
 	<ui:with field='res' type='husky.wooof.com.client.resources.HuskyResources' />
 	<ui:style>
 	.imgTitle{
-		width: 70px;
-		height: 70px;
+		width: 40px;
+		height: 40px;
 	}
 	.panel{
-		width: 40%;
+		width: 10%;
 		margin-right: 6%;
 		padding-bottom: 10px;
 	}
 	.panel:hover{
-		border-bottom: 3px solid #4086fa;
+		border-top: 3px solid #4086fa;
 	}
 	.lblDescription{
 		color: #999;

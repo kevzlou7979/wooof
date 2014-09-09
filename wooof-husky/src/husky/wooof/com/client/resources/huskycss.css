@@ -16,6 +16,25 @@ html,body {
 	outline: none;
 }
 
+.huskyStepActive{
+	background: #4086fa !important;
+	color: #fff !important;
+}
+
+.huskyStep{
+	width: 30px;
+	height: 30px;
+	border-radius: 100%;
+	-webkit-border-radius: 100%;
+	-moz-border-radius: 100%;
+	background: #e9e9e9;
+	text-align: center;
+	line-height: 2.5;
+	color: #999;
+	display: inline-block;
+	vertical-align: top;
+}
+
 .activeUserItem{
 	display: inline-block;
 	font-size: 0.7em;
@@ -93,7 +112,7 @@ html,body {
 }
 
 .navBorderActive {
-	border-bottom: 3px solid #4086fa;
+	border-top: 3px solid #4086fa;
 }
 
 .huskyButtonAdd {

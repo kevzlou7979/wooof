@@ -25,6 +25,7 @@ import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HTMLPanel;
+import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.Widget;
 
 public class CreateLesson extends Composite {
@@ -38,7 +39,7 @@ public class CreateLesson extends Composite {
 	@UiField
 	LessonType typeYoutube, typeImage;
 	@UiField
-	HTMLPanel chooseTypePanel, lessonFieldPanel, youtubePanel, imagePanel, messagePanel, panel;
+	HTMLPanel infoPanel, chooseTypePanel, lessonMaterialPanel, stepPanel, lessonFieldPanel, youtubePanel, imagePanel, messagePanel, panel;
 	@UiField
 	YoutubeVideo youtubeVideoPanel;
 	@UiField
@@ -47,6 +48,8 @@ public class CreateLesson extends Composite {
 	HuskyTextBox txtYoutubeUrl, txtLessonName;
 	@UiField
 	HuskyTextArea txtDescription;
+	@UiField
+	Label lblStep1, lblStep2, lblStep3;
 
 	private HuskyMain huskyMain;
 	private WorkspaceMain workspaceMain;
@@ -56,7 +59,8 @@ public class CreateLesson extends Composite {
 		this.huskyMain = huskyMain;
 		this.setWorkspaceMain(workspaceMain);
 		registerEvents();
-		onSelectLessonType(typeYoutube);
+		onSelectLessonType(typeImage);
+		onChangeStep(lblStep1, IHuskyConstants.NAV_LESSON_INFO);
 	}
 
 	private void registerEvents() {
@@ -112,6 +116,16 @@ public class CreateLesson extends Composite {
 			}
 		});
 	}
+	
+	@UiHandler("btnChooseType")
+	void onChooseType(ClickEvent e){
+		onChangeStep(lblStep2, IHuskyConstants.NAV_LESSON_TYPE);
+	}
+	
+	@UiHandler("btnAddMaterial")
+	void onAddMaterial(ClickEvent e){
+		onChangeStep(lblStep3, IHuskyConstants.NAV_LESSON_MATERIAL);
+	}
 
 	@UiHandler("btnCreateLesson")
 	void onCreateLesson(ClickEvent e) {
@@ -127,6 +141,30 @@ public class CreateLesson extends Composite {
 	void onPreviewYoutubeVideo(ClickEvent e) {
 		youtubeVideoPanel.clear();
 		youtubeVideoPanel.setUrl(txtYoutubeUrl.getText());
+	}
+	
+	private void onChangeStep(Label label, int type){
+		
+		label.addStyleName(HuskyResources.INSTANCE.huskycss().huskyStepActive());
+		
+		infoPanel.setVisible(false);
+		chooseTypePanel.setVisible(false);
+		lessonMaterialPanel.setVisible(false);
+		
+		switch (type) {
+		case IHuskyConstants.NAV_LESSON_INFO:
+			infoPanel.setVisible(true);
+			break;
+		case IHuskyConstants.NAV_LESSON_TYPE:
+			chooseTypePanel.setVisible(true);
+			break;
+		case IHuskyConstants.NAV_LESSON_MATERIAL:
+			lessonMaterialPanel.setVisible(true);
+			break;
+
+		default:
+			break;
+		}
 	}
 
 	public WorkspaceMain getWorkspaceMain() {

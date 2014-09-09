@@ -67,4 +67,8 @@ public interface HuskyCSS extends CssResource {
 	String lessonItem();
 
 	String huskyLoadingSquare();
+	
+	String huskyStep();
+	
+	String huskyStepActive();
 }
