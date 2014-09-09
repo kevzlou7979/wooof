@@ -65,7 +65,7 @@ public class CardsMain extends Composite {
 
 	@UiHandler("btnAdd")
 	void onAddCard(ClickEvent e) {
-		HuskyDialog dialog = new HuskyDialog(new CreateMain(huskyMain));
+		HuskyDialog dialog = new HuskyDialog(new CreateMain(huskyMain),10, 40, 50);
 		dialog.setWidth("500px");
 		dialog.setModal(true);
 		dialog.setGlassEnabled(true);

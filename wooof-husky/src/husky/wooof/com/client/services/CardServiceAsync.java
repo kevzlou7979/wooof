@@ -32,5 +32,9 @@ public interface CardServiceAsync {
 	public void saveNewChat(HuskyUser user, HuskyCard card, boolean isSeen, AsyncCallback<HuskyUserCard> callback);
 
 	public void getAllActiveUser(HuskyCard card, AsyncCallback<List<HuskyUserCard>> callback);
+	
+	public void onJoinCard(HuskyUser user, HuskyCard card, AsyncCallback<Void> callback);
+	
+	public void onLeaveCard(HuskyUser user, HuskyCard card, AsyncCallback<Void> callback);
 
 }

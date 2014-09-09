@@ -11,6 +11,7 @@ import husky.wooof.com.shared.HuskyYoutubeLesson;
 import husky.wooof.com.shared.IHuskyConstants;
 
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.core.client.Scheduler;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
@@ -64,12 +65,14 @@ public class LessonItem extends Composite {
 	@UiHandler("itemPanel")
 	void onClickItem(ClickEvent e) {
 		if (action != null && action.equals(IHuskyConstants.ACTION_CREATE)) {
-			HuskyDialog dialog = new HuskyDialog(new CreateLesson(huskyMain, workspaceMain));
+			final HuskyDialog dialog = new HuskyDialog(new CreateLesson(huskyMain, workspaceMain),1, 80, 50);
 			dialog.setWidth("500px");
-			dialog.setModal(true);
 			dialog.setGlassEnabled(true);
-			dialog.center();
-			dialog.show();
+			Scheduler.get().scheduleDeferred(new Scheduler.ScheduledCommand() {
+			    public void execute() {
+			    	dialog.center();
+			    }
+			});  
 			huskyMain.setHuskyDialog(dialog);
 		}
 		else {

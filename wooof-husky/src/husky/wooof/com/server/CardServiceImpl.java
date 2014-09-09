@@ -150,4 +150,18 @@ public class CardServiceImpl extends RemoteServiceServlet implements CardService
 		return userCard;
 	}
 
+	@Override
+	public void onJoinCard(HuskyUser user, HuskyCard card) throws Exception {
+		HuskyUserCard userCard = ofy.query(HuskyUserCard.class).filter("userId", user.getId()).filter("cardId", card.getId()).get();
+		userCard.setActive(true);
+		ofy.put(userCard);
+	}
+
+	@Override
+	public void onLeaveCard(HuskyUser user, HuskyCard card) throws Exception {
+		HuskyUserCard userCard = ofy.query(HuskyUserCard.class).filter("userId", user.getId()).filter("cardId", card.getId()).get();
+		userCard.setActive(false);
+		ofy.put(userCard);
+	}
+
 }

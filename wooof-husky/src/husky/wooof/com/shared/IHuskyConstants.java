@@ -17,6 +17,10 @@ public interface IHuskyConstants {
 	public final int NAV_ADMIN = 10;
 	public final int NAV_VIEWER = 11;
 
+	public final int NAV_LESSON_INFO = 0;
+	public final int NAV_LESSON_TYPE = 1;
+	public final int NAV_LESSON_MATERIAL = 2;
+	
 	public final String LOADING_CIRCLE = "loadingCircle";
 	public final String LOADING_SQUARE = "loadingSquare";
 

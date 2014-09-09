@@ -5,6 +5,7 @@ import java.util.List;
 import husky.wooof.com.client.HuskyMain;
 import husky.wooof.com.client.navigation.HuskyCardNavigation;
 import husky.wooof.com.client.resources.HuskyResources;
+import husky.wooof.com.client.services.CardService;
 import husky.wooof.com.client.services.LessonService;
 import husky.wooof.com.client.ui.LessonItem;
 import husky.wooof.com.client.ui.YoutubeVideo;
@@ -51,6 +52,22 @@ public class WorkspaceMain extends Composite {
 		cardNavigation.addStyleName(HuskyResources.INSTANCE.huskycss().cardNavigation());
 		panel.add(cardNavigation);
 		getAllCardLessons();
+		onJoinCard();
+	}
+	
+	private void onJoinCard(){
+		CardService.Connect.getService().onJoinCard(huskyMain.getUser(), card, new AsyncCallback<Void>() {
+			
+			@Override
+			public void onSuccess(Void result) {
+				
+			}
+			
+			@Override
+			public void onFailure(Throwable caught) {
+				Window.alert(caught.getMessage());
+			}
+		});
 	}
 
 	public HuskyCard getCard() {

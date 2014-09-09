@@ -12,7 +12,7 @@
 		<g:HTMLPanel ui:field="basicInfoPanel" addStyleNames="{style.basicInfoPanel}">
 			<h:HuskyTitle title="Card Info" description="Use cards to build your lessons and share it to everyone" resource="{res.ic_cards}"/>
 			<g:HTMLPanel ui:field="messagePanel"/>
-			<h:HuskyUploadArea ui:field="cardPhoto" message="Upload your Card Photo"/>
+			<h:HuskyUploadArea ui:field="cardPhoto" message="Upload your Card Photo" />
 			<h:HuskyTextBox placeholder="Card Name" ui:field="txtCardName"/>
 			<h:HuskyTextArea placeholder="Card Description" ui:field="txtCardDescription"/>
 			<h:HuskyButton ui:field="btnCreateCard" text="Create"/>

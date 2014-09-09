@@ -18,7 +18,6 @@ import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Label;
-import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Widget;
 
 public class HuskyCardNavigation extends Composite {
@@ -125,8 +124,6 @@ public class HuskyCardNavigation extends Composite {
 			break;
 		case IHuskyConstants.NAV_LEAVE:
 			chatSideBar.onLeave();
-			RootPanel.get().clear();
-			RootPanel.get().add(new HuskyMain(huskyMain.getUser()));
 			break;
 		default:
 			break;

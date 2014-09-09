@@ -1,5 +1,6 @@
 package husky.wooof.com.client.sidebar;
 
+import husky.wooof.com.client.HuskyMain;
 import husky.wooof.com.client.navigation.HuskyCardNavigation;
 import husky.wooof.com.client.resources.HuskyResources;
 import husky.wooof.com.client.services.CardService;
@@ -33,6 +34,7 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.Label;
+import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.ScrollListener;
 import com.google.gwt.user.client.ui.ScrollPanel;
 import com.google.gwt.user.client.ui.Widget;
@@ -142,7 +144,7 @@ public class ChatSidebar extends Composite {
 
 			@Override
 			public void onClose(CloseEvent<Window> event) {
-				getChannel().send(user.getId() + ";" + IHuskyConstants.CHAT_LEAVE);
+				onLeave();
 			}
 		});
 	}
@@ -172,11 +174,12 @@ public class ChatSidebar extends Composite {
 	}
 
 	private void displayAllJoinedUsers() {
-		huskyCardNavigation.getWorkspaceMain().getActiveUsersPanel().clear();
+		
 		CardService.Connect.getService().getAllActiveUser(card, new AsyncCallback<List<HuskyUserCard>>() {
 
 			@Override
 			public void onSuccess(List<HuskyUserCard> result) {
+				huskyCardNavigation.getWorkspaceMain().getActiveUsersPanel().clear();
 				getUser(user.getId());
 				for (HuskyUserCard userCard : result) {
 					if (!userCard.getUserId().equals(user.getId())) {
@@ -272,6 +275,25 @@ public class ChatSidebar extends Composite {
 			}
 		});
 	}
+	
+	public void onLeave(){
+		CardService.Connect.getService().onLeaveCard(user, card, new AsyncCallback<Void>() {
+			
+			@Override
+			public void onSuccess(Void result) {
+				getChannel().send(user.getId() + ";" + IHuskyConstants.CHAT_LEAVE);
+				RootPanel.get().clear();
+				RootPanel.get().add(new HuskyMain(user));
+			}
+			
+			@Override
+			public void onFailure(Throwable caught) {
+				Window.alert(caught.getMessage());
+			}
+		});
+		
+		
+	}
 
 	public Channel getChannel() {
 		return channel;
@@ -295,10 +317,6 @@ public class ChatSidebar extends Composite {
 
 	public void setChatMessagePanel(HTMLPanel chatMessagePanel) {
 		this.chatMessagePanel = chatMessagePanel;
-	}
-
-	public void onLeave() {
-		getChannel().send(user.getId() + ";" + IHuskyConstants.CHAT_LEAVE);
 	}
 
 }
