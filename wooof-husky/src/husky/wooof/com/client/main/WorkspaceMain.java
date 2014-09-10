@@ -57,7 +57,7 @@ public class WorkspaceMain extends Composite {
 		huskyMain.minimizeSideBar(true);
 		huskyMain.getHuskyMainPanel().setWidth("100%");
 		cardNavigation = new HuskyCardNavigation(this);
-		cardNavigation.addStyleName(HuskyResources.INSTANCE.huskycss().cardNavigation());
+		cardNavigation.addStyleName(HuskyResources.INSTANCE.huskycss().cardNavigation() + " " + HuskyResources.INSTANCE.huskymobilecss().cardNavigation());
 		panel.add(cardNavigation);
 		materialPanel.setVisible(false);
 		getAllCardLessons();

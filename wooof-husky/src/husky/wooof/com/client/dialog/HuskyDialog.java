@@ -1,5 +1,7 @@
 package husky.wooof.com.client.dialog;
 
+import husky.wooof.com.client.resources.HuskyResources;
+
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.event.dom.client.ClickEvent;
@@ -26,6 +28,7 @@ public class HuskyDialog extends DialogBox {
 		this.getElement().getStyle().setWidth(width, Unit.PCT);
 		this.getElement().getStyle().setTop(top, Unit.PCT);
 		this.getElement().getStyle().setLeft(left, Unit.PCT);
+		this.addStyleName(HuskyResources.INSTANCE.huskymobilecss().huskyDialog());
 		dialogPanel.add(composite);
 	}
 

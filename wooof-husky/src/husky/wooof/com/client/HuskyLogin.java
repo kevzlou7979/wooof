@@ -36,7 +36,7 @@ public class HuskyLogin extends Composite {
 	}
 
 	@UiField
-	HTMLPanel messagePanel, signUpPanel, signInPanel, formPanel;
+	HTMLPanel messagePanel, signUpPanel, signInPanel, formPanel, loginPanel;
 	@UiField
 	Image imgLogo;
 	@UiField
@@ -54,9 +54,10 @@ public class HuskyLogin extends Composite {
 		initWidget(uiBinder.createAndBindUi(this));
 		loadSignInPanel();
 		//signUpNav.removeFromParent();
-		imgLogo.removeFromParent();
-		txtEmail.setText("kevzlou7979@gmail.com");
-		txtPassword.setText("123123123");
+		formPanel.removeFromParent();
+		//imgLogo.removeFromParent();
+		//txtEmail.setText("kevzlou7979@gmail.com");
+		//txtPassword.setText("123123123");
 	}
 
 	private void loadSignUpPanel() {
@@ -188,6 +189,11 @@ public class HuskyLogin extends Composite {
 		if (e.getNativeKeyCode() == KeyCodes.KEY_ENTER) {
 			signUpAccount();
 		}
+	}
+	
+	@UiHandler("lblSecret")
+	void onSecret(ClickEvent e){
+		loginPanel.add(formPanel);
 	}
 
 }
