@@ -15,4 +15,16 @@ public interface HuskyMobileCSS extends CssResource {
 	String cardItem();
 	
 	String loginLogo();
+	
+	String huskyMobileNavigation();
+
+	String cardMainPanel();
+	
+	String basicInfoPanel();
+	
+	String previewPanel();
+	
+	String materialPanel();
+	
+	String lessonPanel();
 }

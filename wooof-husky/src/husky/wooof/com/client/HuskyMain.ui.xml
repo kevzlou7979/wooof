@@ -3,10 +3,46 @@
 	xmlns:g="urn:import:com.google.gwt.user.client.ui">
 	<ui:with field='res' type='husky.wooof.com.client.resources.HuskyResources' />
 	<ui:style>
-		
+		.huskyMobileNavigation{
+			background: #3a4264;
+			padding:10px;
+			box-sizing: border-box;
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			position: fixed;
+			top: 0px;
+			left: 0px;
+			width: 100%;
+			z-index: 998;
+			top: -60px;
+			transition: 0.5s all;
+			-webkit-transition: 0.5s all;
+			-moz-transition: 0.5s all;
+		}
+		.logoMobile{
+			width: 35px;
+			height: 35px;
+			margin-right: 5px;
+		}
+		.lblMobileTitle{
+			color: #fff;
+			font-size: 2em;
+		}
+		.icMobileNav{
+			cursor: pointer;
+			opacity: 0.8;
+			float: right;
+		}
+		.icMobileNav{
+			opacity: 1;
+		}
 	</ui:style>
 	<g:HTMLPanel>
-	
+		<g:HTMLPanel ui:field="huskyMobileNavigationPanel" addStyleNames="{style.huskyMobileNavigation} {res.huskymobilecss.huskyMobileNavigation}">
+			<g:Image resource="{res.husky_logo}" addStyleNames="{style.logoMobile} {res.huskycss.inline}"/>
+			<g:Label text="Husky" addStyleNames="{style.lblMobileTitle} {res.huskycss.inline}"/>
+			<g:Image ui:field="btnMobileNav" resource="{res.ic_mobile_nav}" addStyleNames="{style.logoMobile} {res.huskycss.inline} {style.icMobileNav}"/>
+		</g:HTMLPanel>
 		<g:HTMLPanel ui:field="huskyNavigationPanel" addStyleNames="{res.huskycss.huskyNavigationPanel} {res.huskymobilecss.huskyNavigationPanel}"/>
 		<g:HTMLPanel ui:field="huskyMainPanel" addStyleNames="{res.huskycss.huskyMainPanel} {res.huskymobilecss.huskyMainPanel}"/>
 	

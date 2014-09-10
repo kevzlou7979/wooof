@@ -79,19 +79,19 @@
 	<g:HTMLPanel ui:field="panel" addStyleNames="{style.panel}">
 		<g:HTMLPanel ui:field="activeUsersPanel" addStyleNames="{style.activeUsersPanel}" />
 
-		<g:HTMLPanel ui:field="mainPanel" addStyleNames="{res.huskycss.inline} {style.mainPanel}">
-			<g:HTMLPanel ui:field="basicInfoPanel" addStyleNames="{style.basicInfoPanel}">
+		<g:HTMLPanel ui:field="mainPanel" addStyleNames="{res.huskycss.inline} {style.mainPanel} {res.huskymobilecss.cardMainPanel}">
+			<g:HTMLPanel ui:field="basicInfoPanel" addStyleNames="{style.basicInfoPanel} {res.huskymobilecss.basicInfoPanel}">
 				<g:HTMLPanel addStyleNames="{res.huskycss.inline}"> 
 					<g:Label ui:field="lblLessonTitle" addStyleNames="{style.lblLessonTitle}"/>
 					<g:Label ui:field="lblLessonDescription" addStyleNames="{style.lblLessonDesc}"/>
 					<g:Label ui:field="lblBrowseMaterial" text="Browse Material" addStyleNames="{style.lblLink}"/>
 				</g:HTMLPanel>
 			</g:HTMLPanel>
-			<g:HTMLPanel ui:field="materialPanel" addStyleNames="{style.previewPanel} {style.materialPanel}"/>
-			<g:HTMLPanel ui:field="lessonPreviewPanel" addStyleNames="{style.previewPanel}"/>
+			<g:HTMLPanel ui:field="materialPanel" addStyleNames="{style.previewPanel} {style.materialPanel} {res.huskymobilecss.materialPanel}"/>
+			<g:HTMLPanel ui:field="lessonPreviewPanel" addStyleNames="{style.previewPanel} {res.huskymobilecss.previewPanel}"/>
 		</g:HTMLPanel>
 
-		<g:HTMLPanel ui:field="lessonPanel" addStyleNames="{res.huskycss.inline} {style.lessonPanel}">
+		<g:HTMLPanel ui:field="lessonPanel" addStyleNames="{res.huskycss.inline} {style.lessonPanel} {res.huskymobilecss.lessonPanel}">
 			<h:LessonItem ui:field="createLesson" action="create" addStyleNames="{style.lessonItemCreate}"/> 
 		</g:HTMLPanel>
 
