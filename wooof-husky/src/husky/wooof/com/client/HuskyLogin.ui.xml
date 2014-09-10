@@ -51,13 +51,18 @@
 			font-size: 1.2em;
 			cursor: pointer;
 		}
+		.header{
+			text-align: center;
+		}
 	</ui:style>
 	<g:HTMLPanel ui:field="loginPanel" addStyleNames="{res.huskycss.loginPanel}">
 
-		<g:Image ui:field="imgLogo" resource="{res.husky_logo}" addStyleNames="{style.logo}"/>
+		<g:HTMLPanel addStyleNames="{style.header}">
+			<g:Image ui:field="imgLogo" resource="{res.husky_logo}" addStyleNames="{style.logo} {res.huskymobilecss.loginLogo}"/>
+			<g:Label text="Husky" addStyleNames="{style.maintenanceTitle}"/>
+		</g:HTMLPanel>
 		
 		<g:HTMLPanel ui:field="maintenancePanel" addStyleNames="{style.maintenancePanel}">
-			<g:Label text="Husky" addStyleNames="{style.maintenanceTitle}"/>
 			<g:Label text="Under Maintenance.." addStyleNames="{style.maintenanceDesc} {res.huskycss.inline}"/>
 			<g:Label ui:field="lblSecret" text="." addStyleNames="{style.maintenanceDesc} {res.huskycss.inline}"/>
 		</g:HTMLPanel>

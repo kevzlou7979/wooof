@@ -13,4 +13,6 @@ public interface HuskyMobileCSS extends CssResource {
 	String cardNavigation();
 	
 	String cardItem();
+	
+	String loginLogo();
 }
