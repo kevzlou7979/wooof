@@ -3,14 +3,6 @@
 	xmlns:g="urn:import:com.google.gwt.user.client.ui">
 	<ui:with field='res' type='husky.wooof.com.client.resources.HuskyResources' />
 	<ui:style>
-		.navItems{
-			padding: 5px;
-			height: 100%;
-			background: #4086FA;
-			width: 60px;
-			text-align: center;
-			float: left;
-		}
 		.navContent{
 			width: 0px;
 			height: 100%;
@@ -61,7 +53,7 @@
 			<g:Label ui:field="btnHideNav" text=">" addStyleNames="{style.btnHideNav}"/>
 		</g:HTMLPanel>
 			
-		<g:HTMLPanel ui:field="navMenu" addStyleNames="{style.navItems}">
+		<g:HTMLPanel ui:field="navMenu" addStyleNames="{res.huskycss.navItems}">
 			<g:Image ui:field="navCardInfo" resource="{res.ic_nav_info_white}" addStyleNames="{style.navItem} {style.navCardInfo}"/>
 			<g:HTMLPanel addStyleNames="{style.navItem}">
 			    <g:Image ui:field="navChat" resource="{res.ic_nav_chat_white}"/>

@@ -1,0 +1,24 @@
+.huskyNavigationPanel{
+	left: -250px;
+}
+.huskyMainPanel{
+	padding-left: 0px;
+	text-align: center;
+}
+
+.huskyDialog{
+	left: 0px !important;
+	width: 100% !important;
+}
+
+.cardNavigation{
+	right: -75px !important;
+}
+
+.cardItem{
+	width: 100%;
+	margin: 10px;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}

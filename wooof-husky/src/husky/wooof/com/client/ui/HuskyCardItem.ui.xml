@@ -4,23 +4,7 @@
 	<ui:with field='res' type='husky.wooof.com.client.resources.HuskyResources' />
 	<ui:style>
 	@external .panelAfterCard;
-	.panel{
-		padding: 5px;
-		border-radius: 5px;
-		-webkit-border-radius: 5px;
-		-moz-border-radius: 5px;
-		border: 1px solid #e7e7e7;
-		display: inlin-block;
-		width: 250px;
-		display: inline-block;
-		vertical-align: top;
-		margin: 5px;
-		margin-top: 100px;
-		transition: 0.5s all;
-		-webkit-transition: 0.5s all;
-		-moz-transition: 0.5s all;
-		opacity: 0;
-	}
+	
 	.panelAfterCard{
 		margin-top: 0%;
 		opacity: 1;
@@ -62,7 +46,7 @@
 		padding-top: 10px;
 	}
 	</ui:style>
-	<g:HTMLPanel ui:field="panel" addStyleNames="{style.panel}">
+	<g:HTMLPanel ui:field="panel" addStyleNames="{res.huskycss.cardItem} {res.huskymobilecss.cardItem}">
 		<g:HTMLPanel ui:field="cardImagePanel" addStyleNames="{style.cardImagePanel}">
 		    <g:Image ui:field="cardImage" resource="{res.ic_default_card}"/>
 			<g:HTMLPanel addStyleNames="{style.descriptionPanel}">

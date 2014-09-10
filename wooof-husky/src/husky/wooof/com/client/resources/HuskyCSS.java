@@ -73,4 +73,14 @@ public interface HuskyCSS extends CssResource {
 	String huskyStepActive();
 	
 	String huskyMaterialMode();
+	
+	String huskyNavigationPanel();
+	
+	String huskyMainPanel();
+	
+	String navItems();
+	
+	String cardItem();
+	
+	String loginPanel();
 }

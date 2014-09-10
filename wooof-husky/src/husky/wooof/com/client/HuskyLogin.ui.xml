@@ -30,16 +30,38 @@
 			width: 300px;
 			margin: auto;
 			margin-top: 50px;
+			text-align: center;
 			position: relative;
 		}
+		.maintenanceTitle{
+			color: #fff;
+			font-size: 4em;
+		}
+		.maintenanceDesc{
+			color: #fff;
+			font-size: 2em;
+		}
+		.maintenancePanel{
+			text-align: center;
+		}
+		.signUp{
+			color: #fff;
+			padding: 10px;
+			margin-top: 10px;
+			font-size: 1.2em;
+			cursor: pointer;
+		}
 	</ui:style>
-	<g:HTMLPanel addStyleNames="{style.panel}">
+	<g:HTMLPanel ui:field="loginPanel" addStyleNames="{res.huskycss.loginPanel}">
 
 		<g:Image ui:field="imgLogo" resource="{res.husky_logo}" addStyleNames="{style.logo}"/>
-<!-- 		<g:Image ui:field="imgLogo"  addStyleNames="{style.logo}"/> -->
 		
-	<!-- 	<g:Label addStyleNames="{style.lblSiteName}" text="Husky"/>
-		<g:Label addStyleNames="{style.lblSiteSlogan}" text="Learning is Everywhere"/> -->
+		<g:HTMLPanel ui:field="maintenancePanel" addStyleNames="{style.maintenancePanel}">
+			<g:Label text="Husky" addStyleNames="{style.maintenanceTitle}"/>
+			<g:Label text="Under Maintenance.." addStyleNames="{style.maintenanceDesc} {res.huskycss.inline}"/>
+			<g:Label ui:field="lblSecret" text="." addStyleNames="{style.maintenanceDesc} {res.huskycss.inline}"/>
+		</g:HTMLPanel>
+		
 		
 		<g:HTMLPanel ui:field="formPanel" addStyleNames="{style.formPanel}">
 			<g:HTMLPanel ui:field="messagePanel" />
@@ -48,7 +70,7 @@
 				<h:HuskyTextBox placeholder="Email" ui:field="txtEmail"/>
 				<h:HuskyPasswordBox placeholder="Password" ui:field="txtPassword"/>
 				<h:HuskyButton ui:field="btnSignIn" text="Sign In"/> 
-				<g:Label text="Sign Up" ui:field="signUpNav" addStyleNames="{res.huskycss.huskyLink}"/>
+				<g:Label text="Sign Up" ui:field="signUpNav" addStyleNames="{style.signUp}"/>
 			</g:HTMLPanel>
 			
 			<g:HTMLPanel ui:field="signUpPanel" >
