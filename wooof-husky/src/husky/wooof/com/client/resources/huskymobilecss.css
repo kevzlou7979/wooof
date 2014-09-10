@@ -22,3 +22,7 @@
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 }
+
+.loginLogo{
+	width: 20% !important;
+}
