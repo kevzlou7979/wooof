@@ -8,17 +8,13 @@ html,body {
 .projectPreviewFrame {
 	position: absolute;
 	z-index: 999;
-	height: 164%;
-	width: 120%;
-	zoom: 0.8;
-	-moz-transform: scale(0.45) rotate(8deg) skew(5deg, -5deg);
-	-moz-transform-origin: 0 0;
-	-o-transform: scale(0.45) rotate(8deg) skew(5deg, -5deg);
-	-o-transform-origin: 0 0;
-	-webkit-transform: scale(0.50) rotate(8deg) skew(5deg, -5deg);
-	-webkit-transform-origin: 0 0;
-	top: 16.9%;
-	left: 32.1%;
+	height: 108%;
+	width: 78.5%;
+	top: 7.9%;
+	left: 40.1%;
+	-webkit-transform: scale(0.7);
+	-moz-transform: scale(0.7);
+	transform: scale(0.7);
 }
 
 .activeLeftMargin {
