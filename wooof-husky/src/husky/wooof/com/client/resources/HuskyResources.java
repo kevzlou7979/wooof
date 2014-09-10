@@ -69,8 +69,11 @@ public interface HuskyResources extends ClientBundle {
 	
 	ImageResource bg_husky();
 	
+	ImageResource ic_mobile_nav();
+	
 	HuskyCSS huskycss();
 	
 	HuskyMobileCSS huskymobilecss();
+	
 
 }

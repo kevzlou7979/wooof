@@ -1,9 +1,14 @@
+.huskyMobileNavigation{
+	top:0px !important;
+}
+
 .huskyNavigationPanel{
 	left: -250px;
+	top: 55px;
 }
 .huskyMainPanel{
-	padding-left: 0px;
-	text-align: center;
+ 	margin-top: 60px; 
+	padding: 0px;
 }
 
 .huskyDialog{
@@ -16,8 +21,8 @@
 }
 
 .cardItem{
-	width: 100%;
-	margin: 10px;
+	width: 90%;
+	margin: 15px;
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
@@ -25,4 +30,30 @@
 
 .loginLogo{
 	width: 20% !important;
+}
+
+.cardMainPanel{
+	width: 100% !important;
+	height: auto !important;
+}
+
+.basicInfoPanel{
+	width: 100% !important;
+	padding-left: 20px !important;
+	padding-bottom: 5px !important;
+	margin-bottom: 20px !important;
+	border-bottom: 1px solid #E9E9E9 !important;
+}
+
+.previewPanel{
+	width: 100% !important;
+	height: 200px !important;
+}
+
+.materialPanel{
+	width: 100% !important;
+}
+
+.lessonPanel{
+	width: 100% !important;
 }
