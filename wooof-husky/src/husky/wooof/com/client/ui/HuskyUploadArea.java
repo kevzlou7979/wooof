@@ -60,14 +60,6 @@ public class HuskyUploadArea extends Composite {
 		uploadButton.setEnabled(false);
 		uploadField.setName("image");
 		startNewBlobstoreSession();
-
-		uploadForm.addSubmitHandler(new SubmitHandler() {
-			
-			@Override
-			public void onSubmit(SubmitEvent event) {
-				uploadForm.submit();
-			}
-		});
 		
 		uploadForm.addSubmitCompleteHandler(new FormPanel.SubmitCompleteHandler() {
 			
