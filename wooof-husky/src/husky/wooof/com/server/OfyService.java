@@ -4,6 +4,8 @@ import husky.wooof.com.shared.HuskyCard;
 import husky.wooof.com.shared.HuskyChatMessage;
 import husky.wooof.com.shared.HuskyImageLesson;
 import husky.wooof.com.shared.HuskyLesson;
+import husky.wooof.com.shared.HuskyLinkLesson;
+import husky.wooof.com.shared.HuskyPlaceLesson;
 import husky.wooof.com.shared.HuskyUser;
 import husky.wooof.com.shared.HuskyUserCard;
 import husky.wooof.com.shared.HuskyYoutubeLesson;
@@ -23,6 +25,8 @@ public class OfyService {
 		ObjectifyService.register(HuskyUserCard.class);
 		ObjectifyService.register(HuskyYoutubeLesson.class);
 		ObjectifyService.register(HuskyImageLesson.class);
+		ObjectifyService.register(HuskyPlaceLesson.class);
+		ObjectifyService.register(HuskyLinkLesson.class);
 	}
 
 	public static Objectify ofy() {

@@ -1,22 +1,23 @@
 package husky.wooof.com.client.ui;
 
+import husky.wooof.com.client.resources.HuskyResources;
+
 import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.user.client.ui.Frame;
-import com.google.gwt.user.client.ui.Label;
+import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.SimplePanel;
 
-public class YoutubeVideo extends SimplePanel {
+public class PreviewYoutube extends SimplePanel {
 
 	private String url;
-	private Label label = new Label("No Preview");
+	private Image image = new Image();
 
-	public YoutubeVideo() {
+	public PreviewYoutube() {
 		this.setWidth("100%");
 		this.setHeight("100%");
-		label.getElement().getStyle().setLineHeight(12, Unit.EM);
-		label.getElement().getStyle().setColor("#C6C6C6");
-		label.getElement().getStyle().setFontSize(2, Unit.EM);
-		this.add(label);
+		image.setResource(HuskyResources.INSTANCE.ic_preview_youtube());
+		image.getElement().getStyle().setMarginTop(50, Unit.PX);
+		this.add(image);
 	}
 
 	private void loadYoutubeVideo(String url) {
