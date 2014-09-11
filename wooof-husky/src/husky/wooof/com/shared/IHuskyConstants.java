@@ -2,6 +2,8 @@ package husky.wooof.com.shared;
 
 public interface IHuskyConstants {
 
+	public final String HUSKY_API_KEY = "AIzaSyBhfL3KTr_nGO-rU56JO0MyOgcnbjLX9Wc";
+	
 	public final int NAV_CARDS = 0;
 	public final int NAV_SETTINGS = 1;
 	public final int NAV_TEAM = 2;
@@ -29,6 +31,9 @@ public interface IHuskyConstants {
 
 	public final String LESSON_YOUTUBE = "youtube";
 	public final String LESSON_IMAGE = "image";
+	public final String LESSON_AUDIO = "audio";
+	public final String LESSON_PLACE = "place";
+	public final String LESSON_LINK = "link";
 
 	public final String ACTION_CREATE = "create";
 

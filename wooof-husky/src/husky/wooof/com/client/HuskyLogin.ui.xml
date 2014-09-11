@@ -54,6 +54,9 @@
 		.header{
 			text-align: center;
 		}
+		.txtCustom{
+			margin-top: -2px;
+		}
 	</ui:style>
 	<g:HTMLPanel ui:field="loginPanel" addStyleNames="{res.huskycss.loginPanel}">
 
@@ -72,22 +75,22 @@
 			<g:HTMLPanel ui:field="messagePanel" />
 		
 			<g:HTMLPanel ui:field="signInPanel" >
-				<h:HuskyTextBox placeholder="Email" ui:field="txtEmail"/>
-				<h:HuskyPasswordBox placeholder="Password" ui:field="txtPassword"/>
+				<h:HuskyTextBox placeholder="Email" ui:field="txtEmail" addStyleNames="{style.txtCustom}"/>
+				<h:HuskyPasswordBox placeholder="Password" ui:field="txtPassword" addStyleNames="{style.txtCustom}"/>
 				<h:HuskyButton ui:field="btnSignIn" text="Sign In"/> 
 				<g:Label text="Sign Up" ui:field="signUpNav" addStyleNames="{style.signUp}"/>
 			</g:HTMLPanel>
 			
 			<g:HTMLPanel ui:field="signUpPanel" >
-				<h:HuskyTextBox placeholder="FirstName" ui:field="txtRFirstName"/>
-				<h:HuskyTextBox placeholder="LastName" ui:field="txtRLastName"/>
-				<h:HuskyListBox ui:field="lstGender">
+				<h:HuskyTextBox placeholder="FirstName" ui:field="txtRFirstName" addStyleNames="{style.txtCustom}"/>
+				<h:HuskyTextBox placeholder="LastName" ui:field="txtRLastName" addStyleNames="{style.txtCustom}"/>
+				<h:HuskyListBox ui:field="lstGender" addStyleNames="{style.txtCustom}">
 				    <item>Male</item>
 				    <item>Female</item>
 				</h:HuskyListBox>
-				<h:HuskyTextBox placeholder="Email" ui:field="txtREmail"/>
-				<h:HuskyPasswordBox placeholder="Password" ui:field="txtRPassword"/>
-				<h:HuskyPasswordBox placeholder="Confirm Password" ui:field="txtRConPassword"/>
+				<h:HuskyTextBox placeholder="Email" ui:field="txtREmail" addStyleNames="{style.txtCustom}"/>
+				<h:HuskyPasswordBox placeholder="Password" ui:field="txtRPassword" addStyleNames="{style.txtCustom}"/>
+				<h:HuskyPasswordBox placeholder="Confirm Password" ui:field="txtRConPassword" addStyleNames="{style.txtCustom}"/>
 				<h:HuskyButton ui:field="btnSignUp" text="Sign Up"/> 
 				<g:Label text="Sign In" ui:field="signInNav" addStyleNames="{res.huskycss.huskyLink}" />
 			</g:HTMLPanel>

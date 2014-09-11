@@ -9,9 +9,13 @@ import husky.wooof.com.client.ui.HuskyTextArea;
 import husky.wooof.com.client.ui.HuskyTextBox;
 import husky.wooof.com.client.ui.HuskyUploadArea;
 import husky.wooof.com.client.ui.LessonType;
-import husky.wooof.com.client.ui.YoutubeVideo;
+import husky.wooof.com.client.ui.PreviewGoogleMap;
+import husky.wooof.com.client.ui.PreviewLink;
+import husky.wooof.com.client.ui.PreviewYoutube;
 import husky.wooof.com.shared.HuskyImageLesson;
 import husky.wooof.com.shared.HuskyLesson;
+import husky.wooof.com.shared.HuskyLinkLesson;
+import husky.wooof.com.shared.HuskyPlaceLesson;
 import husky.wooof.com.shared.HuskyYoutubeLesson;
 import husky.wooof.com.shared.IHuskyConstants;
 
@@ -37,15 +41,19 @@ public class CreateLesson extends Composite {
 
 	private String type;
 	@UiField
-	LessonType typeYoutube, typeImage;
+	LessonType typeYoutube, typeImage, typeAudio, typePlace, typeLink;
 	@UiField
-	HTMLPanel infoPanel, chooseTypePanel,buttonPanel,lessonMaterialPanel, stepPanel, lessonFieldPanel, youtubePanel, imagePanel, messagePanel, panel, materialPanel;
+	HTMLPanel infoPanel, chooseTypePanel,buttonPanel,lessonMaterialPanel, stepPanel, lessonFieldPanel, youtubePanel, imagePanel, audioPanel, placePanel, linkPanel, messagePanel, panel, materialPanel;
 	@UiField
-	YoutubeVideo youtubeVideoPanel;
+	PreviewYoutube youtubeVideoPanel;
+	@UiField 
+	PreviewGoogleMap googleMapPanel;
 	@UiField
 	HuskyUploadArea imageLessonPanel;
+	@UiField 
+	PreviewLink linkPreviewPanel;
 	@UiField
-	HuskyTextBox txtYoutubeUrl, txtLessonName, txtMaterialLink;
+	HuskyTextBox txtYoutubeUrl, txtLessonName, txtMaterialLink, txtPlaceName, txtLink;
 	@UiField
 	HuskyTextArea txtDescription;
 	@UiField
@@ -83,6 +91,30 @@ public class CreateLesson extends Composite {
 				
 			}
 		});
+		typeAudio.getFocusPanel().addClickHandler(new ClickHandler() {
+
+			@Override
+			public void onClick(ClickEvent event) {
+				onSelectLessonType(typeAudio);
+			}
+		});
+		typePlace.getFocusPanel().addClickHandler(new ClickHandler() {
+
+			@Override
+			public void onClick(ClickEvent event) {
+				onSelectLessonType(typePlace);
+				
+			}
+		});
+		typeLink.getFocusPanel().addClickHandler(new ClickHandler() {
+
+			@Override
+			public void onClick(ClickEvent event) {
+				onSelectLessonType(typeLink);
+				
+			}
+		});
+		
 	}
 
 	private void onSelectLessonType(LessonType lessonType) {
@@ -98,6 +130,15 @@ public class CreateLesson extends Composite {
 			break;
 		case IHuskyConstants.LESSON_IMAGE:
 			lessonFieldPanel.add(imagePanel);
+			break;
+		case IHuskyConstants.LESSON_AUDIO:
+			lessonFieldPanel.add(audioPanel);
+			break;
+		case IHuskyConstants.LESSON_PLACE:
+			lessonFieldPanel.add(placePanel);
+			break;
+		case IHuskyConstants.LESSON_LINK:
+			lessonFieldPanel.add(linkPanel);
 			break;
 		default:
 			break;
@@ -167,9 +208,12 @@ public class CreateLesson extends Composite {
 	void onCreateLesson(ClickEvent e) {
 		if (type.equals(IHuskyConstants.LESSON_YOUTUBE)) {
 			saveLesson(new HuskyYoutubeLesson(workspaceMain.getCard().getId(), txtLessonName.getText(), type, txtDescription.getText(), material, txtYoutubeUrl.getText()));
-		}
-		else if (type.equals(IHuskyConstants.LESSON_IMAGE)) {
+		}else if (type.equals(IHuskyConstants.LESSON_IMAGE)) {
 			saveLesson(new HuskyImageLesson(workspaceMain.getCard().getId(), txtLessonName.getText(), type, txtDescription.getText(), material, imageLessonPanel.getCardImage().getUrl()));
+		}else if (type.equals(IHuskyConstants.LESSON_PLACE)) {
+			saveLesson(new HuskyPlaceLesson(workspaceMain.getCard().getId(), txtLessonName.getText(), type, txtDescription.getText(), material, txtPlaceName.getText()));
+		}else if (type.equals(IHuskyConstants.LESSON_LINK)) {
+			saveLesson(new HuskyLinkLesson(workspaceMain.getCard().getId(), txtLessonName.getText(), type, txtDescription.getText(), material, txtLink.getText()));
 		}
 	}
 
@@ -187,6 +231,18 @@ public class CreateLesson extends Composite {
 		material = txtMaterialLink.getText().replaceAll("/", "%2F").replaceAll(":", "%3A") + "&embedded=true";
 		frame.setUrl("http://docs.google.com/viewer?url=" + material);
 		materialPanel.add(frame);
+	}
+	
+	@UiHandler("btnGoogleMapViewer")
+	void onPreviewGoogleMap(ClickEvent e){
+		googleMapPanel.clear();
+		googleMapPanel.setMap(txtPlaceName.getText());
+	}
+	
+	@UiHandler("btnPreviewLink")
+	void onPreviewLink(ClickEvent e){
+		linkPreviewPanel.clear();
+		linkPreviewPanel.setLink(txtLink.getText());
 	}
 	
 	private void onChangeStep(Label label, int type){

@@ -67,6 +67,14 @@ public interface HuskyResources extends ClientBundle {
 	
 	ImageResource ic_lesson_material();
 	
+	ImageResource ic_preview_youtube();
+	
+	ImageResource ic_preview_map();
+	
+	ImageResource ic_preview_audio();
+
+	ImageResource ic_preview_link();
+	
 	ImageResource bg_husky();
 	
 	ImageResource ic_mobile_nav();

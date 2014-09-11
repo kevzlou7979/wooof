@@ -91,11 +91,29 @@
 				</g:HTMLPanel>
 				
 				<g:HTMLPanel ui:field="lessonFieldPanel" addStyleNames="{style.lessonFieldPanel}">
+					
+					<g:HTMLPanel ui:field="linkPanel">
+						<h:HuskyTextBox ui:field="txtLink" placeholder="Place" addStyleNames="{res.huskycss.inline} {style.txtYoutubeLink}"/>
+						<h:HuskyButton text="Preview" ui:field="btnPreviewLink" addStyleNames="{res.huskycss.inline} {style.btnYoutubePreview}"/>
+						<h:PreviewLink ui:field="linkPreviewPanel" addStyleNames="{style.youtubeVideoPanel}"/>
+					</g:HTMLPanel>
+					
+					<g:HTMLPanel ui:field="placePanel">
+						<h:HuskyTextBox ui:field="txtPlaceName" placeholder="Place" addStyleNames="{res.huskycss.inline} {style.txtYoutubeLink}"/>
+						<h:HuskyButton text="Preview" ui:field="btnGoogleMapViewer" addStyleNames="{res.huskycss.inline} {style.btnYoutubePreview}"/>
+						<h:PreviewGoogleMap ui:field="googleMapPanel" addStyleNames="{style.youtubeVideoPanel}"/>
+					</g:HTMLPanel>
+					
+					<g:HTMLPanel ui:field="audioPanel">
+						AUDIO PANEL
+					</g:HTMLPanel>
+					
 					<g:HTMLPanel ui:field="youtubePanel">
 						<h:HuskyTextBox ui:field="txtYoutubeUrl" placeholder="Youtube URL" addStyleNames="{res.huskycss.inline} {style.txtYoutubeLink}"/>
 						<h:HuskyButton text="Preview" ui:field="btnYoutubePreview" addStyleNames="{res.huskycss.inline} {style.btnYoutubePreview}"/>
-						<h:YoutubeVideo ui:field="youtubeVideoPanel" addStyleNames="{style.youtubeVideoPanel}"/>
+						<h:PreviewYoutube ui:field="youtubeVideoPanel" addStyleNames="{style.youtubeVideoPanel}"/>
 					</g:HTMLPanel>
+					
 					<g:HTMLPanel ui:field="imagePanel">
 						<h:HuskyUploadArea ui:field="imageLessonPanel" message="Lesson Image Material" />
 					</g:HTMLPanel>

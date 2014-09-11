@@ -7,10 +7,14 @@ import husky.wooof.com.client.services.CardService;
 import husky.wooof.com.client.services.LessonService;
 import husky.wooof.com.client.ui.GoogleDocViewer;
 import husky.wooof.com.client.ui.LessonItem;
-import husky.wooof.com.client.ui.YoutubeVideo;
+import husky.wooof.com.client.ui.PreviewGoogleMap;
+import husky.wooof.com.client.ui.PreviewLink;
+import husky.wooof.com.client.ui.PreviewYoutube;
 import husky.wooof.com.shared.HuskyCard;
 import husky.wooof.com.shared.HuskyImageLesson;
 import husky.wooof.com.shared.HuskyLesson;
+import husky.wooof.com.shared.HuskyLinkLesson;
+import husky.wooof.com.shared.HuskyPlaceLesson;
 import husky.wooof.com.shared.HuskyYoutubeLesson;
 import husky.wooof.com.shared.IHuskyConstants;
 
@@ -154,14 +158,41 @@ public class WorkspaceMain extends Composite {
 		case IHuskyConstants.LESSON_IMAGE:
 			playImageLesson((HuskyImageLesson)lesson);
 			break;
-
+		case IHuskyConstants.LESSON_PLACE:
+			playPlaceLesson((HuskyPlaceLesson)lesson);
+			break;
+		case IHuskyConstants.LESSON_AUDIO:
+			playAudioLesson((HuskyPlaceLesson)lesson);
+			break;
+		case IHuskyConstants.LESSON_LINK:
+			playLinkLesson((HuskyLinkLesson)lesson);
+			break;
 		default:
 			break;
 		}
 	}
 
+	private void playLinkLesson(HuskyLinkLesson lesson) {
+		PreviewLink link = new PreviewLink();
+		link.setLink(lesson.getLink());
+		lessonPreviewPanel.clear();
+		lessonPreviewPanel.add(link);
+	}
+
+	private void playAudioLesson(HuskyPlaceLesson lesson) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void playPlaceLesson(HuskyPlaceLesson lesson) {
+		PreviewGoogleMap map = new PreviewGoogleMap();
+		map.setMap(lesson.getPlace());
+		lessonPreviewPanel.clear();
+		lessonPreviewPanel.add(map);
+	}
+
 	public void playYoutubeLesson(HuskyYoutubeLesson lesson) {
-		YoutubeVideo video = new YoutubeVideo();
+		PreviewYoutube video = new PreviewYoutube();
 		video.setUrl(lesson.getYoutubeUrl());
 		lessonPreviewPanel.clear();
 		lessonPreviewPanel.add(video);
