@@ -8,6 +8,8 @@ import java.util.List;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.rpc.RemoteService;
 import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
+import com.google.gwt.user.client.rpc.ServiceDefTarget;
+import com.googlecode.gwtphonegap.client.util.PhonegapUtil;
 
 @RemoteServiceRelativePath("account")
 public interface UserAccountService extends RemoteService {
@@ -19,6 +21,7 @@ public interface UserAccountService extends RemoteService {
 		public static UserAccountServiceAsync getService() {
 			if (service == null) {
 				service = (UserAccountServiceAsync) GWT.create(UserAccountService.class);
+				PhonegapUtil.prepareService((ServiceDefTarget) service, "http://wooof-husky.appspot.com", "account");
 			}
 
 			return service;
