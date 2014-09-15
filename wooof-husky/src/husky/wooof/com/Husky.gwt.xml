@@ -21,7 +21,7 @@
   <inherits name='com.googlecode.objectify.Objectify'/>
   <inherits name="com.google.web.bindery.autobean.AutoBean"/>
   <inherits name="no.eirikb.gwtchannelapi.GwtChannelApi"/>
-  
+  <inherits name="com.googlecode.gwtphonegap.PhoneGap"/>
   <!-- Specify the app entry point class.                         -->
   <entry-point class='husky.wooof.com.client.Husky'/>
 
