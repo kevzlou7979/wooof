@@ -8,8 +8,6 @@ import java.util.List;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.rpc.RemoteService;
 import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
-import com.google.gwt.user.client.rpc.ServiceDefTarget;
-import com.googlecode.gwtphonegap.client.util.PhonegapUtil;
 
 @RemoteServiceRelativePath("lesson")
 public interface LessonService extends RemoteService {
@@ -20,7 +18,7 @@ public interface LessonService extends RemoteService {
 		public static LessonServiceAsync getService() {
 			if (service == null) {
 				service = (LessonServiceAsync) GWT.create(LessonService.class);
-				PhonegapUtil.prepareService((ServiceDefTarget) service, "http://wooof-husky.appspot.com", "lesson");
+				//PhonegapUtil.prepareService((ServiceDefTarget) service, "http://wooof-husky.appspot.com", "lesson");
 			}
 
 			return service;

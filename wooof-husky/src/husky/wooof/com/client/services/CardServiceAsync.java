@@ -23,6 +23,8 @@ public interface CardServiceAsync {
 
 	public void addUserToCard(HuskyUser user, HuskyCard card, String type, boolean isActive, AsyncCallback<Void> callback);
 
+	public void removeUserFromCard(HuskyUser user, HuskyCard card, AsyncCallback<Void> callback);
+	
 	public void getAllCardAdmins(HuskyCard card, AsyncCallback<List<HuskyUser>> callback);
 
 	public void getAllCardViewers(HuskyCard card, AsyncCallback<List<HuskyUser>> callback);

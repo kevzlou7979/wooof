@@ -13,6 +13,8 @@ import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.HTMLPanel;
+import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.Widget;
 
@@ -29,7 +31,11 @@ public class UserItem extends Composite {
 	CircleImage imgProfile;
 	@UiField
 	HuskyListBox lstUserType;
-
+	@UiField
+	HTMLPanel userTypePanel;
+	@UiField
+	Image btnDeleteUser;
+	
 	private HuskyCardNavigation huskyCardNavigation;
 	private HuskyUser user;
 
@@ -40,8 +46,23 @@ public class UserItem extends Composite {
 		imgProfile.setImageProfile(user.getProfilePic());
 		lblFullName.setText(user.getFirstName() + " " + user.getLastName());
 		lblEmail.setText(user.getEmail());
+		btnDeleteUser.removeFromParent();
 	}
 
+	/**
+	 * For Deletion of user
+	 * @param user
+	 * @param huskyCardNavigation
+	 */
+	public UserItem(HuskyUser user, HuskyCardNavigation huskyCardNavigation, boolean fromSearch) {
+		initWidget(uiBinder.createAndBindUi(this));
+		this.huskyCardNavigation = huskyCardNavigation;
+		this.user = user;
+		imgProfile.setImageProfile(user.getProfilePic());
+		lblFullName.setText(user.getFirstName() + " " + user.getLastName());
+		lblEmail.setText(user.getEmail());
+		userTypePanel.removeFromParent();
+	}
 	@UiHandler("btnAddUser")
 	void onAddUser(ClickEvent e) {
 		CardService.Connect.getService().addUserToCard(user, huskyCardNavigation.getWorkspaceMain().getCard(),lstUserType.getValue(lstUserType.getSelectedIndex()), false, new AsyncCallback<Void>() {
@@ -62,4 +83,20 @@ public class UserItem extends Composite {
 		});
 	}
 
+	@UiHandler("btnDeleteUser")
+	void onDeleteUser(ClickEvent e){
+		CardService.Connect.getService().removeUserFromCard(user, huskyCardNavigation.getWorkspaceMain().getCard(), new AsyncCallback<Void>() {
+			
+			@Override
+			public void onSuccess(Void result) {
+				UserItem.this.removeFromParent();
+			}
+			
+			@Override
+			public void onFailure(Throwable caught) {
+				Window.alert(caught.getMessage());
+			}
+		});
+	}
+	
 }

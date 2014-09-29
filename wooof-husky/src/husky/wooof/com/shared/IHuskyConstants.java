@@ -2,7 +2,7 @@ package husky.wooof.com.shared;
 
 public interface IHuskyConstants {
 
-	public final String HUSKY_API_KEY = "AIzaSyBhfL3KTr_nGO-rU56JO0MyOgcnbjLX9Wc";
+	public final String HUSKY_API_KEY = "AIzaSyCTkCYWeD7wmo4t6WrfiBQWhlz1AfJhCis";
 	
 	public final int NAV_CARDS = 0;
 	public final int NAV_SETTINGS = 1;
@@ -43,5 +43,9 @@ public interface IHuskyConstants {
 	public final String FEMALE = "Female";
 	public final String CHAT_JOINED = "Joined";
 	public final String CHAT_LEAVE = "Leave";
+	
+	public final String ACTION_INFO = "Info";
+	public final String ACTION_WARN = "Warn";
+	public final String ACTION_ERROR = "Error";
 
 }

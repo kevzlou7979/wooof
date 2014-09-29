@@ -35,7 +35,6 @@ import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.RootPanel;
-import com.google.gwt.user.client.ui.ScrollListener;
 import com.google.gwt.user.client.ui.ScrollPanel;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.web.bindery.autobean.shared.AutoBean;
@@ -73,7 +72,7 @@ public class ChatSidebar extends Composite {
 		txtChatStatus.setVisible(false);
 		initChannel();
 		displayAllJoinedUsers();
-		chatScrollPanel.addScrollListener(new ScrollListener() {
+		/*chatScrollPanel.addScrollListener(new ScrollListener() {
 
 			@Override
 			public void onScroll(Widget widget, int scrollLeft, int scrollTop) {
@@ -82,7 +81,7 @@ public class ChatSidebar extends Composite {
 					getAllChatMessages(x);
 				}
 			}
-		});
+		});*/
 		onScrollDown();
 		getAllChatMessages(x);
 		onCloseBrowser();
