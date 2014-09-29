@@ -1,10 +1,79 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
-	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:h="urn:import:husky.wooof.com.client.ui">
+	<ui:with field='res'
+		type='husky.wooof.com.client.resources.HuskyResources' />
 	<ui:style>
-	
+		.panel{
+			background: #fff;
+			height: 100%;
+		}
+		.imgCard{
+			width: 100%;
+			height: 200px;
+		}
+		.namePanel{
+			background: rgba(0,0,0,0.8);
+			color: #fff;
+			position: absolute;
+			width: 300px;
+			top: 150px;
+			padding-top: 5px;
+			padding-bottom: 5px;
+			padding-left: 3%;
+			box-sizing: border-box;
+		}
+		.lblName{
+			font-size: 1.3em;
+			display: inline-block;
+			vertical-align: middle;
+			width: 65%;
+		}
+		.lblNoHuskies{
+			font-size: 1.3em;	
+		}
+		.huskyPanel{
+			width: 29%;
+			display: inline-block;
+			vertical-align: middle;
+			text-align: center;
+		}
+		.lblCardDesc{
+			padding: 10px;
+			font-size: 1.1em;
+			color: #999
+		}
+		.lblTitle{
+			font-size: 1.1em;
+			font-weight: bold;
+			padding: 10px;
+		}
+		.btnUnsub{
+			width: 300px;
+			margin: auto;
+			text-align: center;
+			font-size: 0.9em;
+			margin-top: -3px;
+			position: absolute;
+			bottom: 0px;
+			text-transform: uppercase;
+		}
 	</ui:style>
-	<g:HTMLPanel>
-		CARD INFO
+	<g:HTMLPanel addStyleNames="{style.panel}">
+		<g:HTMLPanel>
+			<g:Image ui:field="imgCard" resource="{res.ic_screenshot}" addStyleNames="{style.imgCard}"/>
+			<g:HTMLPanel addStyleNames="{style.namePanel}">
+				<g:Label ui:field="lblCardName" addStyleNames="{style.lblName} {res.huskycss.lblOverflow}"/>
+				<g:HTMLPanel addStyleNames="{style.huskyPanel}">
+					<g:Label ui:field="lblNoHuskies" addStyleNames="{style.lblNoHuskies}"/>
+					<g:Label text="Huskies"/>
+				</g:HTMLPanel>
+			</g:HTMLPanel>
+		</g:HTMLPanel>
+		<g:Label ui:field="lblCardDesc" addStyleNames="{style.lblCardDesc}"/>
+		<g:Label text="Administrators" addStyleNames="{style.lblTitle}"/>
+		<g:HTMLPanel ui:field="adminPanel"/>
+		<h:HuskyButton ui:field="btnUnsub" text="Unsubscribe" addStyleNames="{res.huskycss.huskyButtonRed} {style.btnUnsub}"/>
 	</g:HTMLPanel>
 </ui:UiBinder> 

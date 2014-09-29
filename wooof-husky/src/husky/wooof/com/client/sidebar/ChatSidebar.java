@@ -8,6 +8,7 @@ import husky.wooof.com.client.services.UserAccountService;
 import husky.wooof.com.client.ui.ChatMessageItem;
 import husky.wooof.com.client.ui.CircleImage;
 import husky.wooof.com.client.ui.HuskyTextArea;
+import husky.wooof.com.client.ui.NoResultUtil;
 import husky.wooof.com.shared.HuskyCard;
 import husky.wooof.com.shared.HuskyChatMessage;
 import husky.wooof.com.shared.HuskyUser;
@@ -22,6 +23,7 @@ import no.eirikb.gwtchannelapi.client.Channel;
 import no.eirikb.gwtchannelapi.client.ChannelListener;
 
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.event.dom.client.KeyCodes;
 import com.google.gwt.event.dom.client.KeyDownEvent;
 import com.google.gwt.event.logical.shared.CloseEvent;
@@ -62,6 +64,7 @@ public class ChatSidebar extends Composite {
 	private HuskyUser user;
 	private HuskyCard card;
 	private HuskyCardNavigation huskyCardNavigation;
+	private NoResultUtil util;
 	int x = 0;
 
 	public ChatSidebar(HuskyCardNavigation huskyCardNavigation, HuskyUser user, HuskyCard card) {
@@ -160,6 +163,9 @@ public class ChatSidebar extends Composite {
 				return;
 			txtChatMessage.setText("");
 			channel.send(user.getId() + ";" + message + ";" + card.getId());
+			if(util!=null){
+				util.removeFromParent();
+			}
 		}
 	}
 
@@ -257,14 +263,19 @@ public class ChatSidebar extends Composite {
 
 			@Override
 			public void onSuccess(List<HuskyChatMessage> result) {
-				if (!result.isEmpty()) {
-					for (HuskyChatMessage chatMessage : result) {
-						onDisplayMessage((IHuskyChatMessage) chatMessage);
+				if(!result.isEmpty()){
+					if (!result.isEmpty()) {
+						for (HuskyChatMessage chatMessage : result) {
+							onDisplayMessage((IHuskyChatMessage) chatMessage);
+						}
+						chatScrollPanel.setScrollPosition(400);
 					}
-					chatScrollPanel.setScrollPosition(400);
-				}
-				else {
-					chatScrollPanel.setScrollPosition(0);
+					else {
+						chatScrollPanel.setScrollPosition(0);
+					}
+				}else{
+					util  = new NoResultUtil(HuskyResources.INSTANCE.ic_gray_chat(), "No Recent Chats", chatMessagePanel);
+					util.getElement().getStyle().setLeft(65, Unit.PCT);
 				}
 			}
 

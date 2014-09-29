@@ -157,7 +157,13 @@ public class CardServiceImpl extends RemoteServiceServlet implements CardService
 			throws Exception {
 		HuskyUserCard userCard = getUserCard(user, card);
 		ofy.delete(userCard);
-		card.getAdmins().remove(user);
+		List<Key<HuskyUser>> tobeSaved = new ArrayList<Key<HuskyUser>>();
+		for(Key<HuskyUser> u : card.getAdmins()){
+			if(user.getId() != u.getId()){
+				tobeSaved.add(u);
+			}
+			card.setAdmins(tobeSaved);
+		}
 		ofy.put(card);
 	}
 	

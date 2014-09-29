@@ -12,12 +12,43 @@
 		.lblTitle{
 		
 		}
+		.header{
+			background: #e46f61;
+			padding: 20px;
+		}
+		.imgIcon{
+			width: 10%;
+			height: auto;
+		}
+		.lblTitle{
+			color: #fff;
+			font-size: 1.1em;
+			width: 80%;
+			text-align: left;
+			padding-left: 1%;
+		}
+		.lblDesc{
+			padding: 30px;
+			font-size: 1.2em;
+			text-align: center;
+			color: #999;
+		}
+		.actionPanel{
+			padding: 5px;
+			background: #F7F7F7;
+			text-align: right;
+			font-size: 0.7em;
+		}
 	</ui:style>
 	<g:HTMLPanel>
-	    <g:Image resource="{res.ic_action_warning}"/>
-	    <g:Label ui:field="lblTitle" text="Title"/>
-	    <g:Label ui:field="lblDesc" text="Description"/>
-	    <h:HuskyButton ui:field="btnOk" text="Okay" addStyleNames="{style.btnAction}"/>
-		    <h:HuskyButton ui:field="btnCancel" text="Cancel" addStyleNames="{res.huskycss.huskyButtonWhite} {style.btnAction}"/>
+		<g:HTMLPanel addStyleNames="{style.header}">
+			<g:Image ui:field="imgIcon" addStyleNames="{res.huskycss.inline} {style.imgIcon}"/>
+	   	 	<g:Label ui:field="lblTitle" text="Title" addStyleNames="{res.huskycss.inline} {style.lblTitle}"/>
+		</g:HTMLPanel>
+	    <g:Label ui:field="lblDesc" text="Description" addStyleNames="{style.lblDesc}"/>
+	    <g:HTMLPanel addStyleNames="{style.actionPanel}">
+			<h:HuskyButton ui:field="btnCancel" text="Cancel" addStyleNames="{res.huskycss.huskyButtonWhite} {style.btnAction}"/>
+			<h:HuskyButton ui:field="btnOk" text="Okay" addStyleNames="{style.btnAction}"/>
+	    </g:HTMLPanel>
 	</g:HTMLPanel>
 </ui:UiBinder> 

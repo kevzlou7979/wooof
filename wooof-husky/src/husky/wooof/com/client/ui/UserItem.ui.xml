@@ -35,6 +35,10 @@
 			padding: 2px;
 			width: 60%;
 		}
+		.ic_trash{
+			opacity: 0.3;
+			cursor: pointer;
+		}
 	</ui:style>
 	<g:HTMLPanel addStyleNames="{style.panel}">
 		<h:CircleImage ui:field="imgProfile" addStyleNames="{style.imgProfile} {res.huskycss.inline}"/>
@@ -50,7 +54,6 @@
 			</g:HTMLPanel>
 		</g:HTMLPanel>
 		<g:HTMLPanel ui:field="actionPanel" addStyleNames="{res.huskycss.inline}"> 
-			<g:Image ui:field="btnDeleteUser" resource="{res.ic_trash}" addStyleNames="{res.huskycss.smallIcon}"/>
 		</g:HTMLPanel>
 	</g:HTMLPanel>
 </ui:UiBinder> 

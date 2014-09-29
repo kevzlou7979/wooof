@@ -3,6 +3,10 @@
 	z-index: 998;
 }
 
+.gwt-DialogBox .dialogMiddleCenter{
+	padding: 0px !important;
+}
+
 .gwt-DialogBox table{
 	width: 100% !important;
 }
@@ -14,7 +18,7 @@
 ,.gwt-DialogBox .dialogMiddleLeft, .gwt-DialogBox .dialogMiddleRight, .gwt-DialogBox .dialogBottomLeft
 ,.gwt-DialogBox .dialogBottomCenter, .gwt-DialogBox .dialogBottomRight{
 	background: #fff !important;
-	border: none !important;
+	display: none !important;
 }
 /** Example rules used by the template application (remove for your app) */
 h1 {

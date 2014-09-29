@@ -7,8 +7,11 @@
 		.basicInfoPanel{
 			margin: auto;
 		}
+		.panel{
+			padding: 10px !important;
+		}
 	</ui:style>
-	<g:HTMLPanel ui:field="panel">
+	<g:HTMLPanel ui:field="panel" addStyleNames="{style.panel}">
 		<g:HTMLPanel ui:field="basicInfoPanel" addStyleNames="{style.basicInfoPanel}">
 			<h:HuskyTitle title="Card Info" description="Use cards to build your lessons and share it to everyone" resource="{res.ic_cards}"/>
 			<g:HTMLPanel ui:field="messagePanel"/>

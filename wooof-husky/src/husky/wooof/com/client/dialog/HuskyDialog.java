@@ -23,15 +23,19 @@ public class HuskyDialog extends DialogBox {
 	HTMLPanel dialogPanel;
 
 	public HuskyDialog(Widget composite, double top, double left, double width) {
-
+		
 		setWidget(uiBinder.createAndBindUi(this));
 		this.getElement().getStyle().setWidth(width, Unit.PCT);
 		this.getElement().getStyle().setTop(top, Unit.PCT);
 		this.getElement().getStyle().setLeft(left, Unit.PCT);
 		this.addStyleName(HuskyResources.INSTANCE.huskymobilecss().huskyDialog());
 		dialogPanel.add(composite);
+		this.setModal(true);
+		this.setGlassEnabled(true);
+		this.center();
+		this.show();
 	}
-
+	
 	@UiHandler("btnClose")
 	void onCloseDialog(ClickEvent e) {
 		hide();

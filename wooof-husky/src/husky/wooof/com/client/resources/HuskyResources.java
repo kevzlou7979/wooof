@@ -83,6 +83,14 @@ public interface HuskyResources extends ClientBundle {
 	
 	ImageResource ic_action_warning();
 	
+	ImageResource ic_gray_user();
+	
+	ImageResource ic_gray_chat();
+	
+	ImageResource ic_gray_notification();
+	
+	ImageResource ic_screenshot();
+	
 	HuskyCSS huskycss();
 	
 	HuskyMobileCSS huskymobilecss();

@@ -3,14 +3,13 @@
 	xmlns:g="urn:import:com.google.gwt.user.client.ui">
 	<ui:style>
 		.dialogPanel{
-			padding: 10px;
-			padding-top: 0px;	
 		}
 		.btnClose{
 			float: right;
 			color: rgb(153, 153, 153);
 			font-size: 1.5em;
 			cursor: pointer;
+			padding: 10px;
 		}
 	</ui:style>
 	<g:HTMLPanel ui:field="dialogPanel" addStyleNames="{style.dialogPanel}">
