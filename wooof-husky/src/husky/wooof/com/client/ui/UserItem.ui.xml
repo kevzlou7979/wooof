@@ -41,13 +41,16 @@
 		<g:HTMLPanel ui:field="userInfoPanel" addStyleNames="{style.userInfoPanel} {res.huskycss.inline}">
 			<g:Label ui:field="lblFullName" addStyleNames="{res.huskycss.huskyBasicTitle} {style.lblFullName}"/>
 			<g:Label ui:field="lblEmail" addStyleNames="{res.huskycss.huskyBasicDescription} {style.lblEmail}"/>
-			<g:HTMLPanel>
+			<g:HTMLPanel ui:field="userTypePanel">
 				<h:HuskyListBox ui:field="lstUserType" addStyleNames="{style.lst} {res.huskycss.inline}">
 					<item value="Admin">Admin</item>
 					<item value="Viewer">Viewer</item>
 				</h:HuskyListBox>
 				<h:HuskyButton ui:field="btnAddUser" text="Add" addStyleNames="{style.btnAddMember} {res.huskycss.inline}"/>
 			</g:HTMLPanel>
+		</g:HTMLPanel>
+		<g:HTMLPanel ui:field="actionPanel" addStyleNames="{res.huskycss.inline}"> 
+			<g:Image ui:field="btnDeleteUser" resource="{res.ic_trash}" addStyleNames="{res.huskycss.smallIcon}"/>
 		</g:HTMLPanel>
 	</g:HTMLPanel>
 </ui:UiBinder> 

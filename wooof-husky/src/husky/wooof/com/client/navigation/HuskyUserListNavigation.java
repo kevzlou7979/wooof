@@ -79,7 +79,7 @@ public class HuskyUserListNavigation extends Composite {
 			public void onSuccess(List<HuskyUser> result) {
 				HuskyUserListNavigation.this.cardUsers.addAll(result);
 				for (HuskyUser user : result) {
-					adminPanel.add(new UserItem(user, huskyCardNavigation));
+					adminPanel.add(new UserItem(user, huskyCardNavigation, true));
 				}
 			}
 
@@ -101,7 +101,7 @@ public class HuskyUserListNavigation extends Composite {
 			public void onSuccess(List<HuskyUser> result) {
 				HuskyUserListNavigation.this.cardUsers.addAll(result);
 				for (HuskyUser user : result) {
-					viewerPanel.add(new UserItem(user, huskyCardNavigation));
+					viewerPanel.add(new UserItem(user, huskyCardNavigation, true));
 				}
 			}
 

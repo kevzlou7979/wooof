@@ -10,8 +10,6 @@ import java.util.List;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.rpc.RemoteService;
 import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
-import com.google.gwt.user.client.rpc.ServiceDefTarget;
-import com.googlecode.gwtphonegap.client.util.PhonegapUtil;
 
 @RemoteServiceRelativePath("card")
 public interface CardService extends RemoteService {
@@ -23,7 +21,7 @@ public interface CardService extends RemoteService {
 		public static CardServiceAsync getService() {
 			if (service == null) {
 				service = (CardServiceAsync) GWT.create(CardService.class);
-				PhonegapUtil.prepareService((ServiceDefTarget) service, "http://wooof-husky.appspot.com", "card");
+				//PhonegapUtil.prepareService((ServiceDefTarget) service, "http://wooof-husky.appspot.com", "card");
 			}
 
 			return service;
@@ -42,6 +40,8 @@ public interface CardService extends RemoteService {
 
 	public void addUserToCard(HuskyUser user, HuskyCard card, String type, boolean isActive) throws Exception;
 
+	public void removeUserFromCard(HuskyUser user, HuskyCard card) throws Exception;
+	
 	public List<HuskyUser> getAllCardAdmins(HuskyCard card) throws Exception;
 
 	public List<HuskyUser> getAllCardViewers(HuskyCard card) throws Exception;

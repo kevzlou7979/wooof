@@ -83,4 +83,10 @@ public interface HuskyCSS extends CssResource {
 	String cardItem();
 	
 	String loginPanel();
+	
+	String smallIcon();
+	
+	String mediumIcon();
+	
+	String largeIcon();
 }

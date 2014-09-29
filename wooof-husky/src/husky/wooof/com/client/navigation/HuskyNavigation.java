@@ -2,6 +2,7 @@ package husky.wooof.com.client.navigation;
 
 import husky.wooof.com.client.HuskyLogin;
 import husky.wooof.com.client.HuskyMain;
+import husky.wooof.com.client.main.CardsMain;
 import husky.wooof.com.client.resources.HuskyResources;
 import husky.wooof.com.client.ui.CircleImage;
 import husky.wooof.com.shared.HuskyUser;
@@ -79,7 +80,7 @@ public class HuskyNavigation extends Composite {
 		huskyMain.getHuskyMainPanel().clear();
 		switch (navType) {
 		case IHuskyConstants.NAV_CARDS:
-			huskyMain.getHuskyMainPanel().add(huskyMain.getCardsMain());
+			huskyMain.getHuskyMainPanel().add(new CardsMain(huskyMain));
 			break;
 		case IHuskyConstants.NAV_SETTINGS:
 

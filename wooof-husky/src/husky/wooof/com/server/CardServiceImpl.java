@@ -102,27 +102,15 @@ public class CardServiceImpl extends RemoteServiceServlet implements CardService
 
 	@Override
 	public List<HuskyChatMessage> getAllChatMessage(HuskyCard card, int x) throws Exception {
-		List<HuskyChatMessage> chatMessages = new ArrayList<HuskyChatMessage>();
+
 		List<HuskyChatMessage> tempMessages = new ArrayList<HuskyChatMessage>();
-		int y = x + 9;
 		Query<HuskyChatMessage> chats = ofy.query(HuskyChatMessage.class).filter("cardId", card.getId()).order("creationDate");
 		for (HuskyChatMessage chat : chats) {
 			tempMessages.add(chat);
 		}
-		if (y < tempMessages.size()) {
-			for (@SuppressWarnings("unused")
-			HuskyChatMessage chat : tempMessages) {
-				if (x < y) {
-					chatMessages.add(tempMessages.get(x));
-				}
-				else {
-					break;
-				}
-				x++;
-			}
-		}
+		
 
-		return chatMessages;
+		return tempMessages;
 	}
 
 	@Override
@@ -137,7 +125,7 @@ public class CardServiceImpl extends RemoteServiceServlet implements CardService
 	@Override
 	public HuskyUserCard saveNewChat(HuskyUser user, HuskyCard card, boolean isSeen) throws Exception {
 
-		HuskyUserCard userCard = ofy.query(HuskyUserCard.class).filter("userId", user.getId()).filter("cardId", card.getId()).get();
+		HuskyUserCard userCard = getUserCard(user, card);
 		int newChats = userCard.getNumNewChat();
 		if (isSeen) {
 			newChats = 0;
@@ -152,16 +140,30 @@ public class CardServiceImpl extends RemoteServiceServlet implements CardService
 
 	@Override
 	public void onJoinCard(HuskyUser user, HuskyCard card) throws Exception {
-		HuskyUserCard userCard = ofy.query(HuskyUserCard.class).filter("userId", user.getId()).filter("cardId", card.getId()).get();
+		HuskyUserCard userCard = getUserCard(user, card);
 		userCard.setActive(true);
 		ofy.put(userCard);
 	}
 
 	@Override
 	public void onLeaveCard(HuskyUser user, HuskyCard card) throws Exception {
-		HuskyUserCard userCard = ofy.query(HuskyUserCard.class).filter("userId", user.getId()).filter("cardId", card.getId()).get();
+		HuskyUserCard userCard = getUserCard(user, card);
 		userCard.setActive(false);
 		ofy.put(userCard);
+	}
+
+	@Override
+	public void removeUserFromCard(HuskyUser user, HuskyCard card)
+			throws Exception {
+		HuskyUserCard userCard = getUserCard(user, card);
+		ofy.delete(userCard);
+		card.getAdmins().remove(user);
+		ofy.put(card);
+	}
+	
+	private HuskyUserCard getUserCard(HuskyUser user, HuskyCard card){
+		HuskyUserCard userCard = ofy.query(HuskyUserCard.class).filter("userId", user.getId()).filter("cardId", card.getId()).get();
+		return userCard;
 	}
 
 }
