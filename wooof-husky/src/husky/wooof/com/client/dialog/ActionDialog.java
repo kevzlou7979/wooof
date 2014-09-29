@@ -25,6 +25,7 @@ public class ActionDialog extends Composite {
 	@UiField Image imgIcon;
 	@UiField Label lblTitle, lblDesc;
 	private Composite com;
+	private HuskyDialog dialog;
 	
 	public ActionDialog(String type, String message, Composite com) {
 		initWidget(uiBinder.createAndBindUi(this));
@@ -56,7 +57,11 @@ public class ActionDialog extends Composite {
 	
 	@UiHandler("btnCancel")
 	void onCancel(ClickEvent e){
-		
+		dialog.hide();
+	}
+
+	public void setDialog(HuskyDialog dialog) {
+		this.dialog = dialog;
 	}
 
 }

@@ -14,6 +14,7 @@ public class HuskyActionDialog {
 	public static void show(String type, String message, Composite com){
 		actionDialog = new ActionDialog(type, message, com);
 		dialog = new HuskyDialog(actionDialog, 10, 50, 30);
+		actionDialog.setDialog(dialog);
 		dialog.getElement().getStyle().setPadding(0, Unit.PCT);
 	}
 	

@@ -23,6 +23,8 @@
 			padding-bottom: 5px;
 			padding-left: 3%;
 			box-sizing: border-box;
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
 		}
 		.lblName{
 			font-size: 1.3em;
