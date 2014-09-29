@@ -46,7 +46,7 @@ public class HuskyLogin extends Composite {
 	@UiField
 	HuskyTextBox txtRFirstName, txtRLastName, txtREmail;
 	@UiField
-	Label signUpNav;
+	Label signUpNav, lblTitle;
 	@UiField
 	HuskyListBox lstGender;
 
@@ -54,10 +54,18 @@ public class HuskyLogin extends Composite {
 		initWidget(uiBinder.createAndBindUi(this));
 		loadSignInPanel();
 		//signUpNav.removeFromParent();
-		formPanel.removeFromParent();
-		//imgLogo.removeFromParent();
-		//txtEmail.setText("kevzlou7979@gmail.com");
-		//txtPassword.setText("123123123");
+		onHocusFocus(true);
+	}
+
+	private void onHocusFocus(boolean isTrue){
+		if(isTrue){
+			loginPanel.removeStyleName(HuskyResources.INSTANCE.huskycss().loginPanel());
+			//formPanel.removeFromParent();
+			imgLogo.removeFromParent();
+			lblTitle.removeFromParent();
+			txtEmail.setText("kevzlou7979@gmail.com");
+			txtPassword.setText("123123123");
+		}
 	}
 
 	private void loadSignUpPanel() {

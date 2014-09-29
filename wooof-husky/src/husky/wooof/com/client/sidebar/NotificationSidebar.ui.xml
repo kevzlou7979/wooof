@@ -4,7 +4,7 @@
 	<ui:style>
 	
 	</ui:style>
-	<g:HTMLPanel>
-		NOTIFICATION
+	<g:HTMLPanel ui:field="notificationPanel">
+		
 	</g:HTMLPanel>
 </ui:UiBinder> 

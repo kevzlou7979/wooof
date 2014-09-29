@@ -60,8 +60,11 @@
 			color: rgb(198, 198, 198);
 			font-size: 2em;
 		}
+		.panel{
+			padding: 10px !important;
+		}
 	</ui:style>
-	<g:HTMLPanel ui:field="panel">
+	<g:HTMLPanel ui:field="panel" addStyleNames="{style.panel}">
 	
 		<g:HTMLPanel ui:field="stepPanel" addStyleNames="{style.stepPanel}">
 			<g:Label ui:field="lblStep1" title="Lesson Info" text="1" addStyleNames="{res.huskycss.huskyStep} {style.firstStep}"/>

@@ -1,14 +1,15 @@
 package husky.wooof.com.client.navigation;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import husky.wooof.com.client.resources.HuskyResources;
 import husky.wooof.com.client.services.CardService;
+import husky.wooof.com.client.ui.NoResultUtil;
 import husky.wooof.com.client.ui.UserItem;
 import husky.wooof.com.shared.HuskyCard;
 import husky.wooof.com.shared.HuskyUser;
 import husky.wooof.com.shared.IHuskyConstants;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
@@ -78,9 +79,14 @@ public class HuskyUserListNavigation extends Composite {
 			@Override
 			public void onSuccess(List<HuskyUser> result) {
 				HuskyUserListNavigation.this.cardUsers.addAll(result);
-				for (HuskyUser user : result) {
-					adminPanel.add(new UserItem(user, huskyCardNavigation, true));
+				if(!result.isEmpty()){
+					for (HuskyUser user : result) {
+						adminPanel.add(new UserItem(user, huskyCardNavigation, true));
+					}
+				}else{
+					new NoResultUtil(HuskyResources.INSTANCE.ic_gray_user(), "No Recent Users", adminPanel);
 				}
+				
 			}
 
 			@Override
@@ -100,8 +106,12 @@ public class HuskyUserListNavigation extends Composite {
 			@Override
 			public void onSuccess(List<HuskyUser> result) {
 				HuskyUserListNavigation.this.cardUsers.addAll(result);
-				for (HuskyUser user : result) {
-					viewerPanel.add(new UserItem(user, huskyCardNavigation, true));
+				if(!result.isEmpty()){
+					for (HuskyUser user : result) {
+						viewerPanel.add(new UserItem(user, huskyCardNavigation, true));
+					}
+				}else{
+					new NoResultUtil(HuskyResources.INSTANCE.ic_gray_user(), "No Recent Users", viewerPanel);
 				}
 			}
 

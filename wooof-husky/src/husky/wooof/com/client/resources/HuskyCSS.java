@@ -89,4 +89,8 @@ public interface HuskyCSS extends CssResource {
 	String mediumIcon();
 	
 	String largeIcon();
+	
+	String huskyButtonRed();
+	
+	String lblOverflow();
 }

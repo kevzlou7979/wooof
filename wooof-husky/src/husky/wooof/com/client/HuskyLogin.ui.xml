@@ -62,7 +62,7 @@
 
 		<g:HTMLPanel addStyleNames="{style.header}">
 			<g:Image ui:field="imgLogo" resource="{res.husky_logo}" addStyleNames="{style.logo} {res.huskymobilecss.loginLogo}"/>
-			<g:Label text="Husky" addStyleNames="{style.maintenanceTitle}"/>
+			<g:Label ui:field="lblTitle" text="Husky" addStyleNames="{style.maintenanceTitle}"/>
 		</g:HTMLPanel>
 		
 		<g:HTMLPanel ui:field="maintenancePanel" addStyleNames="{style.maintenancePanel}">

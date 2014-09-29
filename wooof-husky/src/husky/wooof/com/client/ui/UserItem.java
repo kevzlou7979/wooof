@@ -14,7 +14,6 @@ import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HTMLPanel;
-import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.Widget;
 
@@ -33,8 +32,6 @@ public class UserItem extends Composite {
 	HuskyListBox lstUserType;
 	@UiField
 	HTMLPanel userTypePanel;
-	@UiField
-	Image btnDeleteUser;
 	
 	private HuskyCardNavigation huskyCardNavigation;
 	private HuskyUser user;
@@ -46,7 +43,6 @@ public class UserItem extends Composite {
 		imgProfile.setImageProfile(user.getProfilePic());
 		lblFullName.setText(user.getFirstName() + " " + user.getLastName());
 		lblEmail.setText(user.getEmail());
-		btnDeleteUser.removeFromParent();
 	}
 
 	/**
@@ -54,9 +50,8 @@ public class UserItem extends Composite {
 	 * @param user
 	 * @param huskyCardNavigation
 	 */
-	public UserItem(HuskyUser user, HuskyCardNavigation huskyCardNavigation, boolean fromSearch) {
+	public UserItem(HuskyUser user, Composite composite, boolean fromSearch) {
 		initWidget(uiBinder.createAndBindUi(this));
-		this.huskyCardNavigation = huskyCardNavigation;
 		this.user = user;
 		imgProfile.setImageProfile(user.getProfilePic());
 		lblFullName.setText(user.getFirstName() + " " + user.getLastName());
@@ -83,20 +78,4 @@ public class UserItem extends Composite {
 		});
 	}
 
-	@UiHandler("btnDeleteUser")
-	void onDeleteUser(ClickEvent e){
-		CardService.Connect.getService().removeUserFromCard(user, huskyCardNavigation.getWorkspaceMain().getCard(), new AsyncCallback<Void>() {
-			
-			@Override
-			public void onSuccess(Void result) {
-				UserItem.this.removeFromParent();
-			}
-			
-			@Override
-			public void onFailure(Throwable caught) {
-				Window.alert(caught.getMessage());
-			}
-		});
-	}
-	
 }

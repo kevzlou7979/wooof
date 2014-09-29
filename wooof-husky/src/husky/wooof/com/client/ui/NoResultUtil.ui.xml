@@ -1,0 +1,32 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:style>
+		.panel{
+			font-size: 1.3em;
+			color: #D3D3D3;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			width: 280px;
+			margin-top: -150px;
+			margin-left: -175px;
+			text-align: center;
+			border-radius: 100%;
+			-webkit-border-radius: 100%;
+			-moz-border-radius: 100%;
+			background: #FFF;
+			height: 280px;
+		}
+		.imgIcon{
+			margin-top: 20%;
+			box-sizing: border-box;
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+		}
+	</ui:style>
+	<g:HTMLPanel addStyleNames="{style.panel}">
+		<g:Image ui:field="imgIcon" addStyleNames="{style.imgIcon}"/>
+		<g:Label ui:field="lblMessage"/>
+	</g:HTMLPanel>
+</ui:UiBinder> 
