@@ -6,7 +6,7 @@
 		}
 		.btnClose{
 			float: right;
-			color: rgb(153, 153, 153);
+			color: #373737;
 			font-size: 1.5em;
 			cursor: pointer;
 			padding: 10px;

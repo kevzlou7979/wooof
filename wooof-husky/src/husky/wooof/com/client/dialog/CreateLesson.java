@@ -20,6 +20,7 @@ import husky.wooof.com.shared.HuskyYoutubeLesson;
 import husky.wooof.com.shared.IHuskyConstants;
 
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.uibinder.client.UiBinder;
@@ -179,6 +180,7 @@ public class CreateLesson extends Composite {
 	
 	@UiHandler("btnChooseType")
 	void onChooseType(ClickEvent e){
+		huskyMain.getHuskyDialog().getElement().getStyle().setTop(5, Unit.PCT);
 		onChangeStep(lblStep2, IHuskyConstants.NAV_LESSON_TYPE);
 	}
 	

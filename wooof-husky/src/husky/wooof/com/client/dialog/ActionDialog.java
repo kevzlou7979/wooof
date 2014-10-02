@@ -57,11 +57,13 @@ public class ActionDialog extends Composite {
 	
 	@UiHandler("btnCancel")
 	void onCancel(ClickEvent e){
-		dialog.hide();
+		this.dialog.hide();
 	}
 
 	public void setDialog(HuskyDialog dialog) {
 		this.dialog = dialog;
+		dialog.hide();
 	}
+
 
 }

@@ -1,6 +1,7 @@
 package husky.wooof.com.client.ui;
 
 import husky.wooof.com.client.navigation.HuskyCardNavigation;
+import husky.wooof.com.client.resources.HuskyResources;
 import husky.wooof.com.client.services.CardService;
 import husky.wooof.com.shared.HuskyUser;
 import husky.wooof.com.shared.IHuskyConstants;
@@ -54,6 +55,10 @@ public class UserItem extends Composite {
 		initWidget(uiBinder.createAndBindUi(this));
 		this.user = user;
 		imgProfile.setImageProfile(user.getProfilePic());
+		if(user.getProfilePic().isEmpty()){
+			imgProfile.setResource(HuskyResources.INSTANCE.ic_screenshot());
+		}
+		
 		lblFullName.setText(user.getFirstName() + " " + user.getLastName());
 		lblEmail.setText(user.getEmail());
 		userTypePanel.removeFromParent();

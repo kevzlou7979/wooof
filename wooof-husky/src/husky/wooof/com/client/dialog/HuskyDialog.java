@@ -21,6 +21,7 @@ public class HuskyDialog extends DialogBox {
 
 	@UiField
 	HTMLPanel dialogPanel;
+	private Widget composite;
 
 	public HuskyDialog(Widget composite, double top, double left, double width) {
 		
@@ -36,9 +37,23 @@ public class HuskyDialog extends DialogBox {
 		this.show();
 	}
 	
+	
+	
 	@UiHandler("btnClose")
 	void onCloseDialog(ClickEvent e) {
 		hide();
+	}
+
+
+
+	public Widget getComposite() {
+		return composite;
+	}
+
+
+
+	public void setComposite(Widget composite) {
+		this.composite = composite;
 	}
 
 }

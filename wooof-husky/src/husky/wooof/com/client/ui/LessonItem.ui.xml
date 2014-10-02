@@ -51,8 +51,8 @@
 		<g:HTMLPanel>
 			<g:Label ui:field="lblLessonNumber" text="+" addStyleNames="{res.huskycss.inline} {style.lblLessonNumber}"/>
 			<g:HTMLPanel addStyleNames="{res.huskycss.inline} {style.lessonNamePanel}">
-				<g:Label ui:field="lblLessonName" text="Add Lesson" addStyleNames="{style.lblName}"/>
-				<g:Label ui:field="lblLessonType" text="Click Here to add lesson" addStyleNames="{style.lblType}"/>
+				<g:Label ui:field="lblLessonName" text="Add Item" addStyleNames="{style.lblName}"/>
+				<g:Label ui:field="lblLessonType" text="Click Here to add Husky Items" addStyleNames="{style.lblType}"/>
 			</g:HTMLPanel>
 		</g:HTMLPanel>
 	</g:FocusPanel>

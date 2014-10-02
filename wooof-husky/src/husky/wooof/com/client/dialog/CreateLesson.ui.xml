@@ -61,7 +61,7 @@
 			font-size: 2em;
 		}
 		.panel{
-			padding: 10px !important;
+			padding: 25px !important;
 		}
 	</ui:style>
 	<g:HTMLPanel ui:field="panel" addStyleNames="{style.panel}">
@@ -77,7 +77,7 @@
 			<g:HTMLPanel ui:field="messagePanel"/>
 			<h:HuskyTextBox ui:field="txtLessonName" placeholder="Lesson Name"/>
 			<h:HuskyTextArea ui:field="txtDescription" placeholder="Lesson Description"/>
-			<h:HuskyButton ui:field="btnChooseType" text="Choose LessonType" addStyleNames="{style.btnAction}"/>
+			<h:HuskyButton ui:field="btnChooseType" text="Next" addStyleNames="{style.btnAction}"/>
 			<h:HuskyButton ui:field="btnBackChooseType" text="Cancel" addStyleNames="{res.huskycss.huskyButtonWhite} {style.btnAction}"/>
 		</g:HTMLPanel>
 			
@@ -124,7 +124,7 @@
 				
 			</g:HTMLPanel>
 			
-			<h:HuskyButton ui:field="btnAddMaterial" text="Add Material" addStyleNames="{style.btnAction}"/>
+			<h:HuskyButton ui:field="btnAddMaterial" text="Next" addStyleNames="{style.btnAction}"/>
 			<h:HuskyButton ui:field="btnBackAddMaterial" text="Back" addStyleNames="{res.huskycss.huskyButtonWhite} {style.btnAction}"/>
 		</g:HTMLPanel>
 		
@@ -137,7 +137,7 @@
 					<g:Label text="No Preview" />
 				</g:HTMLPanel>
 		    </g:HTMLPanel>
-		    <h:HuskyButton ui:field="btnCreateLesson" text="Create Lesson" addStyleNames="{style.btnAction}"/>
+		    <h:HuskyButton ui:field="btnCreateLesson" text="Finish" addStyleNames="{style.btnAction}"/>
 		    <h:HuskyButton ui:field="btnBackCreateLesson" text="Back" addStyleNames="{res.huskycss.huskyButtonWhite} {style.btnAction}"/>
 		</g:HTMLPanel>
 		
