@@ -1,5 +1,7 @@
 package husky.wooof.com.client.ui;
 
+import husky.wooof.com.client.resources.HuskyResources;
+
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.resources.client.ImageResource;
 import com.google.gwt.uibinder.client.UiBinder;
@@ -25,6 +27,10 @@ public class CircleImage extends Composite {
 
 	public void setImageProfile(String url) {
 		imgProfile.setUrl(url);
+		if(url.isEmpty()){
+			imgProfile.setResource(HuskyResources.INSTANCE.ic_screenshot());
+		}
+		
 	}
 
 	public ImageResource getResource() {
@@ -34,6 +40,7 @@ public class CircleImage extends Composite {
 	public void setResource(ImageResource resource) {
 		this.resource = resource;
 		imgProfile.setResource(resource);
+		
 	}
 
 }

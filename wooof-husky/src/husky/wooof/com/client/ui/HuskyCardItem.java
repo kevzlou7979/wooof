@@ -2,6 +2,7 @@ package husky.wooof.com.client.ui;
 
 import husky.wooof.com.client.main.CardsMain;
 import husky.wooof.com.client.main.WorkspaceMain;
+import husky.wooof.com.client.resources.HuskyResources;
 import husky.wooof.com.shared.HuskyCard;
 
 import com.google.gwt.core.client.GWT;
@@ -55,6 +56,10 @@ public class HuskyCardItem extends Composite {
 		cardImage.setWidth("100%");
 		cardImage.setHeight("100%");
 		cardImage.setUrl(card.getCardImage());
+		if(card.getCardImage().isEmpty()){
+			cardImage.setResource(HuskyResources.INSTANCE.ic_screenshot());
+		}
+		
 	}
 
 	@UiHandler("lblCardName")

@@ -8,7 +8,7 @@
 			margin: auto;
 		}
 		.panel{
-			padding: 10px !important;
+			padding: 25px !important;
 		}
 	</ui:style>
 	<g:HTMLPanel ui:field="panel" addStyleNames="{style.panel}">
