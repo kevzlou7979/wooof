@@ -6,6 +6,10 @@ import husky.wooof.com.shared.HuskyImageLesson;
 import husky.wooof.com.shared.HuskyLesson;
 import husky.wooof.com.shared.HuskyLinkLesson;
 import husky.wooof.com.shared.HuskyPlaceLesson;
+import husky.wooof.com.shared.HuskyQuiz;
+import husky.wooof.com.shared.HuskyQuizDefinition;
+import husky.wooof.com.shared.HuskyQuizMultiplechoice;
+import husky.wooof.com.shared.HuskyQuizTrueFalse;
 import husky.wooof.com.shared.HuskyUser;
 import husky.wooof.com.shared.HuskyUserCard;
 import husky.wooof.com.shared.HuskyYoutubeLesson;
@@ -27,12 +31,18 @@ public class OfyService {
 		ObjectifyService.register(HuskyImageLesson.class);
 		ObjectifyService.register(HuskyPlaceLesson.class);
 		ObjectifyService.register(HuskyLinkLesson.class);
+		
+		/*
+		 * Quiz
+		 */
+		ObjectifyService.register(HuskyQuiz.class);
+		ObjectifyService.register(HuskyQuizDefinition.class);
+		ObjectifyService.register(HuskyQuizMultiplechoice.class);
+		ObjectifyService.register(HuskyQuizTrueFalse.class);
 	}
 
 	public static Objectify ofy() {
-		return ObjectifyService.begin();// prior to v.4.0 use .begin() ,
-										// since v.4.0 use
-										// ObjectifyService.ofy();
+		return ObjectifyService.begin();
 	}
 
 	public static ObjectifyFactory factory() {

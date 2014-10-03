@@ -10,6 +10,7 @@ import husky.wooof.com.shared.IHuskyConstants;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.Scheduler;
+import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
@@ -66,8 +67,8 @@ public class LessonItem extends Composite {
 	@UiHandler("itemPanel")
 	void onClickItem(ClickEvent e) {
 		if (action != null && action.equals(IHuskyConstants.ACTION_CREATE)) {
-			final HuskyDialog dialog = new HuskyDialog(new CreateLesson(huskyMain, workspaceMain),1, 80, 50);
-			dialog.setWidth("500px");
+			final HuskyDialog dialog = new HuskyDialog(new CreateLesson(huskyMain, workspaceMain),1, 80, 80);
+			dialog.getElement().getStyle().setHeight(90, Unit.PCT);
 			dialog.setGlassEnabled(true);
 			Scheduler.get().scheduleDeferred(new Scheduler.ScheduledCommand() {
 			    public void execute() {
@@ -75,6 +76,7 @@ public class LessonItem extends Composite {
 			    }
 			});  
 			huskyMain.setHuskyDialog(dialog);
+			
 		}
 		else {
 			workspaceMain.executeLesson(this);

@@ -1,7 +1,8 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
 	xmlns:g="urn:import:com.google.gwt.user.client.ui"
-	xmlns:h="urn:import:husky.wooof.com.client.ui">
+	xmlns:h="urn:import:husky.wooof.com.client.ui"
+	xmlns:d="urn:import:husky.wooof.com.client.dialog">
 	<ui:with field='res' type='husky.wooof.com.client.resources.HuskyResources' />
 	<ui:style>
 		.chooseTypePanel{
@@ -24,29 +25,15 @@
 			padding: 10px 0px 10px 0px;
 		}
 		.youtubeVideoPanel{
-			margin: 20px 0px 20px 0px;
-			height: 300px !important;
+			height: 250px !important;
 		}
-		.stepPanel{
-			text-align: center;
-			width: 60%;
-			margin: auto;
-			margin-top: 20px;
-			margin-bottom: 50px;
-		}
-		.firstStep{
-			float: left;
-		}
-		.lastStep{
-			float: right;
-		}
+	
 		.typePanel{
 			text-align: center;
 			padding: 20px;
 			background: #F4F4F4;
 		}
 		.buttonPanel{
-			margin-bottom: 20px;
 			border-bottom: 1px solid #E9E9E9;
 		}
 		.btnAction{
@@ -55,92 +42,130 @@
 			float: right;
 		}
 		.materialPanel{
-			padding-top: 50px;
-			padding-bottom: 50px;
+			padding: 150px;
 			color: rgb(198, 198, 198);
 			font-size: 2em;
 		}
 		.panel{
 			padding: 25px !important;
 		}
+		.navPanel{
+			background: #4086fa;
+			position: absolute;
+			left: -60px;
+			top: 0;
+			height: 100%;
+			width: 60px;
+			text-align: center;
+			padding-top: 20%;
+			box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			-webkit-box-sizing: border-box;
+		}
+		.menuNav{
+			margin-bottom: 50px;
+			cursor: pointer;
+			transition: 1s all;
+			-webkit-transition: 1s all;
+			-moz-transition: 1s all;
+		}
+		.menuNav:hover{
+			transform: rotate(360deg);
+			-moz-transform: rotate(360deg);
+			-webkit-transform: rotate(360deg);
+		}
+		.btnActions{
+			position: absolute;
+			right: 10px;
+			bottom: 10px;
+		}
 	</ui:style>
 	<g:HTMLPanel ui:field="panel" addStyleNames="{style.panel}">
 	
-		<g:HTMLPanel ui:field="stepPanel" addStyleNames="{style.stepPanel}">
-			<g:Label ui:field="lblStep1" title="Lesson Info" text="1" addStyleNames="{res.huskycss.huskyStep} {style.firstStep}"/>
-			<g:Label ui:field="lblStep2" title="Lesson Type" text="2" addStyleNames="{res.huskycss.huskyStep}"/>
-			<g:Label ui:field="lblStep3" title="Lesson Material" text="3" addStyleNames="{res.huskycss.huskyStep} {style.lastStep}"/>
+		<g:HTMLPanel addStyleNames="{style.navPanel}">
+			<g:Image resource="{res.ic_white_lesson}" ui:field="menuCreateLesson" title="Add Lesson" addStyleNames="{style.menuNav}"/>
+			<g:Image resource="{res.ic_white_quiz}" ui:field="menuCreateQuiz" title="Add Quiz" addStyleNames="{style.menuNav}"/>
 		</g:HTMLPanel>
+	
+		<g:HTMLPanel ui:field="createLessonPanel">
 		
-		<g:HTMLPanel ui:field="infoPanel">
-			<h:HuskyTitle title="Lesson" imageSize="70px" description="Provide lesson information below" resource="{res.ic_lesson}"/>
-			<g:HTMLPanel ui:field="messagePanel"/>
-			<h:HuskyTextBox ui:field="txtLessonName" placeholder="Lesson Name"/>
-			<h:HuskyTextArea ui:field="txtDescription" placeholder="Lesson Description"/>
-			<h:HuskyButton ui:field="btnChooseType" text="Next" addStyleNames="{style.btnAction}"/>
-			<h:HuskyButton ui:field="btnBackChooseType" text="Cancel" addStyleNames="{res.huskycss.huskyButtonWhite} {style.btnAction}"/>
-		</g:HTMLPanel>
-			
-		<g:HTMLPanel ui:field="chooseTypePanel" addStyleNames="{style.chooseTypePanel}">
-			<h:HuskyTitle title="Lesson Type" imageSize="70px" description="Provide lesson information below" resource="{res.ic_lesson_type}"/>
-		    
-			<g:HTMLPanel addStyleNames="{style.typePanel}">
-				<g:HTMLPanel ui:field="buttonPanel" addStyleNames="{style.buttonPanel}">
-					<h:LessonType text="Image" ui:field="typeImage" type="image" resource="{res.ic_lesson_type_image}" addStyleNames="{res.huskycss.inline}"/>
-					<h:LessonType text="Youtube" ui:field="typeYoutube" type="youtube" resource="{res.ic_lesson_type_youtube}" addStyleNames="{res.huskycss.inline}"/>
-					<h:LessonType text="Audio" ui:field="typeAudio" type="audio" resource="{res.ic_lesson_type_audio}" addStyleNames="{res.huskycss.inline}"/>
-					<h:LessonType text="Place" ui:field="typePlace" type="place" resource="{res.ic_lesson_type_place}" addStyleNames="{res.huskycss.inline}"/>
-					<h:LessonType text="Link" ui:field="typeLink" type="link" resource="{res.ic_lesson_type_link}" addStyleNames="{res.huskycss.inline}"/>
+			<g:HTMLPanel ui:field="infoPanel">
+				<h:HuskyTitle title="Lesson" imageSize="70px" description="Provide lesson information below" withImage="false"/>
+				<g:HTMLPanel ui:field="messagePanel"/>
+				<h:HuskyTextBox ui:field="txtLessonName" placeholder="Lesson Name"/>
+				<h:HuskyTextArea ui:field="txtDescription" placeholder="Lesson Description"/>
+				<g:HTMLPanel addStyleNames="{style.btnActions}">
+					<h:HuskyButton ui:field="btnChooseType" text="Next" addStyleNames="{style.btnAction}"/>
+					<h:HuskyButton ui:field="btnBackChooseType" text="Cancel" addStyleNames="{res.huskycss.huskyButtonWhite} {style.btnAction}"/>
 				</g:HTMLPanel>
+			</g:HTMLPanel>
 				
-				<g:HTMLPanel ui:field="lessonFieldPanel" addStyleNames="{style.lessonFieldPanel}">
-					
-					<g:HTMLPanel ui:field="linkPanel">
-						<h:HuskyTextBox ui:field="txtLink" placeholder="Place" addStyleNames="{res.huskycss.inline} {style.txtYoutubeLink}"/>
-						<h:HuskyButton text="Preview" ui:field="btnPreviewLink" addStyleNames="{res.huskycss.inline} {style.btnYoutubePreview}"/>
-						<h:PreviewLink ui:field="linkPreviewPanel" addStyleNames="{style.youtubeVideoPanel}"/>
+			<g:HTMLPanel ui:field="chooseTypePanel" addStyleNames="{style.chooseTypePanel}">
+				<h:HuskyTitle title="Lesson Type" imageSize="70px" description="Provide lesson information below" withImage="false"/>
+			    
+				<g:HTMLPanel addStyleNames="{style.typePanel}">
+					<g:HTMLPanel ui:field="buttonPanel" addStyleNames="{style.buttonPanel}">
+						<h:LessonType text="Image" ui:field="typeImage" type="image" resource="{res.ic_lesson_type_image}" addStyleNames="{res.huskycss.inline}"/>
+						<h:LessonType text="Youtube" ui:field="typeYoutube" type="youtube" resource="{res.ic_lesson_type_youtube}" addStyleNames="{res.huskycss.inline}"/>
+						<h:LessonType text="Audio" ui:field="typeAudio" type="audio" resource="{res.ic_lesson_type_audio}" addStyleNames="{res.huskycss.inline}"/>
+						<h:LessonType text="Place" ui:field="typePlace" type="place" resource="{res.ic_lesson_type_place}" addStyleNames="{res.huskycss.inline}"/>
+						<h:LessonType text="Link" ui:field="typeLink" type="link" resource="{res.ic_lesson_type_link}" addStyleNames="{res.huskycss.inline}"/>
 					</g:HTMLPanel>
 					
-					<g:HTMLPanel ui:field="placePanel">
-						<h:HuskyTextBox ui:field="txtPlaceName" placeholder="Place" addStyleNames="{res.huskycss.inline} {style.txtYoutubeLink}"/>
-						<h:HuskyButton text="Preview" ui:field="btnGoogleMapViewer" addStyleNames="{res.huskycss.inline} {style.btnYoutubePreview}"/>
-						<h:PreviewGoogleMap ui:field="googleMapPanel" addStyleNames="{style.youtubeVideoPanel}"/>
+					<g:HTMLPanel ui:field="lessonFieldPanel" addStyleNames="{style.lessonFieldPanel}">
+						
+						<g:HTMLPanel ui:field="linkPanel">
+							<h:HuskyTextBox ui:field="txtLink" placeholder="Place" addStyleNames="{res.huskycss.inline} {style.txtYoutubeLink}"/>
+							<h:HuskyButton text="Preview" ui:field="btnPreviewLink" addStyleNames="{res.huskycss.inline} {style.btnYoutubePreview}"/>
+							<h:PreviewLink ui:field="linkPreviewPanel" addStyleNames="{style.youtubeVideoPanel}"/>
+						</g:HTMLPanel>
+						
+						<g:HTMLPanel ui:field="placePanel">
+							<h:HuskyTextBox ui:field="txtPlaceName" placeholder="Place" addStyleNames="{res.huskycss.inline} {style.txtYoutubeLink}"/>
+							<h:HuskyButton text="Preview" ui:field="btnGoogleMapViewer" addStyleNames="{res.huskycss.inline} {style.btnYoutubePreview}"/>
+							<h:PreviewGoogleMap ui:field="googleMapPanel" addStyleNames="{style.youtubeVideoPanel}"/>
+						</g:HTMLPanel>
+						
+						<g:HTMLPanel ui:field="audioPanel">
+							AUDIO PANEL
+						</g:HTMLPanel>
+						
+						<g:HTMLPanel ui:field="youtubePanel">
+							<h:HuskyTextBox ui:field="txtYoutubeUrl" placeholder="Youtube URL" addStyleNames="{res.huskycss.inline} {style.txtYoutubeLink}"/>
+							<h:HuskyButton text="Preview" ui:field="btnYoutubePreview" addStyleNames="{res.huskycss.inline} {style.btnYoutubePreview}"/>
+							<h:PreviewYoutube ui:field="youtubeVideoPanel" addStyleNames="{style.youtubeVideoPanel}"/>
+						</g:HTMLPanel>
+						
+						<g:HTMLPanel ui:field="imagePanel">
+							<h:HuskyUploadArea ui:field="imageLessonPanel" message="Lesson Image Material" />
+						</g:HTMLPanel>
 					</g:HTMLPanel>
 					
-					<g:HTMLPanel ui:field="audioPanel">
-						AUDIO PANEL
-					</g:HTMLPanel>
-					
-					<g:HTMLPanel ui:field="youtubePanel">
-						<h:HuskyTextBox ui:field="txtYoutubeUrl" placeholder="Youtube URL" addStyleNames="{res.huskycss.inline} {style.txtYoutubeLink}"/>
-						<h:HuskyButton text="Preview" ui:field="btnYoutubePreview" addStyleNames="{res.huskycss.inline} {style.btnYoutubePreview}"/>
-						<h:PreviewYoutube ui:field="youtubeVideoPanel" addStyleNames="{style.youtubeVideoPanel}"/>
-					</g:HTMLPanel>
-					
-					<g:HTMLPanel ui:field="imagePanel">
-						<h:HuskyUploadArea ui:field="imageLessonPanel" message="Lesson Image Material" />
-					</g:HTMLPanel>
 				</g:HTMLPanel>
-				
+				<g:HTMLPanel addStyleNames="{style.btnActions}">
+					<h:HuskyButton ui:field="btnAddMaterial" text="Next" addStyleNames="{style.btnAction}"/>
+					<h:HuskyButton ui:field="btnBackAddMaterial" text="Back" addStyleNames="{res.huskycss.huskyButtonWhite} {style.btnAction}"/>
+				</g:HTMLPanel>
 			</g:HTMLPanel>
 			
-			<h:HuskyButton ui:field="btnAddMaterial" text="Next" addStyleNames="{style.btnAction}"/>
-			<h:HuskyButton ui:field="btnBackAddMaterial" text="Back" addStyleNames="{res.huskycss.huskyButtonWhite} {style.btnAction}"/>
+			<g:HTMLPanel ui:field="lessonMaterialPanel" addStyleNames="{style.chooseTypePanel}">
+				<h:HuskyTitle title="Lesson Material(Optional)" imageSize="70px" description="Provide lesson information below" withImage="false"/>
+			    <g:HTMLPanel addStyleNames="{style.typePanel}">
+			    	<h:HuskyTextBox ui:field="txtMaterialLink" placeholder="Material URL" addStyleNames="{res.huskycss.inline} {style.txtYoutubeLink}"/>
+					<h:HuskyButton text="Preview" ui:field="btnMaterialPreview" addStyleNames="{res.huskycss.inline} {style.btnYoutubePreview}"/>
+					<g:HTMLPanel ui:field="materialPanel" addStyleNames="{style.materialPanel}">
+						<g:Label text="No Preview" />
+					</g:HTMLPanel>
+			    </g:HTMLPanel>
+			    <g:HTMLPanel addStyleNames="{style.btnActions}">
+			    	<h:HuskyButton ui:field="btnCreateLesson" text="Finish" addStyleNames="{style.btnAction}"/>
+			   	 	<h:HuskyButton ui:field="btnBackCreateLesson" text="Back" addStyleNames="{res.huskycss.huskyButtonWhite} {style.btnAction}"/>
+			    </g:HTMLPanel>
+			</g:HTMLPanel>
 		</g:HTMLPanel>
+	
 		
-		<g:HTMLPanel ui:field="lessonMaterialPanel" addStyleNames="{style.chooseTypePanel}">
-			<h:HuskyTitle title="Lesson Material(Optional)" imageSize="70px" description="Provide lesson information below" resource="{res.ic_lesson_material}"/>
-		    <g:HTMLPanel addStyleNames="{style.typePanel}">
-		    	<h:HuskyTextBox ui:field="txtMaterialLink" placeholder="Material URL" addStyleNames="{res.huskycss.inline} {style.txtYoutubeLink}"/>
-				<h:HuskyButton text="Preview" ui:field="btnMaterialPreview" addStyleNames="{res.huskycss.inline} {style.btnYoutubePreview}"/>
-				<g:HTMLPanel ui:field="materialPanel" addStyleNames="{style.materialPanel}">
-					<g:Label text="No Preview" />
-				</g:HTMLPanel>
-		    </g:HTMLPanel>
-		    <h:HuskyButton ui:field="btnCreateLesson" text="Finish" addStyleNames="{style.btnAction}"/>
-		    <h:HuskyButton ui:field="btnBackCreateLesson" text="Back" addStyleNames="{res.huskycss.huskyButtonWhite} {style.btnAction}"/>
-		</g:HTMLPanel>
-		
+		<d:CreateQuiz ui:field="createQuizPanel"/>
 		
 		
 		

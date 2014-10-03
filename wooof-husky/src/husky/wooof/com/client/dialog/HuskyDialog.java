@@ -29,6 +29,7 @@ public class HuskyDialog extends DialogBox {
 		this.getElement().getStyle().setWidth(width, Unit.PCT);
 		this.getElement().getStyle().setTop(top, Unit.PCT);
 		this.getElement().getStyle().setLeft(left, Unit.PCT);
+		this.getElement().getStyle().setBackgroundColor("#fff");
 		this.addStyleName(HuskyResources.INSTANCE.huskymobilecss().huskyDialog());
 		dialogPanel.add(composite);
 		this.setModal(true);

@@ -9,6 +9,7 @@ import husky.wooof.com.client.ui.ChatMessageItem;
 import husky.wooof.com.client.ui.CircleImage;
 import husky.wooof.com.client.ui.HuskyTextArea;
 import husky.wooof.com.client.ui.NoResultUtil;
+import husky.wooof.com.client.ui.NotificationManager;
 import husky.wooof.com.shared.HuskyCard;
 import husky.wooof.com.shared.HuskyChatMessage;
 import husky.wooof.com.shared.HuskyUser;
@@ -215,6 +216,7 @@ public class ChatSidebar extends Composite {
 				if (!isSeen) {
 					huskyCardNavigation.getLblChatNum().setVisible(true);
 					huskyCardNavigation.getLblChatNum().setText(String.valueOf(result.getNumNewChat()));
+					NotificationManager.chatBeep();
 				}
 				else {
 					huskyCardNavigation.getLblChatNum().setVisible(false);

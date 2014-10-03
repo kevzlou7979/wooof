@@ -47,5 +47,12 @@ public interface IHuskyConstants {
 	public final String ACTION_INFO = "Info";
 	public final String ACTION_WARN = "Warn";
 	public final String ACTION_ERROR = "Error";
+	
+	public final String QUIZ_MULTIPLE_CHOICE = "multipleChoice";
+	public final String QUIZ_DEFINITION = "definition";
+	public final String QUIZ_TRUE_FALSE = "trueFalse";
+	
+	
+	
 
 }
