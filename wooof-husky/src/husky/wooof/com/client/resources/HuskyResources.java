@@ -91,6 +91,22 @@ public interface HuskyResources extends ClientBundle {
 	
 	ImageResource ic_screenshot();
 	
+	ImageResource ic_white_lesson();
+	
+	ImageResource ic_white_quiz();
+	
+	ImageResource ic_quiz_checkbox();
+	
+	ImageResource ic_quiz_essay();
+	
+	ImageResource ic_quiz_matching();
+	
+	ImageResource ic_quiz_multi_choice();
+	
+	ImageResource ic_quiz_true_false();
+	
+	ImageResource ic_quiz_fill();
+	
 	HuskyCSS huskycss();
 	
 	HuskyMobileCSS huskymobilecss();

@@ -31,11 +31,13 @@
 		margin-bottom: 10px;
 	}
 	</ui:style>
-	<g:HTMLPanel addStyleNames="{style.panel}">
-		<g:Image ui:field="imgIcon" addStyleNames="{style.imgIcon}"/>
-		<g:HTMLPanel ui:field="headerPanel" addStyleNames="{style.headerPanel}">
-			<g:Label ui:field="lblTitle" addStyleNames="{style.lblTitle}"/>
-			<g:Label ui:field="lblDescription" addStyleNames="{style.lblDescription}"/>
+	<g:FocusPanel ui:field="panel" addStyleNames="{style.panel}">
+		<g:HTMLPanel>
+			<g:Image ui:field="imgIcon" addStyleNames="{style.imgIcon}"/>
+			<g:HTMLPanel ui:field="headerPanel" addStyleNames="{style.headerPanel}">
+				<g:Label ui:field="lblTitle" addStyleNames="{style.lblTitle}"/>
+				<g:Label ui:field="lblDescription" addStyleNames="{style.lblDescription}"/>
+			</g:HTMLPanel>
 		</g:HTMLPanel>
-	</g:HTMLPanel>
+	</g:FocusPanel>
 </ui:UiBinder> 

@@ -3,6 +3,7 @@
 	xmlns:g="urn:import:com.google.gwt.user.client.ui">
 	<ui:style>
 		.dialogPanel{
+			background: #fff;
 		}
 		.btnClose{
 			float: right;

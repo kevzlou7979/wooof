@@ -30,7 +30,6 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Frame;
 import com.google.gwt.user.client.ui.HTMLPanel;
-import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.Widget;
 
 public class CreateLesson extends Composite {
@@ -44,7 +43,7 @@ public class CreateLesson extends Composite {
 	@UiField
 	LessonType typeYoutube, typeImage, typeAudio, typePlace, typeLink;
 	@UiField
-	HTMLPanel infoPanel, chooseTypePanel,buttonPanel,lessonMaterialPanel, stepPanel, lessonFieldPanel, youtubePanel, imagePanel, audioPanel, placePanel, linkPanel, messagePanel, panel, materialPanel;
+	HTMLPanel createLessonPanel, infoPanel, chooseTypePanel,buttonPanel,lessonMaterialPanel,lessonFieldPanel, youtubePanel, imagePanel, audioPanel, placePanel, linkPanel, messagePanel, panel, materialPanel;
 	@UiField
 	PreviewYoutube youtubeVideoPanel;
 	@UiField 
@@ -57,9 +56,7 @@ public class CreateLesson extends Composite {
 	HuskyTextBox txtYoutubeUrl, txtLessonName, txtMaterialLink, txtPlaceName, txtLink;
 	@UiField
 	HuskyTextArea txtDescription;
-	@UiField
-	Label lblStep1, lblStep2, lblStep3;
-	
+	@UiField CreateQuiz createQuizPanel;
 	private String material;
 
 	private HuskyMain huskyMain;
@@ -72,7 +69,9 @@ public class CreateLesson extends Composite {
 		this.setWorkspaceMain(workspaceMain);
 		registerEvents();
 		onSelectLessonType(typeImage);
-		onChangeStep(lblStep1, IHuskyConstants.NAV_LESSON_INFO);
+		createQuizPanel.setVisible(false);
+		createLessonPanel.setVisible(true);
+		onChangeStep(IHuskyConstants.NAV_LESSON_INFO);
 	}
 
 	private void registerEvents() {
@@ -163,30 +162,16 @@ public class CreateLesson extends Composite {
 		});
 	}
 	
-	@UiHandler("lblStep1")
-	void onStep1(ClickEvent e){
-		onChangeStep(lblStep1, IHuskyConstants.NAV_LESSON_INFO);
-	}
-	
-	@UiHandler("lblStep2")
-	void onStep2(ClickEvent e){
-		onChooseType(e);
-	}
-	
-	@UiHandler("lblStep3")
-	void onStep3(ClickEvent e){
-		onAddMaterial(e);
-	}
 	
 	@UiHandler("btnChooseType")
 	void onChooseType(ClickEvent e){
 		huskyMain.getHuskyDialog().getElement().getStyle().setTop(5, Unit.PCT);
-		onChangeStep(lblStep2, IHuskyConstants.NAV_LESSON_TYPE);
+		onChangeStep(IHuskyConstants.NAV_LESSON_TYPE);
 	}
 	
 	@UiHandler("btnAddMaterial")
 	void onAddMaterial(ClickEvent e){
-		onChangeStep(lblStep3, IHuskyConstants.NAV_LESSON_MATERIAL);
+		onChangeStep(IHuskyConstants.NAV_LESSON_MATERIAL);
 	}
 	
 	
@@ -198,12 +183,12 @@ public class CreateLesson extends Composite {
 	
 	@UiHandler("btnBackAddMaterial")
 	void onBackAddMaterial(ClickEvent e){
-		onChangeStep(lblStep1, IHuskyConstants.NAV_LESSON_INFO);
+		onChangeStep(IHuskyConstants.NAV_LESSON_INFO);
 	}
 	
 	@UiHandler("btnBackCreateLesson")
 	void onBackCreateLesson(ClickEvent e){
-		onChangeStep(lblStep2, IHuskyConstants.NAV_LESSON_TYPE);
+		onChangeStep(IHuskyConstants.NAV_LESSON_TYPE);
 	}
 
 	@UiHandler("btnCreateLesson")
@@ -247,15 +232,7 @@ public class CreateLesson extends Composite {
 		linkPreviewPanel.setLink(txtLink.getText());
 	}
 	
-	private void onChangeStep(Label label, int type){
-		
-		for(Widget w : stepPanel){
-			w.removeStyleName(HuskyResources.INSTANCE.huskycss().huskyStepActive());
-		}
-		
-		label.addStyleName(HuskyResources.INSTANCE.huskycss().huskyStepActive());
-		
-		
+	private void onChangeStep(int type){
 		
 		infoPanel.setVisible(false);
 		chooseTypePanel.setVisible(false);
@@ -283,6 +260,18 @@ public class CreateLesson extends Composite {
 
 	public void setWorkspaceMain(WorkspaceMain workspaceMain) {
 		this.workspaceMain = workspaceMain;
+	}
+	
+	@UiHandler("menuCreateLesson")
+	void onCreateLessonPanel(ClickEvent e){
+		createQuizPanel.setVisible(false);
+		createLessonPanel.setVisible(true);
+	}
+	
+	@UiHandler("menuCreateQuiz")
+	void onCreateQuizPanel(ClickEvent e){
+		createQuizPanel.setVisible(true);
+		createLessonPanel.setVisible(false);
 	}
 
 }

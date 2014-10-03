@@ -35,6 +35,16 @@
 		<servlet-name>lessonServlet</servlet-name>
 		<url-pattern>/husky/lesson</url-pattern>
 	</servlet-mapping>
+	<!-- Quiz -->
+	<servlet>
+		<servlet-name>quizServlet</servlet-name>
+		<servlet-class>husky.wooof.com.server.QuizServiceImpl</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>quizServlet</servlet-name>
+		<url-pattern>/husky/quiz</url-pattern>
+	</servlet-mapping>
 	<!-- Blob -->
 	<servlet>
 		<servlet-name>blobServlet</servlet-name>

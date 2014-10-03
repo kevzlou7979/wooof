@@ -1,0 +1,51 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:h="urn:import:husky.wooof.com.client.ui">
+	<ui:with field='res' type='husky.wooof.com.client.resources.HuskyResources' />
+	<ui:style>
+		.panel{
+			height: 500px;
+		}
+		.leftPanel{
+			width: 19%;
+			height: 100%;
+			background: #f9f9f9;
+		}
+		.rightPanel{
+			width: 80%;
+			height: 100%;
+		}
+		.quizMenu{
+			padding: 10px 0px 10px 0px;
+			cursor: pointer;
+		}
+		.quizMenu img{
+			transform: scale(0.5);
+			-webkit-transform: scale(0.5);
+			-moz-transform: scale(0.5);
+			transition: 0.4s all;
+			-webkit-transition: 0.4s all;
+			-moz-transition: 0.4s all;
+		}
+		.quizMenu:hover img{
+			transform: scale(1);
+			-webkit-transform: scale(1);
+			-moz-transform: scale(1);
+		}
+	</ui:style>
+	<g:HTMLPanel addStyleNames="{style.panel}">
+		<h:HuskyTitle title="Quiz Maker" imageSize="70px" description="Provide lesson information below" withImage="false"/>
+		<g:HTMLPanel addStyleNames="{style.leftPanel} {res.huskycss.inline}">
+			<h:HuskyTitle ui:field="menuQuizMultiChoice" resource="{res.ic_quiz_multi_choice}" title="Multiple Choice" fontSize="1" color="3c8bca" addStyleNames="{style.quizMenu}"/>
+			<h:HuskyTitle ui:field="menuQuizTrueFalse" resource="{res.ic_quiz_true_false}" title="True or False" fontSize="1" color="3c8bca" addStyleNames="{style.quizMenu}"/>
+			<h:HuskyTitle ui:field="menuQuizDef" resource="{res.ic_quiz_fill}" title="Definition" fontSize="1" color="3c8bca" addStyleNames="{style.quizMenu}"/>
+			<h:HuskyTitle ui:field="menuQuizMatching" resource="{res.ic_quiz_matching}" title="Matching Type" fontSize="1" color="3c8bca" addStyleNames="{style.quizMenu}"/>
+			<h:HuskyTitle ui:field="menuQuizEssay" resource="{res.ic_quiz_essay}" title="Essay" fontSize="1" color="3c8bca" addStyleNames="{style.quizMenu}"/>
+			<h:HuskyTitle ui:field="menuQuizCheckBox" resource="{res.ic_quiz_checkbox}" title="CheckBox" fontSize="1" color="3c8bca" addStyleNames="{style.quizMenu}"/>
+		</g:HTMLPanel>
+		<g:HTMLPanel addStyleNames="{style.rightPanel} {res.huskycss.inline}">
+			<g:HTMLPanel ui:field="quizPanel"/>
+		</g:HTMLPanel>
+	</g:HTMLPanel>
+</ui:UiBinder> 

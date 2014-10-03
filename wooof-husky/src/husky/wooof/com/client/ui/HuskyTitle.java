@@ -6,6 +6,7 @@ import com.google.gwt.resources.client.ImageResource;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.FocusPanel;
 import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Label;
@@ -24,6 +25,7 @@ public class HuskyTitle extends Composite {
 	Label lblTitle, lblDescription;
 	@UiField
 	HTMLPanel headerPanel;
+	@UiField FocusPanel panel;
 
 	private String title;
 	private String description;
@@ -32,6 +34,8 @@ public class HuskyTitle extends Composite {
 	private String imageSize;
 	private String fontSize;
 	private ImageResource resource;
+	private boolean withImage;
+	private Composite composite;
 
 	public HuskyTitle() {
 		initWidget(uiBinder.createAndBindUi(this));
@@ -61,7 +65,11 @@ public class HuskyTitle extends Composite {
 
 	public void setResource(ImageResource resource) {
 		this.resource = resource;
-		imgIcon.setResource(resource);
+		if(resource == null){
+			imgIcon.removeFromParent();
+		}else{
+			imgIcon.setResource(resource);
+		}
 	}
 
 	public String getColor() {
@@ -103,4 +111,32 @@ public class HuskyTitle extends Composite {
 		lblTitle.getElement().getStyle().setFontSize(Double.valueOf(fontSize), Unit.EM);
 	}
 
+	public boolean isWithImage() {
+		return withImage;
+	}
+
+	public void setWithImage(boolean withImage) {
+		if(!withImage){
+			imgIcon.removeFromParent();
+		}
+		this.withImage = withImage;
+	}
+
+	public Composite getComposite() {
+		return composite;
+	}
+
+	public void setComposite(Composite composite) {
+		this.composite = composite;
+	}
+
+	public FocusPanel getPanel() {
+		return panel;
+	}
+
+	public void setPanel(FocusPanel panel) {
+		this.panel = panel;
+	}
+
+	
 }
