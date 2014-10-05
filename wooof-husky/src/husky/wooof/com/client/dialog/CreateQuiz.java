@@ -23,7 +23,7 @@ public class CreateQuiz extends Composite {
 
 	@UiField HTMLPanel quizPanel;
 	@UiField HuskyTitle menuQuizMultiChoice, menuQuizTrueFalse, menuQuizDef, menuQuizMatching, menuQuizEssay, menuQuizCheckBox;
-	
+	private int quizNoItems = 1;
 	public CreateQuiz() {
 		initWidget(uiBinder.createAndBindUi(this));
 		registerMenuHandler();
@@ -34,9 +34,20 @@ public class CreateQuiz extends Composite {
 			
 			@Override
 			public void onClick(ClickEvent event) {
-				quizPanel.add(new QuizItem(new HuskyQuizMultiplechoice()));
+				quizPanel.add(new QuizItem(new HuskyQuizMultiplechoice(), quizNoItems, CreateQuiz.this));
+				quizNoItems++;
 			}
 		});
 	}
 
+	public int getQuizNoItems() {
+		return quizNoItems;
+	}
+
+	public void setQuizNoItems(int quizNoItems) {
+		this.quizNoItems = quizNoItems;
+	}
+
+	
+	
 }

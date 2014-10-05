@@ -78,7 +78,7 @@ public class CardInfoSidebar extends Composite {
 
 	@UiHandler("btnUnsub")
 	void onUnSub(ClickEvent e){
-		HuskyActionDialog.show(IHuskyConstants.ACTION_WARN, "Are you sure you want to unsubscribe to this card?", this);
+		HuskyActionDialog.show(IHuskyConstants.ACTION_WARN, "Are you sure you want to unsubscribe to this card?", "Oops wait a second...");
 	}
 	
 	public void unsubscribeFromCard(){

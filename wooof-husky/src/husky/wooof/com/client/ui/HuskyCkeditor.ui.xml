@@ -2,11 +2,9 @@
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
 	xmlns:g="urn:import:com.google.gwt.user.client.ui">
 	<ui:style>
-		.panel{
-			padding: 5px;
-		}
+	
 	</ui:style>
-	<g:HTMLPanel addStyleNames="{style.panel}">
-		<g:RadioButton ui:field="rbItem" name="rbItem"/>
+	<g:HTMLPanel ui:field="panel">
+	    
 	</g:HTMLPanel>
 </ui:UiBinder> 
