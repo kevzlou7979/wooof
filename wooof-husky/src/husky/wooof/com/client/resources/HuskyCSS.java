@@ -93,4 +93,6 @@ public interface HuskyCSS extends CssResource {
 	String huskyButtonRed();
 	
 	String lblOverflow();
+	
+	String transition();
 }

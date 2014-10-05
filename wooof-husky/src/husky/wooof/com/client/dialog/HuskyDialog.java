@@ -27,15 +27,14 @@ public class HuskyDialog extends DialogBox {
 		
 		setWidget(uiBinder.createAndBindUi(this));
 		this.getElement().getStyle().setWidth(width, Unit.PCT);
-		this.getElement().getStyle().setTop(top, Unit.PCT);
+		
 		this.getElement().getStyle().setLeft(left, Unit.PCT);
 		this.getElement().getStyle().setBackgroundColor("#fff");
 		this.addStyleName(HuskyResources.INSTANCE.huskymobilecss().huskyDialog());
 		dialogPanel.add(composite);
 		this.setModal(true);
 		this.setGlassEnabled(true);
-		this.center();
-		this.show();
+		this.getElement().getStyle().setTop(top, Unit.PCT);
 	}
 	
 	

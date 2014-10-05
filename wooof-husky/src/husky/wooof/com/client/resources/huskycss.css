@@ -12,6 +12,12 @@
 	background-position: fixed;
 }
 
+.transition{
+	transition: 1s all;
+	-webkit-transition: 1s all;
+	-moz-transition: 1s all;
+}
+
 .lblOverflow{
   white-space: nowrap;
   overflow: hidden;

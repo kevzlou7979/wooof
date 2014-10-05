@@ -1,4 +1,39 @@
 /** Add css rules here for your application. */
+input[type="radio"] {
+    position:absolute;
+    clip: rect(0,0,0,0);
+    clip: rect(0 0 0 0);
+}
+
+input[type="radio"] + label::before {
+    content: "";
+	border-radius: 100%;
+	-webkit-border-radius: 100%;
+	-moz-border-radius: 100%;
+	display: inline-block;
+	height: 15px;
+	width: 15px;
+	border: 1px solid #999;
+	vertical-align: middle;
+	margin-right: 10px;
+}
+
+input[type="radio"]:checked + label::before {
+    background: #999 url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNi4wLjQsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9Ikljb25zIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgd2lkdGg9IjIwcHgiIGhlaWdodD0iMTVweCIgdmlld0JveD0iMCAwIDIwIDE1IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCAyMCAxNSIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8cG9seWdvbiBmaWxsPSIjRkZGRkZGIiBwb2ludHM9IjcuMTQzLDE0LjkzOCAwLDcuNzk2IDIuMDIxLDUuNzc2IDcuMTQzLDEwLjg5OCAxNy45NzksMC4wNjIgMjAsMi4wODIgIi8+DQo8L3N2Zz4NCg==");
+	border-radius: 100%;
+	-webkit-border-radius: 100%;
+	-moz-border-radius: 100%;
+	display: inline-block;
+	height: 15px;
+	width: 15px;
+	border: 1px solid rgb(153, 153, 153);
+	vertical-align: middle;
+	margin-right: 10px;
+	background-size: 10px;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
 .gwt-DialogBox, .gwt-PopupPanelGlass{
 	z-index: 998;
 }
