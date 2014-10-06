@@ -52,7 +52,10 @@ public interface IHuskyConstants {
 	public final String QUIZ_DEFINITION = "definition";
 	public final String QUIZ_TRUE_FALSE = "trueFalse";
 	
-	
+	public final String CK_QUIZ_TITLE = "ckQuizTitle";
+	public final String CK_QUIZ_DESCRIPTION = "ckQuizDescription";
+	public final String CK_QUIZ_ITEM_TITLE = "ckQuizItemTitle";
+	public final String CK_QUIZ_ITEM_EXPLANATION = "ckQuizItemExplanation";
 	
 
 }

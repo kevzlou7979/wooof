@@ -70,6 +70,7 @@ public class CreateLesson extends Composite {
 		registerEvents();
 		onSelectLessonType(typeImage);
 		createQuizPanel.setVisible(false);
+		createQuizPanel.setCard(workspaceMain.getCard());
 		createLessonPanel.setVisible(true);
 		onChangeStep(IHuskyConstants.NAV_LESSON_INFO);
 	}

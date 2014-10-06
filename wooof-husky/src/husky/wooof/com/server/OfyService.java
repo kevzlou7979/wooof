@@ -8,6 +8,7 @@ import husky.wooof.com.shared.HuskyLinkLesson;
 import husky.wooof.com.shared.HuskyPlaceLesson;
 import husky.wooof.com.shared.HuskyQuiz;
 import husky.wooof.com.shared.HuskyQuizDefinition;
+import husky.wooof.com.shared.HuskyQuizItem;
 import husky.wooof.com.shared.HuskyQuizMultiplechoice;
 import husky.wooof.com.shared.HuskyQuizTrueFalse;
 import husky.wooof.com.shared.HuskyUser;
@@ -36,6 +37,7 @@ public class OfyService {
 		 * Quiz
 		 */
 		ObjectifyService.register(HuskyQuiz.class);
+		ObjectifyService.register(HuskyQuizItem.class);
 		ObjectifyService.register(HuskyQuizDefinition.class);
 		ObjectifyService.register(HuskyQuizMultiplechoice.class);
 		ObjectifyService.register(HuskyQuizTrueFalse.class);

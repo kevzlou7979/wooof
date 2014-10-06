@@ -16,22 +16,20 @@ public class HuskyQuiz implements Serializable {
 	private Long id;
 	private Long cardId;
 	private String title;
-	private String type;
-	private String explanation;
-	private double point;
+	private String description;
+	private double totalPoints;
 	private Date creationDate = new Date();
 
 	public HuskyQuiz() {
 	}
 
-	public HuskyQuiz(Long cardId, String title, String type,
-			String explanation, double point, Date creationDate) {
+	public HuskyQuiz(Long cardId, String title, String description,
+			double totalPoints, Date creationDate) {
 		super();
 		this.cardId = cardId;
 		this.title = title;
-		this.type = type;
-		this.explanation = explanation;
-		this.point = point;
+		this.description = description;
+		this.totalPoints = totalPoints;
 		this.creationDate = creationDate;
 	}
 
@@ -59,28 +57,20 @@ public class HuskyQuiz implements Serializable {
 		this.title = title;
 	}
 
-	public String getType() {
-		return type;
+	public String getDescription() {
+		return description;
 	}
 
-	public void setType(String type) {
-		this.type = type;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
-	public String getExplanation() {
-		return explanation;
+	public double getTotalPoints() {
+		return totalPoints;
 	}
 
-	public void setExplanation(String explanation) {
-		this.explanation = explanation;
-	}
-
-	public double getPoint() {
-		return point;
-	}
-
-	public void setPoint(double point) {
-		this.point = point;
+	public void setTotalPoints(double totalPoints) {
+		this.totalPoints = totalPoints;
 	}
 
 	public Date getCreationDate() {
@@ -90,7 +80,7 @@ public class HuskyQuiz implements Serializable {
 	public void setCreationDate(Date creationDate) {
 		this.creationDate = creationDate;
 	}
-
+	
 	
 
 }

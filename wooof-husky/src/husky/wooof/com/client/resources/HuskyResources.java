@@ -107,6 +107,10 @@ public interface HuskyResources extends ClientBundle {
 	
 	ImageResource ic_quiz_fill();
 	
+	ImageResource ic_edit_2();
+	
+	ImageResource ic_add();
+	
 	HuskyCSS huskycss();
 	
 	HuskyMobileCSS huskymobilecss();
