@@ -126,7 +126,7 @@
 			<g:Image ui:field="btnAddItem" title="Add" resource="{res.ic_add}" addStyleNames="{res.huskycss.inline} {style.icon} {res.huskycss.transition}"/>
 			<g:HTMLPanel ui:field="quizPanel">
 				<g:HTMLPanel ui:field="multipleChoicePanel">
-					<h:ChoiceItem  name="mChoice"/>
+					<h:ChoiceItem  name="mChoice" value="true"/>
 					<h:ChoiceItem  name="mChoice"/>
 					<h:ChoiceItem  name="mChoice"/>
 				</g:HTMLPanel>

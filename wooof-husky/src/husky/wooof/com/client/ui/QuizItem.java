@@ -27,9 +27,10 @@ public class QuizItem extends Composite {
 	}
 	
 	private String title="Sample Item Question";
-	private double points = 0;
+	private double points = 1;
 	private String name = "mChoice";
 	private String choices = "";
+	private int choiceIndex = 0;
 	private Label lblTitle = new Label();
 
 	@UiField Label lblItemNo, lblAddExplanation;
@@ -64,9 +65,12 @@ public class QuizItem extends Composite {
 			for(Widget w : multipleChoicePanel){
 				if(w instanceof ChoiceItem){
 					((ChoiceItem) w).setName(name + String.valueOf(itemNo));
-					
+					((ChoiceItem) w).setCom(this);
+					String item = ((ChoiceItem) w).getChoicePanel().getElement().toString();
+					choices = choices + ";" + item; 
 				}
 			}
+			((HuskyQuizMultiplechoice) getQuizItem()).setItems(choices);
 		}
 		
 		
@@ -90,7 +94,9 @@ public class QuizItem extends Composite {
 
 	@UiHandler("btnAddItem")
 	void onAddItem(ClickEvent e){
-		multipleChoicePanel.add(new ChoiceItem(((ChoiceItem)multipleChoicePanel.getWidget(0)).rbItem.getName()));
+		ChoiceItem item = new ChoiceItem(((ChoiceItem)multipleChoicePanel.getWidget(0)).rbItem.getName());
+		item.setCom(this);
+		multipleChoicePanel.add(item);
 	}
 	
 	@UiHandler("txtPoints")
@@ -110,5 +116,23 @@ public class QuizItem extends Composite {
 	public void setQuizItem(HuskyQuizItem quizItem) {
 		this.quizItem = quizItem;
 	}
+
+	public int getChoiceIndex() {
+		return choiceIndex;
+	}
+
+	public void setChoiceIndex(int choiceIndex) {
+		this.choiceIndex = choiceIndex;
+	}
+
+	public HTMLPanel getMultipleChoicePanel() {
+		return multipleChoicePanel;
+	}
+
+	public void setMultipleChoicePanel(HTMLPanel multipleChoicePanel) {
+		this.multipleChoicePanel = multipleChoicePanel;
+	}
+	
+	
 	
 }

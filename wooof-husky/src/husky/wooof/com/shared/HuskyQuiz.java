@@ -3,22 +3,16 @@ package husky.wooof.com.shared;
 import java.io.Serializable;
 import java.util.Date;
 
-import javax.persistence.Id;
+import com.googlecode.objectify.annotation.Subclass;
 
-import com.googlecode.objectify.annotation.Entity;
-
-@Entity
-public class HuskyQuiz implements Serializable {
+@Subclass
+public class HuskyQuiz extends HuskyItem  implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	@Id
-	private Long id;
-	private Long cardId;
 	private String title;
 	private String description;
 	private double totalPoints;
-	private Date creationDate = new Date();
 
 	public HuskyQuiz() {
 	}
@@ -26,27 +20,12 @@ public class HuskyQuiz implements Serializable {
 	public HuskyQuiz(Long cardId, String title, String description,
 			double totalPoints, Date creationDate) {
 		super();
-		this.cardId = cardId;
 		this.title = title;
 		this.description = description;
 		this.totalPoints = totalPoints;
-		this.creationDate = creationDate;
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public Long getCardId() {
-		return cardId;
-	}
-
-	public void setCardId(Long cardId) {
+		this.name = title;
 		this.cardId = cardId;
+		this.type = "Quiz";
 	}
 
 	public String getTitle() {
@@ -72,15 +51,5 @@ public class HuskyQuiz implements Serializable {
 	public void setTotalPoints(double totalPoints) {
 		this.totalPoints = totalPoints;
 	}
-
-	public Date getCreationDate() {
-		return creationDate;
-	}
-
-	public void setCreationDate(Date creationDate) {
-		this.creationDate = creationDate;
-	}
-	
-	
 
 }

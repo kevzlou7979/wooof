@@ -3,6 +3,7 @@ package husky.wooof.com.server;
 import husky.wooof.com.client.services.CardService;
 import husky.wooof.com.shared.HuskyCard;
 import husky.wooof.com.shared.HuskyChatMessage;
+import husky.wooof.com.shared.HuskyItem;
 import husky.wooof.com.shared.HuskyUser;
 import husky.wooof.com.shared.HuskyUserCard;
 import husky.wooof.com.shared.IHuskyConstants;
@@ -170,6 +171,15 @@ public class CardServiceImpl extends RemoteServiceServlet implements CardService
 	private HuskyUserCard getUserCard(HuskyUser user, HuskyCard card){
 		HuskyUserCard userCard = ofy.query(HuskyUserCard.class).filter("userId", user.getId()).filter("cardId", card.getId()).get();
 		return userCard;
+	}
+
+	@Override
+	public List<HuskyItem> getAllItems(HuskyCard card) throws Exception {
+		List<HuskyItem> items = new ArrayList<HuskyItem>();
+		for (HuskyItem item : ofy.query(HuskyItem.class).filter("cardId", card.getId()).order("creationDate")) {
+			items.add(item);
+		}
+		return items;
 	}
 
 }

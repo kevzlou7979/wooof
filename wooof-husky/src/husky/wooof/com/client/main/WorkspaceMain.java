@@ -4,7 +4,6 @@ import husky.wooof.com.client.HuskyMain;
 import husky.wooof.com.client.navigation.HuskyCardNavigation;
 import husky.wooof.com.client.resources.HuskyResources;
 import husky.wooof.com.client.services.CardService;
-import husky.wooof.com.client.services.LessonService;
 import husky.wooof.com.client.ui.GoogleDocViewer;
 import husky.wooof.com.client.ui.LessonItem;
 import husky.wooof.com.client.ui.PreviewGoogleMap;
@@ -12,6 +11,7 @@ import husky.wooof.com.client.ui.PreviewLink;
 import husky.wooof.com.client.ui.PreviewYoutube;
 import husky.wooof.com.shared.HuskyCard;
 import husky.wooof.com.shared.HuskyImageLesson;
+import husky.wooof.com.shared.HuskyItem;
 import husky.wooof.com.shared.HuskyLesson;
 import husky.wooof.com.shared.HuskyLinkLesson;
 import husky.wooof.com.shared.HuskyPlaceLesson;
@@ -110,7 +110,8 @@ public class WorkspaceMain extends Composite {
 	public void getAllCardLessons() {
 		lessonPanel.clear();
 		lessonPanel.add(createLesson);
-		LessonService.Connect.getService().getAllCardLessons(card, new AsyncCallback<List<HuskyLesson>>() {
+		
+		/*LessonService.Connect.getService().getAllCardLessons(card, new AsyncCallback<List<HuskyLesson>>() {
 
 			@Override
 			public void onSuccess(List<HuskyLesson> result) {
@@ -124,52 +125,81 @@ public class WorkspaceMain extends Composite {
 					i++;
 				}
 				
-				
 			}
+
+			
 
 			@Override
 			public void onFailure(Throwable caught) {
 				Window.alert(caught.getMessage());
 			}
+		});*/
+		
+		
+		CardService.Connect.getService().getAllItems(card, new AsyncCallback<List<HuskyItem>>() {
+			
+			@Override
+			public void onSuccess(List<HuskyItem> result) {
+				int i = 1;
+				for (HuskyItem item : result) {
+					LessonItem lessonItem = new LessonItem((HuskyLesson) item, i, WorkspaceMain.this);
+					lessonPanel.add(lessonItem);
+					if(i == 1){
+						executeLesson(lessonItem);
+					}
+					i++;
+				
+				}
+			}
+			
+			@Override
+			public void onFailure(Throwable caught) {
+				Window.alert(caught.getMessage());
+			}
 		});
-
+		
 	}
 	
 	public void executeLesson(LessonItem  item){
-		HuskyLesson lesson = item.getLesson();
+		HuskyItem huskyItem = item.getItem();
 		for(Widget w : lessonPanel){
 			w.getElement().getStyle().setOpacity(0.3);
 		}
-		lblLessonTitle.setText(lesson.getName());
-		lblLessonDescription.setText(lesson.getDescription());
-		onResetMaterialPanel();
-		if(lesson.getMaterialUrl() == null){
-			lblBrowseMaterial.setVisible(false);
-		}else{
-			lblBrowseMaterial.setVisible(true);
-			lblBrowseMaterial.setLayoutData(lesson);
+		
+		if(huskyItem instanceof HuskyLesson){
+			HuskyLesson lesson = (HuskyLesson) huskyItem;
+			lblLessonTitle.setText(lesson.getName());
+			lblLessonDescription.setText(lesson.getDescription());
+			onResetMaterialPanel();
+			if(lesson.getMaterialUrl() == null){
+				lblBrowseMaterial.setVisible(false);
+			}else{
+				lblBrowseMaterial.setVisible(true);
+				lblBrowseMaterial.setLayoutData(lesson);
+			}
+			
+			item.getElement().getStyle().setOpacity(1);
+			switch (lesson.getType()) {
+			case IHuskyConstants.LESSON_YOUTUBE:
+				playYoutubeLesson((HuskyYoutubeLesson)lesson);
+				break;
+			case IHuskyConstants.LESSON_IMAGE:
+				playImageLesson((HuskyImageLesson)lesson);
+				break;
+			case IHuskyConstants.LESSON_PLACE:
+				playPlaceLesson((HuskyPlaceLesson)lesson);
+				break;
+			case IHuskyConstants.LESSON_AUDIO:
+				playAudioLesson((HuskyPlaceLesson)lesson);
+				break;
+			case IHuskyConstants.LESSON_LINK:
+				playLinkLesson((HuskyLinkLesson)lesson);
+				break;
+			default:
+				break;
+			}
 		}
 		
-		item.getElement().getStyle().setOpacity(1);
-		switch (lesson.getType()) {
-		case IHuskyConstants.LESSON_YOUTUBE:
-			playYoutubeLesson((HuskyYoutubeLesson)lesson);
-			break;
-		case IHuskyConstants.LESSON_IMAGE:
-			playImageLesson((HuskyImageLesson)lesson);
-			break;
-		case IHuskyConstants.LESSON_PLACE:
-			playPlaceLesson((HuskyPlaceLesson)lesson);
-			break;
-		case IHuskyConstants.LESSON_AUDIO:
-			playAudioLesson((HuskyPlaceLesson)lesson);
-			break;
-		case IHuskyConstants.LESSON_LINK:
-			playLinkLesson((HuskyLinkLesson)lesson);
-			break;
-		default:
-			break;
-		}
 	}
 
 	private void playLinkLesson(HuskyLinkLesson lesson) {

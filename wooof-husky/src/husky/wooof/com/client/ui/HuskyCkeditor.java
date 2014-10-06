@@ -46,17 +46,18 @@ public class HuskyCkeditor extends Composite {
 	public void setSource(){
 		tobeAppliedPanel.clear();
 		tobeAppliedPanel.add(new HTMLPanel(ck.getHTML()));
-		
-		switch (type) {
-		case IHuskyConstants.CK_QUIZ_ITEM_TITLE:
-			((QuizItem)composite).getQuizItem().setTitle(ck.getHTML());
-			break;
-		case IHuskyConstants.CK_QUIZ_ITEM_EXPLANATION:
-			((QuizItem)composite).getQuizItem().setExplanation(ck.getHTML());
-			break;
-
-		default:
-			break;
+		if(type!=null){
+			switch (type) {
+			case IHuskyConstants.CK_QUIZ_ITEM_TITLE:
+				((QuizItem)composite).getQuizItem().setTitle(ck.getHTML());
+				break;
+			case IHuskyConstants.CK_QUIZ_ITEM_EXPLANATION:
+				((QuizItem)composite).getQuizItem().setExplanation(ck.getHTML());
+				break;
+	
+			default:
+				break;
+			}
 		}
 	}
 	
