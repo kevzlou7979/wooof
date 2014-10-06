@@ -11,6 +11,7 @@ import husky.wooof.com.shared.HuskyQuizItem;
 import husky.wooof.com.shared.HuskyQuizMultiplechoice;
 import husky.wooof.com.shared.IHuskyConstants;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -39,12 +40,11 @@ public class CreateQuiz extends Composite {
 	@UiField HuskyTitle menuQuizMultiChoice, menuQuizTrueFalse, menuQuizDef, menuQuizMatching, menuQuizEssay, menuQuizCheckBox;
 	private int quizNoItems = 1;
 	private HuskyCard card;
-	private List<HuskyQuizItem> items;
+	private List<HuskyQuizItem> items = new ArrayList<HuskyQuizItem>();
 
-	public CreateQuiz(HuskyCard card) {
+	public CreateQuiz() {
 		initWidget(uiBinder.createAndBindUi(this));
 		registerMenuHandler();
-		this.card = card;
 		titlePanel.add(new Label("Quiz Title"));
 		descriptionPanel.add(new Label("Quiz Description"));
 	}
@@ -83,7 +83,7 @@ public class CreateQuiz extends Composite {
 		
 		for(Widget w : quizPanel){
 			if(w instanceof QuizItem){
-				
+				items.add(((QuizItem) w).getQuizItem());
 			}
 		}
 		

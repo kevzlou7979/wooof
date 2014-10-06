@@ -5,7 +5,7 @@ import husky.wooof.com.client.dialog.CreateLesson;
 import husky.wooof.com.client.dialog.HuskyDialog;
 import husky.wooof.com.client.main.WorkspaceMain;
 import husky.wooof.com.client.resources.HuskyResources;
-import husky.wooof.com.shared.HuskyLesson;
+import husky.wooof.com.shared.HuskyItem;
 import husky.wooof.com.shared.IHuskyConstants;
 
 import com.google.gwt.core.client.GWT;
@@ -31,7 +31,7 @@ public class LessonItem extends Composite {
 	private HuskyMain huskyMain;
 	private String action = "";
 	private WorkspaceMain workspaceMain;
-	private HuskyLesson lesson;
+	private HuskyItem item;
 
 	@UiField
 	FocusPanel itemPanel;
@@ -42,9 +42,9 @@ public class LessonItem extends Composite {
 		initWidget(uiBinder.createAndBindUi(this));
 	}
 
-	public LessonItem(HuskyLesson lesson, final int i, WorkspaceMain workspaceMain) {
+	public LessonItem(HuskyItem item, final int i, WorkspaceMain workspaceMain) {
 		initWidget(uiBinder.createAndBindUi(this));
-		this.lesson = lesson;
+		this.item = item;
 		this.workspaceMain = workspaceMain;
 		Timer timer = new Timer() {
 			@Override
@@ -58,8 +58,8 @@ public class LessonItem extends Composite {
 		};
 		timer.schedule(1000);
 		lblLessonNumber.setText(String.valueOf(i));
-		lblLessonName.setText(lesson.getName());
-		lblLessonType.setText(lesson.getType());
+		lblLessonName.setText(item.getName());
+		lblLessonType.setText(item.getType());
 		lblLessonNumber.addStyleName(HuskyResources.INSTANCE.huskycss().lessonItem());
 
 	}
@@ -85,12 +85,13 @@ public class LessonItem extends Composite {
 
 	
 	
-	public HuskyLesson getLesson() {
-		return lesson;
+	
+	public HuskyItem getItem() {
+		return item;
 	}
 
-	public void setLesson(HuskyLesson lesson) {
-		this.lesson = lesson;
+	public void setItem(HuskyItem item) {
+		this.item = item;
 	}
 
 	public String getAction() {

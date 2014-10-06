@@ -1,5 +1,6 @@
 package husky.wooof.com.client.ui;
 
+import husky.wooof.com.shared.HuskyQuizMultiplechoice;
 import husky.wooof.com.shared.IHuskyConstants;
 
 import com.google.gwt.core.client.GWT;
@@ -26,8 +27,10 @@ public class ChoiceItem extends Composite {
 	@UiField HTMLPanel choicePanel;
 	@UiField Image btnDelete;
 	
+	private Composite com;
 	private String text;
 	private String name;
+	private boolean value;
 	
 	public ChoiceItem() {
 		initWidget(uiBinder.createAndBindUi(this));
@@ -46,6 +49,14 @@ public class ChoiceItem extends Composite {
 		return text;
 	}
 
+	@UiHandler("rbItem")
+	void onSelectChoice(ClickEvent e){
+		if(com instanceof QuizItem){
+			int index = ((QuizItem) com).getMultipleChoicePanel().getWidgetIndex(this);
+			((HuskyQuizMultiplechoice) ((QuizItem) com).getQuizItem()).setCorrectAnswer(index);
+		}
+	}
+	
 	public void setText(String text) {
 		this.text = text;
 		rbItem.setText(text);
@@ -69,5 +80,32 @@ public class ChoiceItem extends Composite {
 	void onDeleteChoice(ClickEvent e){
 		this.removeFromParent();
 	}
+
+	public HTMLPanel getChoicePanel() {
+		return choicePanel;
+	}
+
+	public void setChoicePanel(HTMLPanel choicePanel) {
+		this.choicePanel = choicePanel;
+	}
+
+	public boolean isValue() {
+		return value;
+	}
+
+	public void setValue(boolean value) {
+		this.value = value;
+		rbItem.setValue(value);
+	}
+
+	public Composite getCom() {
+		return com;
+	}
+
+	public void setCom(Composite com) {
+		this.com = com;
+	}
+	
+	
 
 }

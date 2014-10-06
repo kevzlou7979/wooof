@@ -2,6 +2,7 @@ package husky.wooof.com.client.services;
 
 import husky.wooof.com.shared.HuskyCard;
 import husky.wooof.com.shared.HuskyChatMessage;
+import husky.wooof.com.shared.HuskyItem;
 import husky.wooof.com.shared.HuskyUser;
 import husky.wooof.com.shared.HuskyUserCard;
 
@@ -55,5 +56,7 @@ public interface CardService extends RemoteService {
 	public void onJoinCard(HuskyUser user, HuskyCard card) throws Exception;
 	
 	public void onLeaveCard(HuskyUser user, HuskyCard card) throws Exception;
+	
+	public List<HuskyItem> getAllItems(HuskyCard card) throws Exception;
 
 }
