@@ -1,5 +1,7 @@
 package husky.wooof.com.client.ui;
 
+import husky.wooof.com.shared.IHuskyConstants;
+
 import com.axeiya.gwtckeditor.client.CKConfig;
 import com.axeiya.gwtckeditor.client.CKEditor;
 import com.google.gwt.core.client.GWT;
@@ -20,6 +22,18 @@ public class HuskyCkeditor extends Composite {
 	@UiField HTMLPanel panel;
 	private CKEditor ck;
 	private HTMLPanel tobeAppliedPanel;
+	private String type;
+	private Composite composite;
+	
+	public HuskyCkeditor(HTMLPanel tobeAppliedPanel, String type, Composite composite) {
+		initWidget(uiBinder.createAndBindUi(this));
+		this.type = type;
+		this.composite = composite;
+		ck = new CKEditor(CKConfig.full);
+		panel.add(ck);
+		this.tobeAppliedPanel = tobeAppliedPanel;
+		ck.setHTML(tobeAppliedPanel.getElement().toString());
+	}
 	
 	public HuskyCkeditor(HTMLPanel tobeAppliedPanel) {
 		initWidget(uiBinder.createAndBindUi(this));
@@ -32,6 +46,18 @@ public class HuskyCkeditor extends Composite {
 	public void setSource(){
 		tobeAppliedPanel.clear();
 		tobeAppliedPanel.add(new HTMLPanel(ck.getHTML()));
+		
+		switch (type) {
+		case IHuskyConstants.CK_QUIZ_ITEM_TITLE:
+			((QuizItem)composite).getQuizItem().setTitle(ck.getHTML());
+			break;
+		case IHuskyConstants.CK_QUIZ_ITEM_EXPLANATION:
+			((QuizItem)composite).getQuizItem().setExplanation(ck.getHTML());
+			break;
+
+		default:
+			break;
+		}
 	}
 	
 	

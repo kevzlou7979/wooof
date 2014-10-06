@@ -2,6 +2,7 @@ package husky.wooof.com.client.services;
 
 import husky.wooof.com.shared.HuskyCard;
 import husky.wooof.com.shared.HuskyQuiz;
+import husky.wooof.com.shared.HuskyQuizItem;
 
 import java.util.List;
 
@@ -25,7 +26,7 @@ public interface QuizService extends RemoteService {
 		}
 	}
 
-	public void saveQuiz(HuskyQuiz quiz) throws Exception;
+	public void saveQuiz(HuskyQuiz quiz, List<HuskyQuizItem> items) throws Exception;
 
 	public List<HuskyQuiz> getAllCardQuiz(HuskyCard card) throws Exception;
 

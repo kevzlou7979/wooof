@@ -7,12 +7,14 @@
 		.panel{
 			background: #fff;
 			width: 100%;
-			padding: 10px;
 			border: 1px solid #e9e9e9;
 			border-radius: 5px;
 			-webkit-border-radius: 5px;
 			-moz-border-radius: 5px;
 			margin-bottom: 20px;
+			box-sizing: border-box;
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
 		}
 		.circle{
 			font-size: 0.4em;
@@ -21,6 +23,7 @@
 			width: 80px;
 			height: 80px;
 			position: relative;
+			margin: 10px;
 		}
 		.leftItem{
 			position: absolute;
@@ -49,19 +52,19 @@
 			background: #e9e9e9;
 		}
 		.rightPanel{
-			padding-left: 50px;
+			padding: 20px 20px 20px 50px;
 		}
 		.lblTitle{
 			font-size: 1.2em;
 			border: none;
 		}
 		.rightPanel:hover .icon{
-			opacity: 1;
+			opacity: 0.5;
 		}
 		.icon{
-			width: 20px;
-			height: 20px;
-			margin-left: 20px;
+			width: 15px;
+			height: 15px;
+			margin-left: 10px;
 			opacity: 0;
 			cursor: pointer;
 		}
@@ -96,6 +99,15 @@
 			border-left: 1px solid #999;
 			padding-left: 10px;
 		}
+		.lblAddExplanation{
+			cursor: pointer;
+		}
+		.lblAddExplanation:hover{
+			color: #4086FA;
+		}
+		.explanationPanel{
+			margin: 20px 0px 5px 0px;
+		}
 	</ui:style>
 	<g:HTMLPanel addStyleNames="{style.panel}">
 		
@@ -110,12 +122,13 @@
 	
 		<g:HTMLPanel addStyleNames="{res.huskycss.inline} {style.rightPanel}">
 			<g:HTMLPanel ui:field="titlePanel" addStyleNames="{style.lblTitle} {res.huskycss.inline}"/>
-			<g:Image ui:field="btnEditTitle" title="Edit" resource="{res.ic_edit}" addStyleNames="{res.huskycss.inline} {style.icon} {res.huskycss.transition}"/>
+			<g:Image ui:field="btnEditTitle" title="Edit" resource="{res.ic_edit_2}" addStyleNames="{res.huskycss.inline} {style.icon} {res.huskycss.transition}"/>
+			<g:Image ui:field="btnAddItem" title="Add" resource="{res.ic_add}" addStyleNames="{res.huskycss.inline} {style.icon} {res.huskycss.transition}"/>
 			<g:HTMLPanel ui:field="quizPanel">
 				<g:HTMLPanel ui:field="multipleChoicePanel">
-					<h:ChoiceItem text="Item 1" name="mChoice"/>
-					<h:ChoiceItem text="Item 2" name="mChoice"/>
-					<h:ChoiceItem text="Item 3" name="mChoice"/>
+					<h:ChoiceItem  name="mChoice"/>
+					<h:ChoiceItem  name="mChoice"/>
+					<h:ChoiceItem  name="mChoice"/>
 				</g:HTMLPanel>
 			</g:HTMLPanel>
 		</g:HTMLPanel>
@@ -123,8 +136,9 @@
 		
 		
 		<g:HTMLPanel addStyleNames="{style.footerPanel}">
-			<g:Label text="+Add Explanation" ui:field="lblAddExplanation" addStyleNames="{res.huskycss.inline}"/>
+			<g:Label text="+Add Explanation" ui:field="lblAddExplanation" addStyleNames="{res.huskycss.inline} {style.lblAddExplanation}"/>
 			<g:Image resource="{res.ic_trash}" title="Delete" ui:field="btnDelete" addStyleNames="{res.huskycss.inline} {style.btnTrash}"/>
+			<g:HTMLPanel ui:field="explanationPanel" addStyleNames="{style.explanationPanel}"/>
 		</g:HTMLPanel>
 	
 	</g:HTMLPanel>
