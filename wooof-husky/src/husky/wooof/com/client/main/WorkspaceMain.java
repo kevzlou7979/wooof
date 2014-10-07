@@ -4,17 +4,21 @@ import husky.wooof.com.client.HuskyMain;
 import husky.wooof.com.client.navigation.HuskyCardNavigation;
 import husky.wooof.com.client.resources.HuskyResources;
 import husky.wooof.com.client.services.CardService;
+import husky.wooof.com.client.services.QuizService;
 import husky.wooof.com.client.ui.GoogleDocViewer;
 import husky.wooof.com.client.ui.LessonItem;
 import husky.wooof.com.client.ui.PreviewGoogleMap;
 import husky.wooof.com.client.ui.PreviewLink;
 import husky.wooof.com.client.ui.PreviewYoutube;
+import husky.wooof.com.client.ui.QuizItem;
 import husky.wooof.com.shared.HuskyCard;
 import husky.wooof.com.shared.HuskyImageLesson;
 import husky.wooof.com.shared.HuskyItem;
 import husky.wooof.com.shared.HuskyLesson;
 import husky.wooof.com.shared.HuskyLinkLesson;
 import husky.wooof.com.shared.HuskyPlaceLesson;
+import husky.wooof.com.shared.HuskyQuiz;
+import husky.wooof.com.shared.HuskyQuizItem;
 import husky.wooof.com.shared.HuskyYoutubeLesson;
 import husky.wooof.com.shared.IHuskyConstants;
 
@@ -111,38 +115,13 @@ public class WorkspaceMain extends Composite {
 		lessonPanel.clear();
 		lessonPanel.add(createLesson);
 		
-		/*LessonService.Connect.getService().getAllCardLessons(card, new AsyncCallback<List<HuskyLesson>>() {
-
-			@Override
-			public void onSuccess(List<HuskyLesson> result) {
-				int i = 1;
-				for (HuskyLesson lesson : result) {
-					LessonItem item = new LessonItem(lesson, i, WorkspaceMain.this);
-					lessonPanel.add(item);
-					if(i == 1){
-						executeLesson(item);
-					}
-					i++;
-				}
-				
-			}
-
-			
-
-			@Override
-			public void onFailure(Throwable caught) {
-				Window.alert(caught.getMessage());
-			}
-		});*/
-		
-		
 		CardService.Connect.getService().getAllItems(card, new AsyncCallback<List<HuskyItem>>() {
 			
 			@Override
 			public void onSuccess(List<HuskyItem> result) {
 				int i = 1;
 				for (HuskyItem item : result) {
-					LessonItem lessonItem = new LessonItem((HuskyLesson) item, i, WorkspaceMain.this);
+					LessonItem lessonItem = new LessonItem(item, i, WorkspaceMain.this);
 					lessonPanel.add(lessonItem);
 					if(i == 1){
 						executeLesson(lessonItem);
@@ -198,8 +177,31 @@ public class WorkspaceMain extends Composite {
 			default:
 				break;
 			}
+		}else{
+			HuskyQuiz quiz = (HuskyQuiz) huskyItem;
+			lblLessonTitle.setText(quiz.getName());
+			lblLessonDescription.setText(quiz.getDescription());
+			getQuizItems(quiz);
 		}
 		
+	}
+	
+	private void getQuizItems(HuskyQuiz quiz){
+		lessonPreviewPanel.clear();
+		QuizService.Connect.getService().getAllQuizItems(quiz, new AsyncCallback<List<HuskyQuizItem>>() {
+			
+			@Override
+			public void onSuccess(List<HuskyQuizItem> result) {
+				for(HuskyQuizItem item : result){
+					lessonPreviewPanel.add(new QuizItem(item));
+				}
+			}
+			
+			@Override
+			public void onFailure(Throwable caught) {
+				Window.alert(caught.getMessage());
+			}
+		});
 	}
 
 	private void playLinkLesson(HuskyLinkLesson lesson) {

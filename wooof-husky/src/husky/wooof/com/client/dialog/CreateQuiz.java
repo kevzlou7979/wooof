@@ -40,13 +40,15 @@ public class CreateQuiz extends Composite {
 	@UiField HuskyTitle menuQuizMultiChoice, menuQuizTrueFalse, menuQuizDef, menuQuizMatching, menuQuizEssay, menuQuizCheckBox;
 	private int quizNoItems = 1;
 	private HuskyCard card;
+	private Label lblTitle = new Label("Quiz Title");
+	private Label lblDescription = new Label("Quiz Description");
 	private List<HuskyQuizItem> items = new ArrayList<HuskyQuizItem>();
 
 	public CreateQuiz() {
 		initWidget(uiBinder.createAndBindUi(this));
 		registerMenuHandler();
-		titlePanel.add(new Label("Quiz Title"));
-		descriptionPanel.add(new Label("Quiz Description"));
+		titlePanel.add(lblTitle);
+		descriptionPanel.add(lblDescription);
 	}
 	
 	private void registerMenuHandler() {
@@ -70,12 +72,12 @@ public class CreateQuiz extends Composite {
 	
 	@UiHandler("imgEditTitle")
 	void onEditTitle(ClickEvent e){
-		HuskyActionDialog.show(IHuskyConstants.ACTION_INFO, "", "Edit your quiz title", new HuskyCkeditor(titlePanel),60);
+		HuskyActionDialog.show(IHuskyConstants.ACTION_INFO, "", "Edit your quiz title", new HuskyCkeditor(titlePanel ,IHuskyConstants.CK_QUIZ_TITLE, this, true),60);
 	}
 	
 	@UiHandler("imgEditDescription")
 	void onEditDescription(ClickEvent e){
-		HuskyActionDialog.show(IHuskyConstants.ACTION_INFO, "", "Edit your quiz description", new HuskyCkeditor(descriptionPanel),60);
+		HuskyActionDialog.show(IHuskyConstants.ACTION_INFO, "", "Edit your quiz description", new HuskyCkeditor(descriptionPanel,IHuskyConstants.CK_QUIZ_DESCRIPTION, this, true),60);
 	}
 	
 	@UiHandler("btnSave")
@@ -87,11 +89,10 @@ public class CreateQuiz extends Composite {
 			}
 		}
 		
-		QuizService.Connect.getService().saveQuiz(new HuskyQuiz(card.getId(), titlePanel.getElement().toString(), descriptionPanel.getElement().toString(), 0, new Date()), items, new AsyncCallback<Void>() {
+		QuizService.Connect.getService().saveQuiz(new HuskyQuiz(card.getId(), lblTitle.getText(), lblDescription.getText(), 0, new Date()), items, new AsyncCallback<Void>() {
 			
 			@Override
 			public void onSuccess(Void result) {
-				// TODO Auto-generated method stub
 				
 			}
 			
@@ -108,8 +109,23 @@ public class CreateQuiz extends Composite {
 
 	public void setCard(HuskyCard card) {
 		this.card = card;
-	}	
-	
-	
+	}
+
+	public Label getLblTitle() {
+		return lblTitle;
+	}
+
+	public void setLblTitle(Label lblTitle) {
+		this.lblTitle = lblTitle;
+	}
+
+	public Label getLblDescription() {
+		return lblDescription;
+	}
+
+	public void setLblDescription(Label lblDescription) {
+		this.lblDescription = lblDescription;
+	}
+
 	
 }

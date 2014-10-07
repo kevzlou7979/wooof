@@ -34,4 +34,6 @@ public interface QuizService extends RemoteService {
 
 	public void deleteQuiz(HuskyQuiz lesson) throws Exception;
 
+	public List<HuskyQuizItem> getAllQuizItems(HuskyQuiz quiz) throws Exception;
+	
 }

@@ -17,5 +17,7 @@ public interface QuizServiceAsync {
 	public void updateQuiz(HuskyQuiz quiz, AsyncCallback<Void> callback);
 
 	public void deleteQuiz(HuskyQuiz quiz, AsyncCallback<Void> callback);
+	
+	public void getAllQuizItems(HuskyQuiz quiz, AsyncCallback<List<HuskyQuizItem>> callback);
 
 }
