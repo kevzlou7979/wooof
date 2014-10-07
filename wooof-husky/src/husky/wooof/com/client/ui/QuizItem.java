@@ -42,6 +42,16 @@ public class QuizItem extends Composite {
 	private CreateQuiz createQuiz;
 	private HuskyQuizItem quizItem;
 	
+	public QuizItem(HuskyQuizItem quizItem){
+		initWidget(uiBinder.createAndBindUi(this));
+		this.quizItem = quizItem;
+		lblTitle.setText(quizItem.getTitle());
+		lblItemNo.setText(String.valueOf(quizItem.getItemNo()));
+		txtPoints.setText(String.valueOf(quizItem.getPoint()));
+		
+		multipleChoicePanel.clear();
+	}
+	
 	public QuizItem(HuskyQuizItem quizItem, int itemNo, CreateQuiz createQuiz) {
 		initWidget(uiBinder.createAndBindUi(this));
 		this.createQuiz = createQuiz;
@@ -78,7 +88,7 @@ public class QuizItem extends Composite {
 	
 	@UiHandler("btnEditTitle")
 	void onEditTitle(ClickEvent e){
-		HuskyActionDialog.show(IHuskyConstants.ACTION_INFO, "", "Edit your quiz title", new HuskyCkeditor(titlePanel, IHuskyConstants.CK_QUIZ_ITEM_TITLE, this),60);
+		HuskyActionDialog.show(IHuskyConstants.ACTION_INFO, "", "Edit your quiz title", new HuskyCkeditor(titlePanel, IHuskyConstants.CK_QUIZ_ITEM_TITLE, this, false),60);
 	}
 	
 	@UiHandler("btnDelete")
@@ -89,7 +99,7 @@ public class QuizItem extends Composite {
 	@UiHandler("lblAddExplanation")
 	void onAddExplanation(ClickEvent e){
 		lblAddExplanation.setText("Edit Explanation");
-		HuskyActionDialog.show(IHuskyConstants.ACTION_INFO, "", "Add your explanation on this quiz item", new HuskyCkeditor(explanationPanel, IHuskyConstants.CK_QUIZ_ITEM_EXPLANATION, this),60);
+		HuskyActionDialog.show(IHuskyConstants.ACTION_INFO, "", "Add your explanation on this quiz item", new HuskyCkeditor(explanationPanel, IHuskyConstants.CK_QUIZ_ITEM_EXPLANATION, this, false),60);
 	}
 
 	@UiHandler("btnAddItem")

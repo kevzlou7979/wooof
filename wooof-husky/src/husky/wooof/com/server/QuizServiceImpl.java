@@ -46,4 +46,14 @@ public class QuizServiceImpl extends RemoteServiceServlet implements QuizService
 		ofy.delete(quiz);
 	}
 
+	@Override
+	public List<HuskyQuizItem> getAllQuizItems(HuskyQuiz quiz) throws Exception {
+		List<HuskyQuizItem> items = new ArrayList<>();
+		for (HuskyQuizItem item : ofy.query(HuskyQuizItem.class).filter("quizId", quiz.getId()).order("itemNo")) {
+			items.add(item);
+		}
+
+		return items;
+	}
+
 }
