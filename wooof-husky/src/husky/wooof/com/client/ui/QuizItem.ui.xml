@@ -54,6 +54,7 @@
 		.rightPanel{
 			padding: 20px 20px 20px 50px;
 			width: 80%;
+			text-align: left !important;
 		}
 		.lblTitle{
 			font-size: 1.2em;
@@ -107,7 +108,14 @@
 			color: #4086FA;
 		}
 		.explanationPanel{
-			margin: 20px 0px 5px 0px;
+		}
+		.btnAction{
+			width: 100px;
+			font-size: 0.9em;
+			margin-left: 10px;
+		}
+		.nextPanel{
+			text-align: right;
 		}
 	</ui:style>
 	<g:HTMLPanel addStyleNames="{style.panel}">
@@ -137,6 +145,11 @@
 		
 		
 		<g:HTMLPanel addStyleNames="{style.footerPanel}">
+		    <g:HTMLPanel ui:field="nextPanel" addStyleNames="{style.nextPanel}">
+		        <g:Label ui:field="lblItemNext" addStyleNames="{res.huskycss.inline}"/>
+		    	<h:HuskyButton ui:field="btnNext" text="Next" addStyleNames="{style.btnAction} {res.huskycss.inline}"/>
+		    </g:HTMLPanel>
+		   
 			<g:Label text="+Add Explanation" ui:field="lblAddExplanation" addStyleNames="{res.huskycss.inline} {style.lblAddExplanation}"/>
 			<g:Image resource="{res.ic_trash}" title="Delete" ui:field="btnDelete" addStyleNames="{res.huskycss.inline} {style.btnTrash}"/>
 			<g:HTMLPanel ui:field="explanationPanel" addStyleNames="{style.explanationPanel}"/>
