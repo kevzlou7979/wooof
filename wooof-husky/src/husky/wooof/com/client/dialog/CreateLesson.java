@@ -70,6 +70,7 @@ public class CreateLesson extends Composite {
 		registerEvents();
 		onSelectLessonType(typeImage);
 		createQuizPanel.setVisible(false);
+		createQuizPanel.setCreateLesson(this);
 		createQuizPanel.setCard(workspaceMain.getCard());
 		createLessonPanel.setVisible(true);
 		onChangeStep(IHuskyConstants.NAV_LESSON_INFO);
@@ -152,8 +153,7 @@ public class CreateLesson extends Composite {
 
 			@Override
 			public void onSuccess(Void result) {
-				huskyMain.getHuskyDialog().hide();
-				workspaceMain.getAllCardLessons();
+				onReloadWorspace();
 			}
 
 			@Override
@@ -161,6 +161,11 @@ public class CreateLesson extends Composite {
 				HuskyMessage.showMessage(false, messagePanel, caught.getMessage());
 			}
 		});
+	}
+	
+	public void onReloadWorspace(){
+		huskyMain.getHuskyDialog().hide();
+		workspaceMain.getAllCardLessons();
 	}
 	
 	

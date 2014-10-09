@@ -43,7 +43,8 @@ public class CreateQuiz extends Composite {
 	private Label lblTitle = new Label("Quiz Title");
 	private Label lblDescription = new Label("Quiz Description");
 	private List<HuskyQuizItem> items = new ArrayList<HuskyQuizItem>();
-
+	private CreateLesson createLesson;
+	
 	public CreateQuiz() {
 		initWidget(uiBinder.createAndBindUi(this));
 		registerMenuHandler();
@@ -82,18 +83,23 @@ public class CreateQuiz extends Composite {
 	
 	@UiHandler("btnSave")
 	void onSave(ClickEvent e){
-		
+		double totalPoints = 0;
+		int totalItems = 0;
+		int totalDuration = 0;
 		for(Widget w : quizPanel){
 			if(w instanceof QuizItem){
 				items.add(((QuizItem) w).getQuizItem());
+				((QuizItem) w).setChoices(((QuizItem) w).getQuizItem().getItemNo());
+				totalPoints = totalPoints + ((QuizItem) w).getQuizItem().getPoint();
+				totalItems++;
 			}
 		}
 		
-		QuizService.Connect.getService().saveQuiz(new HuskyQuiz(card.getId(), lblTitle.getText(), lblDescription.getText(), 0, new Date()), items, new AsyncCallback<Void>() {
+		QuizService.Connect.getService().saveQuiz(new HuskyQuiz(card.getId(), lblTitle.getText(), lblDescription.getText(), totalPoints, new Date(), totalItems, totalDuration), items, new AsyncCallback<Void>() {
 			
 			@Override
 			public void onSuccess(Void result) {
-				
+				createLesson.onReloadWorspace();
 			}
 			
 			@Override
@@ -126,6 +132,15 @@ public class CreateQuiz extends Composite {
 	public void setLblDescription(Label lblDescription) {
 		this.lblDescription = lblDescription;
 	}
+
+	public CreateLesson getCreateLesson() {
+		return createLesson;
+	}
+
+	public void setCreateLesson(CreateLesson createLesson) {
+		this.createLesson = createLesson;
+	}
+
 
 	
 }

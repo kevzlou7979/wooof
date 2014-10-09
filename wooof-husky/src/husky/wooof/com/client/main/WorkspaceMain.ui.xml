@@ -75,6 +75,23 @@
 	.materialPanel{
 		height: 600px;
 	}
+	.lblQuizTitle{
+		padding-top: 20%;
+		font-size: 1.7em;
+		color: #fff;
+	}
+	.quizInfoPanel{
+		font-size: 1em;
+		color: #fff;
+		padding: 20px;
+	}
+	.lblDesc{
+		font-size: 1.2em;
+		color: #fff;
+	}
+	.btnQuizStart{
+		width: 20% !important;
+	}
 	</ui:style>
 	<g:HTMLPanel ui:field="panel" addStyleNames="{style.panel}">
 		<g:HTMLPanel ui:field="activeUsersPanel" addStyleNames="{style.activeUsersPanel}" />
@@ -88,7 +105,21 @@
 				</g:HTMLPanel>
 			</g:HTMLPanel>
 			<g:HTMLPanel ui:field="materialPanel" addStyleNames="{style.previewPanel} {style.materialPanel} {res.huskymobilecss.materialPanel}"/>
-			<g:HTMLPanel ui:field="lessonPreviewPanel" addStyleNames="{style.previewPanel} {res.huskymobilecss.previewPanel}"/>
+			<g:HTMLPanel ui:field="previewPanel">
+				<g:HTMLPanel ui:field="lessonPreviewPanel" addStyleNames="{style.previewPanel} {res.huskymobilecss.previewPanel}"/>
+				<g:HTMLPanel ui:field="quizPreviewPanel" addStyleNames="{style.previewPanel} {res.huskymobilecss.previewPanel} {res.huskycss.quizPanel}">
+					<g:Label ui:field="lblQuizTitle" addStyleNames="{style.lblQuizTitle}"/>
+					<g:Label ui:field="lblQuizDescription" addStyleNames="{style.lblDesc}"/>
+					
+					<g:HTMLPanel addStyleNames="{style.quizInfoPanel}">
+						<g:Label ui:field="lblTotalItems" />
+						<g:Label ui:field="lblTotalDuration"/>
+					</g:HTMLPanel>
+					
+					<h:HuskyButton ui:field="btnStartNow" text="Start Now" addStyleNames="{style.btnQuizStart}"/> 
+				</g:HTMLPanel>
+			</g:HTMLPanel>
+			
 		</g:HTMLPanel>
 
 		<g:HTMLPanel ui:field="lessonPanel" addStyleNames="{res.huskycss.inline} {style.lessonPanel} {res.huskymobilecss.lessonPanel}">

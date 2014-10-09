@@ -37,7 +37,7 @@ public class QuizItem extends Composite {
 	@UiField TextBox txtPoints;
 	@UiField HTMLPanel quizPanel, multipleChoicePanel, titlePanel, explanationPanel;
 	
-	@UiField Image btnAddItem;
+	@UiField Image btnAddItem, btnEditTitle, btnDelete;
 	
 	private CreateQuiz createQuiz;
 	private HuskyQuizItem quizItem;
@@ -45,11 +45,33 @@ public class QuizItem extends Composite {
 	public QuizItem(HuskyQuizItem quizItem){
 		initWidget(uiBinder.createAndBindUi(this));
 		this.quizItem = quizItem;
-		lblTitle.setText(quizItem.getTitle());
 		lblItemNo.setText(String.valueOf(quizItem.getItemNo()));
 		txtPoints.setText(String.valueOf(quizItem.getPoint()));
-		
-		multipleChoicePanel.clear();
+		titlePanel.add(new HTMLPanel(quizItem.getTitle()));
+		btnAddItem.removeFromParent();
+		btnEditTitle.removeFromParent();
+		txtPoints.setEnabled(false);
+		txtPoints.getElement().getStyle().setBackgroundColor("#fff");
+		lblAddExplanation.removeFromParent();
+		btnDelete.removeFromParent();
+		if(quizItem instanceof HuskyQuizMultiplechoice){
+			HuskyQuizMultiplechoice multiChoice = (HuskyQuizMultiplechoice)quizItem;
+			
+			multipleChoicePanel.clear();
+			String[] choices = multiChoice.getItems().split(IHuskyConstants.DELIMITER);
+			for(String s : choices){
+				if(!s.isEmpty()){
+					ChoiceItem choice = new ChoiceItem();
+					choice.getRbItem().setText("");
+					choice.setName(String.valueOf(quizItem.getId()) + quizItem.getItemNo());
+					choice.getChoicePanel().clear();
+					choice.getChoicePanel().add(new HTMLPanel(s));
+					choice.getBtnEditChoice().removeFromParent();
+					choice.getBtnDelete().removeFromParent();
+					multipleChoicePanel.add(choice);
+				}
+			}
+		}
 	}
 	
 	public QuizItem(HuskyQuizItem quizItem, int itemNo, CreateQuiz createQuiz) {
@@ -72,18 +94,23 @@ public class QuizItem extends Composite {
 		if(quizItem instanceof HuskyQuizMultiplechoice){
 			btnAddItem.setVisible(true);
 			quizPanel.add(multipleChoicePanel);
-			for(Widget w : multipleChoicePanel){
-				if(w instanceof ChoiceItem){
-					((ChoiceItem) w).setName(name + String.valueOf(itemNo));
-					((ChoiceItem) w).setCom(this);
-					String item = ((ChoiceItem) w).getChoicePanel().getElement().toString();
-					choices = choices + ";" + item; 
-				}
-			}
-			((HuskyQuizMultiplechoice) getQuizItem()).setItems(choices);
+			setChoices(itemNo);
 		}
 		
 		
+	}
+	
+	public void setChoices(int itemNo){
+		choices = "";
+		for(Widget w : multipleChoicePanel){
+			if(w instanceof ChoiceItem){
+				((ChoiceItem) w).setName(name + String.valueOf(itemNo));
+				((ChoiceItem) w).setCom(this);
+				String item = ((ChoiceItem) w).getChoicePanel().getElement().toString();
+				choices = choices + IHuskyConstants.DELIMITER + item; 
+			}
+		}
+		((HuskyQuizMultiplechoice) getQuizItem()).setItems(choices);
 	}
 	
 	@UiHandler("btnEditTitle")
