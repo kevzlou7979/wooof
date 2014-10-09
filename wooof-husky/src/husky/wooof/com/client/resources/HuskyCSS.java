@@ -95,4 +95,6 @@ public interface HuskyCSS extends CssResource {
 	String lblOverflow();
 	
 	String transition();
+	
+	String quizPanel();
 }

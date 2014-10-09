@@ -27,7 +27,7 @@
 		}
 		.leftItem{
 			position: absolute;
-			z-index: 999;
+			z-index: 2;
 			width: 60px;
 			height: 60px;
 			text-align: center;
@@ -53,6 +53,7 @@
 		}
 		.rightPanel{
 			padding: 20px 20px 20px 50px;
+			width: 80%;
 		}
 		.lblTitle{
 			font-size: 1.2em;
@@ -74,7 +75,7 @@
 			right: -20px;
 			width: 20px;
 			background: #4086fa;
-			z-index: 999;
+			z-index: 1;
 			text-align: right;
 			padding: 5px;
 			color: #fff;

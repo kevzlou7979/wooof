@@ -12,6 +12,12 @@
 	background-position: fixed;
 }
 
+.quizPanel{
+	border: none !important;
+	background: #4086fa !important;
+	text-align: center;
+}
+
 .transition{
 	transition: 1s all;
 	-webkit-transition: 1s all;

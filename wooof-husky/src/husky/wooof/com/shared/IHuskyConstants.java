@@ -57,5 +57,6 @@ public interface IHuskyConstants {
 	public final String CK_QUIZ_ITEM_TITLE = "ckQuizItemTitle";
 	public final String CK_QUIZ_ITEM_EXPLANATION = "ckQuizItemExplanation";
 	
+	public final String DELIMITER = ";;;";
 
 }

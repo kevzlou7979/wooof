@@ -13,12 +13,14 @@ public class HuskyQuiz extends HuskyItem  implements Serializable {
 	private String title;
 	private String description;
 	private double totalPoints;
+	private int totalItems;
+	private int totalDurationSec;
 
 	public HuskyQuiz() {
 	}
 
 	public HuskyQuiz(Long cardId, String title, String description,
-			double totalPoints, Date creationDate) {
+			double totalPoints, Date creationDate, int totalItems,int totalDurationSec) {
 		super();
 		this.title = title;
 		this.description = description;
@@ -26,6 +28,8 @@ public class HuskyQuiz extends HuskyItem  implements Serializable {
 		this.name = title;
 		this.cardId = cardId;
 		this.type = "Quiz";
+		this.totalItems = totalItems;
+		this.totalDurationSec = totalDurationSec;
 	}
 
 	public String getTitle() {
@@ -50,6 +54,22 @@ public class HuskyQuiz extends HuskyItem  implements Serializable {
 
 	public void setTotalPoints(double totalPoints) {
 		this.totalPoints = totalPoints;
+	}
+
+	public int getTotalItems() {
+		return totalItems;
+	}
+
+	public void setTotalItems(int totalItems) {
+		this.totalItems = totalItems;
+	}
+
+	public int getTotalDurationSec() {
+		return totalDurationSec;
+	}
+
+	public void setTotalDurationSec(int totalDurationSec) {
+		this.totalDurationSec = totalDurationSec;
 	}
 
 }

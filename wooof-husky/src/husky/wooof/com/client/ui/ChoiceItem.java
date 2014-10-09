@@ -25,7 +25,8 @@ public class ChoiceItem extends Composite {
 	
 	@UiField RadioButton rbItem;
 	@UiField HTMLPanel choicePanel;
-	@UiField Image btnDelete;
+	@UiField Image btnDelete, btnEditChoice;
+
 	
 	private Composite com;
 	private String text;
@@ -104,6 +105,30 @@ public class ChoiceItem extends Composite {
 
 	public void setCom(Composite com) {
 		this.com = com;
+	}
+
+	public RadioButton getRbItem() {
+		return rbItem;
+	}
+
+	public void setRbItem(RadioButton rbItem) {
+		this.rbItem = rbItem;
+	}
+
+	public Image getBtnDelete() {
+		return btnDelete;
+	}
+
+	public void setBtnDelete(Image btnDelete) {
+		this.btnDelete = btnDelete;
+	}
+
+	public Image getBtnEditChoice() {
+		return btnEditChoice;
+	}
+
+	public void setBtnEditChoice(Image btnEditChoice) {
+		this.btnEditChoice = btnEditChoice;
 	}
 	
 	

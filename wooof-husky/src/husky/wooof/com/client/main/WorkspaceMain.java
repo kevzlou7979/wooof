@@ -45,11 +45,13 @@ public class WorkspaceMain extends Composite {
 	}
 
 	@UiField
-	HTMLPanel panel, activeUsersPanel, lessonPanel, lessonPreviewPanel, materialPanel;
+	HTMLPanel panel, activeUsersPanel, lessonPanel, lessonPreviewPanel, quizPreviewPanel, materialPanel, previewPanel;
 	@UiField
 	LessonItem createLesson;
 	@UiField 
 	Label lblLessonTitle, lblLessonDescription, lblBrowseMaterial;
+	@UiField
+	Label lblQuizTitle, lblQuizDescription, lblTotalItems, lblTotalDuration;
 
 	private HuskyCardNavigation cardNavigation;
 	private HuskyCard card;
@@ -68,6 +70,7 @@ public class WorkspaceMain extends Composite {
 		cardNavigation.addStyleName(HuskyResources.INSTANCE.huskycss().cardNavigation() + " " + HuskyResources.INSTANCE.huskymobilecss().cardNavigation());
 		panel.add(cardNavigation);
 		materialPanel.setVisible(false);
+		previewPanel.clear();
 		getAllCardLessons();
 		onJoinCard();
 	}
@@ -146,6 +149,7 @@ public class WorkspaceMain extends Composite {
 		}
 		
 		if(huskyItem instanceof HuskyLesson){
+			addPanel(lessonPreviewPanel, previewPanel);
 			HuskyLesson lesson = (HuskyLesson) huskyItem;
 			lblLessonTitle.setText(lesson.getName());
 			lblLessonDescription.setText(lesson.getDescription());
@@ -156,7 +160,6 @@ public class WorkspaceMain extends Composite {
 				lblBrowseMaterial.setVisible(true);
 				lblBrowseMaterial.setLayoutData(lesson);
 			}
-			
 			item.getElement().getStyle().setOpacity(1);
 			switch (lesson.getType()) {
 			case IHuskyConstants.LESSON_YOUTUBE:
@@ -179,11 +182,27 @@ public class WorkspaceMain extends Composite {
 			}
 		}else{
 			HuskyQuiz quiz = (HuskyQuiz) huskyItem;
-			lblLessonTitle.setText(quiz.getName());
-			lblLessonDescription.setText(quiz.getDescription());
-			getQuizItems(quiz);
+			lblLessonTitle.setText("");
+			lblLessonDescription.setText("");
+			addPanel(quizPreviewPanel, previewPanel);
+			lblQuizTitle.setText(quiz.getTitle());
+			lblQuizDescription.setText(quiz.getDescription());
+			lblTotalItems.setText("Total Items: " + String.valueOf(quiz.getTotalItems()));
+			
+			if(quiz.getTotalDurationSec()!=0){
+				lblTotalDuration.setText("Duration: " + String.valueOf(quiz.getTotalDurationSec()));
+			}else{
+				lblTotalDuration.setText("Duration: Not Set");
+			}
+			
+			//getQuizItems(quiz);
 		}
 		
+	}
+	
+	private void addPanel(HTMLPanel child, HTMLPanel parent){
+		parent.clear();
+		parent.add(child);
 	}
 	
 	private void getQuizItems(HuskyQuiz quiz){
@@ -193,7 +212,7 @@ public class WorkspaceMain extends Composite {
 			@Override
 			public void onSuccess(List<HuskyQuizItem> result) {
 				for(HuskyQuizItem item : result){
-					lessonPreviewPanel.add(new QuizItem(item));
+					quizPreviewPanel.add(new QuizItem(item));
 				}
 			}
 			
