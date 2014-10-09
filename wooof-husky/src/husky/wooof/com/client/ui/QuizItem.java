@@ -1,6 +1,7 @@
 package husky.wooof.com.client.ui;
 
 import husky.wooof.com.client.dialog.CreateQuiz;
+import husky.wooof.com.client.main.WorkspaceMain;
 import husky.wooof.com.shared.HuskyQuizItem;
 import husky.wooof.com.shared.HuskyQuizMultiplechoice;
 import husky.wooof.com.shared.IHuskyConstants;
@@ -32,12 +33,14 @@ public class QuizItem extends Composite {
 	private String choices = "";
 	private int choiceIndex = 0;
 	private Label lblTitle = new Label();
+	private WorkspaceMain workspaceMain;
 
-	@UiField Label lblItemNo, lblAddExplanation;
+	@UiField Label lblItemNo, lblAddExplanation,lblItemNext;
 	@UiField TextBox txtPoints;
 	@UiField HTMLPanel quizPanel, multipleChoicePanel, titlePanel, explanationPanel;
 	
 	@UiField Image btnAddItem, btnEditTitle, btnDelete;
+	@UiField HuskyButton btnNext;
 	
 	private CreateQuiz createQuiz;
 	private HuskyQuizItem quizItem;
@@ -89,6 +92,7 @@ public class QuizItem extends Composite {
 		titlePanel.add(lblTitle);
 		quizPanel.clear();
 		btnAddItem.setVisible(false);
+		btnNext.removeFromParent();
 		
 		
 		if(quizItem instanceof HuskyQuizMultiplechoice){
@@ -170,6 +174,16 @@ public class QuizItem extends Composite {
 		this.multipleChoicePanel = multipleChoicePanel;
 	}
 	
-	
-	
+	@UiHandler("btnNext")
+	void onNextItem(ClickEvent e){
+		workspaceMain.onNextQuizItem();
+	}
+
+	public WorkspaceMain getWorkspaceMain() {
+		return workspaceMain;
+	}
+
+	public void setWorkspaceMain(WorkspaceMain workspaceMain) {
+		this.workspaceMain = workspaceMain;
+	}
 }

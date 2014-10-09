@@ -73,6 +73,7 @@
 			width: 100px;
 			font-size: 0.9em;
 			float: right;
+			margin-top: -5px;
 		}
 	</ui:style>
 	<g:HTMLPanel addStyleNames="{style.panel}">

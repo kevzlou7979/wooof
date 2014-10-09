@@ -55,13 +55,17 @@ public class WorkspaceMain extends Composite {
 
 	private HuskyCardNavigation cardNavigation;
 	private HuskyCard card;
+	private HuskyQuiz quiz;
+	private List<HuskyQuizItem> quizItems;
 	private HuskyMain huskyMain;
+	private int nextItem;
 
 	public WorkspaceMain(HuskyMain huskyMain, HuskyCard card) {
 		initWidget(uiBinder.createAndBindUi(this));
 		lblBrowseMaterial.setVisible(false);
 		this.huskyMain = huskyMain;
 		this.card = card;
+		this.nextItem = 0;
 		createLesson.setHuskyMain(huskyMain);
 		createLesson.setWorkspaceMain(this);
 		huskyMain.minimizeSideBar(true);
@@ -194,8 +198,8 @@ public class WorkspaceMain extends Composite {
 			}else{
 				lblTotalDuration.setText("Duration: Not Set");
 			}
-			
-			//getQuizItems(quiz);
+			this.quiz = quiz;
+			getQuizItems(quiz);
 		}
 		
 	}
@@ -211,9 +215,7 @@ public class WorkspaceMain extends Composite {
 			
 			@Override
 			public void onSuccess(List<HuskyQuizItem> result) {
-				for(HuskyQuizItem item : result){
-					quizPreviewPanel.add(new QuizItem(item));
-				}
+				quizItems = result;
 			}
 			
 			@Override
@@ -278,5 +280,32 @@ public class WorkspaceMain extends Composite {
 		materialPanel.setVisible(false);
 		lessonPreviewPanel.removeStyleName(HuskyResources.INSTANCE.huskycss().huskyMaterialMode());
 	}
+	
+	@UiHandler("btnStartNow")
+	void onStartQuiz(ClickEvent e){
+		onNextQuizItem();
+	}
+	
+	public int onNextQuizItem(){
+		quizPreviewPanel.clear();
+		lblLessonTitle.setText(quiz.getTitle());
+		lblLessonDescription.setText(quiz.getDescription());
+		quizPreviewPanel.getElement().setAttribute("style", "background: none !important");
+		QuizItem item = new QuizItem(quizItems.get(nextItem));
+		item.setWorkspaceMain(this);
+		quizPreviewPanel.add(item);
+		nextItem ++;
+		return nextItem;
+	}
 
+	public HuskyQuiz getQuiz() {
+		return quiz;
+	}
+
+	public void setQuiz(HuskyQuiz quiz) {
+		this.quiz = quiz;
+	}
+
+	
+	
 }
