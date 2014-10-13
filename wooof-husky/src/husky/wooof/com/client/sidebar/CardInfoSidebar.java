@@ -36,7 +36,7 @@ public class CardInfoSidebar extends Composite {
 
 	private HuskyCard card;
 	private HuskyUser user;
-	@UiField Image imgCard;
+	@UiField Image imgCard, imgCardQrCode;
 	@UiField Label lblCardName, lblNoHuskies, lblCardDesc;
 	@UiField HTMLPanel adminPanel;
 	
@@ -50,6 +50,7 @@ public class CardInfoSidebar extends Composite {
 		lblCardDesc.setText(card.getDescription());
 		lblCardName.setText(card.getName());
 		lblNoHuskies.setText(String.valueOf(card.getViewers().size()));
+		imgCardQrCode.setUrl("http://chart.apis.google.com/chart?cht=qr&chs=100x100&chl=" + String.valueOf(card.getId()));
 		setAllAdminUsers();
 	}
 	
