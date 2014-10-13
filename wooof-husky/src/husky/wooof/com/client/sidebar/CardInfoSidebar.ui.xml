@@ -74,8 +74,10 @@
 			</g:HTMLPanel>
 		</g:HTMLPanel>
 		<g:Label ui:field="lblCardDesc" addStyleNames="{style.lblCardDesc}"/>
+		<g:Image ui:field="imgCardQrCode"/>
 		<g:Label text="Administrators" addStyleNames="{style.lblTitle}"/>
 		<g:HTMLPanel ui:field="adminPanel"/>
 		<h:HuskyButton ui:field="btnUnsub" text="Unsubscribe" addStyleNames="{res.huskycss.huskyButtonRed} {style.btnUnsub}"/>
+	
 	</g:HTMLPanel>
 </ui:UiBinder> 
