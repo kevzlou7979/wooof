@@ -25,6 +25,12 @@ public class HuskyLesson  extends HuskyItem implements Serializable {
 	}
 
 
+	public HuskyLesson(String description, String materialUrl) {
+		super();
+		this.description = description;
+		this.materialUrl = materialUrl;
+	}
+
 	public String getDescription() {
 		return description;
 	}
