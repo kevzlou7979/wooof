@@ -18,6 +18,15 @@ public class HuskyQuiz extends HuskyItem  implements Serializable {
 
 	public HuskyQuiz() {
 	}
+	
+	
+
+	public HuskyQuiz(Long cardId, String name, String type) {
+		super(cardId, name, type);
+		// TODO Auto-generated constructor stub
+	}
+
+
 
 	public HuskyQuiz(Long cardId, String title, String description,
 			double totalPoints, Date creationDate, int totalItems,int totalDurationSec) {

@@ -153,6 +153,12 @@
 			    <g:HTMLPanel addStyleNames="{style.typePanel}">
 			    	<h:HuskyTextBox ui:field="txtMaterialLink" placeholder="Material URL" addStyleNames="{res.huskycss.inline} {style.txtYoutubeLink}"/>
 					<h:HuskyButton text="Preview" ui:field="btnMaterialPreview" addStyleNames="{res.huskycss.inline} {style.btnYoutubePreview}"/>
+					<g:HTMLPanel>
+						<div class="g-savetodrive"
+							data-src="http://a3ab771892fd198a96736e50.javacodegeeks.netdna-cdn.com/wp-content/uploads/2012/10/google-gwt-logo.jpg"
+							data-filename="google-gwt-logo.jpg"
+							data-sitename="GWT Logo"></div>
+					</g:HTMLPanel>
 					<g:HTMLPanel ui:field="materialPanel" addStyleNames="{style.materialPanel}">
 						<g:Label text="No Preview" />
 					</g:HTMLPanel>
