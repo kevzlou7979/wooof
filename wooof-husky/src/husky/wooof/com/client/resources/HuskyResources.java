@@ -111,6 +111,10 @@ public interface HuskyResources extends ClientBundle {
 	
 	ImageResource ic_add();
 	
+	ImageResource ic_google_plus();
+	
+	ImageResource ic_facebook();
+	
 	HuskyCSS huskycss();
 	
 	HuskyMobileCSS huskymobilecss();

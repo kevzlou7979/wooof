@@ -57,6 +57,20 @@
 		.txtCustom{
 			margin-top: -2px;
 		}
+		.imgAuth{
+			transform: scale(0.6);
+			-moz-transform: scale(0.6);
+			-webkit-transform: scale(0.6);
+			cursor: pointer;
+			transition: 0.5s all;
+			-webkit-transition: 0.5s all;
+			-moz-transition: 0.5s all;
+		}
+		.imgAuth:hover{
+			transform: scale(0.9);
+			-moz-transform: scale(0.9);
+			-webkit-transform: scale(0.9);
+		}
 	</ui:style>
 	<g:HTMLPanel ui:field="loginPanel" addStyleNames="{res.huskycss.loginPanel}">
 
@@ -78,6 +92,13 @@
 				<h:HuskyTextBox placeholder="Email" ui:field="txtEmail" addStyleNames="{style.txtCustom}"/>
 				<h:HuskyPasswordBox placeholder="Password" ui:field="txtPassword" addStyleNames="{style.txtCustom}"/>
 				<h:HuskyButton ui:field="btnSignIn" text="Sign In"/> 
+				
+				<g:HTMLPanel>
+					<g:Label text="Sign In with:"  addStyleNames="{style.signUp}"/>
+					<g:Image ui:field="btnGooglePlusAuth" resource="{res.ic_google_plus}" addStyleNames="{res.huskycss.inline} {style.imgAuth}"/>
+					<g:Image ui:field="btnFacebookAuth" resource="{res.ic_facebook}" addStyleNames="{res.huskycss.inline} {style.imgAuth}"/>
+				</g:HTMLPanel>
+				
 				<g:Label text="Sign Up" ui:field="signUpNav" addStyleNames="{style.signUp}"/>
 			</g:HTMLPanel>
 			

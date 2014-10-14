@@ -26,7 +26,7 @@ public class PreviewGoogleMap extends SimplePanel {
 		Frame frame = new Frame();
 		frame.setWidth("100%");
 		frame.setHeight("100%");
-		frame.setUrl("https://www.google.com/maps/embed/v1/place?key=" + IHuskyConstants.HUSKY_API_KEY +" &q=" + place.replace(" ", "+"));
+		frame.setUrl("https://www.google.com/maps/embed/v1/place?key=" + IHuskyConstants.API_KEY +" &q=" + place.replace(" ", "+"));
 		this.setWidget(frame);
 	}
 
