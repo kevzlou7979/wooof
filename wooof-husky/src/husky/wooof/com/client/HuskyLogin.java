@@ -58,8 +58,8 @@ public class HuskyLogin extends Composite {
 	public HuskyLogin() {
 		initWidget(uiBinder.createAndBindUi(this));
 		loadSignInPanel();
-		//signUpNav.removeFromParent();
-		onHocusFocus(true);
+		signUpNav.removeFromParent();
+		//onHocusFocus(true);
 	}
 
 	public void onHocusFocus(boolean isTrue){
@@ -211,8 +211,7 @@ public class HuskyLogin extends Composite {
 	}
 	
 	private void onOauth(AuthRequest req, final String oauthUrl){
-		HuskyLoading.showLoading(true, formPanel, "Signing In", 0, IHuskyConstants.LOADING_CIRCLE);
-		signInPanel.setVisible(false);
+		
 		Auth.get().login(req, new Callback<String, Throwable>() {
 			  @Override
 			  public void onSuccess(final String token) {
@@ -222,15 +221,12 @@ public class HuskyLogin extends Composite {
 					public void onSuccess(HuskyUser result) {
 						imgLogo.removeStyleName(HuskyResources.INSTANCE.huskycss().rotateLogo());
 						loadMainPanel(result);
-						HuskyLoading.showLoading(false);
 						
 					}
 					
 					@Override
 					public void onFailure(Throwable caught) {
 						Window.alert(caught.getMessage());
-						HuskyLoading.showLoading(false);
-						signInPanel.setVisible(true);
 					}
 				});
 			  }
