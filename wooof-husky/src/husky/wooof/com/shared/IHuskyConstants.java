@@ -10,7 +10,7 @@ public interface IHuskyConstants {
 	public final String API_KEY = "AIzaSyA5Et0lW5wJdjQm4J8z4o6qtIn8SP5o3E8";
 	
 	public final String FACEBOOK_AUTH_URL = "https://www.facebook.com/dialog/oauth"; 
-	public final String FACEBOOK_CLIENT_ID = "<Client ID>";
+	public final String FACEBOOK_CLIENT_ID = "650504511731140";
 	public final String FACEBOOK_EMAIL_SCOPE = "email";
 	public final String FACEBOOK_BIRTHDAY_SCOPE = "user_birthday";
 	public final String FACEBOOK_TOKEN = "https://graph.facebook.com/me?access_token=";
