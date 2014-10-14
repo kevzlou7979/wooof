@@ -8,6 +8,7 @@ import husky.wooof.com.client.ui.CircleImage;
 import husky.wooof.com.shared.HuskyUser;
 import husky.wooof.com.shared.IHuskyConstants;
 
+import com.google.api.gwt.oauth2.client.Auth;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.uibinder.client.UiBinder;
@@ -68,6 +69,7 @@ public class HuskyNavigation extends Composite {
 
 	@UiHandler("navLogout")
 	void onNavLogout(ClickEvent e) {
+		Auth.get().clearAllTokens();
 		changeNav(navLogout, IHuskyConstants.NAV_LOGOUT);
 	}
 

@@ -29,6 +29,8 @@ public interface UserAccountService extends RemoteService {
 	public HuskyUser register(String firstName, String lastName, String email, String password, String gender) throws Exception;
 
 	public HuskyUser login(String email, String password) throws Exception;
+	
+	public HuskyUser login(String oauthToken) throws Exception;
 
 	public HuskyUser getUser(HuskyUser user) throws Exception;
 

@@ -11,6 +11,9 @@ import husky.wooof.com.shared.FieldVerifier;
 import husky.wooof.com.shared.HuskyUser;
 import husky.wooof.com.shared.IHuskyConstants;
 
+import com.google.api.gwt.oauth2.client.Auth;
+import com.google.api.gwt.oauth2.client.AuthRequest;
+import com.google.api.gwt.oauth2.client.Callback;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.KeyCodes;
@@ -20,6 +23,7 @@ import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.Timer;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HTMLPanel;
@@ -28,6 +32,7 @@ import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Widget;
 
+@SuppressWarnings("deprecation")
 public class HuskyLogin extends Composite {
 
 	private static HuskyLoginUiBinder uiBinder = GWT.create(HuskyLoginUiBinder.class);
@@ -36,7 +41,7 @@ public class HuskyLogin extends Composite {
 	}
 
 	@UiField
-	HTMLPanel messagePanel, signUpPanel, signInPanel, formPanel, loginPanel;
+	HTMLPanel messagePanel, signUpPanel, signInPanel, formPanel, loginPanel, maintenancePanel;
 	@UiField
 	Image imgLogo;
 	@UiField
@@ -54,11 +59,12 @@ public class HuskyLogin extends Composite {
 		initWidget(uiBinder.createAndBindUi(this));
 		loadSignInPanel();
 		//signUpNav.removeFromParent();
-		//onHocusFocus(true);
+		onHocusFocus(true);
 	}
 
 	public void onHocusFocus(boolean isTrue){
 		if(isTrue){
+			maintenancePanel.removeFromParent();
 			loginPanel.removeStyleName(HuskyResources.INSTANCE.huskycss().loginPanel());
 			//formPanel.removeFromParent();
 			imgLogo.removeFromParent();
@@ -202,6 +208,49 @@ public class HuskyLogin extends Composite {
 	@UiHandler("lblSecret")
 	void onSecret(ClickEvent e){
 		loginPanel.add(formPanel);
+	}
+	
+	private void onOauth(AuthRequest req, final String oauthUrl){
+		HuskyLoading.showLoading(true, formPanel, "Signing In", 0, IHuskyConstants.LOADING_CIRCLE);
+		signInPanel.setVisible(false);
+		Auth.get().login(req, new Callback<String, Throwable>() {
+			  @Override
+			  public void onSuccess(final String token) {
+				  UserAccountService.Connect.getService().login(oauthUrl + token, new AsyncCallback<HuskyUser>() {
+					
+					@Override
+					public void onSuccess(HuskyUser result) {
+						imgLogo.removeStyleName(HuskyResources.INSTANCE.huskycss().rotateLogo());
+						loadMainPanel(result);
+						HuskyLoading.showLoading(false);
+						
+					}
+					
+					@Override
+					public void onFailure(Throwable caught) {
+						Window.alert(caught.getMessage());
+						HuskyLoading.showLoading(false);
+						signInPanel.setVisible(true);
+					}
+				});
+			  }
+			  @Override
+			  public void onFailure(Throwable caught) {
+				  Window.alert(caught.getMessage());
+			  }
+			});
+	}
+	
+	@UiHandler("btnGooglePlusAuth")
+	void onGooglePlusAuth(ClickEvent e){
+		AuthRequest req = new AuthRequest(IHuskyConstants.GOOGLE_AUTH_URL, IHuskyConstants.GOOGLE_CLIENT_ID).withScopes(IHuskyConstants.GOOGLE_PLUS_SCOPE, IHuskyConstants.GOOGLE_MAIL_SCOPE);
+		onOauth(req, IHuskyConstants.GOOGLE_TOKEN);
+	}
+	
+	@UiHandler("btnFacebookAuth")
+	void onFacebookAuth(ClickEvent e){
+		AuthRequest req = new AuthRequest(IHuskyConstants.FACEBOOK_AUTH_URL, IHuskyConstants.FACEBOOK_CLIENT_ID).withScopes(IHuskyConstants.FACEBOOK_EMAIL_SCOPE, IHuskyConstants.FACEBOOK_BIRTHDAY_SCOPE).withScopeDelimiter(",");
+		onOauth(req, IHuskyConstants.FACEBOOK_TOKEN);
 	}
 
 }
