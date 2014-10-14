@@ -1,0 +1,2 @@
+serviceClass: drivepicker.client.GreetingService
+path: 469A4505FAFD3ECBBFCE47726C946049.gwt.rpc
