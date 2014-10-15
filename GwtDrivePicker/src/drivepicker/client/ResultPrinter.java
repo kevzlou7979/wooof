@@ -46,7 +46,7 @@ public class ResultPrinter {
   }
 
   public static void print(ViewToken token, ImageSearchResult result) {
-    print(token);
+    //print(token);
     for (int i = 0; i < result.getDocs().length(); i++) {
       final ImageSearchResult.Document document = result.getDocs().get(i);
       writeToOutput("getId = " + document.getId());

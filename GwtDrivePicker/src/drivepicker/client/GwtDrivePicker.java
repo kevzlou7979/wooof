@@ -1,6 +1,7 @@
 package drivepicker.client;
 
 import com.floreysoft.gwt.picker.client.callback.AbstractPickerCallback;
+import com.floreysoft.gwt.picker.client.domain.DocsUploadView;
 import com.floreysoft.gwt.picker.client.domain.Feature;
 import com.floreysoft.gwt.picker.client.domain.ImageSearchView;
 import com.floreysoft.gwt.picker.client.domain.MapsView;
@@ -24,9 +25,11 @@ import com.google.api.gwt.oauth2.client.Callback;
 import com.google.appengine.api.users.UserService;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.core.client.JsArray;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.DOM;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Image;
@@ -107,6 +110,7 @@ public class GwtDrivePicker implements EntryPoint {
 	        group.addView(ImageSearchView.create());
 	        group.addView(PhotosView.create());
 	        group.addView(VideoSearchView.create());
+	        group.addView(DocsUploadView.create());
 	        group.addView(ViewId.DOCUMENTS);
 
 	        final Picker picker = PickerBuilder.create()
@@ -120,8 +124,9 @@ public class GwtDrivePicker implements EntryPoint {
 	                  @Override
 	                  public void onPicked(ViewToken viewToken, BaseResult baseResult) {
 	                    final ViewId viewId = viewToken.getViewId();
-	                    DOM.getElementById("output")
-	                            .setInnerHTML("Document from " + (viewId != null ? viewId : viewToken.getNativeViewId()) + " view was picked.");
+	                    Window.alert("Document from " + (viewId != null ? viewId : viewToken.getNativeViewId()) + " view was picked.");
+//	                    DOM.getElementById("output")
+//	                            .setInnerHTML();
 	                  }
 
 	                  @Override
@@ -174,7 +179,11 @@ public class GwtDrivePicker implements EntryPoint {
 	            ResultPrinter.print(viewToken, result.<DocumentResult>cast());
 	            break;
 	          case IMAGE_SEARCH:
-	            ResultPrinter.print(viewToken, result.<ImageSearchResult>cast());
+	        	  DocumentResult documentResult = result.cast();
+					JsArray<DocumentResult.Document> pickedDocs = documentResult.getDocs();
+					if (pickedDocs.length() == 1) {
+						Window.alert(pickedDocs.get(0).getUrl());
+					}
 	            break;
 	          case MAPS:
 	            ResultPrinter.print(viewToken, result.<MapResult>cast());
