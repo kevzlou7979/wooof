@@ -54,6 +54,7 @@ public interface IHuskyConstants {
 	public final String FEMALE = "Female";
 	public final String CHAT_JOINED = "Joined";
 	public final String CHAT_LEAVE = "Leave";
+	public final String REAL_BROWSE = "RealBrowse";
 	
 	public final String ACTION_INFO = "Info";
 	public final String ACTION_WARN = "Warn";

@@ -41,5 +41,7 @@ public interface CardServiceAsync {
 	public void onLeaveCard(HuskyUser user, HuskyCard card, AsyncCallback<Void> callback);
 	
 	public void getAllItems(HuskyCard card, AsyncCallback<List<HuskyItem>> callback);
+	
+	public void getHuskyItemById(Long itemId, AsyncCallback<HuskyItem> item);
 
 }

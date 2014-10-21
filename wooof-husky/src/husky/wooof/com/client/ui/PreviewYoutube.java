@@ -14,7 +14,7 @@ public class PreviewYoutube extends SimplePanel {
 
 	public PreviewYoutube() {
 		this.setWidth("100%");
-		this.setHeight("100%");
+		this.setHeight("450px");
 		image.setResource(HuskyResources.INSTANCE.ic_preview_youtube());
 		image.getElement().getStyle().setMarginTop(50, Unit.PX);
 		this.add(image);
@@ -24,7 +24,7 @@ public class PreviewYoutube extends SimplePanel {
 		this.clear();
 		Frame frame = new Frame();
 		frame.setWidth("100%");
-		frame.setHeight("100%");
+		frame.setHeight("450px");
 		frame.setUrl(url.replace("watch?v=", "embed/"));
 		this.setWidget(frame);
 	}

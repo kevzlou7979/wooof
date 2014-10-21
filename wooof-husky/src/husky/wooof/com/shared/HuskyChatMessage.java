@@ -15,7 +15,7 @@ public class HuskyChatMessage implements Serializable, IHuskyChatMessage {
 	@Id
 	private Long id;
 	private String message;
-	private Long userId;
+	private Long objectId;
 	private Long cardId;
 	private Date creationDate = new Date();
 
@@ -25,10 +25,10 @@ public class HuskyChatMessage implements Serializable, IHuskyChatMessage {
 	public HuskyChatMessage() {
 	}
 
-	public HuskyChatMessage(String message, Long userId, Long cardId, String user, String profilePic) {
+	public HuskyChatMessage(String message, Long objectId, Long cardId, String user, String profilePic) {
 		super();
 		this.message = message;
-		this.userId = userId;
+		this.objectId = objectId;
 		this.cardId = cardId;
 		this.user = user;
 		this.profilePic = profilePic;
@@ -50,12 +50,12 @@ public class HuskyChatMessage implements Serializable, IHuskyChatMessage {
 		this.message = message;
 	}
 
-	public Long getUserId() {
-		return userId;
+	public Long getObjectId() {
+		return objectId;
 	}
 
-	public void setUserId(Long userId) {
-		this.userId = userId;
+	public void setObjectId(Long objectId) {
+		this.objectId = objectId;
 	}
 
 	public Long getCardId() {

@@ -58,5 +58,7 @@ public interface CardService extends RemoteService {
 	public void onLeaveCard(HuskyUser user, HuskyCard card) throws Exception;
 	
 	public List<HuskyItem> getAllItems(HuskyCard card) throws Exception;
+	
+	public HuskyItem getHuskyItemById(Long itemId) throws Exception;
 
 }
