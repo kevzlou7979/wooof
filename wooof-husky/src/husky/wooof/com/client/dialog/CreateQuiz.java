@@ -95,7 +95,7 @@ public class CreateQuiz extends Composite {
 			}
 		}
 		
-		QuizService.Connect.getService().saveQuiz(new HuskyQuiz(card.getId(), lblTitle.getText(), lblDescription.getText(), totalPoints, new Date(), totalItems, totalDuration), items, new AsyncCallback<Void>() {
+		QuizService.Connect.getService().saveQuiz(new HuskyQuiz(card.getId(), lblTitle.getText(), lblDescription.getText(), totalPoints, new Date(), totalItems, totalDuration, createLesson.getWorkspaceMain().getHuskyMain().getUser().getId()), items, new AsyncCallback<Void>() {
 			
 			@Override
 			public void onSuccess(Void result) {

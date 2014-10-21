@@ -12,6 +12,7 @@ import husky.wooof.com.client.ui.NoResultUtil;
 import husky.wooof.com.client.ui.NotificationManager;
 import husky.wooof.com.shared.HuskyCard;
 import husky.wooof.com.shared.HuskyChatMessage;
+import husky.wooof.com.shared.HuskyItem;
 import husky.wooof.com.shared.HuskyUser;
 import husky.wooof.com.shared.HuskyUserCard;
 import husky.wooof.com.shared.IHuskyChatMessage;
@@ -103,8 +104,11 @@ public class ChatSidebar extends Composite {
 				IHuskyChatMessage huskyMessage = bean.as();
 				if (huskyMessage.getMessage().equals(IHuskyConstants.CHAT_JOINED) || huskyMessage.getMessage().equals(IHuskyConstants.CHAT_LEAVE)) {
 					displayAllJoinedUsers();
-				}
-				else {
+				}else if(huskyMessage.getMessage().equals(IHuskyConstants.REAL_BROWSE)){
+					//TODO Real Browsing
+					realBrowse(huskyMessage.getObjectId());
+					
+				}else {
 					onDisplayMessage(huskyMessage);
 
 					if (huskyCardNavigation.isCloseNav()) {
@@ -112,6 +116,23 @@ public class ChatSidebar extends Composite {
 					}
 				}
 
+			}
+
+			private void realBrowse(Long objectId) {
+				//EXECUTE THE REAL TIME EVENT FOR BROWSING
+				CardService.Connect.getService().getHuskyItemById(objectId, new AsyncCallback<HuskyItem>() {
+					
+					@Override
+					public void onSuccess(HuskyItem result) {
+						huskyCardNavigation.getWorkspaceMain().executeLesson(result);
+					}
+					
+					@Override
+					public void onFailure(Throwable caught) {
+						Window.alert(caught.getMessage());
+					}
+				});
+				
 			}
 
 			@Override

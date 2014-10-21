@@ -79,7 +79,12 @@ public class LessonItem extends Composite {
 			
 		}
 		else {
-			workspaceMain.executeLesson(this);
+			workspaceMain.executeLesson(this.item);
+			
+			//TODO REAL BROWSE HERE
+			if(workspaceMain.getCardNavigation().getCardInfoSideBar().getCbRealTimeBrowsing().getValue()){
+				workspaceMain.getCardNavigation().getChatSideBar().getChannel().send(item.getId() + ";" + IHuskyConstants.REAL_BROWSE);
+			}
 		}
 	}
 

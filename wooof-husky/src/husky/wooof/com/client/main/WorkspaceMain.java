@@ -5,6 +5,7 @@ import husky.wooof.com.client.navigation.HuskyCardNavigation;
 import husky.wooof.com.client.resources.HuskyResources;
 import husky.wooof.com.client.services.CardService;
 import husky.wooof.com.client.services.QuizService;
+import husky.wooof.com.client.services.UserAccountService;
 import husky.wooof.com.client.ui.GoogleDocViewer;
 import husky.wooof.com.client.ui.LessonItem;
 import husky.wooof.com.client.ui.PreviewGoogleMap;
@@ -19,6 +20,7 @@ import husky.wooof.com.shared.HuskyLinkLesson;
 import husky.wooof.com.shared.HuskyPlaceLesson;
 import husky.wooof.com.shared.HuskyQuiz;
 import husky.wooof.com.shared.HuskyQuizItem;
+import husky.wooof.com.shared.HuskyUser;
 import husky.wooof.com.shared.HuskyYoutubeLesson;
 import husky.wooof.com.shared.IHuskyConstants;
 
@@ -51,8 +53,10 @@ public class WorkspaceMain extends Composite {
 	@UiField 
 	Label lblLessonTitle, lblLessonDescription, lblBrowseMaterial;
 	@UiField
-	Label lblQuizTitle, lblQuizDescription, lblTotalItems, lblTotalDuration;
-
+	Label lblQuizTitle, lblQuizDescription, lblTotalItems, lblTotalDuration, lblQuizMaker;
+	@UiField
+	Image imgQuizMaker;
+	
 	private HuskyCardNavigation cardNavigation;
 	private HuskyCard card;
 	private HuskyQuiz quiz;
@@ -131,7 +135,7 @@ public class WorkspaceMain extends Composite {
 					LessonItem lessonItem = new LessonItem(item, i, WorkspaceMain.this);
 					lessonPanel.add(lessonItem);
 					if(i == 1){
-						executeLesson(lessonItem);
+						executeLesson(lessonItem.getItem());
 					}
 					i++;
 				
@@ -146,8 +150,7 @@ public class WorkspaceMain extends Composite {
 		
 	}
 	
-	public void executeLesson(LessonItem  item){
-		HuskyItem huskyItem = item.getItem();
+	public void executeLesson(HuskyItem huskyItem){
 		for(Widget w : lessonPanel){
 			w.getElement().getStyle().setOpacity(0.3);
 		}
@@ -164,7 +167,6 @@ public class WorkspaceMain extends Composite {
 				lblBrowseMaterial.setVisible(true);
 				lblBrowseMaterial.setLayoutData(lesson);
 			}
-			item.getElement().getStyle().setOpacity(1);
 			switch (lesson.getType()) {
 			case IHuskyConstants.LESSON_YOUTUBE:
 				playYoutubeLesson((HuskyYoutubeLesson)lesson);
@@ -191,6 +193,7 @@ public class WorkspaceMain extends Composite {
 			addPanel(quizPreviewPanel, previewPanel);
 			lblQuizTitle.setText(quiz.getTitle());
 			lblQuizDescription.setText(quiz.getDescription());
+			
 			lblTotalItems.setText("Total Items: " + String.valueOf(quiz.getTotalItems()));
 			
 			if(quiz.getTotalDurationSec()!=0){
@@ -199,11 +202,30 @@ public class WorkspaceMain extends Composite {
 				lblTotalDuration.setText("Duration: Not Set");
 			}
 			this.quiz = quiz;
+			
+			getQuizMaker(quiz);
 			getQuizItems(quiz);
 		}
 		
 	}
 	
+	private void getQuizMaker(HuskyQuiz quiz) {
+		UserAccountService.Connect.getService().getUserById(quiz.getQuizUserId(), new AsyncCallback<HuskyUser>() {
+
+			@Override
+			public void onFailure(Throwable caught) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void onSuccess(HuskyUser result) {
+				lblQuizMaker.setText(result.getEmail());
+				imgQuizMaker.setUrl(result.getProfilePic());
+			}
+		});
+	}
+
 	private void addPanel(HTMLPanel child, HTMLPanel parent){
 		parent.clear();
 		parent.add(child);
@@ -304,6 +326,14 @@ public class WorkspaceMain extends Composite {
 
 	public void setQuiz(HuskyQuiz quiz) {
 		this.quiz = quiz;
+	}
+
+	public HuskyCardNavigation getCardNavigation() {
+		return cardNavigation;
+	}
+
+	public void setCardNavigation(HuskyCardNavigation cardNavigation) {
+		this.cardNavigation = cardNavigation;
 	}
 
 	

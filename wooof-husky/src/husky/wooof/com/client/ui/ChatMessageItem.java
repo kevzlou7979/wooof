@@ -36,7 +36,7 @@ public class ChatMessageItem extends Composite {
 		lblTime.setText(new TimeChecker(chatMessage.getCreationDate()).getTimePassed());
 		lblName.setText(chatMessage.getUser());
 		lblMessage.setText(chatMessage.getMessage());
-		getUser(chatMessage.getUserId());
+		getUser(chatMessage.getObjectId());
 	}
 
 	private void getUser(Long userId) {

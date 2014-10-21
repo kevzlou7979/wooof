@@ -182,4 +182,10 @@ public class CardServiceImpl extends RemoteServiceServlet implements CardService
 		return items;
 	}
 
+	@Override
+	public HuskyItem getHuskyItemById(Long itemId) throws Exception {
+		HuskyItem item = ofy.query(HuskyItem.class).filter("id", itemId).get();
+		return item;
+	}
+
 }

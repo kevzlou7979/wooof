@@ -20,7 +20,7 @@ public interface IHuskyChatMessage {
 
 	void setProfilePic(String profilePic);
 
-	Long getUserId();
+	Long getObjectId();
 
-	void setUserId(Long userId);
+	void setObjectId(Long id);
 }

@@ -20,6 +20,7 @@ import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
+import com.google.gwt.user.client.ui.CheckBox;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.Image;
@@ -39,6 +40,7 @@ public class CardInfoSidebar extends Composite {
 	@UiField Image imgCard, imgCardQrCode;
 	@UiField Label lblCardName, lblNoHuskies, lblCardDesc;
 	@UiField HTMLPanel adminPanel;
+	@UiField CheckBox cbRealTimeBrowsing;
 	
 	public CardInfoSidebar(HuskyCardNavigation huskyCardNavigation) {
 		initWidget(uiBinder.createAndBindUi(this));
@@ -99,5 +101,14 @@ public class CardInfoSidebar extends Composite {
 			}
 		});
 	}
+
+	public CheckBox getCbRealTimeBrowsing() {
+		return cbRealTimeBrowsing;
+	}
+
+	public void setCbRealTimeBrowsing(CheckBox cbRealTimeBrowsing) {
+		this.cbRealTimeBrowsing = cbRealTimeBrowsing;
+	}
+	
 	
 }
