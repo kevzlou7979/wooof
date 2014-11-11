@@ -46,6 +46,7 @@ public class HuskyCardNavigation extends Composite {
 		initWidget(uiBinder.createAndBindUi(this));
 		this.huskyMain = workspaceMain.getHuskyMain();
 		this.workspaceMain = workspaceMain;
+		huskyMain.setHuskyCardNavigation(this);
 		cardInfoSideBar = new CardInfoSidebar(this);
 		chatSideBar = new ChatSidebar(this, huskyMain.getUser(), workspaceMain.getCard());
 		addUserSideBar = new AddUserSideBar(this);

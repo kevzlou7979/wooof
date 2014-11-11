@@ -9,11 +9,14 @@
 		}
 		.menu{
 			margin-top: 50%;
-			margin-left: 10px;
+			margin-left: 20px;
+		}
+		.imgProfile{
+			margin-top: 20px;
 		}
 	</ui:style>
 	<g:HTMLPanel>
-		<h:CircleImage ui:field="imgProfile"/>
+		<h:CircleImage ui:field="imgProfile" addStyleNames="{style.imgProfile}"/>
 		
 		<g:HTMLPanel ui:field="navMenu" addStyleNames="{style.menu}">
 			<g:Label ui:field="navCards" text="Cards" addStyleNames="{res.huskycss.lblSimple} {style.menu_item}"/>

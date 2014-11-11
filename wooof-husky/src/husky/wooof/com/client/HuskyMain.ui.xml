@@ -42,6 +42,7 @@
 			<g:Image resource="{res.husky_logo}" addStyleNames="{style.logoMobile} {res.huskycss.inline}"/>
 			<g:Label text="Husky" addStyleNames="{style.lblMobileTitle} {res.huskycss.inline}"/>
 			<g:Image ui:field="btnMobileNav" resource="{res.ic_mobile_nav}" addStyleNames="{style.logoMobile} {res.huskycss.inline} {style.icMobileNav}"/>
+			<g:Image ui:field="btnMobileCardNav" resource="{res.ic_mobile_nav}" addStyleNames="{style.logoMobile} {res.huskycss.inline} {style.icMobileNav}"/>
 		</g:HTMLPanel>
 		<g:HTMLPanel ui:field="huskyNavigationPanel" addStyleNames="{res.huskycss.huskyNavigationPanel} {res.huskymobilecss.huskyNavigationPanel}"/>
 		<g:HTMLPanel ui:field="huskyMainPanel" addStyleNames="{res.huskycss.huskyMainPanel} {res.huskymobilecss.huskyMainPanel}"/>

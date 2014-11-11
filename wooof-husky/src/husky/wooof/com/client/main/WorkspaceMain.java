@@ -72,6 +72,7 @@ public class WorkspaceMain extends Composite {
 		this.nextItem = 0;
 		createLesson.setHuskyMain(huskyMain);
 		createLesson.setWorkspaceMain(this);
+		huskyMain.showMobileCardNav(true);
 		huskyMain.minimizeSideBar(true);
 		huskyMain.getHuskyMainPanel().setWidth("100%");
 		cardNavigation = new HuskyCardNavigation(this);
