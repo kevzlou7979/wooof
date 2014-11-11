@@ -4,7 +4,9 @@ import husky.wooof.com.client.dialog.CreateMain;
 import husky.wooof.com.client.dialog.HuskyDialog;
 import husky.wooof.com.client.main.AccountMain;
 import husky.wooof.com.client.main.CardsMain;
+import husky.wooof.com.client.navigation.HuskyCardNavigation;
 import husky.wooof.com.client.navigation.HuskyNavigation;
+import husky.wooof.com.client.resources.HuskyResources;
 import husky.wooof.com.shared.HuskyUser;
 
 import com.google.gwt.core.client.GWT;
@@ -15,6 +17,7 @@ import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HTMLPanel;
+import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Widget;
 
 public class HuskyMain extends Composite {
@@ -26,12 +29,15 @@ public class HuskyMain extends Composite {
 
 	@UiField
 	HTMLPanel huskyNavigationPanel, huskyMainPanel;
+	@UiField 
+	Image btnMobileNav, btnMobileCardNav;
 
 	private HuskyNavigation huskyNavigation;
 
 	private CardsMain cardsMain;
 	private CreateMain createMain;
 	private AccountMain accountMain;
+	private HuskyCardNavigation huskyCardNavigation;
 
 	private HuskyDialog huskyDialog;
 	private HuskyUser user;
@@ -48,6 +54,8 @@ public class HuskyMain extends Composite {
 
 		huskyNavigation = new HuskyNavigation(this);
 		huskyNavigationPanel.add(huskyNavigation);
+		
+		showMobileCardNav(false);
 	}
 
 	public HuskyNavigation getHuskyNavigation() {
@@ -128,5 +136,38 @@ public class HuskyMain extends Composite {
 		}
 		
 	}
+	
+	@UiHandler("btnMobileCardNav")
+	void onOpenCardSideBar(ClickEvent e){
+		if(isHidden){
+			huskyCardNavigation.getElement().setAttribute("style", "right: 0px !important;");
+			huskyCardNavigation.addStyleName(HuskyResources.INSTANCE.huskycss().transition());
+			huskyCardNavigation.getNavContent().setVisible(true);
+			isHidden = false;
+		}else{
+			huskyCardNavigation.getElement().setAttribute("style", "right: -75px !important;");
+			huskyCardNavigation.addStyleName(HuskyResources.INSTANCE.huskycss().transition());
+			huskyCardNavigation.getNavContent().setVisible(false);
+			isHidden = true;
+		}
+		
+	}
 
+	public void showMobileCardNav(boolean isShow){
+		if(isShow){
+			btnMobileCardNav.setVisible(true);
+			btnMobileNav.setVisible(false);
+		}else{
+			btnMobileCardNav.setVisible(false);
+			btnMobileNav.setVisible(true);
+		}
+	}
+
+	public HuskyCardNavigation getHuskyCardNavigation() {
+		return huskyCardNavigation;
+	}
+
+	public void setHuskyCardNavigation(HuskyCardNavigation huskyCardNavigation) {
+		this.huskyCardNavigation = huskyCardNavigation;
+	}
 }

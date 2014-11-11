@@ -3,15 +3,18 @@ package husky.wooof.com.client.main;
 import husky.wooof.com.client.HuskyMain;
 import husky.wooof.com.client.dialog.CreateMain;
 import husky.wooof.com.client.dialog.HuskyDialog;
+import husky.wooof.com.client.resources.HuskyResources;
 import husky.wooof.com.client.services.CardService;
 import husky.wooof.com.client.ui.HuskyCardItem;
 import husky.wooof.com.client.ui.HuskyLoading;
+import husky.wooof.com.client.ui.NoResultUtil;
 import husky.wooof.com.shared.HuskyCard;
 import husky.wooof.com.shared.IHuskyConstants;
 
 import java.util.List;
 
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
@@ -48,10 +51,16 @@ public class CardsMain extends Composite {
 			@Override
 			public void onSuccess(List<HuskyCard> result) {
 				HuskyLoading.showLoading(false);
-				double i = 100;
-				for (HuskyCard card : result) {
-					cardsPanel.add(new HuskyCardItem(card, i, CardsMain.this));
-					i = i + 100;
+				if(!result.isEmpty()){
+					double i = 100;
+					for (HuskyCard card : result) {
+						cardsPanel.add(new HuskyCardItem(card, i, CardsMain.this));
+						i = i + 100;
+					}
+				}else{
+					NoResultUtil noResult = new NoResultUtil(HuskyResources.INSTANCE.ic_no_cards(), "Please add your first Card in order to feel the Husky Experience", cardsPanel);
+					noResult.getElement().getStyle().setMarginLeft(-50, Unit.PX);
+					cardsPanel.add(noResult);
 				}
 			}
 

@@ -59,7 +59,7 @@ public class HuskyLogin extends Composite {
 		initWidget(uiBinder.createAndBindUi(this));
 		loadSignInPanel();
 		//signUpNav.removeFromParent();
-		//onHocusFocus(true);
+		onHocusFocus(true);
 	}
 
 	public void onHocusFocus(boolean isTrue){

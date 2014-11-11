@@ -115,6 +115,8 @@ public interface HuskyResources extends ClientBundle {
 	
 	ImageResource ic_facebook();
 	
+	ImageResource ic_no_cards();
+	
 	HuskyCSS huskycss();
 	
 	HuskyMobileCSS huskymobilecss();
