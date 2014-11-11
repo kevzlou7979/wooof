@@ -75,7 +75,7 @@ public class WooofMain extends Composite {
 			titlePanel.add(huskyTitlePanel);
 			panel.removeStyleName(WooofResources.INSTANCE.wooofcss().mainIntro());
 			panel.addStyleName(WooofResources.INSTANCE.wooofcss().huskyIntro());
-			projectPreviewFrame.setUrl("https://wooof-husky.appspot.com");
+			projectPreviewFrame.setUrl("https://huskylabs.appspot.com");
 			break;
 		case IWooofConstants.NAV_POODLE:
 			titlePanel.add(poodleTitlePanel);
