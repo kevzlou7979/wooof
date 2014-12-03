@@ -58,7 +58,7 @@ public class MainPage extends Composite  {
 	
 	private void isUserFrozen(User user){
 		if(user.getFreeze()){
-			new DotClickDialog(new UserFrozeDialog(), 30, 40, 40);
+			new DotClickDialog(new UserFrozeDialog(user), 30, 40, 40);
 			profilePanel.setFrozeAccountUI();
 		}
 	}
