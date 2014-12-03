@@ -23,7 +23,7 @@
 		<g:Label text="Sorry your account is temporarily locked"/>
 		<g:HTMLPanel>
 			<g:Label text="Please follow this " addStyleNames="{res.dotclickcss.inline}"/>
-			<g:Label text=" link " addStyleNames="{res.dotclickcss.inline} {style.link}"/>
+			<g:Label text=" link " ui:field="lblLink" addStyleNames="{res.dotclickcss.inline} {style.link}"/>
 			<g:Label text="to unlocked your account" addStyleNames="{res.dotclickcss.inline}"/>
 		</g:HTMLPanel>
 	</g:HTMLPanel>
