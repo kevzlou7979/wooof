@@ -6,13 +6,16 @@ import com.google.api.gwt.oauth2.client.Callback;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.uibinder.client.UiBinder;
+import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Widget;
 
+import freelance.nunobrito.client.i18n.LocalePicker;
 import freelance.nunobrito.client.services.UserService;
 import freelance.nunobrito.shared.DotClickConstants;
 import freelance.nunobrito.shared.User;
@@ -26,8 +29,11 @@ public class LoginPage extends Composite {
 	interface LoginPageUiBinder extends UiBinder<Widget, LoginPage> {
 	}
 
+	@UiField HTMLPanel localePanel;
+	
 	public LoginPage() {
 		initWidget(uiBinder.createAndBindUi(this));
+		localePanel.add(new LocalePicker());
 	}
 
 	@UiHandler("btnFBLogin")

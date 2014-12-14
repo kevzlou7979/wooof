@@ -1,0 +1,28 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:style>
+		.inline{
+			display: inline-block;
+			vertical-align: top;
+		}
+		.ol{
+			width: 20px;
+			height: 20px;
+			border-radius: 100%;
+			border: 2px solid;
+			margin-right: 10px;
+		}
+		.text{
+			width: 80%;
+			margin-bottom: 20px;
+			text-align: left;
+		}
+	</ui:style>
+	<g:HTMLPanel >
+		
+		<g:Label text="" addStyleNames="{style.inline} {style.ol}"/>
+		<g:Label ui:field="lblText" addStyleNames="{style.inline} {style.text}"/>
+		
+	</g:HTMLPanel>
+</ui:UiBinder> 
