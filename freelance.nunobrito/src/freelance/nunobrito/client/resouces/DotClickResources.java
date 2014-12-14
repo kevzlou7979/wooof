@@ -32,6 +32,22 @@ public interface DotClickResources extends ClientBundle {
 	
 	ImageResource ic_lock();
 	
+	ImageResource ic_logo();
+	
+	ImageResource ic_footer_logo();
+	
+	ImageResource ic_company();
+	
+	ImageResource ic_share();
+	
+	ImageResource ic_fb();
+	
+	ImageResource ic_google();
+	
+	ImageResource ic_twitter();
+	
+	ImageResource bg_main();
+	
 	DotClickCSS dotclickcss();
 
 	DotClickMobileCSS dotclickmobilecss();

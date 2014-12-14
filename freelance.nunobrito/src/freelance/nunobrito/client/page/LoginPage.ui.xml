@@ -1,7 +1,9 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
-	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:d="urn:import:freelance.nunobrito.client.ui">
 	<ui:with field='res' type='freelance.nunobrito.client.resouces.DotClickResources' />
+	<ui:with field='i18n' type='freelance.nunobrito.client.i18n.LabelConstants' />
 	<ui:style>
 	.title{
 		font-size: 3em;
@@ -17,25 +19,131 @@
 	}
 	.panel{
 		text-align: center;
-		overflow: hidden;
 	}
 	.fieldPanel{
-		padding-top: 20%;
+		padding-top: 10%;
 		width: 100%;
-		height: 100%;
-		background: rgba(0,0,0,0.2);
+		height: 500px;
+		position: relative;
 	}
 	.btnLogin{
 		width: 20%;
 		background: #3b5998;
 		margin-top: 50px;
 	}
+	.locale select{
+		width: 150px;
+		font-size: 1.3em;
+		color: rgb(153, 153, 153);
+		border: 1px solid rgb(255, 255, 255);
+		position: absolute;
+		right: 10px;
+		top: 20px;
+	}
+	.descriptionPanel{
+		position: absolute;
+		bottom: 0px;
+		padding: 30px;
+		background: rgba(0,0,0,0.7);
+		color: #fff;
+		text-align: center;
+		width: 100%;
+		font-size: 1.2em;
+	}
+	.orderedPanel{
+		background: #edf3ff;
+		padding: 30px;
+		color: #555;
+		font-size: 1.2em;
+	}
+	.orderedItem{
+		width: 40%;
+		vertical-align: top;
+		display: inline-block;
+		text-align: left;
+	}
+	.iconPanel{
+		width: 40%;
+		padding: 30px;
+		color: #fff;
+		font-size: 1em;
+		text-align: left;
+	}
+	.iconText{
+		width: 80%;
+	}
+	.secondaryPanel{
+		background: #3b5998;
+	}
+	.thirdPanel{
+		background: #2a3c61;
+		color: #a6c3ff;
+		font-size: 1.1em;
+		padding: 10px;
+	}
+	.socialIcons{
+		text-align: right;
+	}
 	</ui:style>
 	<g:HTMLPanel addStyleNames="{res.dotclickcss.loginPanel} {style.panel}">
-	    <g:HTMLPanel addStyleNames="{style.fieldPanel}">
-	        <g:Label text="DotClick" addStyleNames="{style.title}"/>
-			<g:Label text="Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy" addStyleNames="{style.desc}"/>
-	   		<g:Button ui:field="btnFBLogin" text="Login with Facebook" addStyleNames="{res.dotclickcss.dotClickButtonBlue} {style.btnLogin}" />
+	
+	    <g:HTMLPanel addStyleNames="{style.fieldPanel} {res.dotclickcss.fieldMain}">
+	    	<g:HTMLPanel ui:field="localePanel" addStyleNames="{style.locale}"/>
+	    	<g:HTMLPanel>
+	    		<g:Image resource="{res.ic_logo}"/>
+	    	</g:HTMLPanel>
+	       <g:Button ui:field="btnFBLogin" text="Login with Facebook" addStyleNames="{res.dotclickcss.dotClickButtonBlue} {style.btnLogin}" />
+	       <g:HTMLPanel addStyleNames="{style.descriptionPanel}">
+	       		<g:Label text="{i18n.GetInvolvedTheSuccess}"/>
+	       		<g:Label text="{i18n.LimitedFreeShares}"/>
+	       </g:HTMLPanel>
 		</g:HTMLPanel>
+		
+		<g:HTMLPanel addStyleNames="{style.orderedPanel}">
+			<g:HTMLPanel addStyleNames="{res.dotclickcss.inline} {style.orderedItem}">
+				<d:OrderedItem  text="{i18n.DurableProfit}"/>
+				<d:OrderedItem  text="{i18n.UpToSixtyPercent}"/>
+				<d:OrderedItem  text="{i18n.WithOurSophisticated}"/>
+				<d:OrderedItem  text="{i18n.AffiliateOfTheLeading}"/>
+			</g:HTMLPanel>
+			<g:HTMLPanel addStyleNames="{res.dotclickcss.inline} {style.orderedItem}">
+				<d:OrderedItem  text="{i18n.ParticipateAlready}"/>
+				<d:OrderedItem  text="{i18n.GetYourUniqueFree}"/>
+				<d:OrderedItem  text="{i18n.BecomeAMerchant}"/>
+			</g:HTMLPanel>
+		</g:HTMLPanel>
+		
+		<g:HTMLPanel addStyleNames="{style.secondaryPanel}">
+			<g:HTMLPanel addStyleNames="{style.iconPanel} {res.dotclickcss.inline}">
+				<g:Image resource="{res.ic_company}" addStyleNames="{res.dotclickcss.inline}"/>
+				<g:HTMLPanel addStyleNames="{style.iconText} {res.dotclickcss.inline}">
+					<g:Label text="{i18n.YourAdvantage}"/>
+					<g:Label text="{i18n.GetYourFree}"/>
+				</g:HTMLPanel>
+			</g:HTMLPanel>
+			<g:HTMLPanel addStyleNames="{style.iconPanel} {res.dotclickcss.inline}">
+				<g:Image resource="{res.ic_share}" addStyleNames="{res.dotclickcss.inline}"/>
+				<g:HTMLPanel addStyleNames="{style.iconText} {res.dotclickcss.inline}">
+					<g:Label text="{i18n.OtherSahres}"/>
+					<g:Label text="{i18n.YouCanAtAnyTime}"/>
+				</g:HTMLPanel>
+			</g:HTMLPanel>
+		</g:HTMLPanel>
+		
+		<g:HTMLPanel addStyleNames="{style.thirdPanel}">
+			<g:HTMLPanel addStyleNames="{style.orderedItem}">
+				<g:Image resource="{res.ic_footer_logo}" addStyleNames="{res.dotclickcss.inline}"/>
+				<g:HTMLPanel addStyleNames="{res.dotclickcss.inline}">
+					<g:Label text="Global Virtual Invest"/>
+					<g:Label text="Copyright @ 2014"/>
+				</g:HTMLPanel>
+			</g:HTMLPanel>
+			<g:HTMLPanel addStyleNames="{style.orderedItem} {style.socialIcons}">
+				<g:Image resource="{res.ic_fb}" addStyleNames="{res.dotclickcss.inline}"/>
+				<g:Image resource="{res.ic_twitter}" addStyleNames="{res.dotclickcss.inline}"/>
+				<g:Image resource="{res.ic_google}" addStyleNames="{res.dotclickcss.inline}"/>
+			</g:HTMLPanel>
+		</g:HTMLPanel>
+		
 	</g:HTMLPanel>	
 </ui:UiBinder> 

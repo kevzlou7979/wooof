@@ -13,4 +13,5 @@ public interface DotClickCSS extends CssResource {
 	String transition();
 	String activeMenu();
 	String spinner();
+	String fieldMain();
 }
