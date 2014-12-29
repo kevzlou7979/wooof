@@ -1,0 +1,31 @@
+ html,body {
+	margin: 0px;
+	padding: 0px;
+	font-family: 'Roboto', sans-serif;
+	height: 100%;
+	width: 100%;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: fixed;
+	background: #fff;
+}
+
+@sprite .maintenancePanel{
+	gwt-image: 'bg_andi';
+	background-color: #fff;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	margin: 0px;
+	padding: 0px;
+	font-family: 'Roboto', sans-serif;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: fixed;
+}
