@@ -1,0 +1,33 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:style>
+		.floatingButton{
+			width: 50px;
+			height: 50px;
+			background: rgb(229, 38, 38);
+			border-radius: 100%;
+			line-height: 50px;
+			color: #fff;
+			font-size: 2em;
+			text-align: center;
+			-webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+			-moz-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+			box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+			position: fixed;
+			bottom: 10px;
+			right: 10px;
+			transition: 1s all;
+			-webkit-transition: 1s all;
+			-moz-transition: 1s all;
+			cursor: pointer;
+			z-index: 999;
+		}
+		.floatingButton:hover{
+			opacity: 0.5;
+		}
+	</ui:style>
+	<g:HTMLPanel>
+		<g:Label text="+" ui:field="btnFloat" addStyleNames="{style.floatingButton}"/>
+	</g:HTMLPanel>
+</ui:UiBinder> 

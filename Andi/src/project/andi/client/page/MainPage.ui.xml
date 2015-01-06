@@ -1,0 +1,31 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:m="urn:import:project.andi.client.material">
+	<ui:with field='res' type='project.andi.client.resources.AndiResources' />
+	<ui:style>
+		.mainPage{
+			height: 100%;
+			background: #f9f9f9;
+		}
+		.content{
+			border-left: 3px solid #cfcfcf;
+			margin-left: 10%;
+			width: 94%;
+			min-height: 500px;
+			background: #f9f9f9;
+		}
+	</ui:style>
+	<g:HTMLPanel addStyleNames="{style.mainPage}">
+		 
+		<m:Header logo="{res.andi}" name="Andi"/>
+	    <m:FloatingButton color="#a72773"/>
+	    <m:Banner />
+	    <g:HTMLPanel addStyleNames="{style.content}">
+	    	<m:Card></m:Card>
+	    	<m:Card></m:Card>
+	    	<m:Card></m:Card>
+	    	<m:Card></m:Card>
+	    </g:HTMLPanel>
+	</g:HTMLPanel>
+</ui:UiBinder> 

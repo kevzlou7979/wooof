@@ -1,0 +1,14 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:m="urn:import:project.andi.client.material">
+	<ui:style>
+	
+	</ui:style>
+	<g:HTMLPanel>
+		<m:MaterialTextBox label="First Name"/>
+		<m:MaterialTextBox label="Last Name"/>
+		<m:MaterialTextBox label="Email"/>
+		<m:MaterialTextBox label="Password"/>
+	</g:HTMLPanel>
+</ui:UiBinder> 
