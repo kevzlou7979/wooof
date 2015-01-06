@@ -9,6 +9,10 @@ public interface AndiResources extends ClientBundle {
 
 	ImageResource andi();
 	ImageResource bg_andi();
+	ImageResource avatar_man();
+	ImageResource avatar_woman();
+	ImageResource ic_map();
+	ImageResource ic_time();
 	AndiCSS andicss();
 	AndiMobileCSS andimobilecss();
 	
