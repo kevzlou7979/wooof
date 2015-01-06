@@ -1,6 +1,7 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
-	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:m="urn:import:project.andi.client.material">
 	<ui:with field='res' type='project.andi.client.resources.AndiResources' />
 	<ui:style>
 		.lblDesc{
@@ -26,7 +27,7 @@
 	</ui:style>
 	<g:HTMLPanel addStyleNames="{res.andicss.maintenancePanel} {style.panel}">
 		<g:HTMLPanel addStyleNames="{style.logoContainer}">
-			<g:Image resource="{res.andi}" />
+			<g:Image resource="{res.andi}" ui:field="logo"/>
 			<g:Label text="ANDI" addStyleNames="{style.lblTitle}"/>
 			<g:Label text="SHARE YOUR LOVE STORY" addStyleNames="{style.lblDesc}"/>
 		</g:HTMLPanel>

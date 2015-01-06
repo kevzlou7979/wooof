@@ -12,7 +12,7 @@
     <!-- Consider inlining CSS to reduce the number of requested files -->
     <!--                                                               -->
     <link type="text/css" rel="stylesheet" href="Andi.css">
-
+	<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
     <!--                                           -->
     <!-- Any title is fine                         -->
     <!--                                           -->
@@ -24,12 +24,8 @@
     <!-- be added before this line.                -->
     <!--                                           -->
      <!--Import jQuery before materialize.js-->
-     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-     <script type="text/javascript" src="material/js/materialize.js"></script>
-    <script type="text/javascript" language="javascript" src="andi/andi.nocache.js"></script>
+     
     
-    <!--Import materialize.css-->
-    <link type="text/css" rel="stylesheet" href="material/css/materialize.css"  media="screen,projection"/>
   </head>
 
   <!--                                           -->
@@ -51,6 +47,14 @@
     </noscript>
 
     
-    
+    <script type="text/javascript" language="javascript" src="andi/andi.nocache.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script type="text/javascript">
+   	 $(document).ready(function(){
+        // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+        $('.modal-trigger').leanModal();
+      });
+    </script>
   </body>
 </html>

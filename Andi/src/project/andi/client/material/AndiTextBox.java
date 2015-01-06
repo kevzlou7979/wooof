@@ -1,15 +1,35 @@
 package project.andi.client.material;
 
-import project.andi.client.resources.AndiResources;
+import com.google.gwt.core.client.GWT;
+import com.google.gwt.uibinder.client.UiBinder;
+import com.google.gwt.uibinder.client.UiField;
+import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.Label;
+import com.google.gwt.user.client.ui.Widget;
 
-import com.google.gwt.user.client.ui.TextBox;
+public class AndiTextBox extends Composite {
 
-public class AndiTextBox extends TextBox {
+	private static AndiTextBoxUiBinder uiBinder = GWT
+			.create(AndiTextBoxUiBinder.class);
 
+	interface AndiTextBoxUiBinder extends UiBinder<Widget, AndiTextBox> {
+	}
+	
+	private String text;
 	private String placeholder;
-
+	
+	@UiField Label lblName;	
+	
 	public AndiTextBox() {
-		this.addStyleName(AndiResources.INSTANCE.andicss().andiTextBox());
+		initWidget(uiBinder.createAndBindUi(this));
+	}
+
+	public String getText() {
+		return text;
+	}
+
+	public void setText(String text) {
+		this.text = text;
 	}
 
 	public String getPlaceholder() {
@@ -17,7 +37,8 @@ public class AndiTextBox extends TextBox {
 	}
 
 	public void setPlaceholder(String placeholder) {
-		this.getElement().setAttribute("placeholder", placeholder);
+		this.placeholder = placeholder;
+		lblName.setText(placeholder);
 	}
 
 }

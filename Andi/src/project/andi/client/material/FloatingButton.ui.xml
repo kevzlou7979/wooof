@@ -1,6 +1,8 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
-	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:m="urn:import:project.andi.client.material"
+	xmlns:d="urn:import:project.andi.client.modal">
 	<ui:style>
 		.floatingButton{
 			position: fixed;
@@ -13,9 +15,7 @@
 		<a class="{style.floatingButton} btn-floating btn-large waves-effect waves-light pink darken-4 modal-trigger" href="#modal1"><i class="mdi-content-add"></i></a>
 		 
 		<div id="modal1" class="modal">
-			<h4>Modal Header</h4>
-			<p>A bunch of text</p>
-			<a href="#" class="waves-effect btn-flat modal-close">Agree</a>
+			<d:ModalAddStory />
 		</div>
 	</g:HTMLPanel>
 </ui:UiBinder> 

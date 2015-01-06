@@ -1,0 +1,21 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:m="urn:import:project.andi.client.material">
+	<ui:style>
+	
+	</ui:style>
+	<g:HTMLPanel>
+		<h4>Add Your Story</h4>
+		<p>Fill up all the required fields</p>
+		
+		<m:AndiTextBox ui:field="lblTitle" placeholder="Title"/>
+		<m:AndiTextBox placeholder="Introduction"/>
+		<m:AndiTextBox placeholder="Image URL"/>
+		<m:AndiTextBox />
+		<m:AndiTextBox />
+		
+		<a href="#" class="waves-effect btn-flat modal-close">Create</a>
+		
+	</g:HTMLPanel>
+</ui:UiBinder> 
