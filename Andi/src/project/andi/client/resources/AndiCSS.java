@@ -5,4 +5,5 @@ import com.google.gwt.resources.client.CssResource;
 public interface AndiCSS extends CssResource {
 
 	String maintenancePanel();
+	String andiTextBox();
 }
