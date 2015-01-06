@@ -19,7 +19,7 @@
 	<g:HTMLPanel addStyleNames="{style.mainPage}">
 		 
 		<m:Header logo="{res.andi}" name="Andi"/>
-	    <m:FloatingButton color="#a72773"/>
+	    <m:FloatingButton />
 	    <m:Banner />
 	    <g:HTMLPanel addStyleNames="{style.content}">
 	    	<m:Card></m:Card>
