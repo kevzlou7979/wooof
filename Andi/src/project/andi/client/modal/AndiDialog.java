@@ -1,0 +1,60 @@
+package project.andi.client.modal;
+
+import project.andi.client.resources.AndiResources;
+
+import com.google.gwt.core.client.GWT;
+import com.google.gwt.dom.client.Style.Unit;
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.uibinder.client.UiBinder;
+import com.google.gwt.uibinder.client.UiField;
+import com.google.gwt.uibinder.client.UiHandler;
+import com.google.gwt.user.client.ui.DialogBox;
+import com.google.gwt.user.client.ui.HTMLPanel;
+import com.google.gwt.user.client.ui.Widget;
+
+public class AndiDialog extends DialogBox {
+
+	private static HuskyDialogUiBinder uiBinder = GWT.create(HuskyDialogUiBinder.class);
+
+	interface HuskyDialogUiBinder extends UiBinder<Widget, AndiDialog> {
+	}
+
+	@UiField
+	HTMLPanel dialogPanel;
+	private Widget composite;
+
+	public AndiDialog(Widget composite, double top, double left, double width) {
+		
+		setWidget(uiBinder.createAndBindUi(this));
+		
+		this.getElement().getStyle().setWidth(width, Unit.PCT);
+		this.getElement().getStyle().setLeft(left, Unit.PCT);
+		this.getElement().getStyle().setBackgroundColor("#fff");
+		dialogPanel.add(composite);
+		this.addStyleName(AndiResources.INSTANCE.andicss().andiDialog());
+		this.setModal(true);
+		this.setGlassEnabled(true);
+		this.getElement().getStyle().setTop(top, Unit.PCT);
+		this.center();
+	}
+	
+	
+	
+	@UiHandler("btnClose")
+	void onCloseDialog(ClickEvent e) {
+		hide();
+	}
+
+
+
+	public Widget getComposite() {
+		return composite;
+	}
+
+
+
+	public void setComposite(Widget composite) {
+		this.composite = composite;
+	}
+
+}
