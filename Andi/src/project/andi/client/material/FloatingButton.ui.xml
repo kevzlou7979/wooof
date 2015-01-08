@@ -12,10 +12,10 @@
 		}
 	</ui:style>
 	<g:HTMLPanel>
-		<a class="{style.floatingButton} btn-floating btn-large waves-effect waves-light pink darken-4 modal-trigger" href="#modal1"><i class="mdi-content-add"></i></a>
-		 
-		<div id="modal1" class="modal">
-			<d:ModalAddStory />
-		</div>
+		<g:FocusPanel ui:field="btnFloating">
+			<g:HTMLPanel>
+				<a class="{style.floatingButton} btn-floating btn-large waves-effect waves-light pink darken-4 modal-trigger" ><i class="mdi-content-add"></i></a>
+			</g:HTMLPanel>
+		</g:FocusPanel>
 	</g:HTMLPanel>
 </ui:UiBinder> 

@@ -1,7 +1,6 @@
 package project.andi.client;
 
 import project.andi.client.page.MainPage;
-import project.andi.client.page.MaintenancePage;
 import project.andi.client.resources.AndiResources;
 import project.andi.client.resources.ResourcesLoader;
 
@@ -14,6 +13,6 @@ public class Andi implements EntryPoint {
 	public void onModuleLoad() {
 		new ResourcesLoader(AndiResources.INSTANCE);
 		RootPanel.get().clear();
-		RootPanel.get().add(new MaintenancePage());
+		RootPanel.get().add(new MainPage());
 	}
 }
