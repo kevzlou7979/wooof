@@ -15,7 +15,6 @@
 		<m:AndiTextBox ui:field="txtPassword" placeholder="Story Password"/>
 		
 		<g:Label ui:field="lblCreate" text="Create" addStyleNames="waves-effect btn-flat"/>
-		<a class="btn" onclick="toast('I am a toast', 4000)">Toast!</a>
 		
 	</g:HTMLPanel>
 </ui:UiBinder> 
