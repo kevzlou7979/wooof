@@ -1,1 +1,6 @@
 .maintenancePanel{}
+.andiDialog{
+	left: 0px !important;
+	width: 100% !important;
+	max-width: 95% !important;
+}

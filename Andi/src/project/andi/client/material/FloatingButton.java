@@ -1,7 +1,7 @@
 package project.andi.client.material;
 
 import project.andi.client.modal.AndiDialog;
-import project.andi.client.modal.ModalAddStory;
+import project.andi.client.modal.ModalAddStoryItem;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
@@ -24,7 +24,7 @@ public class FloatingButton extends Composite {
 	
 	@UiHandler("btnFloating")
 	void onCreateStory(ClickEvent e){
-		new AndiDialog(new ModalAddStory(),10, 40, 50);
+		new AndiDialog(new ModalAddStoryItem(),10, 40, 50);
 	}
 
 

@@ -6,19 +6,21 @@
          xmlns="http://java.sun.com/xml/ns/javaee">
 
   <!-- Servlets -->
-  <servlet>
-    <servlet-name>greetServlet</servlet-name>
-    <servlet-class>project.andi.server.GreetingServiceImpl</servlet-class>
-  </servlet>
-  
-  <servlet-mapping>
-    <servlet-name>greetServlet</servlet-name>
-    <url-pattern>/andi/greet</url-pattern>
-  </servlet-mapping>
   
   <!-- Default page to serve -->
   <welcome-file-list>
     <welcome-file>Andi.html</welcome-file>
   </welcome-file-list>
+  
+  <!-- Story -->
+	<servlet>
+		<servlet-name>storyServlet</servlet-name>
+		<servlet-class>project.andi.server.StoryServiceImpl</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>storyServlet</servlet-name>
+		<url-pattern>/andi/story</url-pattern>
+	</servlet-mapping>
 
 </web-app>
