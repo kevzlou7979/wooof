@@ -4,3 +4,15 @@
 	width: 100% !important;
 	max-width: 95% !important;
 }
+
+.logo{
+	max-width: 20% !important;
+}
+
+.frontTitle{
+	font-size: 3em;
+	margin-bottom: 10px;
+}
+.frontDescription{
+	font-size: 1em;
+}

@@ -42,9 +42,9 @@
 	</ui:style>
 	<g:HTMLPanel addStyleNames="{res.andicss.maintenancePanel} {style.panel}">
 		<g:HTMLPanel addStyleNames="{style.logoContainer}">
-			<g:Image resource="{res.andi}" ui:field="logo"/>
-			<g:Label text="ANDI" addStyleNames="{style.lblTitle}"/>
-			<g:Label text="SHARE YOUR LOVE STORY" addStyleNames="{style.lblDesc}"/>
+			<g:Image resource="{res.andi}" addStyleNames="{res.andimobilecss.logo}" ui:field="logo"/>
+			<g:Label text="ANDI" addStyleNames="{style.lblTitle} {res.andimobilecss.frontTitle}"/>
+			<g:Label text="SHARE YOUR LOVE STORY" addStyleNames="{style.lblDesc} {res.andimobilecss.frontDescription}"/>
 			<g:HTMLPanel addStyleNames="{style.fieldPanel}"> 
 				<m:RegularTextBox placeholder="Story Code"/>
 				<m:AndiButton text="Show Story" color="pink darken-4"/>

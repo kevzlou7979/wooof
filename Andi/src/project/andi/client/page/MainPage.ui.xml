@@ -18,14 +18,14 @@
 	</ui:style>
 	<g:HTMLPanel addStyleNames="{style.mainPage}">
 		 
-<!-- 		<m:Header logo="{res.andi}" name="Andi"/> -->
+		<m:Header logo="{res.andi}" name="Andi"/>
 	    <m:FloatingButton />
-<!-- 	    <m:Banner /> -->
-<!-- 	    <g:HTMLPanel addStyleNames="{style.content}"> -->
-<!-- 	    	<m:Card></m:Card> -->
-<!-- 	    	<m:Card></m:Card> -->
-<!-- 	    	<m:Card></m:Card> -->
-<!-- 	    	<m:Card></m:Card> -->
-<!-- 	    </g:HTMLPanel> -->
+	    <m:Banner />
+	    <g:HTMLPanel addStyleNames="{style.content}">
+	    	<m:Card></m:Card>
+	    	<m:Card></m:Card>
+	    	<m:Card></m:Card>
+	    	<m:Card></m:Card>
+	    </g:HTMLPanel>
 	</g:HTMLPanel>
 </ui:UiBinder> 
