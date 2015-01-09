@@ -1,11 +1,13 @@
 package project.andi.client.services;
 
+import project.andi.shared.Story;
+
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.rpc.RemoteService;
 import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
 
 @RemoteServiceRelativePath("story")
-public interface StoryService extends RemoteService{
+public interface StoryService extends RemoteService {
 
 	public static class Connect {
 
@@ -14,11 +16,15 @@ public interface StoryService extends RemoteService{
 		public static StoryServiceAsync getService() {
 			if (service == null) {
 				service = (StoryServiceAsync) GWT.create(StoryService.class);
-				//PhonegapUtil.prepareService((ServiceDefTarget) service, "http://wooof-husky.appspot.com", "Story");
+				// PhonegapUtil.prepareService((ServiceDefTarget) service,
+				// "http://wooof-husky.appspot.com", "Story");
 			}
 
 			return service;
 		}
+
 	}
-	
+
+	void createStory(Story story) throws Exception;
+
 }

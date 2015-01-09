@@ -5,7 +5,7 @@
 	<ui:style>
 	
 	</ui:style>
-	<g:HTMLPanel>
+	<g:HTMLPanel ui:field="panel">
 		<h4>Story</h4>
 		<p>Fill up all the required fields</p>
 		
@@ -14,7 +14,8 @@
 		<m:AndiTextBox ui:field="txtCode" placeholder="Story Code"/>
 		<m:AndiTextBox ui:field="txtPassword" placeholder="Story Password"/>
 		
+		<g:Label ui:field="lblCreate" text="Create" addStyleNames="waves-effect btn-flat"/>
+		<a class="btn" onclick="toast('I am a toast', 4000)">Toast!</a>
 		
-		<a href="#" class="waves-effect btn-flat modal-close">Create</a>
 	</g:HTMLPanel>
 </ui:UiBinder> 
