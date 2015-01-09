@@ -6,6 +6,8 @@ public interface AndiMobileCSS extends CssResource {
 
 
 	String maintenancePanel();
-
 	String andiDialog();
+	String logo();
+	String frontTitle();
+	String frontDescription();
 }
