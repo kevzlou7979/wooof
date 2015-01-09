@@ -1,5 +1,8 @@
 package project.andi.client.page;
 
+import project.andi.client.modal.AndiDialog;
+import project.andi.client.modal.ModalAddStory;
+
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.uibinder.client.UiBinder;
@@ -24,6 +27,11 @@ public class MaintenancePage extends Composite {
 	void onLogo(ClickEvent e){
 		RootPanel.get().clear();
 		RootPanel.get().add(new MainPage());
+	}
+	
+	@UiHandler("lblCreateStory")
+	void onCreateStory(ClickEvent e){
+		new AndiDialog(new ModalAddStory(),10, 40, 50);
 	}
 
 }

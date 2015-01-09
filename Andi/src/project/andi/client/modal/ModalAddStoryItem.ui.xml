@@ -6,15 +6,16 @@
 	
 	</ui:style>
 	<g:HTMLPanel>
-		<h4>Story</h4>
+		<h4>Story Item</h4>
 		<p>Fill up all the required fields</p>
 		
-		<m:AndiTextBox ui:field="txtTitle" placeholder="Story Title"/>
-		<m:AndiTextBox ui:field="txtDescription" placeholder="Story Description"/>
-		<m:AndiTextBox ui:field="txtCode" placeholder="Story Code"/>
-		<m:AndiTextBox ui:field="txtPassword" placeholder="Story Password"/>
-		
+		<m:AndiTextBox ui:field="lblTitle" placeholder="Title"/>
+		<m:AndiTextBox placeholder="Introduction"/>
+		<m:AndiTextBox placeholder="Image URL"/>
+		<m:AndiTextBox />
+		<m:AndiTextBox />
 		
 		<a href="#" class="waves-effect btn-flat modal-close">Create</a>
+		
 	</g:HTMLPanel>
 </ui:UiBinder> 

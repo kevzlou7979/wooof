@@ -55,21 +55,23 @@
 }
 
 .andiTextBox {
-	width: 100%;
-	padding: 10px;
-	font-size: 1.2em;
-	border: 1px solid #E7E7E7;
-	padding-left: 20px;
-	box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	transition: 0.3s all;
-	-webkit-transition: 0.3s all;
-	-moz-transition: 0.3s all;
-	margin-top: 5px;
+	width: 100% !important;
+	padding: 10px !important;
+	font-size: 1.2em !important;
+	border: 1px solid #E7E7E7 !important;
+	padding-left: 20px !important;
+	box-sizing: border-box !important;
+	-webkit-box-sizing: border-box !important;
+	-moz-box-sizing: border-box !important;
+	transition: 0.3s all !important;
+	-webkit-transition: 0.3s all !important;
+	-moz-transition: 0.3s all !important;
+	margin-top: 5px !important;
+	background: #fff !important;
+	margin-bottom: 0px !important;
 }
 
 .andiTextBox:focus {
-	outline: none;
-	border-left: 5px solid #a72773;
+	outline: none !important;
+	border-left: 5px solid #a72773 !important;
 }

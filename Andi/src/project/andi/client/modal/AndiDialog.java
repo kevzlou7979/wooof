@@ -32,6 +32,7 @@ public class AndiDialog extends DialogBox {
 		this.getElement().getStyle().setBackgroundColor("#fff");
 		dialogPanel.add(composite);
 		this.addStyleName(AndiResources.INSTANCE.andicss().andiDialog());
+		this.addStyleName(AndiResources.INSTANCE.andimobilecss().andiDialog());
 		this.setModal(true);
 		this.setGlassEnabled(true);
 		this.getElement().getStyle().setTop(top, Unit.PCT);
