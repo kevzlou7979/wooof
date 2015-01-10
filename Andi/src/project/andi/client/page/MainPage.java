@@ -1,8 +1,24 @@
 package project.andi.client.page;
 
+import java.util.List;
+
+import project.andi.client.material.Card;
+import project.andi.client.material.MaterialLoader;
+import project.andi.client.material.MaterialToast;
+import project.andi.client.modal.AndiDialog;
+import project.andi.client.modal.ModalAddStoryItem;
+import project.andi.client.services.StoryService;
+import project.andi.shared.Story;
+import project.andi.shared.StoryItem;
+
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.uibinder.client.UiBinder;
+import com.google.gwt.uibinder.client.UiField;
+import com.google.gwt.uibinder.client.UiHandler;
+import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.Widget;
 
 public class MainPage extends Composite {
@@ -13,8 +29,60 @@ public class MainPage extends Composite {
 	interface MainPageUiBinder extends UiBinder<Widget, MainPage> {
 	}
 
-	public MainPage() {
+	@UiField HTMLPanel cardPanel;
+	
+	private Story story;
+	private AndiDialog andiDialog;
+	
+	public MainPage(Story story) {
 		initWidget(uiBinder.createAndBindUi(this));
+		this.setStory(story);
+		getAllStoryItem(story);
 	}
 
+	public Story getStory() {
+		return story;
+	}
+
+	public void setStory(Story story) {
+		this.story = story;
+	}
+
+	@UiHandler("btnAddStoryItem")
+	void onAddStoryItem(ClickEvent e){
+		andiDialog = new AndiDialog(new ModalAddStoryItem(story, this),10, 40, 50);
+	}
+
+	public AndiDialog getAndiDialog() {
+		return andiDialog;
+	}
+
+	public void setAndiDialog(AndiDialog andiDialog) {
+		this.andiDialog = andiDialog;
+	}
+	
+	public void getAllStoryItem(Story story){
+		MaterialLoader.showLoading(true, cardPanel);
+		StoryService.Connect.getService().getAllStoryItems(story.getId(), new AsyncCallback<List<StoryItem>>() {
+			
+			@Override
+			public void onSuccess(List<StoryItem> result) {
+				cardPanel.clear();
+				if(!result.isEmpty()){
+					for(StoryItem item : result){
+						cardPanel.add(new Card(item));
+					}
+				}else{
+					MaterialToast.alert("No Story Item Found");
+				}
+				
+			}
+			
+			@Override
+			public void onFailure(Throwable caught) {
+				MaterialToast.alert(caught.getMessage());
+			}
+		});
+	}
+	
 }

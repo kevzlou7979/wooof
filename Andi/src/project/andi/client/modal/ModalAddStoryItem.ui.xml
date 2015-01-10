@@ -5,17 +5,18 @@
 	<ui:style>
 	
 	</ui:style>
-	<g:HTMLPanel>
+	<g:HTMLPanel ui:field="panel">
 		<h4>Story Item</h4>
 		<p>Fill up all the required fields</p>
 		
-		<m:AndiTextBox ui:field="lblTitle" placeholder="Title"/>
-		<m:AndiTextBox placeholder="Introduction"/>
-		<m:AndiTextBox placeholder="Image URL"/>
-		<m:AndiTextBox />
-		<m:AndiTextBox />
+		<m:MaterialTextBox ui:field="txtTitle" placeholder="Title"/>
+		<m:MaterialTextBox ui:field="txtIntroduction" placeholder="Introduction"/>
+		<m:MaterialTextBox ui:field="txtImageUrl" placeholder="Image URL"/>
+		<m:MaterialTextArea ui:field="areaContent" placeholder="Content" />
 		
-		<a href="#" class="waves-effect btn-flat modal-close">Create</a>
+		<m:MaterialTextBox ui:field="txtPlace" placeholder="Place"/>
+		<m:MaterialDatePicker/>
+		<m:MaterialButton ui:field="btnCreateStoryItem" flat="Create"/>
 		
 	</g:HTMLPanel>
 </ui:UiBinder> 

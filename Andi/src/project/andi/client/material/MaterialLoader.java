@@ -2,7 +2,7 @@ package project.andi.client.material;
 
 import com.google.gwt.user.client.ui.HTMLPanel;
 
-public class AndiLoader {
+public class MaterialLoader {
 	private static PreLoader preLoader = new PreLoader();
 
 	public static void showLoading(boolean isShow, HTMLPanel container) {

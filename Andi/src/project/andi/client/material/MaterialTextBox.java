@@ -5,31 +5,34 @@ import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Label;
+import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Widget;
 
-public class AndiTextBox extends Composite {
+public class MaterialTextBox extends Composite {
 
-	private static AndiTextBoxUiBinder uiBinder = GWT
-			.create(AndiTextBoxUiBinder.class);
+	private static MaterialTextBoxUiBinder uiBinder = GWT
+			.create(MaterialTextBoxUiBinder.class);
 
-	interface AndiTextBoxUiBinder extends UiBinder<Widget, AndiTextBox> {
+	interface MaterialTextBoxUiBinder extends UiBinder<Widget, MaterialTextBox> {
 	}
-	
-	private String text;
+
+
 	private String placeholder;
+	private String type;
 	
 	@UiField Label lblName;	
+	@UiField TextBox txtBox;
 	
-	public AndiTextBox() {
+	public MaterialTextBox() {
 		initWidget(uiBinder.createAndBindUi(this));
 	}
 
 	public String getText() {
-		return text;
+		return txtBox.getText();
 	}
 
 	public void setText(String text) {
-		this.text = text;
+		txtBox.setText(text);
 	}
 
 	public String getPlaceholder() {
@@ -39,6 +42,15 @@ public class AndiTextBox extends Composite {
 	public void setPlaceholder(String placeholder) {
 		this.placeholder = placeholder;
 		lblName.setText(placeholder);
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+		txtBox.getElement().setAttribute("type", type);
 	}
 
 }
