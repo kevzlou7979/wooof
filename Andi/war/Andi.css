@@ -1,3 +1,11 @@
+.gwt-PopupPanelGlass{
+	background: rgba(0,0,0,0.5);
+}
+
+.gwtMaterialDesign{
+	width: 100% !important;	
+}
+
 .gwt-DialogBox, .gwt-PopupPanelGlass{
 	z-index: 998;
 }
