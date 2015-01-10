@@ -11,7 +11,7 @@
 		.content{
 			border-left: 3px solid #cfcfcf;
 			margin-left: 10%;
-			width: 94%;
+			width: 89%;
 			min-height: 500px;
 			background: #f9f9f9;
 		}
@@ -19,13 +19,8 @@
 	<g:HTMLPanel addStyleNames="{style.mainPage}">
 		 
 		<m:Header logo="{res.andi}" name="Andi"/>
-	    <m:FloatingButton />
+	    <m:MaterialFloating ui:field="btnAddStoryItem" />
 	    <m:Banner />
-	    <g:HTMLPanel addStyleNames="{style.content}">
-	    	<m:Card></m:Card>
-	    	<m:Card></m:Card>
-	    	<m:Card></m:Card>
-	    	<m:Card></m:Card>
-	    </g:HTMLPanel>
+	    <g:HTMLPanel addStyleNames="{style.content}" ui:field="cardPanel"/>
 	</g:HTMLPanel>
 </ui:UiBinder> 

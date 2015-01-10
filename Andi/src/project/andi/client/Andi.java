@@ -1,6 +1,5 @@
 package project.andi.client;
 
-import project.andi.client.page.MainPage;
 import project.andi.client.page.MaintenancePage;
 import project.andi.client.resources.AndiResources;
 import project.andi.client.resources.ResourcesLoader;

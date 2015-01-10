@@ -1,8 +1,8 @@
 package project.andi.client.material;
 
-public class AndiToast {
+public class MaterialToast {
 
-	public AndiToast() {
+	public MaterialToast() {
 		// TODO Auto-generated constructor stub
 	}
 	

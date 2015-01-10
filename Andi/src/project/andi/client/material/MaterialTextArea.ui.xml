@@ -2,13 +2,14 @@
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
 	xmlns:g="urn:import:com.google.gwt.user.client.ui">
 	<ui:style>
-		.btnSubmit{
-			width: 100%;
-		}
+	.important {
+		font-weight: bold;
+	}
 	</ui:style>
 	<g:HTMLPanel>
-	
-		<g:Button addStyleNames="btn waves-effect waves-light {style.btnSubmit}" ui:field="btnSubmit" />
-		
+		<div class="input-field col s6">
+        	<g:TextArea ui:field="txtBox" addStyleNames="materialize-textarea"/>
+       	 	<label for="first_name"><g:Label ui:field="lblName"/></label>
+      	</div>
 	</g:HTMLPanel>
 </ui:UiBinder> 

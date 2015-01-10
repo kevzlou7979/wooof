@@ -1,7 +1,11 @@
 package project.andi.server;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import project.andi.client.services.StoryService;
 import project.andi.shared.Story;
+import project.andi.shared.StoryItem;
 
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 import com.googlecode.objectify.Objectify;
@@ -14,6 +18,26 @@ public class StoryServiceImpl extends RemoteServiceServlet implements StoryServi
 	@Override
 	public void createStory(Story story) throws Exception {
 		ofy.put(story);
+	}
+
+	@Override
+	public Story getStory(String code) throws Exception {
+		Story story = ofy.query(Story.class).filter("code", code).get();
+		return story;
+	}
+
+	@Override
+	public void createStoryItem(StoryItem item) throws Exception {
+		ofy.put(item);
+	}
+
+	@Override
+	public List<StoryItem> getAllStoryItems(Long storyId) throws Exception {
+		List<StoryItem> items = new ArrayList<StoryItem>();
+		for (StoryItem item : ofy.query(StoryItem.class).filter("storyId", storyId).order("creationDate")) {
+			items.add(item);
+		}
+		return items;
 	}
 
 }

@@ -1,6 +1,9 @@
 package project.andi.client.services;
 
+import java.util.List;
+
 import project.andi.shared.Story;
+import project.andi.shared.StoryItem;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.rpc.RemoteService;
@@ -26,5 +29,8 @@ public interface StoryService extends RemoteService {
 	}
 
 	void createStory(Story story) throws Exception;
+	Story getStory(String code) throws Exception;
+	void createStoryItem(StoryItem item) throws Exception;
+	List<StoryItem> getAllStoryItems(Long storyId) throws Exception;
 
 }

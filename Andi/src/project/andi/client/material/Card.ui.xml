@@ -66,25 +66,25 @@
 	<g:HTMLPanel addStyleNames="{style.panel}">
 		
 		<g:HTMLPanel addStyleNames="inline {style.left}">
-			<g:Label text="1st"/>
+			<g:Label ui:field="lblTest" text="1st"/>
 		</g:HTMLPanel>
 		
 		<g:HTMLPanel addStyleNames="{style.container} inline">
-			<g:Image resource="{res.bg_andi}"/>
-			<g:Label text="1st day with Andi" addStyleNames="{style.cardTitle}"/>
-			<g:Label text="Lorem Ipsum sadas" addStyleNames="{style.cardIntro}"/>
+			<g:Image ui:field="imgCard"  resource="{res.bg_andi}"/>
+			<g:Label ui:field="lblTitle" text="Lorem Ipsum" addStyleNames="{style.cardTitle}"/>
+			<g:Label ui:field="lblIntroduction" text="Lorem Ipsum" addStyleNames="{style.cardIntro}"/>
 			
 			
 			
-			<g:Label text="The titles of Washed Out's breakthrough song and the first single from Paracosm share the two most important words in Ernest Greene's musical language: feel it. It's a simple request, as well..." addStyleNames="{style.cardBody}"/>
+			<g:Label ui:field="lblContent" text="Lorem Ipsum" addStyleNames="{style.cardBody}"/>
 			<g:HTMLPanel>
 				<g:Image resource="{res.ic_map}" addStyleNames="inline {style.icon}"/>
-				<g:Label text="January 1 2014" addStyleNames="inline"/>
+				<g:Label ui:field="lblPlace" text="Lorem Ipsum" addStyleNames="inline"/>
 			</g:HTMLPanel>
 			
 			<g:HTMLPanel>
 				<g:Image resource="{res.ic_time}" addStyleNames="inline {style.icon}"/>
-				<g:Label text="January 1 2014" addStyleNames="inline"/>
+				<g:Label ui:field="lblTime" text="Lorem Ipsum" addStyleNames="inline"/>
 			</g:HTMLPanel>
 		</g:HTMLPanel>
 		

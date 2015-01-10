@@ -41,16 +41,15 @@
 		}
 	</ui:style>
 	<g:HTMLPanel addStyleNames="{res.andicss.maintenancePanel} {style.panel}">
-		<g:HTMLPanel addStyleNames="{style.logoContainer}">
+		<g:HTMLPanel ui:field="loginPanel" addStyleNames="{style.logoContainer}">
 			<g:Image resource="{res.andi}" addStyleNames="{res.andimobilecss.logo}" ui:field="logo"/>
 			<g:Label text="ANDI" addStyleNames="{style.lblTitle} {res.andimobilecss.frontTitle}"/>
 			<g:Label text="SHARE YOUR LOVE STORY" addStyleNames="{style.lblDesc} {res.andimobilecss.frontDescription}"/>
 			<g:HTMLPanel addStyleNames="{style.fieldPanel}"> 
-				<m:RegularTextBox placeholder="Story Code"/>
-				<m:AndiButton text="Show Story" color="pink darken-4"/>
+				<m:RegularTextBox ui:field="txtCode" placeholder="Story Code"/>
+				<m:MaterialButton ui:field="btnLoadStory"  text="Show Story"/>
 				<g:Label ui:field="lblCreateStory" text="Create Story" addStyleNames="{style.lblCreateStory}"/>
 			</g:HTMLPanel>
-			
 		</g:HTMLPanel>
 	</g:HTMLPanel>
 </ui:UiBinder> 

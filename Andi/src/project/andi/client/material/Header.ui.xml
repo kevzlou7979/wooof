@@ -23,9 +23,15 @@
 			width: 40px;
 			height: auto;
 		}
+		.menuItem{
+			float: right;
+			margin-right: 10px;
+			cursor: pointer;
+		}
 	</ui:style>
 	<g:HTMLPanel addStyleNames="{style.header}">
 		<g:Image ui:field="imgLogo" addStyleNames="inline {style.logo}"/>
 		<g:Label ui:field="lblName" addStyleNames="inline"/>
+		<g:Label text="Logout" ui:field="lblLogout" addStyleNames="{style.menuItem}"/>
 	</g:HTMLPanel>
 </ui:UiBinder> 
