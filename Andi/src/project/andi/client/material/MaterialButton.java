@@ -1,5 +1,6 @@
 	package project.andi.client.material;
 
+import com.google.gwt.dom.client.Style.Display;
 import com.google.gwt.user.client.ui.FocusPanel;
 import com.google.gwt.user.client.ui.HTMLPanel;
 
@@ -34,6 +35,7 @@ public class MaterialButton extends FocusPanel {
 		this.flat = flat;
 		this.clear();
 		panel = new HTMLPanel("<a href='#' class='waves-effect btn-flat modal-close'>"+flat+"</a>");
+		this.getElement().getStyle().setDisplay(Display.INLINE_BLOCK);
 		this.add(panel);
 	}
 

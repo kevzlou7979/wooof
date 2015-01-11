@@ -29,13 +29,14 @@ public class StoryItem implements Serializable{
 	
 
 	public StoryItem(String title, String introduction, String imageUrl,
-			String content, String place, Long storyId) {
+			String content, String place,Date creationDate, Long storyId) {
 		super();
 		this.title = title;
 		this.introduction = introduction;
 		this.imageUrl = imageUrl;
 		this.content = content;
 		this.place = place;
+		this.creationDate = creationDate;
 		this.storyId = storyId;
 	}
 

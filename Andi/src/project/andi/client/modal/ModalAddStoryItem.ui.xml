@@ -15,8 +15,10 @@
 		<m:MaterialTextArea ui:field="areaContent" placeholder="Content" />
 		
 		<m:MaterialTextBox ui:field="txtPlace" placeholder="Place"/>
-		<m:MaterialDatePicker/>
+		<m:MaterialDatePicker ui:field="dpCreationDate"/>
+		
 		<m:MaterialButton ui:field="btnCreateStoryItem" flat="Create"/>
+		<m:MaterialButton ui:field="lblCancel" flat="Cancel"/>
 		
 	</g:HTMLPanel>
 </ui:UiBinder> 

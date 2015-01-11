@@ -14,7 +14,8 @@
 		<m:MaterialTextBox ui:field="txtCode" placeholder="Story Code"/>
 		<m:MaterialTextBox ui:field="txtPassword" type="password" placeholder="Story Password"/>
 		
-		<g:Label ui:field="lblCreate" text="Create" addStyleNames="waves-effect btn-flat"/>
+		<m:MaterialButton ui:field="lblCreate" flat="Create"/>
+		<m:MaterialButton ui:field="lblCancel" flat="Cancel"/>
 		
 	</g:HTMLPanel>
 </ui:UiBinder> 
