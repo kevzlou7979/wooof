@@ -4,8 +4,8 @@ import java.util.List;
 
 import project.andi.client.material.Card;
 import project.andi.client.material.MaterialLoader;
+import project.andi.client.material.MaterialModal;
 import project.andi.client.material.MaterialToast;
-import project.andi.client.modal.AndiDialog;
 import project.andi.client.modal.ModalAddStoryItem;
 import project.andi.client.services.StoryService;
 import project.andi.shared.Story;
@@ -32,7 +32,6 @@ public class MainPage extends Composite {
 	@UiField HTMLPanel cardPanel;
 	
 	private Story story;
-	private AndiDialog andiDialog;
 	
 	public MainPage(Story story) {
 		initWidget(uiBinder.createAndBindUi(this));
@@ -50,18 +49,12 @@ public class MainPage extends Composite {
 
 	@UiHandler("btnAddStoryItem")
 	void onAddStoryItem(ClickEvent e){
-		andiDialog = new AndiDialog(new ModalAddStoryItem(story, this),10, 40, 50);
+		MaterialModal.showModal(true, new ModalAddStoryItem(story, this));
+		//andiDialog = new AndiDialog(new ModalAddStoryItem(story, this),10, 40, 50);
 	}
 
-	public AndiDialog getAndiDialog() {
-		return andiDialog;
-	}
-
-	public void setAndiDialog(AndiDialog andiDialog) {
-		this.andiDialog = andiDialog;
-	}
 	
-	public void getAllStoryItem(Story story){
+	public void getAllStoryItem(final Story story){
 		MaterialLoader.showLoading(true, cardPanel);
 		StoryService.Connect.getService().getAllStoryItems(story.getId(), new AsyncCallback<List<StoryItem>>() {
 			
@@ -70,7 +63,7 @@ public class MainPage extends Composite {
 				cardPanel.clear();
 				if(!result.isEmpty()){
 					for(StoryItem item : result){
-						cardPanel.add(new Card(item));
+						cardPanel.add(new Card(story, item, MainPage.this));
 					}
 				}else{
 					MaterialToast.alert("No Story Item Found");

@@ -1,6 +1,7 @@
 package project.andi.client.modal;
 
 import project.andi.client.material.MaterialLoader;
+import project.andi.client.material.MaterialModal;
 import project.andi.client.material.MaterialTextBox;
 import project.andi.client.material.MaterialToast;
 import project.andi.client.page.MaintenancePage;
@@ -77,6 +78,10 @@ public class ModalAddStory extends Composite {
 		
 	}
 	
+	@UiHandler("lblCancel")
+	void onCancel(ClickEvent e){
+		MaterialModal.closeModal();
+	}
 	
 	
 }

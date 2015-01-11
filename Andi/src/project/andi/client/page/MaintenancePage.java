@@ -1,8 +1,8 @@
 package project.andi.client.page;
 
 import project.andi.client.material.MaterialLoader;
+import project.andi.client.material.MaterialModal;
 import project.andi.client.material.MaterialToast;
-import project.andi.client.modal.AndiDialog;
 import project.andi.client.modal.ModalAddStory;
 import project.andi.client.services.StoryService;
 import project.andi.shared.Story;
@@ -46,7 +46,8 @@ public class MaintenancePage extends Composite {
 	
 	@UiHandler("lblCreateStory")
 	void onCreateStory(ClickEvent e){
-		new AndiDialog(new ModalAddStory(this),10, 40, 50);
+		MaterialModal.showModal(true, new ModalAddStory(this));
+		//new AndiDialog(new ModalAddStory(this),10, 40, 50);
 	}
 	
 	public void loadStory(String code){
