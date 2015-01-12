@@ -4,6 +4,7 @@
 	xmlns:m="urn:import:project.andi.client.material">
 	<ui:with field='res' type='project.andi.client.resources.AndiResources' />
 	<ui:style>
+		@external content;
 		.mainPage{
 			height: 100%;
 			background: #f9f9f9;

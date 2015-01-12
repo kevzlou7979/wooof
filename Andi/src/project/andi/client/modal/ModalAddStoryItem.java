@@ -100,6 +100,7 @@ public class ModalAddStoryItem extends Composite {
 					MaterialToast.alert("Successfully saved item");
 					MaterialLoader.showLoading(false);
 					mainPage.getAllStoryItem(story);
+					mainPage.forceAddItem(storyItem);
 					MaterialModal.closeModal();
 				}
 				

@@ -3,10 +3,12 @@ package project.andi.client.page;
 import java.util.List;
 
 import project.andi.client.material.Card;
+import project.andi.client.material.MaterialInfo;
 import project.andi.client.material.MaterialLoader;
 import project.andi.client.material.MaterialModal;
 import project.andi.client.material.MaterialToast;
 import project.andi.client.modal.ModalAddStoryItem;
+import project.andi.client.resources.AndiResources;
 import project.andi.client.services.StoryService;
 import project.andi.shared.Story;
 import project.andi.shared.StoryItem;
@@ -63,10 +65,13 @@ public class MainPage extends Composite {
 				cardPanel.clear();
 				if(!result.isEmpty()){
 					for(StoryItem item : result){
+						cardPanel.addStyleName("content");
 						cardPanel.add(new Card(story, item, MainPage.this));
 					}
 				}else{
 					MaterialToast.alert("No Story Item Found");
+					cardPanel.removeStyleName("content");
+					MaterialInfo.showInfo(cardPanel, AndiResources.INSTANCE.logo_info(), "Add your story item by just clicking the Plus Icon below. Enjoy using Andi to share your love story to the whole world.");
 				}
 				
 			}
@@ -76,6 +81,11 @@ public class MainPage extends Composite {
 				MaterialToast.alert(caught.getMessage());
 			}
 		});
+	}
+	
+	public void forceAddItem(StoryItem item){
+		cardPanel.addStyleName("content");
+		cardPanel.add(new Card(story, item, MainPage.this));
 	}
 	
 }
