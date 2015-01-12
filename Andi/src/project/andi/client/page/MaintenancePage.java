@@ -1,9 +1,11 @@
 package project.andi.client.page;
 
+import project.andi.client.material.MaterialInfo;
 import project.andi.client.material.MaterialLoader;
 import project.andi.client.material.MaterialModal;
 import project.andi.client.material.MaterialToast;
 import project.andi.client.modal.ModalAddStory;
+import project.andi.client.resources.AndiResources;
 import project.andi.client.services.StoryService;
 import project.andi.shared.Story;
 

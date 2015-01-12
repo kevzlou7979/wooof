@@ -13,6 +13,7 @@ public interface AndiResources extends ClientBundle {
 	ImageResource avatar_woman();
 	ImageResource ic_map();
 	ImageResource ic_time();
+	ImageResource logo_info();
 	AndiCSS andicss();
 	AndiMobileCSS andimobilecss();
 	
