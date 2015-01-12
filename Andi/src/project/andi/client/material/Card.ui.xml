@@ -95,7 +95,7 @@
 		</g:HTMLPanel>
 		
 		<g:HTMLPanel addStyleNames="{style.container} inline">
-			<g:Image ui:field="imgCard"  resource="{res.bg_andi}"/>
+			<m:MaterialImage ui:field="imgCard"  resource="{res.bg_andi}"/>
 			<m:MaterialIcon ui:field="btnAction" icon="mdi-editor-mode-edit" fontSize="2" addStyleNames="{style.btnAction}"/>
 			<g:Label ui:field="lblTitle" text="Lorem Ipsum" addStyleNames="{style.cardTitle}"/>
 			<g:Label ui:field="lblIntroduction" text="Lorem Ipsum" addStyleNames="{style.cardIntro}"/>

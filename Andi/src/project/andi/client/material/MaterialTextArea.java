@@ -1,6 +1,7 @@
 package project.andi.client.material;
 
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.core.client.Scheduler;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Composite;
@@ -25,7 +26,11 @@ public class MaterialTextArea extends Composite {
 	
 	public MaterialTextArea() {
 		initWidget(uiBinder.createAndBindUi(this));
-		this.removeStyleName("gwt-TextArea");
+		Scheduler.get().scheduleDeferred(new Scheduler.ScheduledCommand () {
+	        public void execute () {
+	        	txtBox.setFocus(true);
+	        }
+	    });
 	}
 	
 	public String getText() {

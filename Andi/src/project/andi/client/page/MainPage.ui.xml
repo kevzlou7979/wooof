@@ -21,7 +21,7 @@
 		 
 		<m:Header logo="{res.andi}" name="Andi"/>
 	    <m:MaterialFloating ui:field="btnAddStoryItem" />
-	    <m:Banner />
+	    <m:Banner ui:field="banner"/>
 	    <g:HTMLPanel addStyleNames="{style.content}" ui:field="cardPanel"/>
 	</g:HTMLPanel>
 </ui:UiBinder> 

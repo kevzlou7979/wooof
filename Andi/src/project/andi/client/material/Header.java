@@ -49,7 +49,7 @@ public class Header extends Composite {
 		lblName.setText(name);
 	}
 	
-	@UiHandler("lblLogout")
+	@UiHandler("btnLogout")
 	void onLogout(ClickEvent e){
 		RootPanel.get().clear();
 		RootPanel.get().add(new MaintenancePage());
