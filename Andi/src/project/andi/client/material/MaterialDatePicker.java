@@ -42,13 +42,15 @@ public class MaterialDatePicker extends FocusPanel{
 
 	
 	public Date getDate() {
+		return date;
+	}
+
+	public Date getPickerDate(){
 		DateTimeFormat sdf = DateTimeFormat.getFormat("d MMM, yyyy");
 		date = sdf.parse(getDatePickerValue());
 		return date;
 	}
-
-
-
+	
 	public void setDate(Date date) {
 		this.date = date;
 	}

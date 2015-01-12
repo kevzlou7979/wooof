@@ -89,7 +89,12 @@ public class ModalAddStoryItem extends Composite {
 			storyItem.setIntroduction(txtIntroduction.getText());
 			storyItem.setContent(areaContent.getText());
 			storyItem.setImageUrl(txtImageUrl.getText());
-			storyItem.setCreationDate(dpCreationDate.getDate());
+			
+			try {
+				storyItem.setCreationDate(dpCreationDate.getPickerDate());
+			} catch (IllegalArgumentException exception) {
+				storyItem.setCreationDate(dpCreationDate.getDate());
+			}
 			storyItem.setPlace(txtPlace.getText());
 			storyItem.setStoryId(story.getId());
 			
@@ -99,8 +104,9 @@ public class ModalAddStoryItem extends Composite {
 				public void onSuccess(Void result) {
 					MaterialToast.alert("Successfully saved item");
 					MaterialLoader.showLoading(false);
-					mainPage.getAllStoryItem(story);
 					mainPage.forceAddItem(storyItem);
+					//mainPage.getAllStoryItem(story);
+					
 					MaterialModal.closeModal();
 				}
 				

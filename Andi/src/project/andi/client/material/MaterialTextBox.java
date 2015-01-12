@@ -1,6 +1,7 @@
 package project.andi.client.material;
 
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.core.client.Scheduler;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Composite;
@@ -25,6 +26,12 @@ public class MaterialTextBox extends Composite {
 	
 	public MaterialTextBox() {
 		initWidget(uiBinder.createAndBindUi(this));
+		Scheduler.get().scheduleDeferred(new Scheduler.ScheduledCommand () {
+	        public void execute () {
+	        	txtBox.setFocus(true);
+	        }
+	    });
+		
 	}
 
 	public String getText() {
@@ -33,10 +40,12 @@ public class MaterialTextBox extends Composite {
 
 	public void setText(String text) {
 		txtBox.setText(text);
+		
 	}
 
 	public String getPlaceholder() {
 		return placeholder;
+		
 	}
 
 	public void setPlaceholder(String placeholder) {

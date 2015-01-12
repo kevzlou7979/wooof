@@ -2,6 +2,7 @@ package project.andi.client.page;
 
 import java.util.List;
 
+import project.andi.client.material.Banner;
 import project.andi.client.material.Card;
 import project.andi.client.material.MaterialInfo;
 import project.andi.client.material.MaterialLoader;
@@ -32,6 +33,7 @@ public class MainPage extends Composite {
 	}
 
 	@UiField HTMLPanel cardPanel;
+	@UiField Banner banner;
 	
 	private Story story;
 	
@@ -87,5 +89,9 @@ public class MainPage extends Composite {
 		cardPanel.addStyleName("content");
 		cardPanel.add(new Card(story, item, MainPage.this));
 	}
+
+	
+	
+	
 	
 }
