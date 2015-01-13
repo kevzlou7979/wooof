@@ -7,5 +7,7 @@ public interface AndiCSS extends CssResource {
 	String maintenancePanel();
 	String andiDialog();
 	String andiTextBox();
+	String inline();
 	String andiInfo();
+	String materialIcon();
 }

@@ -5,17 +5,15 @@
 	<ui:with field='res' type='project.andi.client.resources.AndiResources' />
 	<ui:style>
 		.lblDesc{
-			font-size: 2em;
+			font-size: 1.5em;
 			margin-top: -20px;
 		}
 		.lblTitle{
-			font-size: 6em;
-			font-weight: bold;
+			font-size: 4em;
 		}
 		.panel{
 			color: #a72773;
 			text-align: center;
-			overflow: hidden;
 		}
 		.panel img{
 			max-width: 100%;
@@ -39,17 +37,53 @@
 		.lblCreateStory:hover{
 			opacity: 0.8;
 		}
+		.headerPanel{
+			width: 100%;
+			padding: 20px;
+			background: #fff;
+			-webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+			-moz-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+			box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+		}
+		.firstNav{
+			width: 30%;
+		}
+		.secondNav{
+			width: 69%;
+		}
+		.txtBox{
+			width: 70%;
+		}
+		.btnCreate{
+			width: 30%;
+		}
+		.actionPanel{
+			width: 50%;
+		}
+		.storyPanel{
+			margin-top: 50px;
+		}
 	</ui:style>
 	<g:HTMLPanel addStyleNames="{res.andicss.maintenancePanel} {style.panel}">
-		<g:HTMLPanel ui:field="loginPanel" addStyleNames="{style.logoContainer}">
-			<g:Image resource="{res.andi}" addStyleNames="{res.andimobilecss.logo}" ui:field="logo"/>
-			<g:Label text="ANDI" addStyleNames="{style.lblTitle} {res.andimobilecss.frontTitle}"/>
-			<g:Label text="SHARE YOUR LOVE STORY" addStyleNames="{style.lblDesc} {res.andimobilecss.frontDescription}"/>
-			<g:HTMLPanel addStyleNames="{style.fieldPanel}"> 
-				<m:RegularTextBox ui:field="txtCode" placeholder="Story Code"/>
-				<m:MaterialButton ui:field="btnLoadStory"  text="Show Story"/>
-				<g:Label ui:field="lblCreateStory" text="Create Story" addStyleNames="{style.lblCreateStory}"/>
+		<g:HTMLPanel addStyleNames="{style.headerPanel}">
+			
+			<g:HTMLPanel addStyleNames="{res.andicss.inline} {style.firstNav} {res.andimobilecss.frontHeader}">
+				<g:Image resource="{res.andi}" addStyleNames="{res.andicss.inline}"/>
+				<g:HTMLPanel addStyleNames="{res.andicss.inline}">
+					<g:Label text="Andi" addStyleNames="{style.lblTitle}"/>
+					<g:Label text="Share your Love story" addStyleNames="{style.lblDesc}"/>
+				</g:HTMLPanel>
+			</g:HTMLPanel>
+			
+			<g:HTMLPanel ui:field="loginPanel" addStyleNames="{res.andicss.inline} {style.secondNav} {res.andimobilecss.frontHeader}">
+				<g:HTMLPanel addStyleNames="{res.andicss.inline} {style.actionPanel} {res.andimobilecss.frontHeader}">
+					<m:MaterialTextBox ui:field="txtCode" placeholder="Story Code" addStyleNames="{res.andicss.inline} {style.txtBox}"/>
+					<m:MaterialIcon ui:field="btnLoadStory"  icon="mdi-action-search" fontSize="3" addStyleNames="{res.andicss.inline}" />
+				</g:HTMLPanel>
+				<m:MaterialButton ui:field="lblCreateStory"  text="Create Story" addStyleNames="{res.andicss.inline} {style.btnCreate} {res.andimobilecss.frontHeader}"/>
 			</g:HTMLPanel>
 		</g:HTMLPanel>
+		<g:HTMLPanel addStyleNames="{style.storyPanel}"/>
+		
 	</g:HTMLPanel>
 </ui:UiBinder> 

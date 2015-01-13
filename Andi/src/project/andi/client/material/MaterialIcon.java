@@ -1,5 +1,7 @@
 package project.andi.client.material;
 
+import project.andi.client.resources.AndiResources;
+
 import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.user.client.ui.FocusPanel;
 import com.google.gwt.user.client.ui.HTMLPanel;
@@ -22,7 +24,7 @@ public class MaterialIcon extends FocusPanel{
 	public void setIcon(String icon) {
 		this.icon = icon;
 		this.clear();
-		panel = new  HTMLPanel("<i class='"+icon+"'></i>");
+		panel = new  HTMLPanel("<i class='"+icon+"' class='"+AndiResources.INSTANCE.andicss().materialIcon()+"'></i>");
 		this.add(panel);
 	}
 

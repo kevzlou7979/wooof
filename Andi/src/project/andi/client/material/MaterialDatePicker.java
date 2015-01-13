@@ -34,7 +34,7 @@ public class MaterialDatePicker extends FocusPanel{
 	public static native void setDatePickerValue(String value)/*-{
 		$wnd.jQuery('#materialDatePicker').val(value);
 	}-*/;
-
+	
 	public static native void initDatePicker()/*-{
 		 $wnd.jQuery('.datepicker').pickadate();
 	}-*/;

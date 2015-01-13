@@ -16,3 +16,8 @@
 .frontDescription{
 	font-size: 1em;
 }
+
+.frontHeader{
+	display: block !important;
+	width: 100% !important;
+}
