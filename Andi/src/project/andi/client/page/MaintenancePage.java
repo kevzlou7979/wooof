@@ -2,6 +2,7 @@ package project.andi.client.page;
 
 import project.andi.client.material.MaterialLoader;
 import project.andi.client.material.MaterialModal;
+import project.andi.client.material.MaterialTextBox;
 import project.andi.client.material.MaterialToast;
 import project.andi.client.modal.ModalAddStory;
 import project.andi.client.services.StoryService;
@@ -16,7 +17,6 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.RootPanel;
-import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Widget;
 
 public class MaintenancePage extends Composite {
@@ -27,7 +27,7 @@ public class MaintenancePage extends Composite {
 	interface MaintenancePageUiBinder extends UiBinder<Widget, MaintenancePage> {
 	}
 	
-	@UiField TextBox txtCode;
+	@UiField MaterialTextBox txtCode;
 	@UiField HTMLPanel loginPanel;
 
 	public MaintenancePage() {

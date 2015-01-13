@@ -83,3 +83,15 @@
 	outline: none !important;
 	border-left: 5px solid #a72773 !important;
 }
+
+.inline{
+	display: inline-block;
+	vertical-align: middle;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+}
+
+.materialIcon{
+	cursor: pointer;
+}

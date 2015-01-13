@@ -10,4 +10,5 @@ public interface AndiMobileCSS extends CssResource {
 	String logo();
 	String frontTitle();
 	String frontDescription();
+	String frontHeader();
 }
