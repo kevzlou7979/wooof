@@ -63,15 +63,17 @@
 		.storyPanel{
 			margin-top: 50px;
 		}
+		.logo{
+			width: 20%;
+		}
 	</ui:style>
 	<g:HTMLPanel addStyleNames="{res.andicss.maintenancePanel} {style.panel}">
 		<g:HTMLPanel addStyleNames="{style.headerPanel}">
 			
 			<g:HTMLPanel addStyleNames="{res.andicss.inline} {style.firstNav} {res.andimobilecss.frontHeader}">
-				<g:Image resource="{res.andi}" addStyleNames="{res.andicss.inline}"/>
+				<g:Image resource="{res.andi}" addStyleNames="{res.andicss.inline} {style.logo}"/>
 				<g:HTMLPanel addStyleNames="{res.andicss.inline}">
 					<g:Label text="Andi" addStyleNames="{style.lblTitle}"/>
-					<g:Label text="Share your Love story" addStyleNames="{style.lblDesc}"/>
 				</g:HTMLPanel>
 			</g:HTMLPanel>
 			
