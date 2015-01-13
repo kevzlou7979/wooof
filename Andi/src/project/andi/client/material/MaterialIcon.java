@@ -24,7 +24,7 @@ public class MaterialIcon extends FocusPanel{
 	public void setIcon(String icon) {
 		this.icon = icon;
 		this.clear();
-		panel = new  HTMLPanel("<i class='"+icon+"' class='"+AndiResources.INSTANCE.andicss().materialIcon()+"'></i>");
+		panel = new  HTMLPanel("<i class='"+icon+" "+AndiResources.INSTANCE.andicss().materialIcon()+"'></i>");
 		this.add(panel);
 	}
 

@@ -31,6 +31,7 @@ public interface StoryService extends RemoteService {
 	void createStory(Story story) throws Exception;
 	Story getStory(String code) throws Exception;
 	void createStoryItem(StoryItem item) throws Exception;
+	List<Story> getAllStory() throws Exception;
 	List<StoryItem> getAllStoryItems(Long storyId) throws Exception;
 
 }

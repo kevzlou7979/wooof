@@ -1,5 +1,8 @@
 package project.andi.client.page;
 
+import java.util.List;
+
+import project.andi.client.material.Couple;
 import project.andi.client.material.MaterialLoader;
 import project.andi.client.material.MaterialModal;
 import project.andi.client.material.MaterialTextBox;
@@ -28,11 +31,12 @@ public class MaintenancePage extends Composite {
 	}
 	
 	@UiField MaterialTextBox txtCode;
-	@UiField HTMLPanel loginPanel;
+	@UiField HTMLPanel loginPanel, storyPanel;
 
 	public MaintenancePage() {
 		initWidget(uiBinder.createAndBindUi(this));
 		txtCode.setText("andi");
+		getAllStories();
 	}
 	
 	@UiHandler("btnLoadStory")
@@ -74,4 +78,24 @@ public class MaintenancePage extends Composite {
 		});
 	}
 
+	private void getAllStories(){
+		StoryService.Connect.getService().getAllStory(new AsyncCallback<List<Story>>() {
+			
+			@Override
+			public void onSuccess(List<Story> result) {
+				double i = 100;
+				for(Story story : result){
+					storyPanel.add(new Couple(story, i));
+					i = i + 100;
+				}
+			}
+			
+			@Override
+			public void onFailure(Throwable caught) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+	}
+	
 }

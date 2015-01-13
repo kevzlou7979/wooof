@@ -19,6 +19,7 @@ public class Story implements Serializable {
 	private String title;
 	private String description;
 	private Date creationDate = new Date();
+	private String coverPhoto = "http://www.ilikewallpaper.net/ipad-air-wallpapers/download/4480/Love-Letter-iPad-4-wallpaper-ilikewallpaper_com.jpg";
 
 	public Story() {
 		// TODO Auto-generated constructor stub
@@ -78,6 +79,14 @@ public class Story implements Serializable {
 
 	public void setCreationDate(Date creationDate) {
 		this.creationDate = creationDate;
+	}
+
+	public String getCoverPhoto() {
+		return coverPhoto;
+	}
+
+	public void setCoverPhoto(String coverPhoto) {
+		this.coverPhoto = coverPhoto;
 	}
 
 }

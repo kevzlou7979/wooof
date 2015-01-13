@@ -92,6 +92,13 @@
 	-moz-box-sizing: border-box;
 }
 
+.panelAfterCard{
+	transform: scale(1) !important;
+	-webkit-transform: scale(1) !important;
+	-moz-transform: scale(1) !important;
+	opacity: 1 !important;
+}
+
 .materialIcon{
 	cursor: pointer;
 }

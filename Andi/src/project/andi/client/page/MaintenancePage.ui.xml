@@ -83,7 +83,7 @@
 				<m:MaterialButton ui:field="lblCreateStory"  text="Create Story" addStyleNames="{res.andicss.inline} {style.btnCreate} {res.andimobilecss.frontHeader}"/>
 			</g:HTMLPanel>
 		</g:HTMLPanel>
-		<g:HTMLPanel addStyleNames="{style.storyPanel}"/>
+		<g:HTMLPanel ui:field="storyPanel" addStyleNames="{style.storyPanel}"/>
 		
 	</g:HTMLPanel>
 </ui:UiBinder> 

@@ -10,4 +10,5 @@ public interface AndiCSS extends CssResource {
 	String inline();
 	String andiInfo();
 	String materialIcon();
+	String panelAfterCard();
 }
