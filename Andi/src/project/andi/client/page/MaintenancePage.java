@@ -35,7 +35,6 @@ public class MaintenancePage extends Composite {
 
 	public MaintenancePage() {
 		initWidget(uiBinder.createAndBindUi(this));
-		txtCode.setText("andi");
 		getAllStories();
 	}
 	

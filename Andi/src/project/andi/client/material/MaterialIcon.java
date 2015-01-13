@@ -35,6 +35,5 @@ public class MaterialIcon extends FocusPanel{
 	public void setFontSize(String fontSize) {
 		this.fontSize = fontSize;
 		this.getElement().getStyle().setFontSize(Double.valueOf(fontSize), Unit.EM);
-		this.getElement().getStyle().setLineHeight(2, Unit.EM);
 	}
 }
