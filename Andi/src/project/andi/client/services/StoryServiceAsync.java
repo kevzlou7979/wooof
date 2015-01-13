@@ -12,5 +12,6 @@ public interface StoryServiceAsync {
 	void createStory(Story story, AsyncCallback<Void> callback);
 	void getStory(String code, AsyncCallback<Story> callback);
 	void createStoryItem(StoryItem item, AsyncCallback<Void> callback);
+	void getAllStory(AsyncCallback<List<Story>> callback);
 	void getAllStoryItems(Long storyId, AsyncCallback<List<StoryItem>> callback);
 }

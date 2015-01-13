@@ -113,7 +113,7 @@ public class StoryItem implements Serializable{
 	public void setPlace(String place) {
 		this.place = place;
 	}
-	
-	
+
+
 	
 }

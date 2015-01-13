@@ -40,4 +40,13 @@ public class StoryServiceImpl extends RemoteServiceServlet implements StoryServi
 		return items;
 	}
 
+	@Override
+	public List<Story> getAllStory() throws Exception {
+		List<Story> items = new ArrayList<Story>();
+		for (Story item : ofy.query(Story.class).order("creationDate")) {
+			items.add(item);
+		}
+		return items;
+	}
+
 }
