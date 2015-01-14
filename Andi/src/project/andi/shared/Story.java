@@ -19,10 +19,25 @@ public class Story implements Serializable {
 	private String title;
 	private String description;
 	private Date creationDate = new Date();
-	private String coverPhoto = "http://www.ilikewallpaper.net/ipad-air-wallpapers/download/4480/Love-Letter-iPad-4-wallpaper-ilikewallpaper_com.jpg";
+	private String coverPhoto = "http://1.bp.blogspot.com/-xBx0ZoHPlsE/U-dmZWz0UDI/AAAAAAAADEA/ZtKtwHlZ9nA/s1600/14%2B-%2B1.png";
+	private String man = "Boy's Name";
+	private String manPhoto;
+	private String woman = "Girl's Name";
+	private String womanPhoto;
+	private long views = 0;
 
 	public Story() {
 		// TODO Auto-generated constructor stub
+	}
+
+	public Story(String coverPhoto, String man, String manPhoto, String woman,
+			String womanPhoto) {
+		super();
+		this.coverPhoto = coverPhoto;
+		this.man = man;
+		this.manPhoto = manPhoto;
+		this.woman = woman;
+		this.womanPhoto = womanPhoto;
 	}
 
 	public Story(String code, String password, String title, String description) {
@@ -89,4 +104,45 @@ public class Story implements Serializable {
 		this.coverPhoto = coverPhoto;
 	}
 
+	public String getMan() {
+		return man;
+	}
+
+	public void setMan(String man) {
+		this.man = man;
+	}
+
+	public String getManPhoto() {
+		return manPhoto;
+	}
+
+	public void setManPhoto(String manPhoto) {
+		this.manPhoto = manPhoto;
+	}
+
+	public String getWoman() {
+		return woman;
+	}
+
+	public void setWoman(String woman) {
+		this.woman = woman;
+	}
+
+	public String getWomanPhoto() {
+		return womanPhoto;
+	}
+
+	public void setWomanPhoto(String womanPhoto) {
+		this.womanPhoto = womanPhoto;
+	}
+
+	public long getViews() {
+		return views;
+	}
+
+	public void setViews(long views) {
+		this.views = views;
+	}
+
+	
 }

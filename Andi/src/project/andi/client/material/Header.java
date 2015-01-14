@@ -1,5 +1,7 @@
 package project.andi.client.material;
 
+import project.andi.client.modal.ModalLogin;
+import project.andi.client.page.MainPage;
 import project.andi.client.page.MaintenancePage;
 
 import com.google.gwt.core.client.GWT;
@@ -23,10 +25,12 @@ public class Header extends Composite {
 	
 	@UiField Image imgLogo;
 	@UiField Label lblName;
+	@UiField MaterialButton btnLogin;
 	
 	private ImageResource logo;
 	private String name;
-
+	private MainPage mainPage;
+	
 	public Header() {
 		initWidget(uiBinder.createAndBindUi(this));
 	}
@@ -54,6 +58,23 @@ public class Header extends Composite {
 		RootPanel.get().clear();
 		RootPanel.get().add(new MaintenancePage());
 	}
+	
+	@UiHandler("btnLogin")
+	void onLogin(ClickEvent e){
+		MaterialModal.showModal(true, new ModalLogin(mainPage));
+	}
+
+	public MainPage getMainPage() {
+		return mainPage;
+	}
+
+	public void setMainPage(MainPage mainPage) {
+		this.mainPage = mainPage;
+		if(mainPage.isOwner()){
+			btnLogin.removeFromParent();
+		}
+	}
+	
 	
 	
 
