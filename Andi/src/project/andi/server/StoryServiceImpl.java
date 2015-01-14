@@ -23,6 +23,10 @@ public class StoryServiceImpl extends RemoteServiceServlet implements StoryServi
 	@Override
 	public Story getStory(String code) throws Exception {
 		Story story = ofy.query(Story.class).filter("code", code).get();
+		if(story!=null){
+			story.setViews(story.getViews()+1);
+			ofy.put(story);
+		}
 		return story;
 	}
 
@@ -47,6 +51,12 @@ public class StoryServiceImpl extends RemoteServiceServlet implements StoryServi
 			items.add(item);
 		}
 		return items;
+	}
+
+	@Override
+	public Story login(String code, String password) throws Exception {
+		Story story = ofy.query(Story.class).filter("code", code).filter("password", password).get();
+		return story ;
 	}
 
 }

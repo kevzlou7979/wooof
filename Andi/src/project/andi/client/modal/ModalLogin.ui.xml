@@ -1,0 +1,18 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:m="urn:import:project.andi.client.material">
+	<ui:style>
+	
+	</ui:style>
+	<g:HTMLPanel>
+		<h4>Login</h4>
+		<p>Input your story password and start adding your story</p>
+		
+		<m:MaterialTextBox ui:field="txtCode" placeholder="Code"/>
+		<m:MaterialTextBox type="password" ui:field="txtPassword" placeholder="Password"/>
+		
+		<m:MaterialButton ui:field="lblLogin" flat="Login"/>
+		<m:MaterialButton ui:field="lblCancel" flat="Cancel"/>
+	</g:HTMLPanel>
+</ui:UiBinder> 

@@ -33,5 +33,5 @@ public interface StoryService extends RemoteService {
 	void createStoryItem(StoryItem item) throws Exception;
 	List<Story> getAllStory() throws Exception;
 	List<StoryItem> getAllStoryItems(Long storyId) throws Exception;
-
+	Story login(String code, String password) throws Exception;
 }

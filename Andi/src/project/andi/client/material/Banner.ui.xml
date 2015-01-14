@@ -6,11 +6,19 @@
 	<ui:style>
 		.banner{
 			width: 100%;
-			background: #a72773;
 			color: #fff;
 			font-size: 1.5em;
 			text-align: center;
 			margin-top: 60px;
+			padding: 50px 10px;
+			-webkit-background-size: cover;
+			-moz-background-size: cover;
+			-o-background-size: cover;
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-position: fixed;
+			position: absolute;
+			top: 0px;
 		}
 		.imgProfile{
 			width: 50px;
@@ -22,17 +30,34 @@
 		.item{
 			padding: 20px;
 		}
+		.imgBanner{
+			width: 100%;
+			height: 300px;
+		}
+		.txtNoViews{
+			font-size: 2em;
+			font-weight: bold;
+		}
 	</ui:style>
-	<g:HTMLPanel addStyleNames="{style.banner}">
-		<g:HTMLPanel addStyleNames="inline {style.item}">
-			<m:MaterialImage ui:field="imgMan" resource="{res.avatar_man}" addStyleNames="{style.imgProfile}"/>
-			<g:Label ui:field="lblMan" text="Lorem Ipsum"/>
+	<g:HTMLPanel ui:field="panel" >
+		<g:Image ui:field="imgBanner" addStyleNames="{style.imgBanner}"/>
+		<g:HTMLPanel addStyleNames="{style.banner}">
+			<g:HTMLPanel addStyleNames="inline {style.item}">
+				<m:MaterialImage ui:field="imgMan" resource="{res.avatar_man}" addStyleNames="{style.imgProfile}"/>
+				<g:Label ui:field="lblMan" text="Lorem Ipsum"/>
+			</g:HTMLPanel>
+			
+			<g:HTMLPanel  addStyleNames="inline {style.item}">
+				<m:MaterialImage ui:field="imgWoman" resource="{res.avatar_woman}" addStyleNames="{style.imgProfile}"/>
+				<g:Label ui:field="lblWoman" text="Lorem Ipsum"/>
+			</g:HTMLPanel>
+			<g:HTMLPanel>
+				<g:Label text="0" ui:field="txtNoViews" addStyleNames="{style.txtNoViews} inline"/>
+				<g:Label text="Views" addStyleNames="inline"/>
+			</g:HTMLPanel>
+			
 		</g:HTMLPanel>
 		
-		<g:HTMLPanel  addStyleNames="inline {style.item}">
-			<m:MaterialImage ui:field="imgWoman" resource="{res.avatar_woman}" addStyleNames="{style.imgProfile}"/>
-			<g:Label ui:field="lblWoman" text="Lorem Ipsum"/>
-		</g:HTMLPanel>
 		
 		<g:HTMLPanel ui:field="soundCloudPanel"/>
 	</g:HTMLPanel>

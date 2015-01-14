@@ -1,0 +1,22 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:m="urn:import:project.andi.client.material">
+	<ui:style>
+	
+	</ui:style>
+	<g:HTMLPanel>
+		<h4>Update your Story Information</h4>
+		
+		<m:MaterialTextBox ui:field="txtCoverPhoto" placeholder="Code"/>
+		
+		<m:MaterialTextBox ui:field="txtManPhoto" placeholder="Man's Photo"/>
+		<m:MaterialTextBox ui:field="txtManName" placeholder="Man's Name"/>
+		
+		<m:MaterialTextBox type="txtWomanPhoto" ui:field="txtWomanPhoto" placeholder="Woman's Photo"/>
+		<m:MaterialTextBox type="txtWomanPhoto" ui:field="txtWomanName" placeholder="Woman's Name"/>
+		
+		<m:MaterialButton ui:field="lblUpdate" flat="Update"/>
+		<m:MaterialButton ui:field="lblCancel" flat="Cancel"/>
+	</g:HTMLPanel>
+</ui:UiBinder> 

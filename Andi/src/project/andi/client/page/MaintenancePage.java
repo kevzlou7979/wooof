@@ -62,7 +62,7 @@ public class MaintenancePage extends Composite {
 			public void onSuccess(Story result) {
 				if(result!=null){
 					RootPanel.get().clear();
-					RootPanel.get().add(new MainPage(result));
+					RootPanel.get().add(new MainPage(result, false));
 				}else{
 					MaterialToast.alert("Story not found");
 				}
@@ -84,7 +84,7 @@ public class MaintenancePage extends Composite {
 			public void onSuccess(List<Story> result) {
 				double i = 100;
 				for(Story story : result){
-					storyPanel.add(new Couple(story, i));
+					storyPanel.add(new Couple(MaintenancePage.this, story, i));
 					i = i + 100;
 				}
 			}

@@ -4,6 +4,8 @@ import java.util.List;
 
 import project.andi.client.material.Banner;
 import project.andi.client.material.Card;
+import project.andi.client.material.Header;
+import project.andi.client.material.MaterialFloating;
 import project.andi.client.material.MaterialInfo;
 import project.andi.client.material.MaterialLoader;
 import project.andi.client.material.MaterialModal;
@@ -34,14 +36,27 @@ public class MainPage extends Composite {
 
 	@UiField HTMLPanel cardPanel;
 	@UiField Banner banner;
+	@UiField MaterialFloating btnAddStoryItem;
+	@UiField Header header;
 	
+	private boolean isOwner;
 	private Story story;
 	
-	public MainPage(Story story) {
+	public MainPage(Story story, boolean isOwner) {
 		initWidget(uiBinder.createAndBindUi(this));
+		if(!isOwner){
+			btnAddStoryItem.setVisible(false);
+		}else{
+			btnAddStoryItem.setVisible(true);
+		}
 		this.setStory(story);
+		this.setOwner(isOwner);
 		getAllStoryItem(story);
+		banner.setMainPage(this);
+		header.setMainPage(this);
+		banner.setUI(story);
 	}
+
 
 	public Story getStory() {
 		return story;
@@ -88,6 +103,16 @@ public class MainPage extends Composite {
 	public void forceAddItem(StoryItem item){
 		cardPanel.addStyleName("content");
 		cardPanel.add(new Card(story, item, MainPage.this));
+	}
+
+
+	public boolean isOwner() {
+		return isOwner;
+	}
+
+
+	public void setOwner(boolean isOwner) {
+		this.isOwner = isOwner;
 	}
 
 	

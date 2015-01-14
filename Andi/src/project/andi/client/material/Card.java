@@ -25,6 +25,7 @@ public class Card extends Composite {
 	
 	@UiField Label lblTitle, lblIntroduction, lblContent, lblPlace, lblTime;
 	@UiField Image imgCard;
+	@UiField MaterialIcon btnAction;
 	
 	private StoryItem item;
 	private Story story;
@@ -33,6 +34,9 @@ public class Card extends Composite {
 	@SuppressWarnings("deprecation")
 	public Card(Story story, StoryItem item, MainPage mainPage) {
 		initWidget(uiBinder.createAndBindUi(this));
+		if(!mainPage.isOwner()){
+			btnAction.removeFromParent();
+		}
 		this.item = item;
 		this.story = story;
 		this.mainPage = mainPage;
