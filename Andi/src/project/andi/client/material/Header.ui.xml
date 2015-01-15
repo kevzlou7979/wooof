@@ -39,15 +39,19 @@
 			width: 79%;
 			text-align: right;
 		}
+		.btnMenu{
+			display: none;
+		}
 	</ui:style>
 	<g:HTMLPanel addStyleNames="{style.header}">
-		<g:HTMLPanel addStyleNames="inline {style.header1}">
+		<g:HTMLPanel addStyleNames="inline {style.header1} {res.andimobilecss.header1}">
 			<g:Image ui:field="imgLogo" addStyleNames="inline {style.logo}"/>
 			<g:Label ui:field="lblName" addStyleNames="inline"/>
 		</g:HTMLPanel>
-		<g:HTMLPanel addStyleNames="inline {style.header2}">
-			<m:MaterialIcon ui:field="btnLogout" icon="mdi-action-settings-power" addStyleNames="{style.menuItem} {res.andicss.inline}"/>
-			<m:MaterialButton ui:field="btnLogin" text="Login" addStyleNames="{style.btnLogin} {res.andicss.inline}"/>
+		<g:HTMLPanel addStyleNames="inline {style.header2} {res.andimobilecss.header2}">
+			<m:MaterialIcon ui:field="btnLogin" icon="mdi-action-account-circle" addStyleNames="{style.menuItem} {res.andicss.inline} "/>
+			<m:MaterialIcon ui:field="btnLogout" icon="mdi-action-settings-power" addStyleNames="{style.menuItem} {res.andicss.inline} "/>
 		</g:HTMLPanel>
+		<m:MaterialIcon ui:field="btnMenu" icon="mdi-navigation-menu" addStyleNames="{style.menuItem} {style.btnMenu} {res.andicss.inline} {res.andimobilecss.btnMenuMobile}"/>
 	</g:HTMLPanel>
 </ui:UiBinder> 

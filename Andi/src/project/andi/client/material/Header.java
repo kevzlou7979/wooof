@@ -5,6 +5,7 @@ import project.andi.client.page.MainPage;
 import project.andi.client.page.MaintenancePage;
 
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.resources.client.ImageResource;
 import com.google.gwt.uibinder.client.UiBinder;
@@ -25,8 +26,9 @@ public class Header extends Composite {
 	
 	@UiField Image imgLogo;
 	@UiField Label lblName;
-	@UiField MaterialButton btnLogin;
+	@UiField MaterialIcon btnLogin;
 	
+	private boolean isHidden = false;
 	private ImageResource logo;
 	private String name;
 	private MainPage mainPage;
@@ -75,6 +77,16 @@ public class Header extends Composite {
 		}
 	}
 	
+	@UiHandler("btnMenu")
+	void onMobileMenu(ClickEvent e){
+		if(isHidden){
+			getMainPage().getSideBar().getPanel().getElement().getStyle().setLeft(-300, Unit.PCT);
+			isHidden = false;
+		}else{
+			getMainPage().getSideBar().getPanel().getElement().getStyle().setLeft(0, Unit.PCT);
+			isHidden = true;
+		}
+	}
 	
 	
 

@@ -11,17 +11,16 @@
 		}
 		.content{
 			border-left: 3px solid #cfcfcf;
-			margin-left: 10%;
+			margin-left: 350px;
 			width: 89%;
 			min-height: 500px;
 			background: #f9f9f9;
 		}
 	</ui:style>
 	<g:HTMLPanel addStyleNames="{style.mainPage}">
-		 
-		<m:Header ui:field="header" logo="{res.andi}" name="Andi"/>
+		<m:Header ui:field="header" logo="{res.andi}" name="Andi"/> 
 	    <m:MaterialFloating ui:field="btnAddStoryItem" />
-	    <m:Banner ui:field="banner"/>
-	    <g:HTMLPanel addStyleNames="{style.content}" ui:field="cardPanel"/>
+	    <m:SideBar ui:field="sideBar"/>
+	    <g:HTMLPanel addStyleNames="{style.content} {res.andimobilecss.content}" ui:field="cardPanel"/>
 	</g:HTMLPanel>
 </ui:UiBinder> 

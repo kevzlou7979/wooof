@@ -11,4 +11,11 @@ public interface AndiMobileCSS extends CssResource {
 	String frontTitle();
 	String frontDescription();
 	String frontHeader();
+	String header1();
+	String header2();
+	String btnMenuMobile();
+	String sideBar();
+	String content();
+	String cardLeft();
+	String card();
 }

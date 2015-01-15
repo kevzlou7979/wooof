@@ -21,3 +21,33 @@
 	display: block !important;
 	width: 100% !important;
 }
+.header1{
+	width:200px !important;
+}
+.header2{
+	display: none !important;
+}
+
+
+.sideBar{
+	left: -300px;
+	z-index: 999;
+}
+.content{
+	margin-left: 0px !important;
+	width: 100% !important;
+}
+
+.cardLeft{
+	display: none !important;
+}
+
+.card{
+	width: 90% !important;
+	margin: 5% !important;
+}
+
+.btnMenuMobile{
+	display: inline-block !important;
+	float: right !important;
+}
