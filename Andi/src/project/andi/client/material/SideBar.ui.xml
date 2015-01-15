@@ -1,0 +1,91 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:m="urn:import:project.andi.client.material">
+	<ui:with field='res' type='project.andi.client.resources.AndiResources' />
+	<ui:style>
+	.item{
+		padding: 10px;
+		border-bottom: 1px solid #f9f9f9;
+	}
+	.imgProfile{	
+		width: 50px;
+		height: 50px;
+		background: white;
+		border-radius: 100%;
+		-webkit-border-radius: 100%;
+		-moz-border-radius: 100%;
+		padding: 5px;
+		display: inline-block;
+		vertical-align: top;
+	}
+	.panel{
+		position: fixed;
+		width: 300px;
+		background: #fff;
+		height: 100%;
+		transition: 1s all;
+		-webkit-transition: 1s all;
+		-moz-transition: 1s all;
+	}
+	.imgCover{
+		width: 100%;
+		height: auto;
+	}
+	.lblNoViews{
+		background: rgba(167,39,115, 0.5);
+		position: absolute;
+		bottom: 2%;
+		width: 100%;
+		color: #fff;
+		font-size: 2em;
+		text-align: center;
+	}
+	.lblViews{
+		font-size: 0.5em;
+	}
+	.coverPhoto{
+		position: relative;
+	}
+	.namePanel{	
+		width: 220px;
+		box-sizing: border-box;
+		padding: 10px;
+		font-weight: bold;
+	}
+	.lblMotto{
+		font-weight: normal;
+		font-size: 0.8em;
+		font-style: italic;
+	}
+	</ui:style>
+	<g:HTMLPanel ui:field="panel" addStyleNames="{style.panel} {res.andimobilecss.sideBar}">
+		<g:HTMLPanel ui:field="coverPhoto" addStyleNames="{style.coverPhoto}">
+			<g:Image ui:field="imgCover" addStyleNames="{style.imgCover}"/>
+			<g:HTMLPanel addStyleNames="{style.lblNoViews}">
+				<g:Label ui:field="lblNoViews" addStyleNames="inline"/>
+				<g:Label text="views" addStyleNames="{style.lblViews} inline"/>
+			</g:HTMLPanel>
+		</g:HTMLPanel>
+		
+		
+		<g:HTMLPanel>
+			<g:HTMLPanel addStyleNames="{style.item}">
+				<g:Image ui:field="imgMan" resource="{res.avatar_man}" addStyleNames="{style.imgProfile} inline"/>
+				<g:HTMLPanel addStyleNames="inline {style.namePanel}">
+					<g:Label ui:field="lblMan" text="Lorem Ipsum"/>
+					<g:Label ui:field="lblManMotto" text="Lorem Ipsum" addStyleNames="{style.lblMotto}"/>
+				</g:HTMLPanel>
+				
+			</g:HTMLPanel>
+			
+			<g:HTMLPanel  addStyleNames="{style.item}">
+				<g:Image ui:field="imgWoman" resource="{res.avatar_woman}" addStyleNames="{style.imgProfile} inline"/>
+				<g:HTMLPanel addStyleNames="inline {style.namePanel}">
+					<g:Label ui:field="lblWoman" text="Lorem Ipsum"/>
+					<g:Label ui:field="lblWomanMotto" text="Lorem Ipsum" addStyleNames="{style.lblMotto}"/>
+				</g:HTMLPanel>
+			</g:HTMLPanel>
+		</g:HTMLPanel>
+	</g:HTMLPanel>
+</ui:UiBinder> 

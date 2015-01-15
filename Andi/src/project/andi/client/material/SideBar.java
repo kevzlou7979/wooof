@@ -12,33 +12,28 @@ import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.Widget;
 
-public class Banner extends Composite {
+public class SideBar extends Composite  {
 
-	private static BannerUiBinder uiBinder = GWT.create(BannerUiBinder.class);
+	private static SideBarUiBinder uiBinder = GWT.create(SideBarUiBinder.class);
 
-	interface BannerUiBinder extends UiBinder<Widget, Banner> {
+	interface SideBarUiBinder extends UiBinder<Widget, SideBar> {
 	}
-
-	@UiField HTMLPanel soundCloudPanel,panel;
-	@UiField Label lblWoman, lblMan, txtNoViews;
-	@UiField Image imgBanner;
+	
+	@UiField Label lblWoman, lblMan, lblNoViews;
+	@UiField Image imgCover;
+	@UiField HTMLPanel panel;
 	
 	private MainPage mainPage;
-	
-	public Banner() {
+
+	public SideBar() {
 		initWidget(uiBinder.createAndBindUi(this));
-	}
-	
-	public Banner(MainPage mainPage) {
-		initWidget(uiBinder.createAndBindUi(this));
-		this.mainPage = mainPage;
 	}
 
 	public void setUI(Story story) {
-		imgBanner.setUrl(story.getCoverPhoto());
+		imgCover.setUrl(story.getCoverPhoto());
 		lblWoman.setText(story.getWoman());
 		lblMan.setText(story.getMan());
-		txtNoViews.setText(String.valueOf(story.getViews()));
+		lblNoViews.setText(String.valueOf(story.getViews()));
 	}
 	
 
@@ -49,5 +44,14 @@ public class Banner extends Composite {
 	public void setMainPage(MainPage mainPage) {
 		this.mainPage = mainPage;
 	}
+
+	public HTMLPanel getPanel() {
+		return panel;
+	}
+
+	public void setPanel(HTMLPanel panel) {
+		this.panel = panel;
+	}
+
 	
 }

@@ -59,7 +59,7 @@
 			line-height: 50px;
 		}
 		.panel{
-			padding-top: 50px;
+			padding-top: 80px;
 			
 		}
 		.icon{
@@ -90,11 +90,11 @@
 	</ui:style>
 	<g:HTMLPanel addStyleNames="{style.panel}">
 		
-		<g:HTMLPanel addStyleNames="inline {style.left}">
+		<g:HTMLPanel addStyleNames="inline {style.left} {res.andimobilecss.cardLeft}">
 			<g:Label ui:field="lblTest" text="1st"/>
 		</g:HTMLPanel>
 		
-		<g:HTMLPanel addStyleNames="{style.container} inline">
+		<g:HTMLPanel addStyleNames="{style.container} inline {res.andimobilecss.card}">
 			<m:MaterialImage ui:field="imgCard"  resource="{res.bg_andi}"/>
 			<m:MaterialIcon ui:field="btnAction" icon="mdi-editor-mode-edit" fontSize="2" addStyleNames="{style.btnAction}"/>
 			<g:Label ui:field="lblTitle" text="Lorem Ipsum" addStyleNames="{style.cardTitle}"/>

@@ -2,7 +2,6 @@ package project.andi.client.page;
 
 import java.util.List;
 
-import project.andi.client.material.Banner;
 import project.andi.client.material.Card;
 import project.andi.client.material.Header;
 import project.andi.client.material.MaterialFloating;
@@ -10,6 +9,7 @@ import project.andi.client.material.MaterialInfo;
 import project.andi.client.material.MaterialLoader;
 import project.andi.client.material.MaterialModal;
 import project.andi.client.material.MaterialToast;
+import project.andi.client.material.SideBar;
 import project.andi.client.modal.ModalAddStoryItem;
 import project.andi.client.resources.AndiResources;
 import project.andi.client.services.StoryService;
@@ -35,7 +35,7 @@ public class MainPage extends Composite {
 	}
 
 	@UiField HTMLPanel cardPanel;
-	@UiField Banner banner;
+	@UiField SideBar sideBar;
 	@UiField MaterialFloating btnAddStoryItem;
 	@UiField Header header;
 	
@@ -52,9 +52,10 @@ public class MainPage extends Composite {
 		this.setStory(story);
 		this.setOwner(isOwner);
 		getAllStoryItem(story);
-		banner.setMainPage(this);
+		sideBar.setMainPage(this);
+		sideBar.setUI(story);
 		header.setMainPage(this);
-		banner.setUI(story);
+		
 	}
 
 
@@ -113,6 +114,16 @@ public class MainPage extends Composite {
 
 	public void setOwner(boolean isOwner) {
 		this.isOwner = isOwner;
+	}
+
+
+	public SideBar getSideBar() {
+		return sideBar;
+	}
+
+
+	public void setSideBar(SideBar sideBar) {
+		this.sideBar = sideBar;
 	}
 
 	
