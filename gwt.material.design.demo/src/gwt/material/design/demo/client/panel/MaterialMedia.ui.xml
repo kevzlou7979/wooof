@@ -1,0 +1,22 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:m="urn:import:gwt.material.design.client.ui">
+	
+	<ui:with field='res' type='gwt.material.design.client.resources.MaterialResources' />
+	
+	<ui:style>
+		.image{
+			width: 40%;
+			height: auto;
+		}
+	</ui:style>
+	<g:HTMLPanel>
+		
+		<m:MaterialTitle title="Image" />
+		<m:MaterialImage resource="{res.image}" addStyleNames="{style.image}" type="materialboxed"/>
+		
+		
+	
+	</g:HTMLPanel>
+</ui:UiBinder> 
