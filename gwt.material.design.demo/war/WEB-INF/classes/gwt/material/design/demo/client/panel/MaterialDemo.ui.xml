@@ -1,0 +1,43 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:m="urn:import:gwt.material.design.client.ui"
+	xmlns:p="urn:import:gwt.material.design.demo.client.panel">
+	<ui:with field='res' type='gwt.material.design.demo.client.resources.MaterialResources' />
+	<ui:style>
+		.button{
+			vertical-align: top;
+			margin-left: 20px;
+		}
+		.panel{
+			padding-left: 5%;
+			width: 95%;
+			margin-top: -150px;
+			padding: 10px 50px 50px 50px;
+			background: #FFF;
+		}
+		.pointer{
+			cursor: pointer;
+		}
+	</ui:style>	
+	<g:HTMLPanel>
+			<m:MaterialNavBar color="white" logoResource="{res.ic_gwt_logo}">
+				<m:nav><g:Label text="Buttons" addStyleNames="blue-text {style.pointer}"/></m:nav>
+				<m:nav><g:Label text="Forms" addStyleNames="blue-text {style.pointer}"/></m:nav>
+				<m:nav><g:Label text="Dialogs" addStyleNames="blue-text {style.pointer}"/></m:nav>
+				<m:nav><g:Label text="Loaders" addStyleNames="blue-text {style.pointer}"/></m:nav>
+				<m:nav><g:Label text="Media" addStyleNames="blue-text {style.pointer}"/></m:nav>
+			</m:MaterialNavBar>
+			<m:MaterialTopNav title="GWT Material" description="Under Development" color="blue" textColor="white"/>
+			<g:HTMLPanel addStyleNames="{style.panel} container z-depth-2">
+				<p:MaterialHome />
+				<p:MaterialButtonPanel />
+				<p:MaterialForms />
+				<p:MaterialDialogs />
+				<p:MaterialLoaders />
+				<p:MaterialMedia />
+				<!-- <p:Team /> -->
+			</g:HTMLPanel>
+		
+	</g:HTMLPanel>
+</ui:UiBinder> 

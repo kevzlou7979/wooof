@@ -1,0 +1,37 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:m="urn:import:gwt.material.design.client.ui">
+	<ui:style>
+		
+	</ui:style>
+	<g:HTMLPanel>
+		
+		<m:MaterialTitle title="TextBox" description="Text fields allow user input. The border should light up simply and clearly indicating which field the user is currently editing. "/>
+		<m:MaterialTextBox placeholder="First Name" />
+		<m:MaterialTextBox placeholder="Email" icon="mdi-action-account-circle" />
+		
+		<m:MaterialTitle title="Textarea" description="Textareas allow larger expandable user input. The border should light up simply and clearly indicating which field the user is currently editing. "/>
+		<m:MaterialTextArea placeholder="Content" />
+		
+		<m:MaterialTitle title="ListBox" description="Select allows user input through specified options."/>
+		<m:MaterialListBox >
+			<item>Option 1</item>
+			<item>Option 2</item>
+			<item>Option 3</item>
+		</m:MaterialListBox>
+		
+		<m:MaterialTitle title="Radio Button" description="Radio Buttons are used when the user must make only one selection out of a group of items"/>
+		<m:MaterialRadioButton name="gender" text="Male"/>
+		<m:MaterialRadioButton name="gender" text="Female"/>
+		
+		<m:MaterialTitle title="Check Box" description="Checkboxes"/>
+		<m:MaterialCheckBox text="Blue"/>
+		<m:MaterialCheckBox text="Red"/>
+		<m:MaterialCheckBox text="Green"/>
+		
+		<m:MaterialTitle title="Date Picker" description="Material Datepicker"/>
+		<m:MaterialDatePicker />
+		
+	</g:HTMLPanel>
+</ui:UiBinder> 
