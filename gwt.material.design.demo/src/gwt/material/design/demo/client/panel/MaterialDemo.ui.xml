@@ -5,6 +5,9 @@
 	xmlns:p="urn:import:gwt.material.design.demo.client.panel">
 	<ui:with field='res' type='gwt.material.design.demo.client.resources.MaterialResources' />
 	<ui:style>
+		body{
+			background: #e7e7e7;
+		}
 		.button{
 			vertical-align: top;
 			margin-left: 20px;
@@ -19,23 +22,25 @@
 		.pointer{
 			cursor: pointer;
 		}
+		
 	</ui:style>	
-	<g:HTMLPanel>
-			<m:MaterialNavBar color="white" logoResource="{res.ic_gwt_logo}">
-				<m:nav><g:Label text="Buttons" addStyleNames="blue-text {style.pointer}"/></m:nav>
-				<m:nav><g:Label text="Forms" addStyleNames="blue-text {style.pointer}"/></m:nav>
-				<m:nav><g:Label text="Dialogs" addStyleNames="blue-text {style.pointer}"/></m:nav>
-				<m:nav><g:Label text="Loaders" addStyleNames="blue-text {style.pointer}"/></m:nav>
-				<m:nav><g:Label text="Media" addStyleNames="blue-text {style.pointer}"/></m:nav>
+	<g:HTMLPanel >
+			<m:MaterialNavBar ui:field="navBar" color="white" logoResource="{res.ic_gwt_logo}">
+				<m:nav><g:Label ui:field="btnAbout" text="About" addStyleNames="blue-text {style.pointer}"/></m:nav>
+				<m:nav><g:Label ui:field="btnButtons" text="Buttons" addStyleNames="blue-text {style.pointer}"/></m:nav>
+				<m:nav><g:Label ui:field="btnForms" text="Forms" addStyleNames="blue-text {style.pointer}"/></m:nav>
+				<m:nav><g:Label ui:field="btnDialogs" text="Dialogs" addStyleNames="blue-text {style.pointer}"/></m:nav>
+				<m:nav><g:Label ui:field="btnLoaders" text="Loaders" addStyleNames="blue-text {style.pointer}"/></m:nav>
+				<m:nav><g:Label ui:field="btnMedia" text="Media" addStyleNames="blue-text {style.pointer}"/></m:nav>
 			</m:MaterialNavBar>
-			<m:MaterialTopNav title="GWT Material" description="Under Development" color="blue" textColor="white"/>
-			<g:HTMLPanel addStyleNames="{style.panel} container z-depth-2">
-				<p:MaterialHome />
-				<p:MaterialButtonPanel />
-				<p:MaterialForms />
-				<p:MaterialDialogs />
-				<p:MaterialLoaders />
-				<p:MaterialMedia />
+			<m:MaterialTopNav ui:field="topNav"  color="blue" textColor="white"/>
+			<g:HTMLPanel ui:field="contentPanel" addStyleNames="{style.panel} container z-depth-2">
+				<p:MaterialHome ui:field="materialHome"/>
+				<p:MaterialButtonPanel ui:field="materialButtons"/>
+				<p:MaterialForms ui:field="materialForms"/>
+				<p:MaterialDialogs ui:field="materialDialogs"/>
+				<p:MaterialLoaders ui:field="materialLoaders"/>
+				<p:MaterialMedia ui:field="materialMedia"/>
 				<!-- <p:Team /> -->
 			</g:HTMLPanel>
 		
