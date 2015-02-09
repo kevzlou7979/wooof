@@ -40,7 +40,7 @@
 			<m:MaterialTitle  title="Floating" description="The floating circular action button is meant for very important functions."/>
 			
 			<pre>
-<span class="{style.tag}">&lt;m:MaterialButton</span> <span class="{style.attr}">type</span>="floating" <span class="{style.attr}">text</span>="Button" <span class="{style.attr}">color</span>="blue" <span class="{style.attr}">display</span>="inline-block" <span class="{style.attr}">icon</span>="mdi-action-account-circle" <span class="{style.tag}">/></span>
+<span class="{style.tag}">&lt;m:MaterialButton</span> <span class="{style.attr}">type</span>="floating"  <span class="{style.attr}">color</span>="blue" <span class="{style.attr}">display</span>="inline-block" <span class="{style.attr}">icon</span>="mdi-action-account-circle" <span class="{style.tag}">/></span>
 			</pre>
 			
 			<m:MaterialButton type="floating" size="large" text="+" addStyleNames="{style.button}" color="blue" display="inline-block"/>
@@ -49,7 +49,7 @@
 			<m:MaterialTitle title="Flat" description="Flat buttons are usually used within elements that already have depth like cards or modals."/>
 			
 			<pre>
-<span class="{style.tag}">&lt;m:MaterialButton</span> <span class="{style.attr}">type</span>="flat" <span class="{style.attr}">text</span>="Button" <span class="{style.attr}">color</span>="blue" <span class="{style.attr}">display</span>="inline-block" <span class="{style.attr}">icon</span>="mdi-action-account-circle" <span class="{style.tag}">/></span>
+<span class="{style.tag}">&lt;m:MaterialButton</span> <span class="{style.attr}">text</span>="Button" <span class="{style.attr}">type</span>="flat"  <span class="{style.tag}">/></span>
 			</pre>
 			
 			<m:MaterialButton type="flat" text="Button"  addStyleNames="{style.button}" color="blue" display="inline-block"/>
