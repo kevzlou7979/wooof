@@ -6,17 +6,17 @@
 	<ui:with field='res' type='gwt.material.design.client.resources.MaterialResources' />
 	
 	<ui:style>
-		.image{
-			width: 40%;
-			height: auto;
-		}
 	</ui:style>
 	<g:HTMLPanel>
 		
-		<m:MaterialTitle title="Image" />
-		<m:MaterialImage resource="{res.image}" addStyleNames="{style.image}" type="materialboxed"/>
+		<m:MaterialTitle title="Material Box" description="Material box is a material design implementation of the Lightbox plugin. When a user clicks on an image that can be enlarged. Material box centers the image and enlarges it in a smooth, non-jarring manner. To dismiss the image, the user can either click on the image again, scroll away, or press the ESC key."/>
+		<m:MaterialImage resource="{res.image}"  type="materialboxed"/>
 		
+		<m:MaterialTitle title="Captions" description="It is very easy to add a short caption to your photo. Just add the caption as a caption attribute."/>
+		<m:MaterialImage resource="{res.image}"  type="materialboxed" caption="I love Material Design"/>
 		
+		<m:MaterialTitle title="Responsive Videos" description="We provide a container for Embedded Videos that resizes them responsively."/>
+		<m:MaterialVideo url="http://www.youtube.com/embed/Q8TXgCzxEnw?rel=0"/>
 	
 	</g:HTMLPanel>
 </ui:UiBinder> 
