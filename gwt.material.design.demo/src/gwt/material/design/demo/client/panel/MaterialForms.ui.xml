@@ -25,15 +25,15 @@
 		<m:MaterialTextBox placeholder="Email" icon="mdi-action-account-circle" />
 		
 		<pre>
-<span class="{style.tag}">&lt;m:MaterialTextBox</span> <span class="{style.attr}">placeholder</span>="First Name" <span class="{style.tag}">/></span>
-<span class="{style.tag}">&lt;m:MaterialTextBox</span> <span class="{style.attr}">placeholder</span>="Email" <span class="{style.attr}">icon</span>="mdi-action-account-circle prefix" <span class="{style.tag}">/></span>
+<span class="tag">&lt;m:MaterialTextBox</span> <span class="attr">placeholder</span>="First Name" <span class="tag">/></span>
+<span class="tag">&lt;m:MaterialTextBox</span> <span class="attr">placeholder</span>="Email" <span class="attr">icon</span>="mdi-action-account-circle prefix" <span class="tag">/></span>
 		</pre>
 		
 		<m:MaterialTitle title="Textarea" description="Textareas allow larger expandable user input. The border should light up simply and clearly indicating which field the user is currently editing. "/>
 		<m:MaterialTextArea placeholder="Content" />
 		
 		<pre>
-<span class="{style.tag}">&lt;m:MaterialTextArea</span> <span class="{style.attr}">placeholder</span>="Content" <span class="{style.tag}">/></span>
+<span class="tag">&lt;m:MaterialTextArea</span> <span class="attr">placeholder</span>="Content" <span class="tag">/></span>
 		</pre>
 		
 		<m:MaterialTitle title="ListBox" description="Select allows user input through specified options."/>
@@ -44,11 +44,11 @@
 		</m:MaterialListBox>
 		
 		<pre>
-<span class="{style.tag}">&lt;m:MaterialListBox</span><span class="{style.tag}">></span>
-	<span class="{style.tag}">&lt;item</span><span class="{style.tag}">></span>Option 1<span class="{style.tag}">&lt;item</span><span class="{style.tag}">></span>
-	<span class="{style.tag}">&lt;item</span><span class="{style.tag}">></span>Option 2<span class="{style.tag}">&lt;item</span><span class="{style.tag}">></span>
-	<span class="{style.tag}">&lt;item</span><span class="{style.tag}">></span>Option 3<span class="{style.tag}">&lt;item</span><span class="{style.tag}">></span>
-<span class="{style.tag}">&lt;/m:MaterialListBox</span><span class="{style.tag}">></span>
+<span class="tag">&lt;m:MaterialListBox</span><span class="tag">></span>
+	<span class="tag">&lt;item</span><span class="tag">></span>Option 1<span class="tag">&lt;item</span><span class="tag">></span>
+	<span class="tag">&lt;item</span><span class="tag">></span>Option 2<span class="tag">&lt;item</span><span class="tag">></span>
+	<span class="tag">&lt;item</span><span class="tag">></span>Option 3<span class="tag">&lt;item</span><span class="tag">></span>
+<span class="tag">&lt;/m:MaterialListBox</span><span class="tag">></span>
 		</pre>
 		
 		<m:MaterialTitle title="Radio Button" description="Radio Buttons are used when the user must make only one selection out of a group of items"/>
@@ -56,8 +56,8 @@
 		<m:MaterialRadioButton name="gender" text="Female"/>
 		
 		<pre>
-<span class="{style.tag}">&lt;m:MaterialRadioButton</span> <span class="{style.attr}">name</span>="gender" <span class="{style.attr}">text</span>="Male"<span class="{style.tag}">/></span>
-<span class="{style.tag}">&lt;m:MaterialRadioButton</span> <span class="{style.attr}">name</span>="gender" <span class="{style.attr}">text</span>="Female"<span class="{style.tag}">/></span>
+<span class="tag">&lt;m:MaterialRadioButton</span> <span class="attr">name</span>="gender" <span class="attr">text</span>="Male"<span class="tag">/></span>
+<span class="tag">&lt;m:MaterialRadioButton</span> <span class="attr">name</span>="gender" <span class="attr">text</span>="Female"<span class="tag">/></span>
 		</pre>
 		
 		<m:MaterialTitle title="Check Box" description="Checkboxes"/>
@@ -66,16 +66,16 @@
 		<m:MaterialCheckBox text="Green"/>
 		
 		<pre>
-<span class="{style.tag}">&lt;m:MaterialCheckBox </span> <span class="{style.attr}">text</span>="Blue" <span class="{style.tag}">/></span>
-<span class="{style.tag}">&lt;m:MaterialCheckBox </span> <span class="{style.attr}">text</span>="Red" <span class="{style.tag}">/></span>
-<span class="{style.tag}">&lt;m:MaterialCheckBox </span> <span class="{style.attr}">text</span>="Green" <span class="{style.tag}">/></span>
+<span class="tag">&lt;m:MaterialCheckBox </span> <span class="attr">text</span>="Blue" <span class="tag">/></span>
+<span class="tag">&lt;m:MaterialCheckBox </span> <span class="attr">text</span>="Red" <span class="tag">/></span>
+<span class="tag">&lt;m:MaterialCheckBox </span> <span class="attr">text</span>="Green" <span class="tag">/></span>
 		</pre>
 		
 		<m:MaterialTitle title="Date Picker" description="Material Datepicker"/>
 		<m:MaterialDatePicker />
 		
 		<pre>
-<span class="{style.tag}">&lt;m:MaterialDatePicker </span> <span class="{style.tag}">/></span>
+<span class="tag">&lt;m:MaterialDatePicker </span> <span class="tag">/></span>
 		</pre>
 		
 	</g:HTMLPanel>

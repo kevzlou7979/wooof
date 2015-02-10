@@ -6,20 +6,7 @@
 	<ui:with field='res' type='gwt.material.design.client.resources.MaterialResources' />
 		
 	<ui:style>
-		pre{
-			padding-top: 20px;
-			white-space: pre;
-			background: #F3FBFF;
-			border: solid 1px rgba(51, 51, 51, 0.12);
-			font-size: 1.2em;
-			padding-left: 10px;
-		}
-		.tag{
-			color: #905;
-		}
-		.attr{
-			color: #690;
-		}
+		
 	</ui:style>
 	<g:HTMLPanel>
 		
@@ -27,21 +14,21 @@
 		<m:MaterialImage resource="{res.image}"  type="materialboxed"/>
 		
 		<pre>
-<span class="{style.tag}">&lt;m:MaterialImage</span> <span class="{style.attr}">resource</span>="{res.image}" <span class="{style.attr}">type</span>="materialboxed" <span class="{style.tag}">/></span>
+<span class="tag">&lt;m:MaterialImage</span> <span class="attr">resource</span>="{res.image}" <span class="attr">type</span>="materialboxed" <span class="tag">/></span>
 		</pre>
 		
 		<m:MaterialTitle title="Captions" description="It is very easy to add a short caption to your photo. Just add the caption as a caption attribute."/>
 		<m:MaterialImage resource="{res.image}"  type="materialboxed" caption="I love Material Design"/>
 		
 		<pre>
-<span class="{style.tag}">&lt;m:MaterialImage</span> <span class="{style.attr}">resource</span>="{res.image}" <span class="{style.attr}">type</span>="materialboxed" <span class="{style.attr}">caption</span>="It is very easy to add a short caption to your photo. Just add the caption as a caption attribute." <span class="{style.tag}">/></span>
+<span class="tag">&lt;m:MaterialImage</span> <span class="attr">resource</span>="{res.image}" <span class="attr">type</span>="materialboxed" <span class="attr">caption</span>="It is very easy to add a short caption to your photo. Just add the caption as a caption attribute." <span class="tag">/></span>
 		</pre>
 		
 		<m:MaterialTitle title="Responsive Videos" description="We provide a container for Embedded Videos that resizes them responsively."/>
 		<m:MaterialVideo url="http://www.youtube.com/embed/Q8TXgCzxEnw?rel=0"/>
 	
 		<pre>
-<span class="{style.tag}">&lt;m:MaterialVideo</span> <span class="{style.attr}">url</span>="http://www.youtube.com/embed/Q8TXgCzxEnw?rel=0" <span class="{style.tag}">/></span>
+<span class="tag">&lt;m:MaterialVideo</span> <span class="attr">url</span>="http://www.youtube.com/embed/Q8TXgCzxEnw?rel=0" <span class="tag">/></span>
 		</pre>
 	
 	</g:HTMLPanel>

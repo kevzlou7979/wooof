@@ -32,13 +32,14 @@ public class MaterialDemo extends Composite {
 	@UiField MaterialDialogs materialDialogs;
 	@UiField MaterialLoaders materialLoaders;
 	@UiField MaterialMedia materialMedia;
+	@UiField MaterialGettingStarted materialGettingStarted;
 	
 	@UiField MaterialNavBar navBar;
 	@UiField MaterialTopNav topNav;
 	
 	public MaterialDemo() {
 		initWidget(uiBinder.createAndBindUi(this));
-		changeNav(materialHome,"GWT", "Under Development");
+		changeNav(materialHome,"GWT Material Design", "Under Development");
 	}
 
 	@Override
@@ -47,9 +48,14 @@ public class MaterialDemo extends Composite {
 		super.onAttach();
 	}
 	
+	@UiHandler("btnGettingStarted")
+	void onGettingStarted(ClickEvent e){
+		changeNav(materialGettingStarted,"Getting Started", "Learn how to easily start using GWT Material Design in your app.");
+	}
+	
 	@UiHandler("btnAbout")
 	void onAbout(ClickEvent e){
-		changeNav(materialHome,"GWT", "Under Development");
+		changeNav(materialHome,"GWT Material Design", "Under Development");
 	}
 	
 	@UiHandler("btnButtons")
@@ -76,6 +82,7 @@ public class MaterialDemo extends Composite {
 	void onMedia(ClickEvent e){
 		changeNav(materialMedia, "Media", "Media components include things that have to do with large media objects like Images, Video, Audio, etc.");
 	}
+
 	
 	private void changeNav(Composite content, String title, String description){
 		MaterialAnimator.animate(Transition.PULL, contentPanel, 500);

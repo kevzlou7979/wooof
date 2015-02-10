@@ -6,33 +6,20 @@
 		.btn{
 			width: 200px;
 		}
-		pre{
-			padding-top: 20px;
-			white-space: pre;
-			background: #F3FBFF;
-			border: solid 1px rgba(51, 51, 51, 0.12);
-			font-size: 1.2em;
-			padding-left: 10px;
-		}
-		.tag{
-			color: #905;
-		}
-		.attr{
-			color: #690;
-		}
+		
 	</ui:style>
 	<g:HTMLPanel>
 		<m:MaterialTitle title="Toast" description="Materialize provides an easy way for you to send unobtrusive alerts to your users through toasts. These toasts are also placed and sized responsively, try it out by clicking the button below on different device sizes."/>
 		<m:MaterialButton text="Toast Me" ui:field="btnToast" color="blue" addStyleNames="{style.btn}"/>
 		
 		<pre>
-MaterialToast.alert(<span class="{style.tag}">"I Love Material Design"</span>);
+MaterialToast.alert(<span class="tag">"I Love Material Design"</span>);
 		</pre>
 		
 		<m:MaterialTitle title="Modal" description="Use a modal for dialog boxes, confirmation messages, or other content that can be called up. In order for the modal to work you have to add the Modal ID to the link of the trigger. "/>
 		<m:MaterialButton text="Show Modal" ui:field="btnModal" color="blue" addStyleNames="{style.btn}"/>
 	<pre>
-MaterialModal.showModal(<span class="{style.tag}">true</span>, <span class="{style.tag}">new</span> ModalContent());
+MaterialModal.showModal(<span class="tag">true</span>, <span class="tag">new</span> ModalContent());
 	</pre>
 	</g:HTMLPanel>
 </ui:UiBinder> 

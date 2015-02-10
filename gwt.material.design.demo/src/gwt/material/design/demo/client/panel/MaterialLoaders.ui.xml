@@ -6,20 +6,6 @@
 		.btn{
 			width: 200px;
 		}
-		pre{
-			padding-top: 20px;
-			white-space: pre;
-			background: #F3FBFF;
-			border: solid 1px rgba(51, 51, 51, 0.12);
-			font-size: 1.2em;
-			padding-left: 10px;
-		}
-		.tag{
-			color: #905;
-		}
-		.attr{
-			color: #690;
-		}
 	</ui:style>
 	<g:HTMLPanel>
 	
@@ -27,14 +13,14 @@
 		<m:MaterialButton text="Show Loader" ui:field="btnShowLoader" color="blue" addStyleNames="{style.btn}"/>
 		
 		<pre>
-MaterialLoader.showLoading(<span class="{style.tag}">true</span>);
+MaterialLoader.showLoading(<span class="tag">true</span>);
 		</pre>
 		
 		<m:MaterialTitle title="Linear" />
 		<m:MaterialButton text="Show Progress" ui:field="btnShowProgress" color="blue" addStyleNames="{style.btn}"/>
 		
 		<pre>
-MaterialLoader.showProgress(<span class="{style.tag}">true</span>);
+MaterialLoader.showProgress(<span class="tag">true</span>);
 		</pre>
 	</g:HTMLPanel>
 </ui:UiBinder> 
